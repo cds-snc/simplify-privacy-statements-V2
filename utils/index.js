@@ -217,6 +217,10 @@ const generateNonce = () => {
 };
 
 const checkNonce = (req, res, next) => {
+  // @todo
+  // this needs to be tested more
+  // use case back button
+  /*
   if (!req.body.nonce) {
     res.status(500);
     return res.send("Fail! - missing nonce");
@@ -226,6 +230,7 @@ const checkNonce = (req, res, next) => {
     res.status(500);
     return res.send("Fail! - Invalid nonce");
   }
+  */
 
   next();
 };
