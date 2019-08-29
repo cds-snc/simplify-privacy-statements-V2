@@ -111,6 +111,7 @@ const checkErrors = template => {
       return res.status(422).render(template, {
         data: getSessionData(req),
         nonce: generateNonce(),
+        name: template,
         body: req.body,
         errors: errorArray2ErrorObject(errors)
       });
@@ -231,7 +232,8 @@ const checkNonce = (req, res, next) => {
 
 const getPreviousRoute = (name, routes = defaultRoutes) => {
   const route = getRouteWithIndexByName(name, routes);
-  const prevRoute = routes[Number(route.index) - 1];
+  const prevRoute =
+    route.index && route.index ? routes[Number(route.index) - 1] : false;
 
   if (!prevRoute) {
     return Route;
