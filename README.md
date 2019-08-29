@@ -76,6 +76,20 @@ app.post(
   );
 ```
 
+For cases where the redirect is not straight forward you can handle manually
+
+```javascript
+(req, res, next) => {
+    const confirm = req.body.confirm;
+    if (confirm === "Yes") {
+      const nextRoute = getNextRoute(name);
+      return res.redirect(nextRoute.path);
+    }
+
+    res.send("you said no");
+}
+```
+
 ## Todo
 
 - Current step validation ... "view access" based on Schema file for previous route.  Given a user tries to visit step 5 directly validation will be checked for step 4 first.

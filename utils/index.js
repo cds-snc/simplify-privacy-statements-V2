@@ -278,6 +278,13 @@ const getRouteWithIndexByName = (name, routes = defaultRoutes) => {
   }
 };
 
+const addViewPath = (app, path) => {
+  // set views accepts an array of paths
+  // app.set("views", [path1, path2]);
+  // -> add another path for lookup by view engine
+  app.set("views", [...app.get("views"), path]);
+};
+
 module.exports = {
   errorArray2ErrorObject,
   checkErrors,
@@ -294,5 +301,6 @@ module.exports = {
   getNextRoute,
   validateRouteData,
   generateNonce,
-  getSessionData
+  getSessionData,
+  addViewPath
 };

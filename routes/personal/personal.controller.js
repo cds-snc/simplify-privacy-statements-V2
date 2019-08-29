@@ -6,16 +6,16 @@ const {
   checkNonce,
   generateNonce,
   getRouteByName,
+  addViewPath,
   getSessionData
 } = require("./../../utils");
 const { Schema } = require("./schema.js");
 
 module.exports = app => {
-  // add this dir to the views path
   const name = "personal";
   const route = getRouteByName(name);
 
-  app.set("views", [...app.get("views"), path.join(__dirname, "./")]);
+  addViewPath(app, path.join(__dirname, "./"));
 
   app.get(route.path, (req, res) => {
     res.render(name, {
