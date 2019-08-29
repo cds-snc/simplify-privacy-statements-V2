@@ -171,7 +171,7 @@ const checkErrorsJSON = (req, res, next) => {
     return res.json(errorArray2ErrorObject(errors));
   }
 
-  return next();
+  return res.json({});
 };
 
 const doRedirect = (req, res, next) => {
