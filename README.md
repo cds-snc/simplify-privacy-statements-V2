@@ -76,8 +76,7 @@ app.post(
   );
 ```
 
-For cases where the redirect is not straight forward you can handle manually
-
+For cases where the redirect is not straight forward you can handle manually.
 ```javascript
 (req, res, next) => {
     const confirm = req.body.confirm;
