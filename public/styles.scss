@@ -1,0 +1,23 @@
+/* Base styling from pure.css: https://purecss.io/ */
+@import '../node_modules/purecss/build/base';
+@import '../node_modules/purecss/build/buttons-core';
+@import '../node_modules/purecss/build/tables';
+
+/* Utilities */
+@import './scss/_variables';
+@import './scss/_mixins';
+
+/* App-wide styles */
+@import './scss/_base';
+@import './scss/_forms';
+
+/* Partials */
+@import './scss/components/_buttons';
+@import './scss/components/_details';
+@import './scss/components/_error-list';
+@import './scss/components/_footer';
+@import './scss/components/_header';
+@import './scss/components/_multiple-choice';
+@import './scss/components/_banners';
+@import './scss/components/_breakdown-table';
+@import './scss/components/_phase-banner';

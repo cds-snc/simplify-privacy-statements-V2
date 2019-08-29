@@ -1,0 +1,13 @@
+extends /base
+
+block variables
+  -var title = __('confirmation.title')
+
+block content
+
+  h1 #{title}
+
+  div
+    <p>#{__('confirmation.intro')} 
+    <strong>#{data.email}</strong>
+    </p>

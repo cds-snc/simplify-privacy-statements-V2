@@ -1,0 +1,184 @@
+form.cra-form {
+  margin-top: $space-xl;
+  max-width: 300px;
+  width: 100%;
+
+  .d--ib {
+    margin-bottom: $space-xs;
+  }
+
+  @include sm {
+    max-width: 450px;
+
+    .d--ib {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+
+    .w-3-4 {
+      width: 75%;
+    }
+    .w-1-2 {
+      width: 50%;
+    }
+    .w-1-4 {
+      width: 25%;
+    }
+    .w-1-5 {
+      width: 20%;
+    }
+  }
+}
+
+form.cra-form.cra-form--lg {
+  @include sm {
+    width: 110%;
+    max-width: 800px;
+  }
+
+  fieldset legend,
+  div:not(.multiple-choice__item) > label {
+    font-size: 1em;
+  }
+}
+
+form.cra-form {
+  > div:not(:last-of-type) {
+    margin-bottom: $space-xl;
+  }
+
+  div *:last-child {
+    margin-bottom: 0;
+  }
+
+  %form-element {
+    display: block;
+    margin: 0;
+    font-size: inherit;
+  }
+
+  .has-error {
+    padding-left: $space-sm;
+    border-left: $space-xxs solid $color-red;
+
+    input,
+    select {
+      border: 2px solid $color-red;
+    }
+  }
+
+  label,
+  .cra-form-message,
+  .validation-message,
+  input,
+  select {
+    @extend %form-element;
+  }
+
+  fieldset legend,
+  div:not(.multiple-choice__item) > label {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    display: block;
+    font-size: 1.07em;
+  }
+
+  .cra-form-message {
+    color: $color-grey-dark;
+  }
+
+  .validation-message {
+    color: $color-red;
+  }
+
+  .multiple-choice .validation-message {
+    margin-bottom: $space-sm;
+  }
+
+  input,
+  select {
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    width: 100%;
+    margin-top: 8px;
+    border-radius: 0;
+    display: block;
+    height: 40px;
+    border: 2px solid $color-black;
+    padding: $space-xxs;
+
+    &:focus {
+      @include focus();
+      border-color: $color-black;
+    }
+  }
+
+  input {
+    -webkit-appearance: none;
+
+    &.input-with-unit {
+      position: relative;
+      background-color: transparent;
+      text-align: right;
+      display: inline-block;
+      padding-left: $space-xl;
+      margin-left: -$space-xl;
+      z-index: 20;
+    }
+  }
+
+  span.input-with-unit__unit {
+    display: inline-block;
+    background-color: $color-blue-dark;
+    color: $color-white;
+    line-height: 37px;
+    text-transform: none;
+    font-weight: 400;
+    width: $space-xl;
+    position: relative;
+    pointer-events: none;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .buttons--left,
+    .buttons--right {
+      flex: 1;
+    }
+
+    @include sm {
+      flex-direction: row;
+
+      .buttons--left {
+        margin-right: $space-xs;
+      }
+      .buttons--right {
+        margin-left: $space-xs;
+      }
+    }
+  }
+}
+
+.fieldset {
+  border: 0;
+  padding: 0;
+
+  &__legend {
+    border-bottom: 0;
+    margin-bottom: $space-md;
+
+    * {
+      margin: 0;
+    }
+  }
+
+  .has-error &__legend {
+    margin-bottom: $space-xxs;
+  }
+}

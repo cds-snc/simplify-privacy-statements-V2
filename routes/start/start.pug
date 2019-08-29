@@ -1,0 +1,14 @@
+extends /base
+include /_includes/banner
+
+block content
+
+  h1 #{__('start.title')}
+
+  +banner('blue')
+    p #{__('start.intro.banner')}
+
+  div !{__('start.intro')}
+
+  div
+    a.button-link(href=nextRoute role='button' draggable='false') #{__('start.submit')} <span aria-hidden="true">→</span>

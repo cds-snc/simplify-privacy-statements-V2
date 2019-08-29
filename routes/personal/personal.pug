@@ -1,0 +1,23 @@
+extends /base
+
+block variables
+  -var title = __('personal.title')
+
+block content
+
+  h1 #{title}
+
+  div
+    p #{__('personal.intro')}
+  form.cra-form(method='post')
+
+    +textInput('form.fullname', null, 'form.fullname.desc')(class='w-3-4', id='fullname' name='fullname', autofocus, value=data.fullname)
+
+    +textInput('form.email', null, 'form.email.desc')(class='w-3-4', id='email' name='email', autofocus, value=data.email)
+
+    +textInput('form.passport_expiry', null, 'form.passport_expiry.desc')(class='w-3-4', id='expiry' name='expiry', autofocus, value=data.expiry)
+    
+    input(name='name', type='hidden', value=name)
+    input(name='nonce', type='hidden', value=nonce)
+
+    +formButtons()
