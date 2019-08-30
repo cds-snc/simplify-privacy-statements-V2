@@ -133,8 +133,6 @@ i.e. Project B has a page you need, copy the route directory and add that route 
 - This project aims to allow you to hit the ground running.  It's not meant to be a be all end all defacto solution.
 
 ## Todo
-
-- Current step validation ... "view access" based on Schema file for previous route.  Given a user tries to visit step 5 directly validation will be checked for step 4 first.
 - Adding tests for sample routes
 - Adding more tests for utility functions
 
