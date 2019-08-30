@@ -2,19 +2,6 @@
 
 Quick start application setup with sensible defaults baked in.
 
-## Goals
-- Accessible out of the box
-- Keep code routes / view(s) / schemas as portable (self-contained) as possible.
-- If code i.e custom validators from the routes can be re-used it should be pulled up to the `app` level
-- App level code (app.js) should be touched a little as possible when building a new app based on the starter
-- Implement best practices from [Form design: from zero to hero all in one blog post](https://adamsilver.io/articles/form-design-from-zero-to-hero-all-in-one-blog-post)
-
-> Routes should act like a plugin.
-i.e. Project B has a page you need, copy the route directory and add that route to your config.
-
-## What this project is not
-- This project aims to allow you to hit the ground running.  It's not meant to be a be all end all defacto solution.
-
 ## Install + Dev Mode
 
 ```bash
@@ -24,7 +11,8 @@ npm run dev
 
 ## Adding Routes
 
-1) Create a new route directory
+1) Create a new route directory 
+➡️ or copy past and rename the routes/_sample_route 
 
 2) Add a controller, view file and optionally a schema.js (if this is a form view)
 ```bash
@@ -129,6 +117,20 @@ block content
 
 ## Form Validation
 - Form validation is built into the form schema files and use [validator.js](https://github.com/validatorjs/validator.js#validators) is validate input
+
+
+## Goals
+- Accessible out of the box
+- Keep code routes / view(s) / schemas as portable (self-contained) as possible.
+- If code i.e custom validators from the routes can be re-used it should be pulled up to the `app` level
+- App level code (app.js) should be touched a little as possible when building a new app based on the starter
+- Implement best practices from [Form design: from zero to hero all in one blog post](https://adamsilver.io/articles/form-design-from-zero-to-hero-all-in-one-blog-post)
+
+> Routes should act like a plugin.
+i.e. Project B has a page you need, copy the route directory and add that route to your config.
+
+## What this project is not
+- This project aims to allow you to hit the ground running.  It's not meant to be a be all end all defacto solution.
 
 ## Todo
 

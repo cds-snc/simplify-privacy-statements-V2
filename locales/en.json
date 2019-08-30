@@ -27,5 +27,10 @@
   "errors.expiry.date": "Date is required",
   "confirmation.title": "Confirmation Title",
   "confirmation.intro": "Confirmation Intro goes here",
-  "Cannot read property 'match' of undefined": "Not valid"
+  "Cannot read property 'match' of undefined": "Not valid",
+  "sample.title": "sample.title",
+  "sample.intro": "sample.intro",
+  "form.firstname": "form.firstname",
+  "form.firstname.desc": "form.firstname.desc",
+  "errors.firstname.length": "errors.firstname.length"
 }

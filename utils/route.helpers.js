@@ -1,4 +1,6 @@
-const { routes: defaultRoutes, Route } = require("../config/routes.config");
+const { routes: defaultRoutes } = require("../config/routes.config");
+
+const DefaultRouteObj = { name: false, path: false };
 
 /**
  * This request middleware checks if we are visiting a public path
@@ -40,7 +42,7 @@ const getPreviousRoute = (name, routes = defaultRoutes) => {
     route.index && route.index ? routes[Number(route.index) - 1] : false;
 
   if (!prevRoute) {
-    return Route;
+    return DefaultRouteObj;
   }
 
   return prevRoute;
@@ -56,7 +58,7 @@ const getNextRoute = (name, routes = defaultRoutes) => {
   const nextRoute = routes[Number(route.index) + 1];
 
   if (!nextRoute) {
-    return Route;
+    return DefaultRouteObj;
   }
 
   return nextRoute;

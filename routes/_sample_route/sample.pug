@@ -1,0 +1,19 @@
+extends /base
+
+block variables
+  -var title = __('sample.title')
+
+block content
+
+  h1 #{title}
+
+  div
+    p #{__('sample.intro')}
+  
+  form.cra-form(method='post')
+  
+    +textInput('form.firstname', null, 'form.firstname.desc')(class='w-3-4', id='firstname' name='firstname', autofocus, value=data.firstname)
+
+    input(name='name', type='hidden', value=name)
+
+    +formButtons()
