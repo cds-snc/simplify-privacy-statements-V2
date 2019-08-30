@@ -131,8 +131,6 @@ block content
 - Form validation is built into the form schema files and use [validator.js](https://github.com/validatorjs/validator.js#validators) is validate input
 
 ## Todo
-
-- Current step validation ... "view access" based on Schema file for previous route.  Given a user tries to visit step 5 directly validation will be checked for step 4 first.
 - Adding tests for sample routes
 - Adding more tests for utility functions
 
