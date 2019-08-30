@@ -1,6 +1,8 @@
 # Node Starter App
 
-Quick start application setup with sensible defaults baked in.
+Quick start application setup with sensible defaults baked in.  
+
+Should you use this?  It depends ;)
 
 ## Install + Dev Mode
 
@@ -12,13 +14,17 @@ npm run dev
 ## Adding Routes
 
 1) Create a new route directory 
-➡️ or copy past and rename the routes/_sample_route 
+> ➡️ or copy past and rename the routes/_sample_route 
 
-2) Add a controller, view file and optionally a schema.js (if this is a form view)
+2) Add your route files
+- controller
+- view file 
+- optionally schema.js (if this is a form view)
+
 ```bash
-step5.controller.js
-step5.pug
-schema.js
+step5.controller.js //express route handler
+step5.pug //the view file
+schema.js //if this is a form
 ```
 
 3) Register the route via routes.config.js
@@ -50,8 +56,7 @@ Saved data is available via getSessionData(req)
 app.get(route.path, (req, res) => {
     res.render(name, {
       data: getSessionData(req),
-      name,
-      nonce: generateNonce()
+      name
     });
   });
 ```
@@ -116,7 +121,7 @@ block content
 ```
 
 ## Form Validation
-- Form validation is built into the form schema files and use [validator.js](https://github.com/validatorjs/validator.js#validators) is validate input
+- Form validation is built into the form schema files and use [validator.js](https://github.com/validatorjs/validator.js#validators) to validate input
 
 
 ## Goals
@@ -138,7 +143,6 @@ i.e. Project B has a page you need, copy the route directory and add that route 
 
 
 ## Notes
-
 This project is based on the orginal code https://github.com/cds-snc/cra-claim-tax-benefits it was born out of wanting to use that code as a base without the need to remove the unused parts everytime a new project is started.
 
 See: 
