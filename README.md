@@ -9,7 +9,8 @@ Quick start application setup with sensible defaults baked in.
 - App level code (app.js) should be touched a little as possible when building a new app based on the starter
 - Implement best practices from [Form design: from zero to hero all in one blog post](https://adamsilver.io/articles/form-design-from-zero-to-hero-all-in-one-blog-post)
 
-> Routes should act like a plugin ... if project B has a page you need copy the route directory and add that route to your config.
+> Routes should act like a plugin.
+i.e. Project B has a page you need, copy the route directory and add that route to your config.
 
 ## What this project is not
 - This project aims to allow you to hit the ground running.  It's not meant to be a be all end all defacto solution.
