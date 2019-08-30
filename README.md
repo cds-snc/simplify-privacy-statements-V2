@@ -1,12 +1,25 @@
 # Node Starter App
 
-Quick start application setup.
+Quick start application setup with sensible defaults baked in.
 
 ## Goals
 - Accessible out of the box
-- Keep code routes / view(s) / schemas as portable (self-contained) as possible
+- Keep code routes / view(s) / schemas as portable (self-contained) as possible.
 - If code i.e custom validators from the routes can be re-used it should be pulled up to the `app` level
 - App level code (app.js) should be touched a little as possible when building a new app based on the starter
+- Implement best practices from [Form design: from zero to hero all in one blog post](https://adamsilver.io/articles/form-design-from-zero-to-hero-all-in-one-blog-post)
+
+> Routes should act like a plugin ... if project B has a page you need copy the route directory and add that route to your config.
+
+## What this project is not
+- This project aims to allow you to hit the ground running.  It's not meant to be a be all end all defacto solution.
+
+## Install + Dev Mode
+
+```bash
+npm run install
+npm run dev
+```
 
 ## Adding Routes
 
@@ -89,12 +102,6 @@ For cases where the redirect is not straight forward you can handle manually.
 }
 ```
 
-## Todo
-
-- Current step validation ... "view access" based on Schema file for previous route.  Given a user tries to visit step 5 directly validation will be checked for step 4 first.
-- Adding tests for sample routes
-- Adding more tests for utility functions
-
 ## Locales
 
 Text on pages is supplied via ids
@@ -119,10 +126,19 @@ block content
 "form.fullname": "Full name",
 ```
 
+## Form Validation
+- Form validation is built into the form schema files and use [validator.js](https://github.com/validatorjs/validator.js#validators) is validate input
+
+## Todo
+
+- Current step validation ... "view access" based on Schema file for previous route.  Given a user tries to visit step 5 directly validation will be checked for step 4 first.
+- Adding tests for sample routes
+- Adding more tests for utility functions
+
 
 ## Notes
 
-This project is based on the orginal code https://github.com/cds-snc/cra-claim-tax-benefits It was born out of wanting to use that code as a base without the need to remove the unused parts everytime a new project is started.
+This project is based on the orginal code https://github.com/cds-snc/cra-claim-tax-benefits it was born out of wanting to use that code as a base without the need to remove the unused parts everytime a new project is started.
 
 See: 
 - https://github.com/cds-snc/notification-demo-service/commit/ab24e79268626e1431b301fb91614b40f9615086
