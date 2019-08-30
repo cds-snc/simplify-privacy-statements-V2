@@ -2,6 +2,8 @@
 
 Quick start application setup with sensible defaults baked in.  
 
+**Demo:** https://cds-node-starter.herokuapp.com
+
 Should you use this?  It depends ;)
 
 ## Install + Dev Mode
