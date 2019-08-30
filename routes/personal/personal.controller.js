@@ -7,7 +7,8 @@ const {
   generateNonce,
   getRouteByName,
   addViewPath,
-  getSessionData
+  getSessionData,
+  getFlashMessage
 } = require("./../../utils");
 const { Schema } = require("./schema.js");
 
@@ -18,11 +19,19 @@ module.exports = app => {
   addViewPath(app, path.join(__dirname, "./"));
 
   app.get(route.path, (req, res) => {
-    res.render(name, {
+    const params = {
       data: getSessionData(req),
       name,
       nonce: generateNonce()
-    });
+    };
+
+    const errors = getFlashMessage(req);
+
+    if (errors) {
+      params.errors = errors;
+    }
+
+    res.render(name, params);
   });
 
   app.post(

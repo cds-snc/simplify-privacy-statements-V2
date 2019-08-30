@@ -18,7 +18,8 @@ const Schema = {
       options: value => {
         //We want to remove any spaces, dash or underscores
         return value ? value.replace(/[_]*/g, "") : value;
-      }
+      },
+      errorMessage: "errors.expiry.date.format"
     },
     custom: {
       options: (value, { req }) => {

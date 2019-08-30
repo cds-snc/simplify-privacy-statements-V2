@@ -1,9 +1,13 @@
+//@todo break the tests up
+
 const {
   isValidDate,
   getRouteWithIndexByName,
   getRouteByName,
   getPreviousRoute,
-  getNextRoute
+  getNextRoute,
+  isEmptyObject,
+  errorArray2ErrorObject
 } = require("./index");
 
 const testRoutes = [
@@ -59,5 +63,17 @@ describe("Routes", () => {
   test("finds next route path by name", () => {
     const obj = getNextRoute("personal", testRoutes);
     expect(obj.path).toEqual("/confirmation");
+  });
+});
+
+describe("Is empty Object", () => {
+  test("returns true is the object is empty", () => {
+    const result = isEmptyObject({});
+    expect(result).toEqual(true);
+  });
+
+  test("returns false if the object has values", () => {
+    const result = isEmptyObject({ name: "your name" });
+    expect(result).toEqual(false);
   });
 });

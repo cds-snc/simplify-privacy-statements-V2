@@ -68,11 +68,8 @@ const checkErrors = template => {
     saveSessionData(req);
 
     if (!errors.isEmpty()) {
-      return res.status(422).render(template, {
-        data: getSessionData(req),
-        nonce: generateNonce(),
-        name: template,
-        body: req.body,
+      return renderPageWithErrors(req, res, {
+        template,
         errors: errorArray2ErrorObject(errors)
       });
     }
@@ -82,15 +79,43 @@ const checkErrors = template => {
 };
 
 /**
+* @param options template
+ {
+        template: "personal",
+        errors: {
+          fullname: {
+            value: "",
+            msg: "errors.fullname.length",
+            param: "fullname",
+            location: "body"
+          }
+        }
+      };
+ */
+
+const renderPageWithErrors = (
+  req,
+  res,
+  options = { template: "", errors: [] }
+) => {
+  return res.status(422).render(options.template, {
+    data: getSessionData(req),
+    nonce: generateNonce(),
+    name: options.template,
+    body: req.body,
+    errors: options.errors
+  });
+};
+
+/**
  * @param {Object} req express request obj
  * @param {String} routePath the route path we want to validate the domain will be prepended
  * @param {Object} formData optional allows passing in custom form data defaults to session data
  */
-const validateRouteData = async (req, routePath, formData = false) => {
+const validateRouteData = async (req, routePath, formData = {}) => {
   const domain = getDomain(req);
   const url = `${domain}/${routePath}`;
-
-  const data = formData ? formData : getSessionData(req);
+  const data = isEmptyObject(formData) ? getSessionData(req) : formData;
   // tag on nonce data
   data.nonce = generateNonce();
   // flag that we want the reponse to be json data
@@ -102,7 +127,11 @@ const validateRouteData = async (req, routePath, formData = false) => {
         resolve(err.message);
       }
 
-      resolve(body);
+      if (!isEmptyObject(JSON.parse(body))) {
+        resolve({ status: false, errors: JSON.parse(body) });
+      } else {
+        resolve({ status: true });
+      }
     });
   });
 };
@@ -164,6 +193,10 @@ const checkNonce = (req, res, next) => {
   next();
 };
 
+const isEmptyObject = obj => {
+  return Object.entries(obj).length === 0 && obj.constructor === Object;
+};
+
 module.exports = {
   errorArray2ErrorObject,
   validateRouteData,
@@ -172,5 +205,7 @@ module.exports = {
   checkErrorsJSON,
   hasData,
   generateNonce,
-  checkNonce
+  checkNonce,
+  isEmptyObject,
+  renderPageWithErrors
 };

@@ -3,6 +3,7 @@ const sessionHelpers = require("./session.helpers.js");
 const urlHelpers = require("./url.helpers.js");
 const validateHelpers = require("./validate.helpers.js");
 const viewHelpers = require("./view.helpers.js");
+const flashMessageHelpers = require("./flash.message.helpers");
 
 module.exports = {
   ...viewHelpers,
@@ -10,5 +11,6 @@ module.exports = {
   ...sessionHelpers,
   ...urlHelpers,
   ...validateHelpers,
-  ...viewHelpers
+  ...viewHelpers,
+  ...flashMessageHelpers
 };
