@@ -127,6 +127,10 @@ block content
 ## Form Validation
 - Form validation is built into the form schema files and use [validator.js](https://github.com/validatorjs/validator.js#validators) to validate input
 
+## Templates
+
+- Templates currenty use Pug (formerly Jade). You can use whatever you like for a [template-engine](https://expressjs.com/en/resources/template-engines.html).  There's even a server rendered [React](https://github.com/reactjs/express-react-views
+) engine.  That said, it's (BYOTAHF) -> bring your own layouts and helper files.
 
 ## Goals
 - Accessible out of the box
