@@ -6,6 +6,8 @@ Quick start application setup with sensible defaults baked in.
 
 Should you use this?  It depends ;)
 
+Don't like the way it's setup -> it's an Express server so do your thing `app.js`
+
 ## Install + Dev Mode
 
 ```bash
