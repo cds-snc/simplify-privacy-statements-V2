@@ -156,3 +156,6 @@ This project is based on the orginal code https://github.com/cds-snc/cra-claim-t
 See: 
 - https://github.com/cds-snc/notification-demo-service/commit/ab24e79268626e1431b301fb91614b40f9615086
 - https://github.com/cds-snc/2620-passport-renewal/commit/eb41bf83825b9d8c4a56427e0cd199ccc23089eb
+
+
+> Starter Cloud Build / Cloud Run setup is in place if you prefer to deploy via GCP see `notification-demo-service` which is setup to deploy using a tag.    
