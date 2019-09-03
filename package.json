@@ -1,6 +1,6 @@
 {
   "name": "node-starter-app",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "author": "CDS",
   "license": "MIT",
@@ -25,6 +25,7 @@
     "express-validator": "^6.2.0",
     "helmet": "^3.20.1",
     "i18n": "^0.8.3",
+    "node-sass": "^4.12.0",
     "node-sass-middleware": "^0.11.0",
     "nonce-next": "^1.1.0",
     "pug": "^2.0.4",
@@ -33,10 +34,10 @@
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "eslint": "^6.2.2",
+    "eslint": "^6.3.0",
     "eslint-plugin-jest": "^22.16.0",
     "jest": "^24.9.0",
-    "nodemon": "^1.19.1",
+    "nodemon": "^1.19.2",
     "supertest": "^4.0.2",
     "supertest-session": "^4.0.0"
   }
