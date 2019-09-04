@@ -17,6 +17,7 @@ block content
 
     +textInput('form.passport_expiry', null, 'form.passport_expiry.desc')(class='w-3-4', id='expiry' name='expiry', autofocus, value=data.expiry)
     
+    input(name='name', type='hidden', value=name)
     input(name='nonce', type='hidden', value=nonce)
 
     +formButtons()
