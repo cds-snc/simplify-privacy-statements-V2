@@ -9,3 +9,6 @@ block content
 
   div
     p #{__('Page not found')}
+
+    if message
+      pre.error #{`${message}`}

@@ -7,7 +7,16 @@ module.exports = app => {
 
   app.use(function(req, res, next) {
     res.status(404);
-    res.render("404");
+
+    let message = false;
+
+    const route_path = req.path;
+
+    if (process.env.NODE_ENV !== "production") {
+      message = `❌ Forgot to add this route? \n\nAdd the following to config/routes.config.js: \n\nconst routes = [{ name: "${route_path}", path: "${route_path}" }]\n ...\n configRoutes(app){\n  require("../routes${route_path}${route_path}.controller")(app);\n}`;
+    }
+
+    res.render("404", { message });
   });
 
   app.use(function(err, req, res, next) {

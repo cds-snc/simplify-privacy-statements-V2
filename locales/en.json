@@ -36,5 +36,6 @@
   "form.firstname.desc": "form.firstname.desc",
   "errors.firstname.length": "errors.firstname.length",
   "Not found": "Not found",
-  "Internal server error": "Internal server error"
+  "Internal server error": "Internal server error",
+  "Page not found": "Page not found"
 }
