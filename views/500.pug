@@ -1,0 +1,14 @@
+extends /base
+
+block variables
+  -var title = __('500')
+
+block content
+
+  h1 #{title}
+
+  div
+    p #{__('Internal server error')}
+    
+    if message
+      pre.error #{`${message}`}

@@ -25,7 +25,7 @@ const doRedirect = (req, res, next) => {
   const nextRoute = getNextRoute(req.body.name);
 
   if (!nextRoute.path) {
-    throw new Error(`[POST ${req.path}] 'redirect' parameter missing`);
+    throw new Error(`[POST ${req.path}] 'redirect' missing`);
   }
 
   return res.redirect(nextRoute.path);
@@ -55,7 +55,15 @@ const getPreviousRoute = (name, routes = defaultRoutes) => {
  */
 const getNextRoute = (name, routes = defaultRoutes) => {
   const route = getRouteWithIndexByName(name, routes);
-  const nextRoute = routes[Number(route.index) + 1];
+
+  if (!route || (!"index" in route && process.env.NODE_ENV !== "production")) {
+    throw new Error(
+      "Next route error.  \n Did you miss the name input in your form? \n i.e. input(name='name', type='hidden', value=name)"
+    );
+  }
+
+  const nextRoute =
+    route.index && route.index ? routes[Number(route.index) + 1] : false;
 
   if (!nextRoute) {
     return DefaultRouteObj;

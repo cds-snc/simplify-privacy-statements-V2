@@ -9,9 +9,9 @@
     "node": ">=10.15"
   },
   "scripts": {
-    "dev": "nodemon ./bin/www",
+    "dev": "NODE_ENV=development nodemon ./bin/www",
     "lint": "node_modules/eslint/bin/eslint.js config routes bin/www app.js",
-    "start": "node ./bin/www",
+    "start": "NODE_ENV=production node ./bin/www",
     "test": "node node_modules/jest/bin/jest.js",
     "test:watch": "node node_modules/jest/bin/jest.js --watch"
   },

@@ -5,20 +5,20 @@
 a[href],
 area[href],
 input,
-select
-textarea,
+select textarea,
 button,
 iframe,
 [tabindex],
-[contentEditable=true]
-{
-  &:not([disabled]):focus { @include focus(); }
+[contentEditable="true"] {
+  &:not([disabled]):focus {
+    @include focus();
+  }
 }
 
 body {
   margin: 0;
   font-size: 1.05em;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: "Noto Sans", sans-serif;
   line-height: 1.65;
 
   @include xs {
@@ -65,7 +65,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   line-height: 1.33;
 }
 
@@ -141,4 +141,11 @@ li:not(:last-of-type) {
 
 .visually-hidden {
   @include visuallyHidden();
+}
+
+.error {
+  background-color: #f5c6cb;
+  border: 1px solid #721c24;
+  font-size:0.8em;
+  padding:10px;
 }
