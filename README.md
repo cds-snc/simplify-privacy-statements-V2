@@ -8,6 +8,24 @@ Should you use this?  It depends ;)
 
 Don't like the way it's setup -> it's an Express server so do your thing `app.js`
 
+
+## Cloning and pulling upstream changes
+
+1. Create an `empty` Github repo (**must be empty**)
+
+```bash
+
+git remote add upstream git@github.com:cds-snc/node-starter-app.git
+git pull upstream master
+git remote -v // ensure the remotes are setup properly
+
+// you should see
+origin  git@github.com:cds-snc/your-repo.git (fetch)
+origin  git@github.com:cds-snc/your-repo.git (push)
+upstream        git@github.com:cds-snc/node-starter-app.git (fetch)
+upstream        git@github.com:cds-snc/node-starter-app.git (push)
+```
+
 ## Install + Dev Mode
 
 ```bash
