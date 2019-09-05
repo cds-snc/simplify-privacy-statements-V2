@@ -150,6 +150,17 @@ block content
 - Templates currenty use Pug (formerly Jade). You can use whatever you like for a [template-engine](https://expressjs.com/en/resources/template-engines.html).  There's even a server rendered [React](https://github.com/reactjs/express-react-views
 ) engine.  That said, it's bring your own layouts and helper files.
 
+## CLI
+
+- There is a basic CLI tool that allows you to perform some functions:
+```
+> node ./bin/cli.js routes
+[ { name: 'sample', path: '/sample' },
+  { name: 'start', path: '/start' },
+  { name: 'personal', path: '/personal' },
+  { name: 'confirmation', path: '/confirmation' } ]
+```
+
 ## Goals
 - Accessible out of the box
 - Keep code routes / view(s) / schemas as portable (self-contained) as possible.
