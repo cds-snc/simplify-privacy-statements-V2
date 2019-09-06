@@ -18,16 +18,17 @@ resource "azurerm_storage_account" "remote_state_sa" {
   account_tier             = "${var.storage_account_tier}"
   account_replication_type = "${var.storage_account_replication_type}"
 
-  lifecycle {
-    prevent_destroy = true
-  }
+  #lifecycle {
+  #  prevent_destroy = true
+  #}
 }
 
 resource "azurerm_storage_container" "terraform_remote_state_container" {
   name                  = "${lower(var.name)}-remote-state-container"
   storage_account_name  = "${azurerm_storage_account.remote_state_sa.name}"
   container_access_type = "private"
-  lifecycle {
-    prevent_destroy = true
-  }
+
+  #lifecycle {
+  #  prevent_destroy = true
+  #}
 }
