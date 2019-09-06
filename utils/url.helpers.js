@@ -8,7 +8,10 @@
 const oneHour = 1000 * 60 * 60 * 1;
 
 const checkLangQuery = function(req, res, next) {
-  let lang = req.query.lang;
+  let lang = "en";
+  if (req && req.query && req.query.lang) {
+    lang = req.query.lang;
+  }
 
   if (lang === "en" || lang === "fr") {
     res.cookie("lang", lang, {
@@ -26,12 +29,17 @@ const checkLangQuery = function(req, res, next) {
  */
 const getDomain = req => {
   const protocol = getHostProtocol(req);
+  
+  if (!req || !req.headers || !req.headers.host) {
+    throw new Error("req missing host");
+  }
+
   const host = req.headers.host;
   return `${protocol}://${host}`;
 };
 
 const getHostProtocol = req => {
-  if (req.secure) {
+  if (req && req.secure) {
     return "https";
   }
 
