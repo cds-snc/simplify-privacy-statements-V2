@@ -4,24 +4,24 @@ steps:
       [
         'build',
         '-t',
-        'gcr.io/$PROJECT_ID/notification-demo:$SHORT_SHA',
+        'gcr.io/$PROJECT_ID/node-starter-app:$SHORT_SHA',
         '-t',
-        'gcr.io/$PROJECT_ID/notification-demo:latest',
+        'gcr.io/$PROJECT_ID/node-starter-app:latest',
         '-f',
         'Dockerfile',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/notification-demo:$SHORT_SHA']
+    args: ['push', 'gcr.io/$PROJECT_ID/node-starter-app:$SHORT_SHA']
   - name: 'gcr.io/cloud-builders/gcloud'
     args: 
       [
         'beta', 
         'run', 
         'deploy', 
-        'notification-demo', 
+        'node-starter-app', 
         '--image', 
-        'gcr.io/$PROJECT_ID/notification-demo:$SHORT_SHA', 
+        'gcr.io/$PROJECT_ID/node-starter-app:$SHORT_SHA', 
         '--region', 
         'us-central1',
         '--allow-unauthenticated',
@@ -29,5 +29,5 @@ steps:
         'managed' 
       ]
 images:
-  - 'gcr.io/$PROJECT_ID/notification-demo:$SHORT_SHA'
-  - 'gcr.io/$PROJECT_ID/notification-demo:latest'
+  - 'gcr.io/$PROJECT_ID/node-starter-app:$SHORT_SHA'
+  - 'gcr.io/$PROJECT_ID/node-starter-app:latest'
