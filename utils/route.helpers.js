@@ -38,8 +38,16 @@ const doRedirect = (req, res, next) => {
  */
 const getPreviousRoute = (name, routes = defaultRoutes) => {
   const route = getRouteWithIndexByName(name, routes);
-  const prevRoute =
-    route.index && route.index ? routes[Number(route.index) - 1] : false;
+
+  if (!route || (!"index" in route && process.env.NODE_ENV !== "production")) {
+    throw new Error(
+      "Next route error.  \n Did you miss the name input in your form? \n i.e. input(name='name', type='hidden', value=name)"
+    );
+  }
+
+  const prevRoute = routes[Number(route.index) - 1]
+    ? routes[Number(route.index) - 1]
+    : false;
 
   if (!prevRoute) {
     return DefaultRouteObj;
@@ -62,8 +70,9 @@ const getNextRoute = (name, routes = defaultRoutes) => {
     );
   }
 
-  const nextRoute =
-    route.index && route.index ? routes[Number(route.index) + 1] : false;
+  const nextRoute = routes[Number(route.index) + 1]
+    ? routes[Number(route.index) + 1]
+    : false;
 
   if (!nextRoute) {
     return DefaultRouteObj;
@@ -102,7 +111,19 @@ const getRouteWithIndexByName = (name, routes = defaultRoutes) => {
   }
 };
 
+const configRoutes = (app, routes = []) => {
+  // require the controllers defined in the routes
+  // dir and file name based on the route name
+  routes.forEach(routeObj => {
+    const routeName = routeObj.name;
+    require(`../routes/${routeName}/${routeName}.controller`)(app);
+  });
+
+  require("../routes/global/global.controller")(app);
+};
+
 module.exports = {
+  configRoutes,
   checkPublic,
   doRedirect,
   getPreviousRoute,

@@ -11,18 +11,19 @@ const express = require("express"),
   cookieSession = require("cookie-session"),
   cookieSessionConfig = require("./config/cookieSession.config"),
   { hasData, checkPublic, checkLangQuery } = require("./utils"),
-  csp = require("./config/csp.config"),
-  { configRoutes } = require("./config/routes.config");
+  csp = require("./config/csp.config");
+
+// check to see if we have a custom configRoutes function
+let { configRoutes, routes } = require("./config/routes.config");
+
+// if not use the default
+if (typeof configRoutes === "undefined") {
+  console.log("Using default configRoutes");
+  configRoutes = require("./utils/route.helpers").configRoutes;
+}
 
 // initialize application.
-var app = express();
-
-// @ todo
-// build pipeline
-// storing data
-// register step - check if completed
-// if not redirect to prev step
-// auth
+const app = express();
 
 // general app configuration.
 app.use(express.json());
@@ -73,6 +74,6 @@ app.locals.basedir = path.join(__dirname, "./views");
 app.set("views", [path.join(__dirname, "./views")]);
 app.set("view engine", "pug");
 
-configRoutes(app);
+configRoutes(app, routes);
 
 module.exports = app;

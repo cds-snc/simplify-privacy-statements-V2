@@ -6,8 +6,8 @@ const viewHelpers = require("./view.helpers.js");
 const flashMessageHelpers = require("./flash.message.helpers");
 
 module.exports = {
-  ...viewHelpers,
   ...routeHelpers,
+  ...viewHelpers,
   ...sessionHelpers,
   ...urlHelpers,
   ...validateHelpers,

@@ -61,12 +61,6 @@ const routes = [
 ];
 
 ...
-
-//Add the path to your route code in configRoutes
-const configRoutes = app => {
-   ...
-   require("../routes/step5/step5.controller")(app);
-}
 ```
 
 Note: Delete unused route(s) directories as needed.
