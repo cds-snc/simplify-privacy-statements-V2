@@ -1,5 +1,10 @@
 module.exports = app => {
   // clear session
+
+  app.get("/test-500", (req, res) => {
+    throw new Error("something bad");
+  });
+
   app.get("/clear", (req, res) => {
     req.session = null;
     res.redirect(302, "/");

@@ -154,7 +154,7 @@ const checkErrorsJSON = (req, res, next) => {
  * ex. if we're trying to get to data.personal.maritalStatus
  * pass as hasData(data, 'personal.maritalStatus')
  */
-const hasData = (obj, key) => {
+const hasData = (obj = {}, key = "") => {
   return key.split(".").every(x => {
     if (
       typeof obj != "object" ||
