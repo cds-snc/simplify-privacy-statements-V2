@@ -7,7 +7,7 @@ const {
   getPreviousRoute,
   getNextRoute,
   isEmptyObject,
-  errorArray2ErrorObject
+  doRedirect
 } = require("./index");
 
 const testRoutes = [
@@ -76,4 +76,40 @@ describe("Is empty Object", () => {
     const result = isEmptyObject({ name: "your name" });
     expect(result).toEqual(false);
   });
+});
+
+test("getPreviousRoute will throw an error when missing params", () => {
+  expect(() => {
+    getPreviousRoute();
+  }).toThrow();
+});
+
+test("getNextRoute will throw an error when missing params", () => {
+  expect(() => {
+    getNextRoute();
+  }).toThrow();
+});
+
+test("Calls next if json is requested", () => {
+  const req = { body: { json: true } };
+  const next = jest.fn();
+  doRedirect(req, {}, next);
+  expect(next.mock.calls.length).toBe(1);
+});
+
+test("Calls redirect if it finds the next route", () => {
+  const req = { body: { name: "start" } };
+  const next = jest.fn();
+  const redirectMock = jest.fn();
+  const res = {
+    query: {},
+    headers: {},
+    data: null,
+    redirect: () => {
+      redirectMock();
+    }
+  };
+  doRedirect(req, res, next);
+  expect(next.mock.calls.length).toBe(0);
+  expect(redirectMock.mock.calls.length).toBe(1);
 });

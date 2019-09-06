@@ -18,7 +18,6 @@ let { configRoutes, routes } = require("./config/routes.config");
 
 // if not use the default
 if (typeof configRoutes === "undefined") {
-  console.log("Using default configRoutes");
   configRoutes = require("./utils/route.helpers").configRoutes;
 }
 
