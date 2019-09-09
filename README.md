@@ -170,7 +170,7 @@ Text Inputs
 
 ## Deployment
 
-- The current default build and deploy is through GCP CloudBuild and Cloud Run. The `cloudbuild.yaml` will not work out of the box, so it will need to be tweaked as well as the permissions set correctly in GCP. [This link](https://cloud.google.com/run/docs/continuous-deployment-with-cloud-build#continuous) explaines the required steps to set up Cloud Run properly.
+- The current default build and deploy is through GCP CloudBuild and Cloud Run. The `cloudbuild.yaml` will not work out of the box, so it will need to be tweaked as well as the permissions set correctly in GCP. [This link](https://cloud.google.com/run/docs/continuous-deployment-with-cloud-build#continuous) explains the required steps to set up Cloud Run properly.
 
 ## Goals
 
