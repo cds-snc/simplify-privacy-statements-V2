@@ -21,3 +21,7 @@ output "container_registry_admin_username" {
 output "container_registry_admin_password" {
   value = "${azurerm_container_registry.container_registry.admin_password}"
 }
+
+output "container_registry_name" {
+  value = "${azurerm_container_registry.container_registry.name}"
+}
