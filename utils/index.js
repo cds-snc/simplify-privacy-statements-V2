@@ -1,4 +1,5 @@
 const routeHelpers = require("./route.helpers.js");
+const dataHelpers = require("./data.helpers.js");
 const sessionHelpers = require("./session.helpers.js");
 const urlHelpers = require("./url.helpers.js");
 const validateHelpers = require("./validate.helpers.js");
@@ -12,5 +13,18 @@ module.exports = {
   ...urlHelpers,
   ...validateHelpers,
   ...viewHelpers,
-  ...flashMessageHelpers
+  ...flashMessageHelpers,
+  ...dataHelpers
+};
+
+const { getRouteByName } = require("./route.helpers");
+const { addViewPath } = require("./view.helpers");
+const { getViewData } = require("./data.helpers");
+const { getDefaultMiddleware } = require("./route.helpers");
+
+module.exports.routeUtils = {
+  getRouteByName,
+  addViewPath,
+  getViewData,
+  getDefaultMiddleware
 };
