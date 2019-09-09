@@ -1,14 +1,14 @@
 extends /base
 
 block variables
-  -var title = __('sample.title')
+  -var title = __('{{sample}}.title')
 
 block content
 
   h1 #{title}
 
   div
-    p #{__('sample.intro')}
+    p #{__('{{sample}}.intro')}
   
   form.cra-form(method='post')
   

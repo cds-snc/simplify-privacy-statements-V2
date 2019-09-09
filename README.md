@@ -34,33 +34,25 @@ npm run dev
 ```
 
 ## Adding Routes
-
-1. Create a new [route directory](https://github.com/cds-snc/node-starter-app/tree/master/routes/_sample_route)
-
-   > ➡️ or copy past and rename the routes/\_sample_route
-
-2. Add your route files
-
-- controller
-- view file
-- optionally schema.js (if this is a form view)
-
-```bash
-step5.controller.js //express route handler
-step5.pug //the view file
-schema.js //if this is a form
+Generate the route files
+```
+node ./bin/route.js create --route your_route_name
 ```
 
-3. Register the route via [routes.config.js](https://github.com/cds-snc/node-starter-app/blob/master/config/routes.config.js)
+The created route directory by default contains the following files:
+- your_route_name.controller.js
+- your_route_name.pug
+- schema.js (used for form views)
+
+
+Register the route via [routes.config.js](https://github.com/cds-snc/node-starter-app/blob/master/config/routes.config.js)
 
 ```javascript
 // config/routes.config.js
 ...
-
 const routes = [
-  { name: "step5", path: "/step5" },
+  { name: "your_route_name", path: "/your_route_name" },
 ];
-
 ...
 ```
 
@@ -88,7 +80,7 @@ input(name='nonce', type='hidden', value=nonce)
 Redirects are handled via doRedirect based on a `name` value (the name of the current route) sent via in the req.body. The doRedirect function will do a look up for the next route based on the routes config. 
 
 ```javascript
-// step5.controller post route
+// your_route_name.controller post route
 app.post(route.path, [
       ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name })
     ]);
