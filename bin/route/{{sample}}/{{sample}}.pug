@@ -10,7 +10,7 @@ block content
   div
     p #{__('{{sample}}.intro')}
   
-  form.cra-form(method='post')
+  form(method='post')
   
     +textInput('form.firstname', null, 'form.firstname.desc')(class='w-3-4', id='firstname' name='firstname', autofocus, value=data.firstname)
 

@@ -27,7 +27,23 @@ const Schema = {
       },
       errorMessage: "errors.expiry.date"
     }
-  }
+  },
+  send_notifications: {
+    isIn: {
+      errorMessage: "errors.send_notifications.valid",
+      options: [["Yes", "No"]]
+    }
+  },
+
+  notify_type: {
+    custom: {
+      options: (value, { req }) => {
+        console.log("val",value)
+        //return isValidDate(value);
+      },
+      errorMessage: "errors.notify_type"
+    }
+  },
 };
 
 module.exports = {
