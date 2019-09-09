@@ -68,14 +68,11 @@ Note: Delete unused route(s) directories as needed.
 
 ## Passing data to views
 
-Saved data is available via getSessionData(req)
+Saved data is available via getSessionData(req) or getViewData(req, name)
 
 ```javascript
 app.get(route.path, (req, res) => {
-  res.render(name, {
-    data: getSessionData(req),
-    name
-  });
+  res.render(name, routeUtils.getViewData(req, name));
 });
 ```
 
@@ -88,14 +85,13 @@ input(name='nonce', type='hidden', value=nonce)
 
 ## Form step redirects
 
-Redirects are handled via doRedirect based on a `name` value (the name of the current route) sent via in the req.body. The doRedirect function will do a look up for the next route based on the routes config.
+Redirects are handled via doRedirect based on a `name` value (the name of the current route) sent via in the req.body. The doRedirect function will do a look up for the next route based on the routes config. 
 
 ```javascript
 // step5.controller post route
-app.post(
-    route.path,
-    []...routeUtils.getDefaultMiddleware({ schema: Schema, name: name })]
-  );
+app.post(route.path, [
+      ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name })
+    ]);
 ```
 
 For cases where the redirect is not straight forward you can handle manually.
@@ -143,6 +139,22 @@ block content
 ## Templates
 
 - Templates currenty use Pug (formerly Jade). You can use whatever you like for a [template-engine](https://expressjs.com/en/resources/template-engines.html). There's even a server rendered [React](https://github.com/reactjs/express-react-views) engine. That said, it's bring your own layouts and helper files.
+
+## Common View Helpers
+
+See views/_includes
+
+### Samples
+
+Radio Buttons
+```
+include /_includes/radios
++radioButtons('card_type', {1:'Visa',2:'MasterCard'}, data.card_type, 'Name of card', errors)
+```
+Text Inputs
+```
++textInput('form.fullname', null, 'form.fullname.desc')(class='w-3-4', id='fullname' name='fullname', autofocus, value=data.fullname)
+```
 
 ## CLI
 
