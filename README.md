@@ -114,7 +114,7 @@ block content
 
   div
     p #{__('personal.intro')}
-  form.cra-form(method='post')
+  form(method='post')
 ```
 
 ```json

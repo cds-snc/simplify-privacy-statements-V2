@@ -1,4 +1,4 @@
-form.cra-form {
+form {
   margin-top: $space-xl;
   max-width: 300px;
   width: 100%;
@@ -30,7 +30,7 @@ form.cra-form {
   }
 }
 
-form.cra-form.cra-form--lg {
+form.form--lg {
   @include sm {
     width: 110%;
     max-width: 800px;
@@ -42,7 +42,7 @@ form.cra-form.cra-form--lg {
   }
 }
 
-form.cra-form {
+form {
   > div:not(:last-of-type) {
     margin-bottom: $space-xl;
   }
@@ -68,7 +68,7 @@ form.cra-form {
   }
 
   label,
-  .cra-form-message,
+  .form-message,
   .validation-message,
   input,
   select {
@@ -83,7 +83,7 @@ form.cra-form {
     font-size: 1.07em;
   }
 
-  .cra-form-message {
+  .form-message {
     color: $color-grey-dark;
   }
 
@@ -96,6 +96,7 @@ form.cra-form {
   }
 
   input,
+  textarea,
   select {
     font-family: sans-serif;
     font-size: 1em;
@@ -104,7 +105,6 @@ form.cra-form {
     margin-top: 8px;
     border-radius: 0;
     display: block;
-    height: 40px;
     border: 2px solid $color-black;
     padding: $space-xxs;
 
@@ -112,6 +112,11 @@ form.cra-form {
       @include focus();
       border-color: $color-black;
     }
+  }
+
+  input,
+  select {
+    height: 40px;
   }
 
   input {
