@@ -1,0 +1,4 @@
+resource_group     = ""
+container_registry = ""
+location           = ""
+webhook_uri        = ""
