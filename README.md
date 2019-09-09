@@ -1,13 +1,12 @@
 # Node Starter App
 
-Quick start application setup with sensible defaults baked in.  
+Quick start application setup with sensible defaults baked in.
 
 **Demo:** https://cds-node-starter.herokuapp.com
 
-Should you use this?  It depends ;)
+Should you use this? It depends ;)
 
 Don't like the way it's setup -> it's an Express server so do your thing `app.js`
-
 
 ## Cloning and pulling upstream changes
 
@@ -36,12 +35,14 @@ npm run dev
 
 ## Adding Routes
 
-1) Create a new route directory 
-> ➡️ or copy past and rename the routes/_sample_route 
+1. Create a new [route directory](https://github.com/cds-snc/node-starter-app/tree/master/routes/_sample_route)
 
-2) Add your route files
+   > ➡️ or copy past and rename the routes/\_sample_route
+
+2. Add your route files
+
 - controller
-- view file 
+- view file
 - optionally schema.js (if this is a form view)
 
 ```bash
@@ -50,11 +51,11 @@ step5.pug //the view file
 schema.js //if this is a form
 ```
 
-3) Register the route via routes.config.js
+3. Register the route via [routes.config.js](https://github.com/cds-snc/node-starter-app/blob/master/config/routes.config.js)
 
 ```javascript
 // config/routes.config.js
-... 
+...
 
 const routes = [
   { name: "step5", path: "/step5" },
@@ -67,20 +68,17 @@ Note: Delete unused route(s) directories as needed.
 
 ## Passing data to views
 
-Saved data is available via getSessionData(req)
+Saved data is available via getSessionData(req) or getViewData(req, name)
 
 ```javascript
 app.get(route.path, (req, res) => {
-    res.render(name, {
-      data: getSessionData(req),
-      name
-    });
-  });
+  res.render(name, routeUtils.getViewData(req, name));
+});
 ```
 
 ```pug
  +textInput('form.passport_expiry', null, 'form.passport_expiry.desc')(class='w-3-4', id='expiry' name='expiry', autofocus, value=data.expiry)
-    
+
 input(name='name', type='hidden', value=name)
 input(name='nonce', type='hidden', value=nonce)
 ```
@@ -91,26 +89,23 @@ Redirects are handled via doRedirect based on a `name` value (the name of the cu
 
 ```javascript
 // step5.controller post route
-app.post(
-    route.path,
-    checkNonce,
-    checkSchema(Schema),
-    checkErrors(name),
-    doRedirect
-  );
+app.post(route.path, [
+      ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name })
+    ]);
 ```
 
 For cases where the redirect is not straight forward you can handle manually.
+
 ```javascript
 (req, res, next) => {
-    const confirm = req.body.confirm;
-    if (confirm === "Yes") {
-      const nextRoute = getNextRoute(name);
-      return res.redirect(nextRoute.path);
-    }
+  const confirm = req.body.confirm;
+  if (confirm === "Yes") {
+    const nextRoute = getNextRoute(name);
+    return res.redirect(nextRoute.path);
+  }
 
-    res.send("you said no");
-}
+  res.send("you said no");
+};
 ```
 
 ## Locales
@@ -138,16 +133,33 @@ block content
 ```
 
 ## Form Validation
+
 - Form validation is built into the form schema files and use [validator.js](https://github.com/validatorjs/validator.js#validators) to validate input
 
 ## Templates
 
-- Templates currenty use Pug (formerly Jade). You can use whatever you like for a [template-engine](https://expressjs.com/en/resources/template-engines.html).  There's even a server rendered [React](https://github.com/reactjs/express-react-views
-) engine.  That said, it's bring your own layouts and helper files.
+- Templates currenty use Pug (formerly Jade). You can use whatever you like for a [template-engine](https://expressjs.com/en/resources/template-engines.html). There's even a server rendered [React](https://github.com/reactjs/express-react-views) engine. That said, it's bring your own layouts and helper files.
+
+## Common View Helpers
+
+See views/_includes
+
+### Samples
+
+Radio Buttons
+```
+include /_includes/radios
++radioButtons('card_type', {1:'Visa',2:'MasterCard'}, data.card_type, 'Name of card', errors)
+```
+Text Inputs
+```
++textInput('form.fullname', null, 'form.fullname.desc')(class='w-3-4', id='fullname' name='fullname', autofocus, value=data.fullname)
+```
 
 ## CLI
 
 - There is a basic CLI tool that allows you to perform some functions:
+
 ```
 > node ./bin/cli.js routes
 [ { name: 'sample', path: '/sample' },
@@ -161,6 +173,7 @@ block content
 - The current default build and deploy is through GCP CloudBuild and Cloud Run. The `cloudbuild.yaml` will not work out of the box, so it will need to be tweaked as well as the permissions set correctly in GCP. [This link](https://cloud.google.com/run/docs/continuous-deployment-with-cloud-build#continuous) explaines the required steps to set up Cloud Run properly.
 
 ## Goals
+
 - Accessible out of the box
 - Keep code routes / view(s) / schemas as portable (self-contained) as possible.
 - If code i.e custom validators from the routes can be re-used it should be pulled up to the `app` level
@@ -168,22 +181,24 @@ block content
 - Implement best practices from [Form design: from zero to hero all in one blog post](https://adamsilver.io/articles/form-design-from-zero-to-hero-all-in-one-blog-post)
 
 > Routes should act like a plugin.
-i.e. Project B has a page you need, copy the route directory and add that route to your config.
+> i.e. Project B has a page you need, copy the route directory and add that route to your config.
 
 ## What this project is not
-- This project aims to allow you to hit the ground running.  It's not meant to be a be all end all defacto solution.
+
+- This project aims to allow you to hit the ground running. It's not meant to be a be all end all defacto solution.
 
 ## Todo
+
 - Adding tests for sample routes
 - Adding more tests for utility functions
 
-
 ## Notes
+
 This project is based on the orginal code https://github.com/cds-snc/cra-claim-tax-benefits it was born out of wanting to use that code as a base without the need to remove the unused parts everytime a new project is started.
 
-See: 
+See:
+
 - https://github.com/cds-snc/notification-demo-service/commit/ab24e79268626e1431b301fb91614b40f9615086
 - https://github.com/cds-snc/2620-passport-renewal/commit/eb41bf83825b9d8c4a56427e0cd199ccc23089eb
 
-
-> Starter Cloud Build / Cloud Run setup is in place if you prefer to deploy via GCP see `notification-demo-service` which is setup to deploy using a tag.    
+> Starter Cloud Build / Cloud Run setup is in place if you prefer to deploy via GCP see `notification-demo-service` which is setup to deploy using a tag.
