@@ -4,7 +4,6 @@ variable "name" {
 
 variable "location" {
   description = " (Required) Specify the location for these resources. Changing this forces a new resource to be created."
-  default     = "canadacentral"
 }
 
 variable "storage_account_tier" {
