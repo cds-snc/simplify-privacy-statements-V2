@@ -1,4 +1,6 @@
+const { checkSchema } = require("express-validator");
 const { routes: defaultRoutes } = require("../config/routes.config");
+const { checkNonce, checkErrors } = require("./validate.helpers");
 
 const DefaultRouteObj = { name: false, path: false };
 
@@ -122,6 +124,15 @@ const configRoutes = (app, routes = []) => {
   require("../routes/global/global.controller")(app);
 };
 
+const getDefaultMiddleware = options => {
+  return [
+    checkNonce,
+    checkSchema(options.schema),
+    checkErrors(options.name),
+    doRedirect
+  ];
+};
+
 module.exports = {
   configRoutes,
   checkPublic,
@@ -129,5 +140,6 @@ module.exports = {
   getPreviousRoute,
   getNextRoute,
   getRouteByName,
-  getRouteWithIndexByName
+  getRouteWithIndexByName,
+  getDefaultMiddleware
 };

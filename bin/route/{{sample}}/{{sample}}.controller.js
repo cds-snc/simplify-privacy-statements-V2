@@ -3,7 +3,7 @@ const { routeUtils } = require("./../../utils");
 const { Schema } = require("./schema.js");
 
 module.exports = app => {
-  const name = "personal";
+  const name = "{{sample}}";
   const route = routeUtils.getRouteByName(name);
 
   routeUtils.addViewPath(app, path.join(__dirname, "./"));

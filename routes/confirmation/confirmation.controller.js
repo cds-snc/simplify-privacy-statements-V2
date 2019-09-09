@@ -17,6 +17,7 @@ module.exports = app => {
     // ⚠️ experimental
     // validate data from previous step
     // see if we should be allowed to reach this step
+
     const result = await validateRouteData(req, "personal");
     if (!result.status) {
       setFlashMessageContent(req, result.errors);

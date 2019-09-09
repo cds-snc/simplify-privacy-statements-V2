@@ -39,5 +39,12 @@
   "Internal server error": "Internal server error",
   "Page not found": "Page not found",
   "hello": "hello",
-  "caught this error": "caught this error"
+  "caught this error": "caught this error",
+  "Name of card": "Name of card",
+  "form.send_notifications": "Would you like to receive notifications?",
+  "form.notify_by": "Notify by",
+  "form.address": "Address",
+  "form.address.desc": "Enter your current address",
+  "errors.send_notifications.valid": "errors.send_notifications.valid",
+  "errors.notify_type": "errors.notify_type"
 }
