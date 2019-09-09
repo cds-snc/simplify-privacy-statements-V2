@@ -98,19 +98,8 @@ const getRouteByName = (name, routes = defaultRoutes) => {
  * @returns { index: "1", route: { name: "start", path: "/start" } }
  */
 const getRouteWithIndexByName = (name, routes = defaultRoutes) => {
-  const route = routes
-    .map((route, index) => {
-      if (route.name === name) {
-        return { index, route };
-      }
-    })
-    .filter(function(route) {
-      return route != null;
-    });
-
-  if (route.length >= 1) {
-    return route[0];
-  }
+  const index = routes.findIndex(r => r.name === name);
+  if (index >= 0) return { index, route: routes[index] };
 };
 
 const configRoutes = (app, routes = []) => {
