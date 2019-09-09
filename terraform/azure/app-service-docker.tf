@@ -24,7 +24,8 @@ resource "azurerm_app_service" "app_service" {
   }
 
   app_settings = {
-    "DOCKER_REGISTRY_SERVER_URL"      = "${azurerm_container_registry.container_registry.login_server}"
+    "DOCKER_ENABLE_CI"                = "true"
+    "DOCKER_REGISTRY_SERVER_URL"      = "https://${azurerm_container_registry.container_registry.login_server}"
     "DOCKER_REGISTRY_SERVER_USERNAME" = "${azurerm_container_registry.container_registry.admin_username}"
     "DOCKER_REGISTRY_SERVER_PASSWORD" = "${azurerm_container_registry.container_registry.admin_password}"
   }
