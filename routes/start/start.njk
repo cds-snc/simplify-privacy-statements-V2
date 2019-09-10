@@ -1,0 +1,18 @@
+{% extends "base.njk" %}
+{% from 'banner.njk' import banner as banner %}
+
+{% block content %}
+    <h1>{{ __('start.title') }}</h1>
+
+    {{ banner('blue', '<p>' + __('start.intro.banner') + '</p>') }}
+
+    <div>{{ __('start.intro') | safe }}</div>
+
+    <div>
+        <a class="button-link" href="/personal" role="button" draggable="false">
+            {{ __('start.submit') }}
+            <span aria-hidden="true">→</span>
+        </a>
+    </div>
+
+{% endblock %}
