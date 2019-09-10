@@ -1,8 +1,8 @@
-const { validationResult } = require("express-validator");
-const nn = require("nonce-next");
-const request = require("request");
-const { getSessionData, saveSessionData } = require("./session.helpers");
-const { getDomain } = require("./url.helpers");
+const { validationResult } = require('express-validator')
+const nn = require('nonce-next')
+const request = require('request')
+const { getSessionData, saveSessionData } = require('./session.helpers')
+const { getDomain } = require('./url.helpers')
 
 /*
   original format is an array of error objects: https://express-validator.github.io/docs/validation-result-api.html
@@ -20,23 +20,23 @@ const { getDomain } = require("./url.helpers");
 */
 const errorArray2ErrorObject = (errors = []) => {
   return errors.array({ onlyFirstError: true }).reduce((map, obj) => {
-    map[obj.param] = obj;
-    return map;
-  }, {});
-};
+    map[obj.param] = obj
+    return map
+  }, {})
+}
 
 const isValidDate = dateString => {
-  const regEx = /^\d{4}-\d{2}$/; // YYYY-MM
+  const regEx = /^\d{4}-\d{2}$/ // YYYY-MM
   if (!dateString.match(regEx)) {
-    return false; // Invalid format
+    return false // Invalid format
   }
 
-  var d = new Date(`${dateString}-01`);
-  var dNum = d.getTime();
+  var d = new Date(`${dateString}-01`)
+  var dNum = d.getTime()
 
-  if (!dNum && dNum !== 0) return false; // NaN value, Invalid date
-  return d.toISOString().slice(0, 7) === dateString;
-};
+  if (!dNum && dNum !== 0) return false // NaN value, Invalid date
+  return d.toISOString().slice(0, 7) === dateString
+}
 
 /**
  * Middleware function that runs our error validation
@@ -60,23 +60,23 @@ const checkErrors = template => {
   return (req, res, next) => {
     // check to see if the requests should respond with JSON
     if (req.body.json) {
-      return checkErrorsJSON(req, res, next);
+      return checkErrorsJSON(req, res, next)
     }
 
-    const errors = validationResult(req);
+    const errors = validationResult(req)
 
-    saveSessionData(req);
+    saveSessionData(req)
 
     if (!errors.isEmpty()) {
       return renderPageWithErrors(req, res, {
         template,
-        errors: errorArray2ErrorObject(errors)
-      });
+        errors: errorArray2ErrorObject(errors),
+      })
     }
 
-    return next();
-  };
-};
+    return next()
+  }
+}
 
 /**
 * @param options template
@@ -96,16 +96,16 @@ const checkErrors = template => {
 const renderPageWithErrors = (
   req,
   res,
-  options = { template: "", errors: [] }
+  options = { template: '', errors: [] },
 ) => {
   return res.status(422).render(options.template, {
     data: getSessionData(req),
     nonce: generateNonce(),
     name: options.template,
     body: req.body,
-    errors: options.errors
-  });
-};
+    errors: options.errors,
+  })
+}
 
 /**
  * @param {Object} req express request obj
@@ -113,38 +113,38 @@ const renderPageWithErrors = (
  * @param {Object} formData optional allows passing in custom form data defaults to session data
  */
 const validateRouteData = async (req, routePath, formData = {}) => {
-  const domain = getDomain(req);
-  const url = `${domain}/${routePath}`;
-  const data = isEmptyObject(formData) ? getSessionData(req) : formData;
+  const domain = getDomain(req)
+  const url = `${domain}/${routePath}`
+  const data = isEmptyObject(formData) ? getSessionData(req) : formData
   // tag on nonce data
-  data.nonce = generateNonce();
+  data.nonce = generateNonce()
   // flag that we want the reponse to be json data
-  data.json = true;
+  data.json = true
 
   return new Promise((resolve, reject) => {
     request.post({ url, form: data }, (err, httpResponse, body) => {
       if (err) {
-        resolve(err.message);
+        resolve(err.message)
       }
 
       if (!isEmptyObject(JSON.parse(body))) {
-        resolve({ status: false, errors: JSON.parse(body) });
+        resolve({ status: false, errors: JSON.parse(body) })
       } else {
-        resolve({ status: true });
+        resolve({ status: true })
       }
-    });
-  });
-};
+    })
+  })
+}
 
 const checkErrorsJSON = (req, res, next) => {
-  const errors = validationResult(req);
+  const errors = validationResult(req)
 
   if (!errors.isEmpty()) {
-    return res.json(errorArray2ErrorObject(errors));
+    return res.json(errorArray2ErrorObject(errors))
   }
 
-  return res.json({});
-};
+  return res.json({})
+}
 
 /* Pug filters */
 
@@ -154,25 +154,25 @@ const checkErrorsJSON = (req, res, next) => {
  * ex. if we're trying to get to data.personal.maritalStatus
  * pass as hasData(data, 'personal.maritalStatus')
  */
-const hasData = (obj = {}, key = "") => {
-  return key.split(".").every(x => {
+const hasData = (obj = {}, key = '') => {
+  return key.split('.').every(x => {
     if (
-      typeof obj != "object" ||
+      typeof obj != 'object' ||
       obj === null ||
       !obj.hasOwnProperty(x) || // eslint-disable-line no-prototype-builtins
       obj[x] === null ||
-      obj[x] === ""
+      obj[x] === ''
     ) {
-      return false;
+      return false
     }
-    obj = obj[x];
-    return true;
-  });
-};
+    obj = obj[x]
+    return true
+  })
+}
 
 const generateNonce = () => {
-  return nn.generate(120000);
-};
+  return nn.generate(120000)
+}
 
 const checkNonce = (req, res, next) => {
   // @todo
@@ -190,12 +190,12 @@ const checkNonce = (req, res, next) => {
     }
     */
 
-  next();
-};
+  next()
+}
 
 const isEmptyObject = obj => {
-  return Object.entries(obj).length === 0 && obj.constructor === Object;
-};
+  return Object.entries(obj).length === 0 && obj.constructor === Object
+}
 
 module.exports = {
   errorArray2ErrorObject,
@@ -207,5 +207,5 @@ module.exports = {
   generateNonce,
   checkNonce,
   isEmptyObject,
-  renderPageWithErrors
-};
+  renderPageWithErrors,
+}
