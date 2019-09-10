@@ -79,8 +79,10 @@ const nunjucks = require("nunjucks");
 
 nunjucks.configure([...app.get("views"), 'views/macros'], {
   autoescape: true,
-  express: app
+  express: app,
 });
+
+nunjucks.installJinjaCompat();
 
 app.set('view engine', 'njk');
 
