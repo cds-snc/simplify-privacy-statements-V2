@@ -17,13 +17,10 @@ block content
 
     +textInput('form.passport_expiry', null, 'form.passport_expiry.desc')(class='w-3-4', id='expiry' name='expiry', autofocus, value=data.expiry)
     
-    +textArea('form.address', null, 'form.address.desc')(class='w-3-4', id='address' name='address', autofocus, value=data.address)
+    +textArea('form.address', null, 'form.address.desc', data.address)(class='w-3-4', id='address' name='address', autofocus)
     
-    +radioButtons('send_notifications', {1:'Yes',2:'No'}, data.card_type, 'form.send_notifications', errors)
+    +radioButtons('send_notifications', {1:'Yes',2:'No'}, data.send_notifications, 'form.send_notifications', errors)
     
     +checkBoxes('notify_type', {1:'SMS',2:'Email'}, data.notify_type, 'form.notify_by', errors)
-
-    input(name='name', type='hidden', value=name)
-    input(name='nonce', type='hidden', value=nonce)
 
     +formButtons()

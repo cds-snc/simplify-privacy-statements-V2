@@ -7,7 +7,8 @@
   more docs here: https://expressjs.com/en/resources/middleware/cookie-session.html
 */
 const oneHour = 1000 * 60 * 60
-const sessionName = `ctb-${process.env.COOKIE_SECRET || Math.floor(new Date().getTime() / oneHour)}`
+const sessionName = `ctb-${process.env.COOKIE_SECRET ||
+  Math.floor(new Date().getTime() / oneHour)}`
 
 const cookieSessionConfig = {
   name: sessionName,

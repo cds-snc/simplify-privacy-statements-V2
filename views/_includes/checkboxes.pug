@@ -1,12 +1,18 @@
-mixin checkBoxes(key, values, value, question, errors = false)
+- var hasValue = function (values, val) {
+-   if(!values || !values.length) return false
+-   return values.includes(val)
+- }
+
+mixin checkBoxes(key, values, selectedVals, question, errors = false)
   div(class={['has-error']: errors && errors[key]})
-    fieldset.fieldset
+    fieldset.fieldset(id=key)
       legend.fieldset__legend #{__(question)}
       .multiple-choice.multiple-choice--checkboxes
         if errors && errors[key] && errors[key].msg
           +validationMessage(errors[key].msg, key)
         
         each val, index in values
+          - var selected = hasValue(selectedVals, val)
           .multiple-choice__item
-            input(id=`${key}${val}` name=key type="checkbox" value=`${val}` checked=(value ==`${val}`) aria-describedby=(errors ? `${key}-error` : false))
+            input(id=`${key}${val}` name=key type="checkbox" value=`${val}` checked=(selected) aria-describedby=(errors ? `${key}-error` : false))
             label(for=`${key}${val}`) #{`${val}`}
