@@ -1,5 +1,18 @@
 # Azure deployment
 
+## Requirements
+
+- [Terraform](https://www.terraform.io/)
+- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+
+Login to Auzure with Azure CLI:
+
+```sh
+az login
+```
+
+## .tfvars files
+
 Note that you will create a few `terraform.tfvars` files in the following steps using examples provided. These files should generally be managed as part of your configuration and so should be included in version control.
 
 ## 1. Bootstrap - Configure remote state storage
