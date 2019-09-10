@@ -17,6 +17,14 @@ The name variable will be used to name various resources:
 - The Storage Account name will be in the form: `[lower(ServiceName)]tfstorage`
 - The Storage Container name will be in the form: `[lower(ServiceName)]-remote-state-container`
 
+Note that it is best to use the same Service Name in both this bootstrap step, and in the deploy infrastructure step.
+
+```sh
+terraform init
+terraform plan
+terraform apply
+```
+
 Outputs:
 
 - storage_account_name
