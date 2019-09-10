@@ -4,7 +4,7 @@
 if errors
   -var firstError = errors[Object.keys(errors)[0]]
 
-mixin textArea(label, divClasses, hintText)
+mixin textArea(label, divClasses, hintText, value)
   div(
     class={['has-error']: errors && errors[attributes.name]}
     class=divClasses
@@ -30,4 +30,4 @@ mixin textArea(label, divClasses, hintText)
       id=(attributes.id || attributes.name)
       aria-describedby=(errors && errors[attributes.name] ? attributes.name + '-error' : false)
       autofocus=(errors && firstError.param === attributes.name ? true : false)
-    )&attributes(attributes)
+    )&attributes(attributes) !{value}
