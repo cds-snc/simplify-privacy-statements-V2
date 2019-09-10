@@ -1,0 +1,18 @@
+{% from 'validationMessage.njk' import validationMessage as validationMessage with context %}
+
+{% if errors %}
+    {% set firstError = errors[errors.keys()[0]] %}
+{% endif %}
+
+{% macro textInput(label, divClasses, hintText, attributes) %}
+    <div class="{{ 'has-error' if errors and errors[attributes.name] }} {{ divClasses }}">
+        <label for="{{ attributes.name }}" id="{{ attributes.name }}__label">{{ __(label) }}</label>
+        {% if hintText %}
+            <span class="form-message">{{ hintText }}</span>
+        {% endif %}
+        {% if errors and errors[attributes.name] %}
+            {{ validationMessage(errors[attributes.name].msg, attributes.name) }}
+        {% endif %}
+        <input class="{{ attributes.class }}" autocomplete="{{ attributes.autocomplete }}" type="text" id="{{ attributes.id if attributes.id else attributes.name }}" aria-describedby="{{ attributes.name + '-error' if errors and errors[attributes.name]  else false }}" autofocus="autofocus" name="{{ attributes.name }}" value="{{ attributes.value }}"/>
+    </div>
+{% endmacro %}

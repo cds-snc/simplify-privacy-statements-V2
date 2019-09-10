@@ -1,4 +1,4 @@
-{% import 'forms.njk' as forms %}
+{% from 'input-text.njk' import textInput as textInput with context %}
 
 <!DOCTYPE html>
 <html lang="{{ 'en' if getLocale() === 'fr' else 'en' }}">
