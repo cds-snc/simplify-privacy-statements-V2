@@ -52,6 +52,13 @@ Configure the following variables in terraform.tfvars (there is an example file 
 - **docker_image** (ex: mycdsservice/node-app)
 - **docker_image_tag** (ex: latest)
 
+The name variable will be used to name various resources:
+
+- The Resource Group name will be in the form: `[ServiceName]-resources-RG`
+- The Container registry will be in the form: `[ServiceName]`
+- The App Service Plan name will be in the form: `[ServiceName]-asp`
+- The App Service name will be in the form: `[ServiceName]-appservice`
+
 Run terraform init with the backend config from previous step:
 
 `terraform init -backend-config=backend.tfvars`
@@ -85,6 +92,13 @@ example: `docker build --tag mycdsservice.azurecr.io/mycdsservice/node-app:lates
 example: `docker push mycdsservice.azurecr.io/mycdsservice/node-app:latest`
 
 Once you've pushed this image, the app service should pull it in and start up. You can login to Azure and check container logs if things aren't working right.
+
+To get the URL for your new service:
+
+1. Login to Azure
+2. Find your Resource Group (ex: `MyCDSService-resources-RG`)
+3. Find your App Serivce (ex: `MyCDSService-appservice`)
+4. On the Overview tab, find the URL property.
 
 ## 4. Setup autodeploy
 
