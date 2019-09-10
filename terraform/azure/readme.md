@@ -64,7 +64,7 @@ If everything looks good, apply the changes.
 
 `terraform apply`
 
-Your infrastructure should now be running. The previous command will output some information you will need for deploying your container.
+Your infrastructure should now be running. The previous command will output some information you will need to deploy your container.
 
 ## 3. Deploy your container
 
