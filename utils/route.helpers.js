@@ -19,18 +19,20 @@ const checkPublic = function(req, res, next) {
 /**
  * attempt to auto redirect based on the next route it the route config
  */
-const doRedirect = (req, res, next) => {
-  if (req.body.json) {
-    return next()
+const doRedirect = routeName => {
+  return (req, res, next) => {
+    if (req.body.json) {
+      return next()
+    }
+
+    const nextRoute = getNextRoute(routeName)
+
+    if (!nextRoute.path) {
+      throw new Error(`[POST ${req.path}] 'redirect' missing`)
+    }
+
+    return res.redirect(nextRoute.path)
   }
-
-  const nextRoute = getNextRoute(req.body.name)
-
-  if (!nextRoute.path) {
-    throw new Error(`[POST ${req.path}] 'redirect' missing`)
-  }
-
-  return res.redirect(nextRoute.path)
 }
 
 /**
@@ -42,9 +44,7 @@ const getPreviousRoute = (name, routes = defaultRoutes) => {
   const route = getRouteWithIndexByName(name, routes)
 
   if (!route || (!'index' in route && process.env.NODE_ENV !== 'production')) {
-    throw new Error(
-      "Next route error.  \n Did you miss the name input in your form? \n i.e. input(name='name', type='hidden', value=name)",
-    )
+    throw new Error(`Previous route error can't find => "${name}"`)
   }
 
   const prevRoute = routes[Number(route.index) - 1]
@@ -67,9 +67,7 @@ const getNextRoute = (name, routes = defaultRoutes) => {
   const route = getRouteWithIndexByName(name, routes)
 
   if (!route || (!'index' in route && process.env.NODE_ENV !== 'production')) {
-    throw new Error(
-      "Next route error.  \n Did you miss the name input in your form? \n i.e. input(name='name', type='hidden', value=name)",
-    )
+    throw new Error(`Next route error can't find => "${name}"`)
   }
 
   const nextRoute = routes[Number(route.index) + 1]
@@ -118,7 +116,7 @@ const getDefaultMiddleware = options => {
     checkNonce,
     checkSchema(options.schema),
     checkErrors(options.name),
-    doRedirect,
+    doRedirect(options.name),
   ]
 }
 

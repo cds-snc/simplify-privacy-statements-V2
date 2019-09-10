@@ -46,5 +46,11 @@
   "form.address": "Address",
   "form.address.desc": "Enter your current address",
   "errors.send_notifications.valid": "errors.send_notifications.valid",
-  "errors.notify_type": "errors.notify_type"
+  "errors.notify_type": "errors.notify_type",
+  "Cannot read property 'length' of undefined": "Cannot read property 'length' of undefined",
+  "test": "test",
+  "dsfdsf": "dsfdsf",
+  "value 111": "value 111",
+  "TEXTDFDF": "TEXTDFDF",
+  "TEXT 111": "TEXT 111"
 }
