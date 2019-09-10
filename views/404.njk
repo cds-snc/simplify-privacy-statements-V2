@@ -1,0 +1,14 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+    <h1>{{ __('404') }}</h1>
+    <div>
+        <p>{{ __('Page not found') }}</p>
+    </div>
+
+    {% if message %}
+        <pre class="error">{{ message }}</pre>
+    {% endif %}
+
+{% endblock %}

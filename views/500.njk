@@ -1,0 +1,14 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+    <h1>{{ __('500') }}</h1>
+    <div>
+        <p>{{ __('Internal server error') }}</p>
+    </div>
+
+    {% if message %}
+        <pre class="error">{{ message }}</pre>
+    {% endif %}
+
+{% endblock %}
