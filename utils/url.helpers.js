@@ -5,49 +5,49 @@
  * From this point onwards, all of the site's content will be in the user's preferred language.
  */
 
-const oneHour = 1000 * 60 * 60 * 1;
+const oneHour = 1000 * 60 * 60 * 1
 
 const checkLangQuery = function(req, res, next) {
-  let lang = "en";
+  let lang = 'en'
   if (req && req.query && req.query.lang) {
-    lang = req.query.lang;
+    lang = req.query.lang
   }
 
-  if (lang === "en" || lang === "fr") {
-    res.cookie("lang", lang, {
+  if (lang === 'en' || lang === 'fr') {
+    res.cookie('lang', lang, {
       httpOnly: true,
       maxAge: oneHour,
-      sameSite: "strict"
-    });
+      sameSite: 'strict',
+    })
   }
 
-  return next();
-};
+  return next()
+}
 
 /**
  * get the domain for the app from the request obj
  */
 const getDomain = req => {
-  const protocol = getHostProtocol(req);
-  
+  const protocol = getHostProtocol(req)
+
   if (!req || !req.headers || !req.headers.host) {
-    throw new Error("req missing host");
+    throw new Error('req missing host')
   }
 
-  const host = req.headers.host;
-  return `${protocol}://${host}`;
-};
+  const host = req.headers.host
+  return `${protocol}://${host}`
+}
 
 const getHostProtocol = req => {
   if (req && req.secure) {
-    return "https";
+    return 'https'
   }
 
-  return "http";
-};
+  return 'http'
+}
 
 module.exports = {
   checkLangQuery,
   getDomain,
-  getHostProtocol
-};
+  getHostProtocol,
+}

@@ -11,6 +11,7 @@
   "scripts": {
     "dev": "NODE_ENV=development nodemon ./bin/www",
     "lint": "node_modules/eslint/bin/eslint.js config routes bin/www app.js",
+    "prettier": "prettier --write '**/*.{ts,js,css,html}'",
     "start": "NODE_ENV=production node ./bin/www",
     "test": "node node_modules/jest/bin/jest.js --coverage",
     "test:watch": "node node_modules/jest/bin/jest.js --watch"

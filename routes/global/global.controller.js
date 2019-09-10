@@ -1,40 +1,40 @@
 module.exports = app => {
   // clear session
 
-  app.get("/test-500", (req, res) => {
-    throw new Error("something bad");
-  });
+  app.get('/test-500', (req, res) => {
+    throw new Error('something bad')
+  })
 
-  app.get("/clear", (req, res) => {
-    req.session = null;
-    res.redirect(302, "/");
-  });
+  app.get('/clear', (req, res) => {
+    req.session = null
+    res.redirect(302, '/')
+  })
 
   app.use(function(req, res, next) {
-    res.status(404);
+    res.status(404)
 
-    let message = false;
+    let message = false
 
-    const routePath = req.path;
+    const routePath = req.path
 
-    if (process.env.NODE_ENV !== "production") {
-      message = `❌ Forgot to add this route? \n\nAdd the following to config/routes.config.js: \n\nconst routes = [{ name: "${routePath}", path: "${routePath}" }]\n ...\n configRoutes(app){\n  require("../routes${routePath}${routePath}.controller")(app);\n}`;
+    if (process.env.NODE_ENV !== 'production') {
+      message = `❌ Forgot to add this route? \n\nAdd the following to config/routes.config.js: \n\nconst routes = [{ name: "${routePath}", path: "${routePath}" }]\n ...\n configRoutes(app){\n  require("../routes${routePath}${routePath}.controller")(app);\n}`
     }
 
-    res.render("404", { message });
-  });
+    res.render('404', { message })
+  })
 
   app.use(function(err, req, res, next) {
-    res.status(500);
+    res.status(500)
 
-    console.error(`☠️ Error => ${err.message}`);
+    console.error(`☠️ Error => ${err.message}`)
 
-    let message = false;
+    let message = false
 
-    if (process.env.NODE_ENV !== "production") {
-      message = `❌ ${err.message}`;
+    if (process.env.NODE_ENV !== 'production') {
+      message = `❌ ${err.message}`
     }
 
-    res.render("500", { message });
-  });
-};
+    res.render('500', { message })
+  })
+}

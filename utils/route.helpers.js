@@ -1,37 +1,37 @@
-const { checkSchema } = require("express-validator");
-const { routes: defaultRoutes } = require("../config/routes.config");
-const { checkNonce, checkErrors } = require("./validate.helpers");
+const { checkSchema } = require('express-validator')
+const { routes: defaultRoutes } = require('../config/routes.config')
+const { checkNonce, checkErrors } = require('./validate.helpers')
 
-const DefaultRouteObj = { name: false, path: false };
+const DefaultRouteObj = { name: false, path: false }
 
 /**
  * This request middleware checks if we are visiting a public path
  */
 const checkPublic = function(req, res, next) {
-  const publicPaths = ["/", "/clear", "/start"];
+  const publicPaths = ['/', '/clear', '/start']
   if (publicPaths.includes(req.path)) {
-    return next();
+    return next()
   }
 
-  return next();
-};
+  return next()
+}
 
 /**
  * attempt to auto redirect based on the next route it the route config
  */
 const doRedirect = (req, res, next) => {
   if (req.body.json) {
-    return next();
+    return next()
   }
 
-  const nextRoute = getNextRoute(req.body.name);
+  const nextRoute = getNextRoute(req.body.name)
 
   if (!nextRoute.path) {
-    throw new Error(`[POST ${req.path}] 'redirect' missing`);
+    throw new Error(`[POST ${req.path}] 'redirect' missing`)
   }
 
-  return res.redirect(nextRoute.path);
-};
+  return res.redirect(nextRoute.path)
+}
 
 /**
  * @param {String} name route name
@@ -39,24 +39,24 @@ const doRedirect = (req, res, next) => {
  * @returns { name: "", path: "" }
  */
 const getPreviousRoute = (name, routes = defaultRoutes) => {
-  const route = getRouteWithIndexByName(name, routes);
+  const route = getRouteWithIndexByName(name, routes)
 
-  if (!route || (!"index" in route && process.env.NODE_ENV !== "production")) {
+  if (!route || (!'index' in route && process.env.NODE_ENV !== 'production')) {
     throw new Error(
-      "Next route error.  \n Did you miss the name input in your form? \n i.e. input(name='name', type='hidden', value=name)"
-    );
+      "Next route error.  \n Did you miss the name input in your form? \n i.e. input(name='name', type='hidden', value=name)",
+    )
   }
 
   const prevRoute = routes[Number(route.index) - 1]
     ? routes[Number(route.index) - 1]
-    : false;
+    : false
 
   if (!prevRoute) {
-    return DefaultRouteObj;
+    return DefaultRouteObj
   }
 
-  return prevRoute;
-};
+  return prevRoute
+}
 
 /**
  * @param {String} name route name
@@ -64,24 +64,24 @@ const getPreviousRoute = (name, routes = defaultRoutes) => {
  * @returns { name: "", path: "" }
  */
 const getNextRoute = (name, routes = defaultRoutes) => {
-  const route = getRouteWithIndexByName(name, routes);
+  const route = getRouteWithIndexByName(name, routes)
 
-  if (!route || (!"index" in route && process.env.NODE_ENV !== "production")) {
+  if (!route || (!'index' in route && process.env.NODE_ENV !== 'production')) {
     throw new Error(
-      "Next route error.  \n Did you miss the name input in your form? \n i.e. input(name='name', type='hidden', value=name)"
-    );
+      "Next route error.  \n Did you miss the name input in your form? \n i.e. input(name='name', type='hidden', value=name)",
+    )
   }
 
   const nextRoute = routes[Number(route.index) + 1]
     ? routes[Number(route.index) + 1]
-    : false;
+    : false
 
   if (!nextRoute) {
-    return DefaultRouteObj;
+    return DefaultRouteObj
   }
 
-  return nextRoute;
-};
+  return nextRoute
+}
 
 /**
  * @param {String} name route name
@@ -89,8 +89,8 @@ const getNextRoute = (name, routes = defaultRoutes) => {
  * @returns { name: "", path: "" }
  */
 const getRouteByName = (name, routes = defaultRoutes) => {
-  return getRouteWithIndexByName(name, routes).route;
-};
+  return getRouteWithIndexByName(name, routes).route
+}
 
 /**
  * @param {String} name route name
@@ -98,29 +98,29 @@ const getRouteByName = (name, routes = defaultRoutes) => {
  * @returns { index: "1", route: { name: "start", path: "/start" } }
  */
 const getRouteWithIndexByName = (name, routes = defaultRoutes) => {
-  const index = routes.findIndex(r => r.name === name);
-  if (index >= 0) return { index, route: routes[index] };
-};
+  const index = routes.findIndex(r => r.name === name)
+  if (index >= 0) return { index, route: routes[index] }
+}
 
 const configRoutes = (app, routes = []) => {
   // require the controllers defined in the routes
   // dir and file name based on the route name
   routes.forEach(routeObj => {
-    const routeName = routeObj.name;
-    require(`../routes/${routeName}/${routeName}.controller`)(app);
-  });
+    const routeName = routeObj.name
+    require(`../routes/${routeName}/${routeName}.controller`)(app)
+  })
 
-  require("../routes/global/global.controller")(app);
-};
+  require('../routes/global/global.controller')(app)
+}
 
 const getDefaultMiddleware = options => {
   return [
     checkNonce,
     checkSchema(options.schema),
     checkErrors(options.name),
-    doRedirect
-  ];
-};
+    doRedirect,
+  ]
+}
 
 module.exports = {
   configRoutes,
@@ -130,5 +130,5 @@ module.exports = {
   getNextRoute,
   getRouteByName,
   getRouteWithIndexByName,
-  getDefaultMiddleware
-};
+  getDefaultMiddleware,
+}

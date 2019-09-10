@@ -1,15 +1,15 @@
-const isValidDate = require("../../utils/").isValidDate;
+const isValidDate = require('../../utils/').isValidDate
 
 const Schema = {
   fullname: {
     isLength: {
-      errorMessage: "errors.fullname.length",
+      errorMessage: 'errors.fullname.length',
       options: { min: 3, max: 200 },
     },
   },
   email: {
     isLength: {
-      errorMessage: "errors.email.length",
+      errorMessage: 'errors.email.length',
       options: { min: 3, max: 200 },
     },
   },
@@ -17,35 +17,35 @@ const Schema = {
     customSanitizer: {
       options: value => {
         // We want to remove any spaces, dash or underscores
-        return value ? value.replace(/[_]*/g, "") : value;
+        return value ? value.replace(/[_]*/g, '') : value
       },
-      errorMessage: "errors.expiry.date.format",
+      errorMessage: 'errors.expiry.date.format',
     },
     custom: {
       options: (value, { req }) => {
-        return isValidDate(value);
+        return isValidDate(value)
       },
-      errorMessage: "errors.expiry.date",
+      errorMessage: 'errors.expiry.date',
     },
   },
   send_notifications: {
     isIn: {
-      errorMessage: "errors.send_notifications.valid",
-      options: [["Yes", "No"]],
+      errorMessage: 'errors.send_notifications.valid',
+      options: [['Yes', 'No']],
     },
   },
 
   notify_type: {
     custom: {
       options: (value, { req }) => {
-        console.log("val",value)
+        console.log('val', value)
         // return isValidDate(value);
       },
-      errorMessage: "errors.notify_type",
+      errorMessage: 'errors.notify_type',
     },
   },
-};
+}
 
 module.exports = {
   Schema,
-};
+}

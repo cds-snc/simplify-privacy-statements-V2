@@ -1,6 +1,6 @@
 {
   "semi": false,
-  "parser": "babylon",
+  "parser": "babel",
   "singleQuote": true,
   "trailingComma": "all"
 }
