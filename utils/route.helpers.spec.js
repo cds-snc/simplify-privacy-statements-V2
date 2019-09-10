@@ -58,28 +58,38 @@ test("getNextRoute will throw an error when missing params", () => {
   }).toThrow();
 });
 
-test("Calls redirect if it finds the next route", () => {
-  const req = { body: { name: "start" } };
-  const next = jest.fn();
-  const redirectMock = jest.fn();
-  const res = {
-    query: {},
-    headers: {},
-    data: null,
-    redirect: () => {
-      redirectMock();
-    }
+describe("doRedirect", () => {
+  const runMiddleWare = routeName => {
+    return (req, res, next) => {
+      return doRedirect(routeName)(req, res, next);
+    };
   };
-  doRedirect(req, res, next);
-  expect(next.mock.calls.length).toBe(0);
-  expect(redirectMock.mock.calls.length).toBe(1);
-});
 
-test("Calls next if json is requested", () => {
-  const req = { body: { json: true } };
-  const next = jest.fn();
-  doRedirect(req, {}, next);
-  expect(next.mock.calls.length).toBe(1);
+  test("Calls redirect if it finds the next route", () => {
+    const req = { body: {} };
+    const next = jest.fn();
+    const redirectMock = jest.fn();
+    const res = {
+      query: {},
+      headers: {},
+      data: null,
+      redirect: () => {
+        redirectMock();
+      }
+    };
+
+    runMiddleWare("start")(req, res, next);
+    expect(next.mock.calls.length).toBe(0);
+    expect(redirectMock.mock.calls.length).toBe(1);
+  });
+
+  test("Calls next if json is requested", () => {
+    const req = { body: { json: true } };
+    const next = jest.fn();
+    const res = {};
+    runMiddleWare("start")(req, res, next);
+    expect(next.mock.calls.length).toBe(1);
+  });
 });
 
 test("Can retreive an array of middleware", () => {

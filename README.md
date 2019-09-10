@@ -59,11 +59,11 @@ Note: Delete unused route(s) directories as needed.
 
 ## Passing data to views
 
-Saved data is available via getSessionData(req) or getViewData(req, name)
+Saved data is available via getSessionData(req) or getViewData(req)
 
 ```javascript
 app.get(route.path, (req, res) => {
-  res.render(name, routeUtils.getViewData(req, name));
+  res.render(name, routeUtils.getViewData(req));
 });
 ```
 
