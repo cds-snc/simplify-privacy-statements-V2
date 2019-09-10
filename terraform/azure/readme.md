@@ -1,5 +1,7 @@
 # Azure deployment
 
+Note that you will create a few `terraform.tfvars` files in the following steps using examples provided. These files should generally be managed as part of your configuration and so should be included in version control.
+
 ## 1. Bootstrap - Configure remote state storage
 
 There are a few variables that can be set in a `terraform.tfvars` file - if you don't set them, you will be prompted for them:
@@ -88,7 +90,7 @@ You will need to configure the following variables in terraform.tfvars (there is
 - **container_registry** (ex: "MyCDSService")
 - **location** (ex: "canadacentral")
 
-Since .tfvars files should generally be committed as part of infrastructure, we recommend that you **not** save the webhook_uri in terraform.tfvars. Instead, run the commands below and you will be prompted to enter the webhook_uri (copied above) as part of the deploy process.
+Since .tfvars files should generally be committed as part of infrastructure, we recommend that you **not** save the webhook_uri in terraform.tfvars. Instead, run the commands below and you will be prompted by terraform to enter the webhook_uri (copied above).
 
 `terraform plan`
 `terraform apply`
