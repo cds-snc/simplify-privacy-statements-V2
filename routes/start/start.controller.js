@@ -2,7 +2,7 @@ const path = require("path");
 const {
   getNextRoute,
   getRouteByName,
-  addViewPath
+  addViewPath,
 } = require("../../utils/index");
 
 module.exports = app => {

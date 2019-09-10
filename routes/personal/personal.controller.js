@@ -13,6 +13,6 @@ module.exports = app => {
       res.render(name, routeUtils.getViewData(req, name));
     })
     .post(route.path, [
-      ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name })
+      ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name }),
     ]);
 };

@@ -15,10 +15,10 @@ module.exports = app => {
 
     let message = false;
 
-    const route_path = req.path;
+    const routePath = req.path;
 
     if (process.env.NODE_ENV !== "production") {
-      message = `❌ Forgot to add this route? \n\nAdd the following to config/routes.config.js: \n\nconst routes = [{ name: "${route_path}", path: "${route_path}" }]\n ...\n configRoutes(app){\n  require("../routes${route_path}${route_path}.controller")(app);\n}`;
+      message = `❌ Forgot to add this route? \n\nAdd the following to config/routes.config.js: \n\nconst routes = [{ name: "${routePath}", path: "${routePath}" }]\n ...\n configRoutes(app){\n  require("../routes${routePath}${routePath}.controller")(app);\n}`;
     }
 
     res.render("404", { message });

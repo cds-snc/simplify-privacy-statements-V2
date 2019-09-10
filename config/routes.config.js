@@ -2,7 +2,7 @@
 const routes = [
   { name: "start", path: "/start" },
   { name: "personal", path: "/personal" },
-  { name: "confirmation", path: "/confirmation" }
+  { name: "confirmation", path: "/confirmation" },
 ];
 
 // note: you can define and export a custom configRoutes function here
@@ -10,5 +10,5 @@ const routes = [
 // if configRoutes is defined here it will be used in pacle of the default
 
 module.exports = {
-  routes
+  routes,
 };

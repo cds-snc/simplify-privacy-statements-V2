@@ -2,16 +2,16 @@
 require("dotenv").config();
 
 // import node modules.
-const express = require("express"),
-  cookieParser = require("cookie-parser"),
-  compression = require("compression"),
-  helmet = require("helmet"),
-  sassMiddleware = require("node-sass-middleware"),
-  path = require("path"),
-  cookieSession = require("cookie-session"),
-  cookieSessionConfig = require("./config/cookieSession.config"),
-  { hasData, checkPublic, checkLangQuery } = require("./utils"),
-  csp = require("./config/csp.config");
+const express = require("express");
+  const cookieParser = require("cookie-parser");
+  const compression = require("compression");
+  const helmet = require("helmet");
+  const sassMiddleware = require("node-sass-middleware");
+  const path = require("path");
+  const cookieSession = require("cookie-session");
+  const cookieSessionConfig = require("./config/cookieSession.config");
+  const { hasData, checkPublic, checkLangQuery } = require("./utils");
+  const csp = require("./config/csp.config");
 
 // check to see if we have a custom configRoutes function
 let { configRoutes, routes } = require("./config/routes.config");
@@ -42,7 +42,7 @@ app.use(
     debug: false,
     indentedSyntax: false, // look for .scss files, not .sass files
     sourceMap: true,
-    outputStyle: "compressed"
+    outputStyle: "compressed",
   })
 );
 

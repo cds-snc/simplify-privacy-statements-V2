@@ -8,7 +8,7 @@ test("Can send get request personal route ", async () => {
   expect(response.statusCode).toBe(200);
 });
 
-//@todo test sending a form request
+// @todo test sending a form request
 test("Can send post request personal route ", async () => {
   const route = getRouteByName("personal");
   const response = await request(app).post(route.path);
@@ -18,7 +18,7 @@ test("Can send post request personal route ", async () => {
 jest.mock("../../utils/flash.message.helpers", () => ({
   getFlashMessage: jest.fn(req => {
     return [{ param: "testerror", msg: "caught this error" }];
-  })
+  }),
 }));
 
 test("Display errors on the page", async () => {
