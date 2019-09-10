@@ -22,7 +22,9 @@
                 {% include "_includes/fip.njk" %}
             </header>
             <main>
-                <!-- todo: errors -->
+                {% if errors %}
+                    {% include "_includes/errorList.njk" %}
+                {% endif %}
 
                 {% block content %}{% endblock %}
             </main>
