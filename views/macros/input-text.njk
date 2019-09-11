@@ -1,3 +1,9 @@
+{#
+  - `label`: text for the label
+  - `divClasses`: any classes to be applied to the wrapper div (but not the input itself)
+  - `hintText`: any text that appears above the input in light grey (ex. Optional)
+#}
+
 {% from 'validationMessage.njk' import validationMessage as validationMessage with context %}
 
 {% if errors %}
@@ -5,6 +11,8 @@
 {% endif %}
 
 {% macro textInput(label, divClasses, hintText, attributes) %}
+    {{ firstError.param }}
+    {{ attributes.name }}
     <div class="{{ 'has-error' if errors and errors[attributes.name] }} {{ divClasses }}">
         <label for="{{ attributes.name }}" id="{{ attributes.name }}__label">{{ __(label) }}</label>
         {% if hintText %}
@@ -13,6 +21,6 @@
         {% if errors and errors[attributes.name] %}
             {{ validationMessage(errors[attributes.name].msg, attributes.name) }}
         {% endif %}
-        <input class="{{ attributes.class }}" autocomplete="{{ attributes.autocomplete }}" type="text" id="{{ attributes.id if attributes.id else attributes.name }}" aria-describedby="{{ attributes.name + '-error' if errors and errors[attributes.name]  else false }}" autofocus="autofocus" name="{{ attributes.name }}" value="{{ attributes.value }}"/>
+        <input class="{{ attributes.class }}" autocomplete="{{ attributes.autocomplete }}" type="text" id="{{ attributes.id if attributes.id else attributes.name }}" aria-describedby="{{ attributes.name + '-error' if errors and errors[attributes.name]  else false }}" autofocus="{{ true if errors and firstError.param === attributes.name else false }}" name="{{ attributes.name }}" value="{{ attributes.value }}"/>
     </div>
 {% endmacro %}
