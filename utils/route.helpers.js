@@ -26,7 +26,6 @@ const doRedirect = routeName => {
     }
 
     const nextRoute = getNextRoute(routeName)
-
     if (!nextRoute.path) {
       throw new Error(`[POST ${req.path}] 'redirect' missing`)
     }
