@@ -1,17 +1,17 @@
 {% from 'validationMessage.njk' import validationMessage as validationMessage with context %}
 
-{% macro checkBoxes(key, values, selectedVals, question, errors = false, attributes) %}
+{% macro checkBoxes(key, values, selectedVals, question, errors, attributes) %}
     <div class="{{ 'has-error' if errors and errors[key] }}">
         <fieldset class="fieldset">
             <legend class="fieldset__legend">{{ __(question) }}</legend>
         </fieldset>
         <div class="multiple-choice multiple-choice--checkboxes">
             {% if errors and errors[key] %}
-                {{ validationMessage(errors[attributes.name].msg, key) }}
+                {{ validationMessage(errors[key].msg, key) }}
             {% endif %}
             {% for index, val in values %}
                 <div class="multiple-choice__item">
-                    <input id="{{ key }}{{ val }}" name="{{ key }}" type="checkbox" value="{{ val }}" {% if selectedVals and val in selectedVals.items() %} checked="checked" {% endif %} aria-describedby="{{ key + '-error' if errors else false }}">
+                    <input id="{{ key }}{{ val }}" name="{{ key }}" type="checkbox" value="{{ val }}" {% if selectedVals and val in selectedVals %} checked="checked" {% endif %} aria-describedby="{{ key + '-error' if errors else false }}">
                     <label for="{{ key }}{{ val }}">{{ val }}</label>
                 </div>
             {% endfor %}
