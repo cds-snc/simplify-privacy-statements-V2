@@ -14,7 +14,8 @@
     "prettier": "prettier --write '**/*.{ts,js,css,html}'",
     "start": "NODE_ENV=production node ./bin/www",
     "test": "node node_modules/jest/bin/jest.js --coverage",
-    "test:watch": "node node_modules/jest/bin/jest.js --watch"
+    "test:watch": "node node_modules/jest/bin/jest.js --watch",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "commander": "^3.0.1",
@@ -48,6 +49,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^24.9.0",
     "nodemon": "^1.19.2",
+    "patch-package": "^6.1.4",
     "prettier": "^1.15.2",
     "supertest": "^4.0.2",
     "supertest-session": "^4.0.0"
