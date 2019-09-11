@@ -2,7 +2,7 @@
 
 **Demo:** https://cds-node-starter.herokuapp.com
 
-This repository provides a codebase that can be used to quickly start an application for building web-based forms that look like a Government of Canada website. It's setup with some sensible defaults and tech choices, such as:
+This repository provides a codebase that can be used to quickly build web pages or forms with a Government of Canada look-and-feel. It's setup with some sensible defaults and tech choices, such as:
 
 - Node.js 10.x
 - NVM (Node Version Manager) for install Node.js versions
