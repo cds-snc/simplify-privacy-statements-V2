@@ -11,8 +11,6 @@
 {% endif %}
 
 {% macro textInput(label, divClasses, hintText, attributes) %}
-    {{ firstError.param }}
-    {{ attributes.name }}
     <div class="{{ 'has-error' if errors and errors[attributes.name] }} {{ divClasses }}">
         <label for="{{ attributes.name }}" id="{{ attributes.name }}__label">{{ __(label) }}</label>
         {% if hintText %}
