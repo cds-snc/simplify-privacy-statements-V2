@@ -16,14 +16,7 @@
 
         {{ checkBoxes('notify_type', {'1':'SMS','2':'Email'}, data.notify_type, 'form.notify_by', errors) }}
 
-        <div class="buttons">
-            <div class="buttons--left">
-                <button type="submit">Continue</button>
-            </div>
-            <div class="buttons--right">
-                <a class="button-link transparent full-width" href="/clear">Cancel</a>
-            </div>
-        </div>
+        {{ formButtons() }}
     </form>
 
 {% endblock %}
