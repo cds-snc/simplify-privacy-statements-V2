@@ -63,15 +63,12 @@ Saved data is available via getSessionData(req) or getViewData(req)
 
 ```javascript
 app.get(route.path, (req, res) => {
-  res.render(name, routeUtils.getViewData(req));
+  res.render(name, {... routeUtils.getViewData(req, {datePlaceholder: "DD/MM/YYYY"}), });
 });
 ```
 
 ```pug
- +textInput('form.passport_expiry', null, 'form.passport_expiry.desc')(class='w-3-4', id='expiry' name='expiry', autofocus, value=data.expiry)
-
-input(name='name', type='hidden', value=name)
-input(name='nonce', type='hidden', value=nonce)
+ +textInput('form.passport_expiry', null, 'form.passport_expiry.desc')(class='w-3-4', id='expiry' name='expiry', autofocus, value=data.expiry, placeholder=data.datePlaceholder)
 ```
 
 ## Form step redirects

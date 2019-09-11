@@ -1,5 +1,5 @@
 const path = require('path')
-const { routeUtils } = require('./../../utils')
+const { getNextRoute, routeUtils } = require('./../../utils')
 const { Schema } = require('./schema.js')
 
 module.exports = app => {
@@ -10,7 +10,7 @@ module.exports = app => {
 
   app
     .get(route.path, (req, res) => {
-      res.render(name, routeUtils.getViewData(req))
+      res.render(name, {... routeUtils.getViewData(req, {}), nextRoute: getNextRoute(name).path})
     })
     .post(route.path, [
       ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name }),
