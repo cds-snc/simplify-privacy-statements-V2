@@ -1,7 +1,4 @@
-{% from 'validationMessage.njk' import validationMessage as validationMessage with context %}
-
 {% macro radioButtons(key, values, value, question, errors, attributes) %}
-
     <div class="{{ 'has-error' if errors and errors[key] }}">
         <fieldset class="fieldset">
             <legend class="fieldset__legend">{{ __(question) }}</legend>

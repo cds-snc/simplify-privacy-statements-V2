@@ -3,9 +3,6 @@
   - `divClasses`: any classes to be applied to the wrapper div (but not the input itself)
   - `hintText`: any text that appears above the input in light grey (ex. Optional)
 #}
-
-{% from 'validationMessage.njk' import validationMessage as validationMessage with context %}
-
 {% if errors %}
     {% set firstError = errors[errors.keys()[0]] %}
 {% endif %}
