@@ -1,0 +1,16 @@
+{% macro formButtons(submitButtonText = 'Continue', cancelUrl = '/clear') %}
+    <div class="buttons">
+        <div class="buttons--left">
+            <button type="submit">{{ __(submitButtonText) }}</button>
+        </div>
+        <div class="buttons--right">
+            <a class="button-link transparent full-width" href="{{ cancelUrl }}">{{ __('Cancel') }}</a>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro linkButtons(confirmURL) %}
+    <div class="buttons-row">
+        <a href="{{ confirmURL }}">{{ __('Confirm') }}</a>
+    </div>
+{% endmacro %}
