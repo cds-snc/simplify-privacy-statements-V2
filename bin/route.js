@@ -20,7 +20,7 @@ if (program.create) {
 
   const name = program.route
   const vars = { sample: program.route }
-  const inDir = path.join(path.join(__dirname, './'), '/route/{{sample}}')
+  const inDir = path.join(path.join(__dirname, './'), '/route/[[sample]]')
   const outDir = path.join(process.cwd(), `/routes/${name}`)
 
   copy(inDir, outDir, vars, (err, createdFiles) => {

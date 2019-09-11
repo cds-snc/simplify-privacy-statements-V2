@@ -1,0 +1,18 @@
+{% macro radioButtons(key, values, value, question, errors, attributes) %}
+    <div class="{{ 'has-error' if errors and errors[key] }}">
+        <fieldset class="fieldset">
+            <legend class="fieldset__legend">{{ __(question) }}</legend>
+        </fieldset>
+        <div class="multiple-choice multiple-choice--radios">
+            {% if errors and errors[key] %}
+                {{ validationMessage(errors[key].msg, attributes.name) }}
+            {% endif %}
+            {% for index, val in values %}
+                <div class="multiple-choice__item">
+                    <input id="{{ key }}{{ val }}" name="{{ key }}" type="radio" value="{{ val }}" {% if value == val %} checked="checked" {% endif %} aria-describedby="{{ key + '-error' if errors else false }}">
+                    <label for="{{ key }}{{ val }}">{{ val }}</label>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}

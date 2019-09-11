@@ -1,0 +1,43 @@
+{% from 'validationMessage.njk' import validationMessage as validationMessage with context %}
+{% from 'input-text.njk' import textInput as textInput with context %}
+{% from 'input-textarea.njk' import textArea as textArea with context %}
+{% from 'radios.njk' import radioButtons as radioButtons with context %}
+{% from 'checkboxes.njk' import checkBoxes as checkBoxes with context %}
+{% from 'buttons.njk' import formButtons as formButtons with context %}
+
+<!DOCTYPE html>
+<html lang="{{ 'en' if getLocale() === 'fr' else 'en' }}">
+
+    <head>
+        <!-- Required meta tags-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="[ALPHA] Node Starter App">
+        <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" sizes="32x32">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+        <link href="https://fonts.googleapis.com/css?family=Lato:700|Noto+Sans:400,700&amp;display=fallback" rel="stylesheet">
+        <link rel="stylesheet" href="/styles.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js" type="text/javascript"></script>
+
+        <title>{{ __('app.title') }}</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <header>
+                {% include "_includes/phaseBanner.njk" %}
+                {% include "_includes/fip.njk" %}
+            </header>
+            <main>
+                {% if errors %}
+                    {% include "_includes/errorList.njk" %}
+                {% endif %}
+
+                {% block content %}{% endblock %}
+            </main>
+            {% include "_includes/footer.njk" %}
+        </div>
+    </body>
+    {% include "_includes/script.njk" %}
+</html>

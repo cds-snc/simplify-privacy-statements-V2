@@ -1,6 +1,6 @@
 {
   "name": "node-starter-app",
-  "version": "0.0.6",
+  "version": "2.0.0",
   "description": "",
   "author": "CDS",
   "license": "MIT",
@@ -14,7 +14,8 @@
     "prettier": "prettier --write '**/*.{ts,js,css,html}'",
     "start": "NODE_ENV=production node ./bin/www",
     "test": "node node_modules/jest/bin/jest.js --coverage",
-    "test:watch": "node node_modules/jest/bin/jest.js --watch"
+    "test:watch": "node node_modules/jest/bin/jest.js --watch",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "commander": "^3.0.1",
@@ -31,11 +32,12 @@
     "node-sass": "^4.12.0",
     "node-sass-middleware": "^0.11.0",
     "nonce-next": "^1.1.0",
-    "pug": "^2.0.4",
+    "nunjucks": "^3.2.0",
     "purecss": "^1.0.1",
     "request": "^2.88.0"
   },
   "devDependencies": {
+    "acorn": "^7.0.0",
     "cheerio": "^1.0.0-rc.3",
     "eslint": "^6.3.0",
     "eslint-config-prettier": "^3.3.0",
@@ -48,11 +50,12 @@
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^24.9.0",
     "nodemon": "^1.19.2",
+    "patch-package": "^6.1.4",
     "prettier": "^1.15.2",
     "supertest": "^4.0.2",
     "supertest-session": "^4.0.0"
   },
   "nodemonConfig": {
-    "ext": "js,json,pug"
+    "ext": "js,json,njk"
   }
 }

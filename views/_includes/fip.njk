@@ -1,0 +1,12 @@
+<div class="page--container">
+    <div class="fip-container">
+        <div class="canada-flag">
+            {% if getLocale() == 'fr' %}
+                <img src="/img/sig-blk-fr.svg" alt="Gouvernement du Canada">
+            {% else %}
+                <img src="/img/sig-blk-en.svg" alt="Government of Canada">
+            {% endif %}
+        </div>
+        {% include "_includes/languageLink.njk" %}
+    </div>
+</div>

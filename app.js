@@ -68,11 +68,22 @@ app.use(checkLangQuery)
 app.locals.GITHUB_SHA = process.env.GITHUB_SHA || null
 app.locals.hasData = hasData
 
-// view engine setup
-app.locals.basedir = path.join(__dirname, './views')
-app.set('views', [path.join(__dirname, './views')])
-app.set('view engine', 'pug')
+// set default views path
+app.locals.basedir = path.join(__dirname, "./views");
+app.set("views", [path.join(__dirname, "./views")]);
 
 configRoutes(app, routes)
 
-module.exports = app
+// view engine setup
+const nunjucks = require("nunjucks");
+
+nunjucks.configure([...app.get("views"), 'views/macros'], {
+  autoescape: true,
+  express: app,
+});
+
+nunjucks.installJinjaCompat();
+
+app.set('view engine', 'njk');
+
+module.exports = app;

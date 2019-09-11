@@ -7,7 +7,7 @@ This repository provides a codebase that can be used to quickly build web pages 
 - Node.js 10.x
 - NVM (Node Version Manager) for install Node.js versions
 - [Express](https://expressjs.com/) web framework
-- [Pug](https://pugjs.org/) view templates
+- [Nunjucks](https://mozilla.github.io/nunjucks/templating.html) view templates
 - Sass (Syntactically Awesome Style Sheets) for reusable styles
 
 ## Cloning and pulling upstream changes
