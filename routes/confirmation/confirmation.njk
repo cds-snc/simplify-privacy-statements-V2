@@ -1,0 +1,14 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+    <h1>{{ __('confirmation.title') }}</h1>
+
+    <div>
+        <p>
+            {{ __('confirmation.intro') }}
+            <strong>{{ data.email }}</strong>
+        </p>
+    </div>
+
+{% endblock %}
