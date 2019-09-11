@@ -2,7 +2,7 @@
 
 {% macro radioButtons(key, values, value, question, errors = false, attributes) %}
 
-    <div class="{{ 'has-error' if errors and errors[attributes.name] }}">
+    <div class="{{ 'has-error' if errors and errors[key] }}">
         <fieldset class="fieldset">
             <legend class="fieldset__legend">{{ __(question) }}</legend>
         </fieldset>
@@ -12,7 +12,7 @@
             {% endif %}
             {% for index, val in values %}
                 <div class="multiple-choice__item">
-                    <input id="{{ key }}{{ val }}" name="{{ key }}" type="radio" value="{{ val }}" checked="{{ true if value == val else false }}" aria-describedby="{{ key + '-error' if errors else false }}">
+                    <input id="{{ key }}{{ val }}" name="{{ key }}" type="radio" value="{{ val }}" {% if value == val %} checked="checked" {% endif %} aria-describedby="{{ key + '-error' if errors else false }}">
                     <label for="{{ key }}{{ val }}">{{ val }}</label>
                 </div>
             {% endfor %}
