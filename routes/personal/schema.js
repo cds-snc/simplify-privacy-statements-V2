@@ -28,7 +28,7 @@ const Schema = {
       errorMessage: 'errors.expiry.date',
     },
   },
-  sendNotifications: {
+  send_notifications: {
     isIn: {
       errorMessage: 'errors.send_notifications.valid',
       options: [['Yes', 'No']],
