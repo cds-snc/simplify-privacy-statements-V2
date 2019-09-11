@@ -2,9 +2,9 @@ const { getSessionData } = require('./session.helpers')
 const { getFlashMessage } = require('./flash.message.helpers')
 const { generateNonce } = require('./validate.helpers')
 
-const getViewData = req => {
+const getViewData = (req, optionalParams = {}) => {
   const params = {
-    data: getSessionData(req),
+    data: {... getSessionData(req), ...optionalParams},
     nonce: generateNonce(),
   }
 
