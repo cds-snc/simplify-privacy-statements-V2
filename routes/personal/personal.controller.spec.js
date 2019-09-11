@@ -21,7 +21,7 @@ jest.mock('../../utils/flash.message.helpers', () => ({
   }),
 }))
 
-test('Display errors on the page', async () => {
+test.skip('Display errors on the page', async () => {
   const route = getRouteByName('personal')
   const response = await request(app).get(route.path)
   expect(response.statusCode).toBe(200)
