@@ -1,12 +1,14 @@
-# Node Starter App
-
-Quick start application setup with sensible defaults baked in.
+# Canada Web Forms Starter Repo
 
 **Demo:** https://cds-node-starter.herokuapp.com
 
-Should you use this? It depends ;)
+This repository provides a codebase that can be used to quickly build web pages or forms with a Government of Canada look-and-feel. It's setup with some sensible defaults and tech choices, such as:
 
-Don't like the way it's setup -> it's an Express server so do your thing `app.js`
+- Node.js 10.x
+- NVM (Node Version Manager) for install Node.js versions
+- [Express](https://expressjs.com/) web framework
+- [Pug](https://pugjs.org/) view templates
+- Sass (Syntactically Awesome Style Sheets) for reusable styles
 
 ## Cloning and pulling upstream changes
 
@@ -131,6 +133,10 @@ block content
 ## Common View Helpers
 
 See views/_includes
+
+## Change configuration
+
+Don't like the way it's setup -> it's an Express server so do your thing `app.js`
 
 ### Samples
 
