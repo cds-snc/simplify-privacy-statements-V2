@@ -34,7 +34,7 @@ const getClientJs = (req, routeName = '', jsPath = '../public') => {
 
     return false
   } catch (e) {
-    console.log(e.message)
+    //console.log(e.message)
     console.log(`${routeName}.js or filelist.json doesn't exist`)
     return false
   }

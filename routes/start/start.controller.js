@@ -3,6 +3,7 @@ const {
   getNextRoute,
   getRouteByName,
   addViewPath,
+  getClientJs,
 } = require('../../utils/index')
 
 module.exports = app => {
@@ -14,6 +15,8 @@ module.exports = app => {
   // redirect from "/" → "/start"
   app.get('/', (req, res) => res.redirect(route.path))
   app.get(route.path, async (req, res) => {
-    res.render(name, { nextRoute: getNextRoute(name).path })
+    const jsPath = getClientJs(req, name)
+    const jsFiles = jsPath ? [jsPath] : false
+    res.render(name, { nextRoute: getNextRoute(name).path, jsFiles })
   })
 }
