@@ -7,7 +7,6 @@
 
 <!DOCTYPE html>
 <html lang="{{ 'en' if getLocale() === 'fr' else 'en' }}">
-
     <head>
         <!-- Required meta tags-->
         <meta charset="utf-8">
@@ -17,12 +16,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
         <link href="https://fonts.googleapis.com/css?family=Lato:700|Noto+Sans:400,700&amp;display=fallback" rel="stylesheet">
         <link rel="stylesheet" href="/styles.css">
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js" type="text/javascript"></script>
-
         <title>{{ __('app.title') }}</title>
     </head>
-
     <body>
         <div class="container">
             <header>
@@ -40,4 +35,11 @@
         </div>
     </body>
     {% include "_includes/script.njk" %}
+    {% block scripts %}
+        {% if jsFiles %}
+            {% for val in jsFiles %}
+                <script type="text/javascript" src={{val}}></script>
+            {% endfor %}
+        {% endif %}
+    {% endblock %}
 </html>

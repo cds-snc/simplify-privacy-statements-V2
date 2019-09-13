@@ -1,7 +1,6 @@
 // 1) add your route(s) here ⬇️
 const routes = [
   { name: 'start', path: '/start' },
-  { name: 'chart', path: '/chart' },
   { name: 'personal', path: '/personal' },
   { name: 'confirmation', path: '/confirmation' },
 ]

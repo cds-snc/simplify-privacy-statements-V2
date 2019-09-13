@@ -55,5 +55,7 @@
   "TEXT 111": "TEXT 111",
   "chart.title": "Chart example",
   "chart.intro": "chart.intro",
-  "next": "Next"
+  "next": "Next",
+  "form.expiry": "form.expiry",
+  "form.expiry.desc": "form.expiry.desc"
 }
