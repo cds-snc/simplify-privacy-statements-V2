@@ -1,5 +1,5 @@
-let i18n = require('i18n')
-let path = require('path')
+const i18n = require('i18n')
+const path = require('path')
 
 i18n.configure({
   locales: ['en', 'fr'],
