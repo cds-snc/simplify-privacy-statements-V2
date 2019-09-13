@@ -11,7 +11,7 @@ describe('Can pull JavaScript file', () => {
     )
   })
 
-  test('returns false if file does not exist', () => {
+  test(`returns false if file or directory doesn't exist`, () => {
     const req = {
       body: {},
       headers: { host: 'localhost' },
@@ -19,5 +19,13 @@ describe('Can pull JavaScript file', () => {
     expect(getClientJs(req, 'start', '../__tests__/fixtures_missing')).toEqual(
       false,
     )
+  })
+
+  test(`returns false if file doesn't exist`, () => {
+    const req = {
+      body: {},
+      headers: { host: 'localhost' },
+    }
+    expect(getClientJs(req, 'start1', '../__tests__/fixtures')).toEqual(false)
   })
 })

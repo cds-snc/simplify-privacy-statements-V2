@@ -1,3 +1,7 @@
+/* istanbul ignore file */
+// note: there's test to look for a false response
+// but coverage isn't catching 
+
 const path = require('path')
 const { clientJsDir, getClientJsPath } = require('./url.helpers')
 
