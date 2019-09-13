@@ -58,4 +58,5 @@ module.exports = {
   getDomain,
   getHostProtocol,
   getClientJsPath,
+  clientJsDir,
 }
