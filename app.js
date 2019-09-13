@@ -37,7 +37,7 @@ app.use(cookieSession(cookieSessionConfig))
 // in production: precompile CSS
 app.use(
   sassMiddleware({
-    src: path.join(__dirname, 'public'),
+    src: path.join(__dirname, 'resources/scss'),
     dest: path.join(__dirname, 'public'),
     debug: false,
     indentedSyntax: false, // look for .scss files, not .sass files
