@@ -17,11 +17,11 @@ test('Can send post request personal route ', async () => {
 
 jest.mock('../../utils/flash.message.helpers', () => ({
   getFlashMessage: jest.fn(req => {
-    return [{ param: 'testerror', msg: 'caught this error' }]
+    return { fieldname: { value: '', msg: 'caught this error', param: 'testerror', location: 'body' } }
   }),
 }))
 
-test.skip('Display errors on the page', async () => {
+test('Display errors on the page', async () => {
   const route = getRouteByName('personal')
   const response = await request(app).get(route.path)
   expect(response.statusCode).toBe(200)
