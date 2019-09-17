@@ -1,7 +1,7 @@
 /* Base styling from pure.css: https://purecss.io/ */
-@import '~purecss/build/base.css';
-@import '~purecss/build/buttons-core.css';
-@import '~purecss/build/tables.css';
+// @import '~purecss/build/base.css';
+// @import '~purecss/build/buttons-core.css';
+// @import '~purecss/build/tables.css';
 
 /* Utilities */
 @import './_variables';
@@ -21,3 +21,4 @@
 @import './components/_banners';
 @import './components/_breakdown-table';
 @import './components/_phase-banner';
+@import './components/_input-file';
