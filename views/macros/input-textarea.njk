@@ -16,6 +16,6 @@
         {% if errors and errors[attributes.name] %}
             {{ validationMessage(errors[attributes.name].msg, attributes.name) }}
         {% endif %}
-        <textarea class="{{ attributes.class }}" autocomplete="off" id="{{ attributes.id if attributes.id else attributes.name }}" aria-describedby="{{ attributes.name + '-error' if errors and errors[attributes.name]  else false }}" autofocus="{{ true if errors and firstError.param === attributes.name else false }}" name="{{ attributes.name }}">{{ value }}</textarea>
+        <textarea class="{{ attributes.class }}" autocomplete="off" id="{{ attributes.id if attributes.id else attributes.name }}" {% if errors and errors[attributes.name] %} aria-describedby="{{ attributes.name + '-error' }}" {% endif %} autofocus="{{ true if errors and firstError.param === attributes.name else false }}" name="{{ attributes.name }}">{{ value }}</textarea>
     </div>
 {% endmacro %}
