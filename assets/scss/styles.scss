@@ -1,7 +1,5 @@
-/* Base styling from pure.css: https://purecss.io/ */
-// @import '~purecss/build/base.css';
-// @import '~purecss/build/buttons-core.css';
-// @import '~purecss/build/tables.css';
+/* normalize.css for better cross-browser compatibility */
+@import '../../node_modules/normalize.css/normalize';
 
 /* Utilities */
 @import './_variables';
