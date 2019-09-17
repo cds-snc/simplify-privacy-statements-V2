@@ -57,5 +57,6 @@
   "chart.intro": "chart.intro",
   "next": "Next",
   "form.expiry": "form.expiry",
-  "form.expiry.desc": "form.expiry.desc"
+  "form.expiry.desc": "form.expiry.desc",
+  "form.upload": "upload file"
 }

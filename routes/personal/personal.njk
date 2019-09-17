@@ -9,9 +9,15 @@
     </div>
     <form method="post">
         {{ textInput('form.fullname', null, 'form.fullname.desc', { class: "w-3-4", name: "fullname", id: "fullname", autofocus: '', value: data.fullname }) }}
+        
         {{ textInput('form.email', null, 'form.email.desc', { class: "w-3-4", name: "email", id: "email", autofocus: '', value: data.email }) }}
+        
         {{ textInput('form.expiry', null, 'form.expiry.desc', { class: "w-3-4", name: "expiry", id: "expiry", autofocus: '', value: data.expiry }) }}
+        
         {{ textArea('form.address', null, 'form.address.desc', data.address, { class: "w-3-4", name: "address", id: "address", autofocus: '' }) }}
+        
+        {{ fileInput('form.upload', null, {name: "myfile", id: "myfile"} ) }}
+        
         {{ radioButtons('send_notifications', { '1':'Yes','2':'No'}, data.send_notifications, 'form.send_notifications', errors) }}
 
         {{ checkBoxes('notify_type', {'1':'SMS','2':'Email'}, data.notify_type, 'form.notify_by', errors) }}
