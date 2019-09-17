@@ -56,6 +56,6 @@
     "supertest-session": "^4.0.0"
   },
   "nodemonConfig": {
-    "ext": "js,json,njk"
+    "ext": "js,json,njk,scss"
   }
 }
