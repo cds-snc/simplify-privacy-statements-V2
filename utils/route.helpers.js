@@ -1,13 +1,13 @@
 const { checkSchema } = require('express-validator')
 const { routes: defaultRoutes } = require('../config/routes.config')
-const { checkNonce, checkErrors } = require('./validate.helpers')
+const { checkErrors } = require('./validate.helpers')
 
 const DefaultRouteObj = { name: false, path: false }
 
 /**
  * This request middleware checks if we are visiting a public path
  */
-const checkPublic = function(req, res, next) {
+const checkPublic = function (req, res, next) {
   const publicPaths = ['/', '/clear', '/start']
   if (publicPaths.includes(req.path)) {
     return next()
@@ -112,7 +112,6 @@ const configRoutes = (app, routes = []) => {
 
 const getDefaultMiddleware = options => {
   return [
-    checkNonce,
     checkSchema(options.schema),
     checkErrors(options.name),
     doRedirect(options.name),

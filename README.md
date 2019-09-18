@@ -98,6 +98,51 @@ For cases where the redirect is not straight forward you can handle manually.
 };
 ```
 
+## Form CSRF Protection
+
+CSRF protection for forms is provided by [csurf](https://github.com/expressjs/csurf) middleware.
+
+Note that the CSRF token is passed to all templates through response.locals, ie:
+
+```javascript
+// append csrfToken to all responses
+app.use(function (req, res, next) {
+  res.locals.csrfToken = req.csrfToken()
+  next()
+})
+```
+
+To successfully submit a form, you must include a CSRF token in a hidden field:
+
+```html
+<input type="hidden" name="_csrf" value="{{ csrfToken }}">
+```
+
+If using JS/Ajax, you can get the csrf token from the header meta tag included in the base template:
+
+```html
+<meta name="csrf-token" content="{{ csrfToken }}">
+```
+
+The following is an example of using the Fetch API to post to the `/personal` route with the CSRF token from the `<meta>` tag on the page:
+
+```javascript
+// Read the CSRF token from the <meta> tag
+var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+
+// Make a request using the Fetch API
+fetch('/process', {
+  credentials: 'same-origin', // <-- includes cookies in the request
+  headers: {
+    'CSRF-Token': token // <-- is the csrf token as a header
+  },
+  method: 'POST',
+  body: {
+    favoriteColor: 'blue'
+  }
+})
+```
+
 ## Locales
 
 Text on pages is supplied via ids

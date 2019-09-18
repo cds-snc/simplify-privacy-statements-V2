@@ -1,5 +1,4 @@
 const { validationResult } = require('express-validator')
-const nn = require('nonce-next')
 const request = require('request')
 const { getSessionData, saveSessionData } = require('./session.helpers')
 const { getDomain } = require('./url.helpers')
@@ -100,7 +99,6 @@ const renderPageWithErrors = (
 ) => {
   return res.status(422).render(options.template, {
     data: getSessionData(req),
-    nonce: generateNonce(),
     name: options.template,
     body: req.body,
     errors: options.errors,
@@ -116,8 +114,7 @@ const validateRouteData = async (req, routePath, formData = {}) => {
   const domain = getDomain(req)
   const url = `${domain}/${routePath}`
   const data = isEmptyObject(formData) ? getSessionData(req) : formData
-  // tag on nonce data
-  data.nonce = generateNonce()
+
   // flag that we want the reponse to be json data
   data.json = true
 
@@ -170,29 +167,6 @@ const hasData = (obj = {}, key = '') => {
   })
 }
 
-const generateNonce = () => {
-  return nn.generate(120000)
-}
-
-const checkNonce = (req, res, next) => {
-  // @todo
-  // this needs to be tested more
-  // use case back button
-  /*
-    if (!req.body.nonce) {
-      res.status(500);
-      return res.send("Fail! - missing nonce");
-    }
-  
-    if (!nn.compare(req.body.nonce)) {
-      res.status(500);
-      return res.send("Fail! - Invalid nonce");
-    }
-    */
-
-  next()
-}
-
 const isEmptyObject = obj => {
   return Object.entries(obj).length === 0 && obj.constructor === Object
 }
@@ -204,8 +178,6 @@ module.exports = {
   checkErrors,
   checkErrorsJSON,
   hasData,
-  generateNonce,
-  checkNonce,
   isEmptyObject,
   renderPageWithErrors,
 }

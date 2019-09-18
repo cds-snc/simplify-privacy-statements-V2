@@ -8,6 +8,9 @@
         <p>{{ __('personal.intro') }}</p>
     </div>
     <form method="post">
+
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+
         {{ textInput('form.fullname', null, 'form.fullname.desc', { class: "w-3-4", name: "fullname", id: "fullname", autofocus: '', value: data.fullname }) }}
         
         {{ textInput('form.email', null, 'form.email.desc', { class: "w-3-4", name: "email", id: "email", autofocus: '', value: data.email }) }}
