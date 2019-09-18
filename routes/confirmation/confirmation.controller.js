@@ -1,10 +1,10 @@
 const path = require('path')
 const {
-  validateRouteData,
+  // validateRouteData,
   getSessionData,
   getRouteByName,
   addViewPath,
-  setFlashMessageContent,
+  // setFlashMessageContent,
 } = require('../../utils/index')
 
 module.exports = app => {
