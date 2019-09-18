@@ -101,6 +101,7 @@ const renderPageWithErrors = (
   return res.status(422).render(options.template, {
     data: getSessionData(req),
     nonce: generateNonce(),
+    csrfToken: req.csrfToken(),
     name: options.template,
     body: req.body,
     errors: options.errors,
