@@ -18,11 +18,13 @@ module.exports = app => {
     // validate data from previous step
     // see if we should be allowed to reach this step
 
+    /*
     const result = await validateRouteData(req, 'personal')
     if (!result.status) {
       setFlashMessageContent(req, result.errors)
       return res.redirect(getRouteByName('personal').path)
     }
+    */
 
     res.render(name, { data: getSessionData(req) })
   })
