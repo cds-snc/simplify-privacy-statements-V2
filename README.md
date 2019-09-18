@@ -98,6 +98,22 @@ For cases where the redirect is not straight forward you can handle manually.
 };
 ```
 
+## Form CSRF Protection
+
+CSRF protection for forms is provided by the [csurf](https://github.com/expressjs/csurf) middleware. To successfully submit a form, you must include a CSRF token in a hidden field:
+
+```html
+<input type="hidden" name="_csrf" value="{{ csrfToken }}">
+```
+
+In this example, the csrfToken is being passed into the template from the getViewData route utility. You can also pass it in yourself:
+
+```javascript
+app.get(route.path, async (req, res) => {
+  res.render(name, { csrfToken: req.csrfToken() })
+})
+```
+
 ## Locales
 
 Text on pages is supplied via ids
