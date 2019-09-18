@@ -94,7 +94,7 @@ describe('doRedirect', () => {
 
 test('Can retreive an array of middleware', () => {
   const arr = getDefaultMiddleware({ schema: {}, name: 'test' })
-  expect(arr.length).toBe(4)
+  expect(arr.length).toBe(3)
 })
 
 test('Can import routeUtils functions', () => {
