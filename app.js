@@ -30,7 +30,19 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser(process.env.app_session_secret))
 app.use(require('./config/i18n.config').init)
-app.use(csrf({ cookie: true }))
+
+// CSRF config
+app.use(csrf({
+  cookie: true,
+  signed: true,
+}))
+
+// append csrfToken to all responses
+const appendCSRFToken = function (req, res, next) {
+  res.locals.csrfToken = req.csrfToken()
+  next()
+}
+app.use(appendCSRFToken);
 
 // in production: use redis for sessions
 // but this works for now

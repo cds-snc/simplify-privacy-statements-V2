@@ -4,7 +4,6 @@ const { getFlashMessage } = require('./flash.message.helpers')
 const getViewData = (req, optionalParams = {}) => {
   const params = {
     data: { ...getSessionData(req), ...optionalParams },
-    csrfToken: req.csrfToken(),
   }
 
   const errors = getFlashMessage(req)
