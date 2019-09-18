@@ -12,6 +12,7 @@ const cookieSession = require('cookie-session')
 const cookieSessionConfig = require('./config/cookieSession.config')
 const { hasData, checkPublic, checkLangQuery } = require('./utils')
 const csp = require('./config/csp.config')
+const csrf = require('csurf');
 
 // check to see if we have a custom configRoutes function
 let { configRoutes, routes } = require('./config/routes.config')
@@ -29,6 +30,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser(process.env.app_session_secret))
 app.use(require('./config/i18n.config').init)
+app.use(csrf({ cookie: true }))
 
 // in production: use redis for sessions
 // but this works for now
