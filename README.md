@@ -114,6 +114,31 @@ app.get(route.path, async (req, res) => {
 })
 ```
 
+If using JS/Ajax, you can get the csrf token from the header meta tag included in the base template:
+
+```html
+<meta name="csrf-token" content="{{ csrfToken }}">
+```
+
+The following is an example of using the Fetch API to post to the `/personal` route with the CSRF token from the `<meta>` tag on the page:
+
+```javascript
+// Read the CSRF token from the <meta> tag
+var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+
+// Make a request using the Fetch API
+fetch('/process', {
+  credentials: 'same-origin', // <-- includes cookies in the request
+  headers: {
+    'CSRF-Token': token // <-- is the csrf token as a header
+  },
+  method: 'POST',
+  body: {
+    favoriteColor: 'blue'
+  }
+})
+```
+
 ## Locales
 
 Text on pages is supplied via ids
