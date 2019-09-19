@@ -18,8 +18,8 @@
 
             <h2>{{ __('backgroundInfo.title') }}</h2>
             <p>{{ __('backgroundInfo.desc') }}</p>
-            {{ textArea('form.research_goal', null, 'form.research_goal.desc', { class: "w-3-4", name: "research_goal", id: "research_goal", autofocus: '', value: data.research_goal }) }}
-            {{ textArea('form.session_activity', null, 'form.session_activity.desc', { class: "w-3-4", name: "session_activity", id: "session_activity", autofocus: '', value: data.session_activity }) }}
+            {{ textArea('form.research_goal', null, 'form.research_goal.desc', data.research_goal, { class: "w-3-4", name: "research_goal", id: "research_goal", autofocus: '', value: data.research_goal }) }}
+            {{ textArea('form.session_activity', null, 'form.session_activity.desc', data.session_activity, { class: "w-3-4", name: "session_activity", id: "session_activity", autofocus: '', value: data.session_activity }) }}
             
             {{ formButtons() }}
         </form>
