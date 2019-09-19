@@ -58,5 +58,17 @@
   "next": "Next",
   "form.expiry": "form.expiry",
   "form.expiry.desc": "form.expiry.desc",
-  "form.upload": "upload file"
+  "form.upload": "upload file",
+  "participant-consent-form.title": "Participant consent form",
+  "participant-consent-form.intro": "Tell us about the research you wish to conduct and this application will generate a Privacy Statement form for you to give to your participants and collect their consent. Please read through all the conditions as you select your research requirements.",
+  "form.researcher_name": "Researcher name",
+  "form.researcher_name.desc": "form.researcher_name.desc",
+  "form.researcher_phone": "Researcher phone",
+  "form.researcher_phone.desc": "form.researcher_phone.desc",
+  "form.researcher_email": "Researcher email",
+  "contactInfo.title": "Contact information",
+  "backgroundInfo.title": "Background information",
+  "backgroundInfo.desc": "Will you be sharing the participant responses with a partner department? What type of research are you doing?",
+  "form.research_goal": "What's the goal of your research?",
+  "form.session_activity": "What will you be asking the participant to do during the sessions?"
 }
