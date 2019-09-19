@@ -1,6 +1,4 @@
-const Schema = {
-
-}
+const Schema = {}
 
 module.exports = {
   Schema,
