@@ -1,0 +1,21 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+    <h1>{{ __('landing-page.title') }}</h1>
+
+    <div>
+        <p>
+            {{ __('landing-page.intro') }}
+        </p>
+
+        <div>
+            <a class="button-link" href="{{ nextRoute }}" role="button" draggable="false">
+                {{ __('start.submit') }}
+                <span aria-hidden="true">→</span>
+            </a>
+        </div>
+
+    </div>
+
+{% endblock %}

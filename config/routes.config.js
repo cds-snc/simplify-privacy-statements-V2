@@ -1,8 +1,8 @@
 // 1) add your route(s) here ⬇️
 const routes = [
-  { name: 'start', path: '/start' },
   { name: 'personal', path: '/personal' },
   { name: 'confirmation', path: '/confirmation' },
+  { name: 'landing-page', path: '/start' },
   { name: 'participant-consent-form', path: '/participant-consent-form' },
 ]
 
