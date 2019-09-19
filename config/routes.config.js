@@ -1,9 +1,9 @@
 // 1) add your route(s) here ⬇️
 const routes = [
+  { name: 'landing-page', path: '/' },
+  { name: 'participant-consent-form', path: '/participant-consent-form' },
   { name: 'personal', path: '/personal' },
   { name: 'confirmation', path: '/confirmation' },
-  { name: 'landing-page', path: '/start' },
-  { name: 'participant-consent-form', path: '/participant-consent-form' },
 ]
 
 // note: you can define and export a custom configRoutes function here
