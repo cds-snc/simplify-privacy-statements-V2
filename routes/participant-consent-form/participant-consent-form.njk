@@ -11,6 +11,8 @@
 
         <form method="post">
 
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+
             <h2>{{ __('contactInfo.title') }}</h2>
             {{ textInput('form.researcher_name', null, null, { class: "w-3-4", name: "researcher_name", id: "researcher_name", autofocus: '', value: data.researcher_name }) }}
             {{ textInput('form.researcher_phone', null, null, { class: "w-3-4", name: "researcher_phone", id: "researcher_phone", autofocus: '', value: data.researcher_phone }) }}
@@ -20,7 +22,7 @@
             <p>{{ __('backgroundInfo.desc') }}</p>
             {{ textArea('form.research_goal', null, 'form.research_goal.desc', data.research_goal, { class: "w-3-4", name: "research_goal", id: "research_goal", autofocus: '', value: data.research_goal }) }}
             {{ textArea('form.session_activity', null, 'form.session_activity.desc', data.session_activity, { class: "w-3-4", name: "session_activity", id: "session_activity", autofocus: '', value: data.session_activity }) }}
-            
+
             {{ formButtons() }}
         </form>
     </div>
