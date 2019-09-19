@@ -1,0 +1,28 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+    <h1>{{ __('participant-consent-form.title') }}</h1>
+
+    <div>
+        <p>
+            {{ __('participant-consent-form.intro') }}
+        </p>
+
+        <form method="post">
+
+            <h2>{{ __('contactInfo.title') }}</h2>
+            {{ textInput('form.researcher_name', null, null, { class: "w-3-4", name: "researcher_name", id: "researcher_name", autofocus: '', value: data.researcher_name }) }}
+            {{ textInput('form.researcher_phone', null, null, { class: "w-3-4", name: "researcher_phone", id: "researcher_phone", autofocus: '', value: data.researcher_phone }) }}
+            {{ textInput('form.researcher_email', null, null, { class: "w-3-4", name: "researcher_email", id: "researcher_email", autofocus: '', value: data.researcher_email }) }}
+
+            <h2>{{ __('backgroundInfo.title') }}</h2>
+            <p>{{ __('backgroundInfo.desc') }}</p>
+            {{ textArea('form.research_goal', null, 'form.research_goal.desc', data.research_goal, { class: "w-3-4", name: "research_goal", id: "research_goal", autofocus: '', value: data.research_goal }) }}
+            {{ textArea('form.session_activity', null, 'form.session_activity.desc', data.session_activity, { class: "w-3-4", name: "session_activity", id: "session_activity", autofocus: '', value: data.session_activity }) }}
+            
+            {{ formButtons() }}
+        </form>
+    </div>
+
+{% endblock %}

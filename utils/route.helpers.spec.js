@@ -78,7 +78,7 @@ describe('doRedirect', () => {
       },
     }
 
-    runMiddleWare('start')(req, res, next)
+    runMiddleWare('landing-page')(req, res, next)
     expect(next.mock.calls.length).toBe(0)
     expect(redirectMock.mock.calls.length).toBe(1)
   })
