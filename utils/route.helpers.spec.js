@@ -6,6 +6,7 @@ const {
   doRedirect,
   getDefaultMiddleware,
   routeUtils,
+  routeHasIndex,
 } = require('./index')
 
 const testRoutes = [
@@ -100,4 +101,19 @@ test('Can retreive an array of middleware', () => {
 test('Can import routeUtils functions', () => {
   const utils = routeUtils
   expect(typeof utils.getRouteByName).toBe('function')
+})
+
+test('routeHasIndex returns false for a param that has no index', () => {
+  const result = routeHasIndex()
+  expect(result).toBe(false)
+})
+
+test('routeHasIndex returns false for an object that has no index', () => {
+  const result = routeHasIndex({ test: true })
+  expect(result).toBe(false)
+})
+
+test('routeHasIndex returns true for an object that an index', () => {
+  const result = routeHasIndex({ index: 1 })
+  expect(result).toBe(true)
 })
