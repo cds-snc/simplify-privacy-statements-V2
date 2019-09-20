@@ -18,6 +18,7 @@ const csrf = require('csurf');
 let { configRoutes, routes } = require('./config/routes.config')
 
 // if not use the default
+/* istanbul ignore next */
 if (typeof configRoutes === 'undefined') {
   configRoutes = require('./utils/route.helpers').configRoutes
 }
