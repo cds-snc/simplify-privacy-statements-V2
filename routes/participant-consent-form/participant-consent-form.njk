@@ -19,10 +19,20 @@
             {{ textInput('form.researcher_email', null, null, { class: "w-3-4", name: "researcher_email", id: "researcher_email", autofocus: '', value: data.researcher_email }) }}
 
             <h2>{{ __('backgroundInfo.title') }}</h2>
-            <p>{{ __('backgroundInfo.desc') }}</p>
+            
+            {{ textArea('backgroundInfo.desc', null, data.is_with_partner, { class: "w-3-4", name: "backgroundInfo.desc", id: "backgroundInfo.desc", autofocus: '', value: data.is_with_partner }) }}
+            {{ textArea('form.authority', null, 'form.authority.desc', data.authority, { class: "w-3-4", name: "authority", id: "authority", autofocus: '', value: data.authority }) }}
+            {{ textArea('form.research_method', null, null, data.research_method, { class: "w-3-4", name: "research_method", id: "research_method", autofocus: '', value: data.research_method }) }}
             {{ textArea('form.research_goal', null, 'form.research_goal.desc', data.research_goal, { class: "w-3-4", name: "research_goal", id: "research_goal", autofocus: '', value: data.research_goal }) }}
             {{ textArea('form.session_activity', null, 'form.session_activity.desc', data.session_activity, { class: "w-3-4", name: "session_activity", id: "session_activity", autofocus: '', value: data.session_activity }) }}
-
+            {{ textArea('form.session_duration', null, 'form.session_duration.desc', data.session_duration, { class: "w-3-4", name: "session_duration", id: "session_duration", autofocus: '', value: data.session_duration }) }}
+            {{ textArea('form.personal_information_collected', null, 'form.personal_information_collected.desc', data.personal_information_collected, { class: "w-3-4", name: "personal_information_collected", id: "personal_information_collected", autofocus: '', value: data.personal_information_collected }) }}
+            {{ textArea('form.compensation', null, null, data.rcompensation, { class: "w-3-4", name: "compensation", id: "compensation", autofocus: '', value: data.compensation }) }}
+            {{ textArea('form.confidentiality', null, null, data.confidentiality, { class: "w-3-4", name: "confidentiality", id: "confidentiality", autofocus: '', value: data.confidentiality }) }}
+            {{ textArea('form.administrative_decision', null, null, data.administrative_decision, { class: "w-3-4", name: "administrative_decision", id: "administrative_decision", autofocus: '', value: data.administrative_decision }) }}
+            {{ textArea('form.consent', null, null, data.consent, { class: "w-3-4", name: "consent", id: "consent", autofocus: '', value: data.consent }) }}
+            {{ textArea('form.is_business', null, null, data.is_business, { class: "w-3-4", name: "is_business", id: "is_business", autofocus: '', value: data.is_business }) }}
+            {{ textArea('form.recording_type', null, null, data.recording_type, { class: "w-3-4", name: "recording_type", id: "recording_type", autofocus: '', value: data.recording_type }) }}
             {{ formButtons() }}
         </form>
     </div>
