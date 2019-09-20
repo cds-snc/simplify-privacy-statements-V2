@@ -72,9 +72,5 @@
   "form.research_goal": "What's the goal of your research?",
   "form.session_activity": "What will you be asking the participant to do during the sessions?",
   "landing-page.title": "Privacy and Consent Form Generator",
-  "landing-page.intro": "This service will generate customized forms and privacy statements for you based on the type of design research you're doing. You can create: - a consent form for research participants - a form for recruiting through a third party.",
-  "agreement_1.title": "Research Participant Consent Form and Privacy Information",
-  "agreement_1.contact": "For any questions about this research, please contact:",
-  "agreement_1.thanks": "Thank you for volunteering to talk to us.",
-  "agreement_1.who": "We work with the Canadian Digital Service (CDS).",
+  "landing-page.intro": "This service will generate customized forms and privacy statements for you based on the type of design research you're doing. You can create: - a consent form for research participants - a form for recruiting through a third party."
 }
