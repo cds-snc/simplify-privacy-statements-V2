@@ -72,5 +72,10 @@
   "form.research_goal": "What's the goal of your research?",
   "form.session_activity": "What will you be asking the participant to do during the sessions?",
   "landing-page.title": "Privacy and Consent Form Generator",
-  "landing-page.intro": "This service will generate customized forms and privacy statements for you based on the type of design research you're doing. You can create: - a consent form for research participants - a form for recruiting through a third party."
+  "landing-page.intro": "This service will generate customized forms and privacy statements for you based on the type of design research you're doing. You can create: - a consent form for research participants - a form for recruiting through a third party.",
+  "agreement-1.title": "agreement-1.title",
+  "agreement-1.contact": "agreement-1.contact",
+  "agreement-1.thanks": "agreement-1.thanks",
+  "agreement-1.who": "blah blah blah",
+  "agreement-1.who2": "agreement-1.who2"
 }
