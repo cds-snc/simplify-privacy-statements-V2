@@ -1,0 +1,133 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+<h1>Proof of Concept Agreement</h1>
+
+<div>
+    <p>
+        For any questions about this research, please contact:
+        <br>
+        <strong>{{ data.researcher_name }}</strong>
+        <br>
+        <strong>{{ data.researcher_phone }}</strong>
+        <br>
+        <strong>{{ data.researcher_email }}</strong>
+    </p>
+
+    <p>
+    Thank you for volunteering to talk to us.
+    We work with the Canadian Digital Service (CDS).
+    {% if data.is_with_partner %}
+      We are working with {{ data.partner_department_name }}  ({{ data.partner_department_acronym }}) to {{ data.research_goal }}.
+    {% else %}
+      We are conducting this research today to help us {{ data.research_goal }}.
+    {% endif %}
+    </p>
+
+    <p>
+      To do this we will ask you to {{ data.session_activity }}. This will take {{ data.session_duration }}.
+    </p>
+
+    <p>
+      By participating in this study, you understand that:
+    </p>
+    <ul>
+      {% if data.compensation == "false" %}
+        <li>You are volunteering to participate. You can stop at any time for any reason, without any consequences.</li>
+      {% else %}
+        <li>You are volunteering to participate. You can stop at any time for any reason.</li>
+        <li>For your {{ data.session_duration }} of input, you will receive a one-time {{ data.compensation_method }} of up to {{ data.compensation_value }}. This is taxable income.</li>
+        <li>Should you decide to stop participating, you will receive a one-time payment of $10 if you have provided at least 8.5 minutes of input.</li>
+        <li>If you have provided less than 8.5 minutes you will be entitled to $0</li>
+      {% endif %}
+
+      {% if data.confidentiality == "confidential" || data.confidentiality == "anonymized" || data.confidentiality == "anonymous" %}
+        <li>Your information will be {{ data.confidentiality }}. This means your responses will not be linked to you.</li>
+      {% endif %}
+
+      {% if data.confidentiality == "public" || data.confidentiality == "not_confidential" %}
+        <li>Your information will be {{ data.confidentiality }}. Your input will be associated with your name.</li>
+      {% endif %}
+
+      {% if data.compensation == "true" %}
+         <li>The fact that you participated will not be confidential.</li>
+      {% endif %}
+
+      {% if data.confidentiality == "public" %}
+        <li>CDS will share publicly {{ data.personal_information_disclosed_to_public }}.</li>
+      {% endif %}
+
+      {% if data.confidentiality == "anonymous" || data.confidentiality == "anonymized" %}
+        <li>Due to this, you will not be able to withdraw or correct your information once provided.</li>
+      {% endif %}
+
+      {% if data.confidentiality == "anonymous" %}
+        <li>Please do not provide any information in your responses that would identify you.</li>
+      {% endif %}
+
+      {% if data.is_with_partner %}
+        <li>CDS and {{ data.partner_department_acronym }} may collect your personal information. For example, your {{ data.personal_information_collected }}. To learn about how CDS and {{ data.partner_department_acronym }} protect your personal information, please see the attached privacy statement.</li>
+      {% else %}
+        <li>CDS may collect your personal information. For example, your {{ data.personal_information_collected }}. To learn about how CDS protects your personal information, please see the attached privacy statement.</li>
+      {% endif %}
+
+      {% if data.compensation == "true" }
+        <li>I certify that I am not a former public servant in receipt of a pension or lump sum payment from the Government of Canada.</li>
+        <li>I certify that I am not a public servant participating during working hours.</li>
+      {% endif %}
+    </ul>
+    <p>
+      {% if data.consent == "verbal" }
+        Name: ________________________
+        <br>
+        Date: _________________________ Time: _________________________
+      {% endif %}
+
+      {% if data.consent == "written" }
+        [ ] <b>I understand the points above and consent to participate in the research.</b>
+        <br>
+        Name: _________________________      Date: _________________________
+        <br>
+        Signature: ____________________________
+      {% endif %}
+    </p>
+    {% if data.consent == "action" }
+    <p>I understand the points above and consent to participate in the research.</p>
+    {% endif %}
+
+    {% if data.is_business == "true" }
+      <p>Legal Business Name: ____________________________</p>
+    {% endif %}
+
+    {% if data.recording_type == "full_video" || data.recording_type == "full_audio" || data.recording_type == "screen_with_audio" }
+
+      {% if data.recording_type == "full_video" }
+        <h2>OPTIONAL VIDEO RECORDING</h2>
+      {% else %}
+        <h2>OPTIONAL AUDIO RECORDING</h2>
+      {% endif %}
+
+      <p>Recording our research will help us ensure we capture all of your input. Sharing our sessions with other departments will help illustrate the value of {research_method}s with users in building better digital services.</p>
+
+      <p>By agreeing to be recorded, you understand that:</p>
+      <ul>
+        <li>You are choosing to be recorded;</li>
+        <li>You are not to provide any additional information that would allow others to identify you during the recording (e.g., Name, date of birth, address, etc.)</li>
+        <li>Your responses will not be confidential due to your audio likeness in the recording, and may be shared with other departments for {{ datapurposes_for_which_the_recording_may_be_disclosed }}; and,</li>
+        <li>If you decide to withdraw your consent, CDS will not share your recording further.</li>
+      </ul>
+
+      <p>However, prior to your withdrawal, CDS may have already shared your recording with other departments, which may continue to use the recording for {{ data.purposes_for_which_the_recording_may_be_disclosed }}</p>
+
+      <p>[ ] I understand the points above and consent to be recorded.</p>
+
+      <p>Name: ____________________________ Date: _______________________</p>
+    {% endif %}
+
+
+    <h2>Privacy Statement</h2>
+
+</div>
+
+{% endblock %}
