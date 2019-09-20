@@ -33,5 +33,9 @@ test('Can send get request to start route and have empty js src', async () => {
   // call to getClientJs should return false
   // which means we should have X number of script tags
   // i.e. whatever the amount is in the base view
-  expect(countScriptTags(response)).toBe(2)
+  if(process.env.GOOGLE_ANALYTICS){
+    expect(countScriptTags(response)).toBe(4)
+  } else {
+    expect(countScriptTags(response)).toBe(2)
+  }
 })
