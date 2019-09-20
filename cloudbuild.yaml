@@ -4,24 +4,24 @@ steps:
       [
         'build',
         '-t',
-        'gcr.io/$PROJECT_ID/node-starter-app:$SHORT_SHA',
+        'gcr.io/$PROJECT_ID/pc-form-generator:$SHORT_SHA',
         '-t',
-        'gcr.io/$PROJECT_ID/node-starter-app:latest',
+        'gcr.io/$PROJECT_ID/pc-form-generator:latest',
         '-f',
         'Dockerfile',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/node-starter-app:$SHORT_SHA']
+    args: ['push', 'gcr.io/$PROJECT_ID/pc-form-generator:$SHORT_SHA']
   - name: 'gcr.io/cloud-builders/gcloud'
     args: 
       [
         'beta', 
         'run', 
         'deploy', 
-        'node-starter-app', 
+        'pc-form-generator',
         '--image', 
-        'gcr.io/$PROJECT_ID/node-starter-app:$SHORT_SHA', 
+        'gcr.io/$PROJECT_ID/pc-form-generator:$SHORT_SHA',
         '--region', 
         'us-central1',
         '--allow-unauthenticated',
@@ -29,5 +29,6 @@ steps:
         'managed' 
       ]
 images:
-  - 'gcr.io/$PROJECT_ID/node-starter-app:$SHORT_SHA'
-  - 'gcr.io/$PROJECT_ID/node-starter-app:latest'
+  - 'gcr.io/$PROJECT_ID/pc-form-generator:$SHORT_SHA'
+  - 'gcr.io/$PROJECT_ID/pc-form-generator:latest'
+  
