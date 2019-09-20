@@ -69,23 +69,23 @@
   "contactInfo.title": "Your contact information",
   "backgroundInfo.title": "Background information",
   "backgroundInfo.desc": "Will you be conducting research with another department?",
-  "form.authority": "Which piece of legislation gives you the authority to collect personal information?"
-  "form.authority.desc": "For CDS, put The Financial Administration Act"
-  "form.research_method": "What type of research are you doing?"
+  "form.authority": "Which piece of legislation gives you the authority to collect personal information?",
+  "form.authority.desc": "For CDS, put The Financial Administration Act",
+  "form.research_method": "What type of research are you doing?",
   "form.research_goal": "What's the goal of your research?",
-  "form.research_goal.desc": "e.g. create an online tool that will make it easier for Veterans to determine which VAC services are relevant to them"
+  "form.research_goal.desc": "e.g. create an online tool that will make it easier for Veterans to determine which VAC services are relevant to them",
   "form.session_activity": "What will you be asking the participant to do during the sessions?",
-  "form.session_activity.desc": "e.g. complete tasks with our prototype software and ask you to describe your thoughts and impressions of it"
-  "form.session_duration": "How long will the session take?"
-  "form.session_duration.desc": "e.g. 1 hour. Be as precise as you can"
-  "form.personal_information_collected": "What personal information will you be collecting during the research activity?"
-  "form.personal_information_collected.desc":"Seperate them out with a comma, e.g. age, employment history and experience with government services"
-  "form.compensation": "Will you be paying the participant for their time?"
-  "form.confidentiality": "How will you protect the participant's privacy?"
-  "form.administrative_decision": "Will the participant's responses affect their access to government benefits or services?"
-  "form.consent": "How will you get proof of consent?"
-  "form.is_business": "Will the participant be sharing information about their company's operations or confidential information?"
-  "form.recording_type": "How will you be recording the participant?"
+  "form.session_activity.desc": "e.g. complete tasks with our prototype software and ask you to describe your thoughts and impressions of it",
+  "form.session_duration": "How long will the session take?",
+  "form.session_duration.desc": "e.g. 1 hour. Be as precise as you can",
+  "form.personal_information_collected": "What personal information will you be collecting during the research activity?",
+  "form.personal_information_collected.desc":"Seperate them out with a comma, e.g. age, employment history and experience with government services",
+  "form.compensation": "Will you be paying the participant for their time?",
+  "form.confidentiality": "How will you protect the participant's privacy?",
+  "form.administrative_decision": "Will the participant's responses affect their access to government benefits or services?",
+  "form.consent": "How will you get proof of consent?",
+  "form.is_business": "Will the participant be sharing information about their company's operations or confidential information?",
+  "form.recording_type": "How will you be recording the participant?",
   "landing-page.title": "Generate privacy and consent forms for research sessions",
   "landing-page.intro": "This service will generate customized forms and privacy statements for you based on the type of design research you're doing.",
   "landing-page.leadin": "Choose from a:",
@@ -95,6 +95,6 @@
   "agreement-1.contact": "agreement-1.contact",
   "agreement-1.thanks": "agreement-1.thanks",
   "agreement-1.who": "blah blah blah",
-  "agreement-1.who2": "agreement-1.who2"
+  "agreement-1.who2": "agreement-1.who2",
   "thank_you": "Steves"
 }
