@@ -2,8 +2,9 @@
 const routes = [
   { name: 'landing-page', path: '/' },
   { name: 'participant-consent-form', path: '/participant-consent-form' },
-  { name: 'personal', path: '/personal' },
+  { name: 'agreement_1', path: '/agreement_1' },
   { name: 'confirmation', path: '/confirmation' },
+  { name: 'personal', path: '/personal' },
 ]
 
 // note: you can define and export a custom configRoutes function here
