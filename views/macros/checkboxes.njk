@@ -10,7 +10,7 @@
             {% for index, val in values %}
                 <div class="multiple-choice__item">
                     <input id="{{ key }}{{ val }}" name="{{ key }}" type="checkbox" value="{{ val }}" {% if selectedVals and val in selectedVals %} checked="checked" {% endif %} {% if errors and errors[key] %} aria-describedby="{{ key + '-error' }}" {% endif %}>
-                    <label for="{{ key }}{{ val }}">{{ val }}</label>
+                    <label for="{{ key }}{{ val }}">{{ __(val) }}</label>
                 </div>
             {% endfor %}
         </div>
