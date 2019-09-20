@@ -17,7 +17,7 @@ const csrf = require('csurf');
 // check to see if we have a custom configRoutes function
 let { configRoutes, routes } = require('./config/routes.config')
 
-/* istanbul ignore next */ //test mock sets as undefined but says line isn't covered
+/* istanbul ignore next */ // test mock sets as undefined but says line isn't covered
 if (typeof configRoutes === 'undefined') { // if not use the default
   configRoutes = require('./utils/route.helpers').configRoutes
 }
