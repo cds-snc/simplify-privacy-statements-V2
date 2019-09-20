@@ -96,5 +96,17 @@
   "agreement-1.thanks": "agreement-1.thanks",
   "agreement-1.who": "blah blah blah",
   "agreement-1.who2": "agreement-1.who2",
-  "thank_you": "Steves"
+  "questions-1.title": "Research and Testing",
+  "questions-1.intro": "questions-1.intro",
+  "testInfo.title": "Test Information",
+  "form.is_with_partner": "Are you conducting this research with a partner department?",
+  "form.partner_department_name": "What is the name of the department you are working with?",
+  "form.partner_department_acronym": "What is the acronym of the department you are working with?",
+  "form.partner_department_authority": "What is the partner's collection authority?",
+  "form.partner_department_authority.desc": "Don't know? Ask your policy advisor.",
+  "form.compensation_method": "How will you be compensating the participant?",
+  "form.compensation_value": "How much will you be compensating the participant?",
+  "form.administrative_purpose": "How will this information directly impact the user's access to government of Canada services or benefits?",
+  "form.purposes_for_which_the_recording_may_be_disclosed": "What are the purposes for which the recording can be disclosed?",
+  "form.personal_information_disclosed_to_public": "What personal information will be disclosed to the public?"
 }
