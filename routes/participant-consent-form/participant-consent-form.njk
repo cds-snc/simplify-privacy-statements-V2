@@ -20,7 +20,7 @@
 
             <h2>{{ __('backgroundInfo.title') }}</h2>
             
-            {{ textArea('backgroundInfo.desc', null, data.is_with_partner, { class: "w-3-4", name: "backgroundInfo.desc", id: "backgroundInfo.desc", autofocus: '', value: data.is_with_partner }) }})
+            {{ textArea('backgroundInfo.desc', null, data.is_with_partner, { class: "w-3-4", name: "backgroundInfo.desc", id: "backgroundInfo.desc", autofocus: '', value: data.is_with_partner }) }}
             {{ textArea('form.authority', null, 'form.authority.desc', data.authority, { class: "w-3-4", name: "authority", id: "authority", autofocus: '', value: data.authority }) }}
             {{ textArea('form.research_method', null, null, data.research_method, { class: "w-3-4", name: "research_method", id: "research_method", autofocus: '', value: data.research_method }) }}
             {{ textArea('form.research_goal', null, 'form.research_goal.desc', data.research_goal, { class: "w-3-4", name: "research_goal", id: "research_goal", autofocus: '', value: data.research_goal }) }}
