@@ -18,7 +18,7 @@
     <p>
     Thank you for volunteering to talk to us.
     We work with the Canadian Digital Service (CDS).
-    {% if data.is_with_partner %}
+    {% if data.is_with_partner == "is_with_partner_yes" %}
       We are working with {{ data.partner_department_name }}  ({{ data.partner_department_acronym }}) to {{ data.research_goal }}.
     {% else %}
       We are conducting this research today to help us {{ data.research_goal }}.
@@ -42,11 +42,11 @@
         <li>If you have provided less than 8.5 minutes you will be entitled to $0</li>
       {% endif %}
 
-      {% if data.confidentiality == "confidential" || data.confidentiality == "anonymized" || data.confidentiality == "anonymous" %}
+      {% if data.confidentiality == "confidential" or data.confidentiality == "anonymized" or data.confidentiality == "anonymous" %}
         <li>Your information will be {{ data.confidentiality }}. This means your responses will not be linked to you.</li>
       {% endif %}
 
-      {% if data.confidentiality == "public" || data.confidentiality == "not_confidential" %}
+      {% if data.confidentiality == "public" or data.confidentiality == "not_confidential" %}
         <li>Your information will be {{ data.confidentiality }}. Your input will be associated with your name.</li>
       {% endif %}
 
@@ -58,7 +58,7 @@
         <li>CDS will share publicly {{ data.personal_information_disclosed_to_public }}.</li>
       {% endif %}
 
-      {% if data.confidentiality == "anonymous" || data.confidentiality == "anonymized" %}
+      {% if data.confidentiality == "anonymous" or data.confidentiality == "anonymized" %}
         <li>Due to this, you will not be able to withdraw or correct your information once provided.</li>
       {% endif %}
 
@@ -66,25 +66,25 @@
         <li>Please do not provide any information in your responses that would identify you.</li>
       {% endif %}
 
-      {% if data.is_with_partner %}
+      {% if data.is_with_partner == "is_with_partner_yes" %}
         <li>CDS and {{ data.partner_department_acronym }} may collect your personal information. For example, your {{ data.personal_information_collected }}. To learn about how CDS and {{ data.partner_department_acronym }} protect your personal information, please see the attached privacy statement.</li>
       {% else %}
         <li>CDS may collect your personal information. For example, your {{ data.personal_information_collected }}. To learn about how CDS protects your personal information, please see the attached privacy statement.</li>
       {% endif %}
 
-      {% if data.compensation == "true" }
+      {% if data.compensation == "true" %}
         <li>I certify that I am not a former public servant in receipt of a pension or lump sum payment from the Government of Canada.</li>
         <li>I certify that I am not a public servant participating during working hours.</li>
       {% endif %}
     </ul>
     <p>
-      {% if data.consent == "verbal" }
+      {% if data.consent == "verbal" %}
         Name: ________________________
         <br>
         Date: _________________________ Time: _________________________
       {% endif %}
 
-      {% if data.consent == "written" }
+      {% if data.consent == "written" %}
         [ ] <b>I understand the points above and consent to participate in the research.</b>
         <br>
         Name: _________________________      Date: _________________________
@@ -92,17 +92,17 @@
         Signature: ____________________________
       {% endif %}
     </p>
-    {% if data.consent == "action" }
+    {% if data.consent == "action" %}
     <p>I understand the points above and consent to participate in the research.</p>
     {% endif %}
 
-    {% if data.is_business == "true" }
+    {% if data.is_business == "true" %}
       <p>Legal Business Name: ____________________________</p>
     {% endif %}
 
-    {% if data.recording_type == "full_video" || data.recording_type == "full_audio" || data.recording_type == "screen_with_audio" }
+    {% if data.recording_type == "full_video" or data.recording_type == "full_audio" or data.recording_type == "screen_with_audio" %}
 
-      {% if data.recording_type == "full_video" }
+      {% if data.recording_type == "full_video" %}
         <h2>OPTIONAL VIDEO RECORDING</h2>
       {% else %}
         <h2>OPTIONAL AUDIO RECORDING</h2>
@@ -127,7 +127,79 @@
 
 
     <h2>Privacy Statement</h2>
+    <p>Participation is completely voluntary.</p>
 
+    <h3>What we will collect</h3>
+    <p>By participating in this research you consent that your {{ data.personal_information_collected }} will be collected.</p>
+    <h3>How we will use this information</h3>
+
+    {% if data.compensation == "no_compensation" %}
+      <p>The Canadian Digital Service (CDS) will use this information to {{ data.research_goal }}.</p>
+      <p>We collect this information to ensure our research cohorts are diverse and to identify trends in feedback for specific groups.</p>
+    {% else %}
+      <p>The Canadian Digital Service (CDS) will use this information to {{ data.research_goal }}.</p>
+      <p>We collect this information to ensure our research cohorts are diverse and to identify trends in feedback for specific groups, and to provide you with compensation.</p>
+      <p>Please note, you may be contacted at a later date to verify you have received compensation.</p>
+    {% endif %}
+
+    {% if data.administrative_decision == "administrative_decision_no" %}
+      <p>This personal information will not be used for any “administrative  purposes”. Your information will not be used to make a decision that affects you or your access to Government of Canada services.</p>
+    {% endif %}
+
+    {% if data.recording_type not "no_recording" %}
+      <p>If you have consented to being recorded, the recording may be disclosed to other departments for {{ data.purposes_for_which_the_recording_may_be_disclosed }}.</p>
+    {% endif %}
+
+    {% if data.compensation == "no_compensation" %}
+      <p>CDS may publish or share with other government institutions a summary of what we have learned from this research, including quotes or narratives. Your name will not be associated with your responses, quotes, or narratives.</p>
+    {% else %}
+     <p>CDS will own the {{ data.research_method }} information and may publish or share with other government institutions a summary of what we have learned from this research, including quotes or narratives. Your name will not be associated with your responses, quotes, or narratives.</p>
+    {% endif %}
+
+    <h3>Who we are</h3>
+
+    <p>CDS is part of the Treasury Board of Canada Secretariat (TBS).</p>
+    <ul>
+      <li>The collection and use of your personal information by TBS is authorized by the _Financial Administration Act._ </li>
+      {% if data.is_with_partner == "is_with_partner_yes" %}
+        <li>The collection and use of your personal information by {{ data.partner_department_acronym }} is authorized by the _{{ data.partner_department_authority }}_ .</li>
+      {% endif %}
+      <li>The collection, use, and disclosure of your personal information is in accordance with the federal _Privacy Act_. Under the _Privacy Act_, you have a right of protection, access to and correction or notation of your personal information.</li>
+    </ul>
+
+    {% if data.compensation == "yes_compensation" %}
+      <p>The Standard Personal Information Bank entitled “Outreach Activities, PSU 938” and "Accounts Payable, PSU 931", describes the personal information that may be written down.</p>
+      <p>Information on programs and holdings: https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information/information-about-programs-information-holdings.html</p>
+    {% else %}
+      <p>The Standard Personal Information Bank entitled “Outreach Activities, PSU 938”, describes the personal information that may be written down.</p>
+      <p>PSU 938: http://www.infosource.gc.ca/emp/emp03-eng.asp#psu938</p>
+    {% endif %}
+
+    <h3>Your legal rights</h3>
+
+    {% if data.confidentiality == "anonymized" or data.confidentiality == "anonymous" %}
+      <p>Due to the anonymity of responses, CDS will have no reliable means of associating you with your information provided. This means we will not be able to access or respond to your request for correction to inaccurate information or withdrawal.</p>
+    {% endif %}
+
+    <p>
+      CDS/TBS may record your personal information. If you want to access or correct that personal information, or for any questions or concerns, please contact their privacy office:
+      <br>
+      _TBS Access to Information and Privacy Coordinator_
+      <br>
+      ATIP.AIPRP@tbs-sct.gc.ca
+      <br>
+      1-866-312-1511
+    </p>
+
+    <p>
+      You can complain to the Office of the Privacy Commissioner of Canada about the handling of your personal information:
+      <br>
+      _Office of the Privacy Commissioner of Canada_
+      <br>
+      info@priv.gc.ca
+      <br>
+      1-800-282-1376
+    </p>
 </div>
 
 {% endblock %}
