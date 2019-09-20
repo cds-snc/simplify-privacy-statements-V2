@@ -27,11 +27,13 @@ test('Can send get request to start route and have js src set', async () => {
 })
 
 test('Can send get request to start route and have empty js src', async () => {
+  process.env.GOOGLE_ANALYTICS = false
+  const localApp = require('../../app.js')
   const route = getRouteByName('start')
-  const response = await request(app).get(route.path)
+  const response = await request(localApp).get(route.path)
   expect(response.statusCode).toBe(200)
   // call to getClientJs should return false
   // which means we should have X number of script tags
   // i.e. whatever the amount is in the base view
-  expect(countScriptTags(response)).toBe(2)
+  expect(countScriptTags(response)).toBe(4)
 })
