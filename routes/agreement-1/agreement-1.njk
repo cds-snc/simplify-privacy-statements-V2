@@ -93,7 +93,7 @@
       {% endif %}
     </p>
     {% if data.consent == "action" %}
-    <p>I understand the points above and consent to participate in the research.</p>
+      <p>I understand the points above and consent to participate in the research.</p>
     {% endif %}
 
     {% if data.is_business == "true" %}
@@ -114,7 +114,7 @@
       <ul>
         <li>You are choosing to be recorded;</li>
         <li>You are not to provide any additional information that would allow others to identify you during the recording (e.g., Name, date of birth, address, etc.)</li>
-        <li>Your responses will not be confidential due to your audio likeness in the recording, and may be shared with other departments for {{ datapurposes_for_which_the_recording_may_be_disclosed }}; and,</li>
+        <li>Your responses will not be confidential due to your audio likeness in the recording, and may be shared with other departments for {{ data.purposes_for_which_the_recording_may_be_disclosed }}; and,</li>
         <li>If you decide to withdraw your consent, CDS will not share your recording further.</li>
       </ul>
 
@@ -146,7 +146,7 @@
       <p>This personal information will not be used for any “administrative  purposes”. Your information will not be used to make a decision that affects you or your access to Government of Canada services.</p>
     {% endif %}
 
-    {% if data.recording_type not "no_recording" %}
+    {% if data.recording_type != "no_recording" %}
       <p>If you have consented to being recorded, the recording may be disclosed to other departments for {{ data.purposes_for_which_the_recording_may_be_disclosed }}.</p>
     {% endif %}
 
@@ -160,11 +160,11 @@
 
     <p>CDS is part of the Treasury Board of Canada Secretariat (TBS).</p>
     <ul>
-      <li>The collection and use of your personal information by TBS is authorized by the _Financial Administration Act._ </li>
+      <li>The collection and use of your personal information by TBS is authorized by the <i>Financial Administration Act</i>. </li>
       {% if data.is_with_partner == "is_with_partner_yes" %}
         <li>The collection and use of your personal information by {{ data.partner_department_acronym }} is authorized by the _{{ data.partner_department_authority }}_ .</li>
       {% endif %}
-      <li>The collection, use, and disclosure of your personal information is in accordance with the federal _Privacy Act_. Under the _Privacy Act_, you have a right of protection, access to and correction or notation of your personal information.</li>
+      <li>The collection, use, and disclosure of your personal information is in accordance with the federal <i>Privacy Act</i>. Under the <i>Privacy Act</i>, you have a right of protection, access to and correction or notation of your personal information.</li>
     </ul>
 
     {% if data.compensation == "yes_compensation" %}
@@ -184,7 +184,8 @@
     <p>
       CDS/TBS may record your personal information. If you want to access or correct that personal information, or for any questions or concerns, please contact their privacy office:
       <br>
-      _TBS Access to Information and Privacy Coordinator_
+      <br>
+      <i>TBS Access to Information and Privacy Coordinator</i>
       <br>
       ATIP.AIPRP@tbs-sct.gc.ca
       <br>
@@ -194,12 +195,14 @@
     <p>
       You can complain to the Office of the Privacy Commissioner of Canada about the handling of your personal information:
       <br>
-      _Office of the Privacy Commissioner of Canada_
+      <br>
+      <i>Office of the Privacy Commissioner of Canada</i>
       <br>
       info@priv.gc.ca
       <br>
       1-800-282-1376
     </p>
+
 </div>
 
 {% endblock %}
