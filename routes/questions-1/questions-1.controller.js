@@ -10,7 +10,12 @@ module.exports = app => {
 
   app
     .get(route.path, (req, res) => {
-      res.render(name, { ...routeUtils.getViewData(req, {}), nextRoute: getNextRoute(name).path })
+      const jsFiles = ['js/toggle-area.js']
+      res.render(name, {
+        ...routeUtils.getViewData(req, {}),
+        nextRoute: getNextRoute(name).path,
+        jsFiles,
+      })
     })
     .post(route.path, [
       ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name }),
