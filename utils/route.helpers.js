@@ -7,7 +7,7 @@ const DefaultRouteObj = { name: false, path: false }
 /**
  * This request middleware checks if we are visiting a public path
  */
-const checkPublic = function (req, res, next) {
+const checkPublic = function(req, res, next) {
   const publicPaths = ['/', '/clear', '/start']
   if (publicPaths.includes(req.path)) {
     return next()
@@ -16,22 +16,12 @@ const checkPublic = function (req, res, next) {
   return next()
 }
 
-/**
- * attempt to auto redirect based on the next route it the route config
- */
-const doRedirect = routeName => {
-  return (req, res, next) => {
-    if (req.body.json) {
-      return next()
-    }
-
-    const nextRoute = getNextRoute(routeName)
-    if (!nextRoute.path) {
-      throw new Error(`[POST ${req.path}] 'redirect' missing`)
-    }
-
-    return res.redirect(nextRoute.path)
+const routeHasIndex = route => {
+  if (!route || !route.hasOwnProperty('index')) {
+    return false
   }
+
+  return true
 }
 
 /**
@@ -42,7 +32,7 @@ const doRedirect = routeName => {
 const getPreviousRoute = (name, routes = defaultRoutes) => {
   const route = getRouteWithIndexByName(name, routes)
 
-  if (!route || (!'index' in route && process.env.NODE_ENV !== 'production')) {
+  if (!routeHasIndex(route) && process.env.NODE_ENV !== 'production') {
     throw new Error(`Previous route error can't find => "${name}"`)
   }
 
@@ -65,7 +55,7 @@ const getPreviousRoute = (name, routes = defaultRoutes) => {
 const getNextRoute = (name, routes = defaultRoutes) => {
   const route = getRouteWithIndexByName(name, routes)
 
-  if (!route || (!'index' in route && process.env.NODE_ENV !== 'production')) {
+  if (!routeHasIndex(route) && process.env.NODE_ENV !== 'production') {
     throw new Error(`Next route error can't find => "${name}"`)
   }
 
@@ -118,7 +108,28 @@ const getDefaultMiddleware = options => {
   ]
 }
 
+/**
+ * attempt to auto redirect based on the next route it the route config
+ */
+const doRedirect = routeName => {
+  return (req, res, next) => {
+    if (req.body.json) {
+      return next()
+    }
+
+    const nextRoute = getNextRoute(routeName)
+
+    /* istanbul ignore next */
+    if (!nextRoute.path) {
+      throw new Error(`[POST ${req.path}] 'redirect' missing`)
+    }
+
+    return res.redirect(nextRoute.path)
+  }
+}
+
 module.exports = {
+  routeHasIndex,
   configRoutes,
   checkPublic,
   doRedirect,

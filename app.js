@@ -17,8 +17,8 @@ const csrf = require('csurf');
 // check to see if we have a custom configRoutes function
 let { configRoutes, routes } = require('./config/routes.config')
 
-// if not use the default
-if (typeof configRoutes === 'undefined') {
+/* istanbul ignore next */ // test mock sets as undefined but says line isn't covered
+if (typeof configRoutes === 'undefined') { // if not use the default
   configRoutes = require('./utils/route.helpers').configRoutes
 }
 
@@ -93,7 +93,7 @@ const nunjucks = require("nunjucks");
 nunjucks.configure([...app.get("views"), 'views/macros'], {
   autoescape: true,
   express: app,
-});
+}).addGlobal('$env', process.env);
 
 nunjucks.installJinjaCompat();
 

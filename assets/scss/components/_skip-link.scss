@@ -1,0 +1,38 @@
+.skip-link {
+    position:absolute !important;
+    width:1px !important;
+    height:1px !important;
+    margin:0 !important;
+    overflow:hidden !important;
+    clip:rect(0 0 0 0) !important;
+    -webkit-clip-path:inset(50%) !important;
+    clip-path:inset(50%) !important;
+    white-space:nowrap !important;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    font-size:14px;
+    font-size:.875rem;
+    line-height:1.14286;
+    display:block;
+    padding:10px 15px
+}
+.skip-link:active,.skip-link:focus{
+    position:static !important;
+    width:auto !important;
+    height:auto !important;
+    margin:inherit !important;
+    overflow:visible !important;
+    clip:auto !important;
+    -webkit-clip-path:none !important;
+    clip-path:none !important;
+    white-space:inherit !important
+}
+
+.skip-link:link,.skip-link:visited,.skip-link:hover,.skip-link:active,.skip-link:focus {
+    color:#0b0c0c
+}
+
+.skip-link:focus{
+    outline:3px solid $color-yellow;
+    background-color:$color-yellow;
+}
