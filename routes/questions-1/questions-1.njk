@@ -22,13 +22,13 @@
 
             <h2>{{ __('testInfo.title') }}</h2>
 
-            {{ radioButtons('form.is_with_partner', { '1':'Yes','2':'No'}, data.is_with_partner, 'form.is_with_partner', errors) }}
+            {{ radioButtons('is_with_partner', { '1':'Yes','2':'No'}, data.is_with_partner, 'form.is_with_partner', errors) }}
 
             {{ textInput('form.partner_department_name', null, null, { class: "w-3-4", name: "partner_department_name", id: "partner_department_name", autofocus: '', value: data.partner_department_name }) }}
             {{ textInput('form.partner_department_acronym', null, null, { class: "w-3-4", name: "partner_department_acronym", id: "partner_department_acronym", autofocus: '', value: data.partner_department_acronym }) }}
             {{ textInput('form.partner_department_authority', null, 'form.partner_department_authority.desc', { class: "w-3-4", name: "partner_department_authority", id: "partner_department_authority", autofocus: '', value: data.partner_department_authority }) }}
 
-            {{ radioButtons('form.research_method', { '1':'Interview','2':'Usability testing'}, data.research_method, 'form.research_method', errors) }}
+            {{ radioButtons('research_method', { '1':'Interview','2':'Usability testing'}, data.research_method, 'form.research_method', errors) }}
 
             {{ textArea('form.research_goal', null, 'form.research_goal.desc', data.research_goal, { class: "w-3-4", name: "research_goal", id: "research_goal", autofocus: '', value: data.research_goal }) }}
             {{ textArea('form.session_activity', null, 'form.session_activity.desc', data.session_activity, { class: "w-3-4", name: "session_activity", id: "session_activity", autofocus: '', value: data.session_activity }) }}
@@ -37,20 +37,20 @@
 
             {{ textArea('form.personal_information_collected', null, 'form.personal_information_collected.desc', data.session_activity, { class: "w-3-4", name: "personal_information_collected", id: "personal_information_collected", autofocus: '', value: data.personal_information_collected }) }}
 
-            {{ radioButtons('form.compensation', { '1':'Yes','2':'No'}, data.compensation, 'form.compensation', errors) }}
-            {{ radioButtons('form.compensation_method', { '1':'Mastercard gift card','2':'VISA gift card'}, data.compensation_method, 'form.compensation_method', errors) }}
-            {{ radioButtons('form.compensation_value', { '1':'$50 (For 1 hour of their time)','2':'$25 (For 1/2 hour of their time)','3':'$10 (For 8.5 min of their time (minimum))'}, data.compensation_value, 'form.compensation_value', errors) }}
+            {{ radioButtons('compensation', { '1':'Yes','2':'No'}, data.compensation, 'form.compensation', errors) }}
+            {{ radioButtons('compensation_method', { '1':'Mastercard gift card','2':'VISA gift card'}, data.compensation_method, 'form.compensation_method', errors) }}
+            {{ radioButtons('compensation_value', { '1':'$50 (For 1 hour of their time)','2':'$25 (For 1/2 hour of their time)','3':'$10 (For 8.5 min of their time (minimum))'}, data.compensation_value, 'form.compensation_value', errors) }}
 
-            {{ radioButtons('form.confidentiality', { '1':'By anonymizing the responses so they can\'t be linked to the participant','2':'By not collecting the identity of the participant','3':'By referring to participants using a number or pseudonym – no one outside of CDS will know who the participant is (most common)','4':'Through only sharing the responses and identity of the participant internally and with our partner organization','5':'No privacy – the participant\'s identity, responses and information will be shared publicly'}, data.confidentiality, 'form.confidentiality', errors) }}
+            {{ radioButtons('confidentiality', { '1':'form.anonymized','2':'form.anonymous','3':'form.confidential','4':'form.not_confidential','5':'form.public'}, data.confidentiality, 'form.confidentiality', errors) }}
 
-            {{ radioButtons('form.administrative_decision', { '1':'Yes','2':'No'}, data.administrative_decision, 'form.administrative_decision', errors) }}
+            {{ radioButtons('administrative_decision', { '1':'Yes','2':'No'}, data.administrative_decision, 'form.administrative_decision', errors) }}
             {{ textArea('form.administrative_purpose', null, 'form.administrative_purpose.desc', data.administrative_purpose, { class: "w-3-4", name: "administrative_purpose", id: "administrative_purpose", autofocus: '', value: data.administrative_purpose }) }}
 
-            {{ radioButtons('form.consent', { '1':'Verbally','2':'On paper','3':'action'}, data.consent, 'form.consent', errors) }}
+            {{ radioButtons('consent', { '1':'Verbally','2':'On paper','3':'action'}, data.consent, 'form.consent', errors) }}
 
-            {{ radioButtons('form.is_business', { '1':'Yes','2':'No'}, data.is_business, 'form.is_business', errors) }}
+            {{ radioButtons('is_business', { '1':'Yes','2':'No'}, data.is_business, 'form.is_business', errors) }}
 
-            {{ radioButtons('form.recording_type', { 'full audio':'Audio only','full video':'Video and audio','no recording':'No recording','2':'Screen recording only','3':'Screen recording with audio'}, data.recording_type, 'form.recording_type', errors) }}
+            {{ radioButtons('recording_type', { '1':'Audio only','2':'Video and audio','3':'No recording','4':'Screen recording only','5':'Screen recording with audio'}, data.recording_type, 'form.recording_type', errors) }}
 
             {{ textArea('form.purposes_for_which_the_recording_may_be_disclosed', null, null, data.purposes_for_which_the_recording_may_be_disclosed, { class: "w-3-4", name: "purposes_for_which_the_recording_may_be_disclosed", id: "purposes_for_which_the_recording_may_be_disclosed", autofocus: '', value: data.purposes_for_which_the_recording_may_be_disclosed }) }}
 
