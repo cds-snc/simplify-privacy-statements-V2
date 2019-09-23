@@ -21,12 +21,13 @@
         <title>{{ __('app.title') }}</title>
     </head>
     <body>
+        <a class="skip-link" href="#content">{{ __('Skip to main content') }}</a>
         <div class="container">
             <header>
                 {% include "_includes/phaseBanner.njk" %}
                 {% include "_includes/fip.njk" %}
             </header>
-            <main>
+            <main id="content">
                 {% if errors %}
                     {% include "_includes/errorList.njk" %}
                 {% endif %}
