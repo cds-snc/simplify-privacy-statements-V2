@@ -49,8 +49,12 @@
             </div>
             {{ radioButtons('form.confidentiality', { '1':'By anonymizing the responses so they can\'t be linked to the participant','2':'By not collecting the identity of the participant','3':'By referring to participants using a number or pseudonym – no one outside of CDS will know who the participant is (most common)','4':'Through only sharing the responses and identity of the participant internally and with our partner organization','5':'No privacy – the participant\'s identity, responses and information will be shared publicly'}, data.confidentiality, 'form.confidentiality', errors) }}
 
-            {{ radioButtons('form.administrative_decision', { '1':'Yes','2':'No'}, data.administrative_decision, 'form.administrative_decision', errors) }}
-            {{ textArea('form.administrative_purpose', null, 'form.administrative_purpose.desc', data.administrative_purpose, { class: "w-3-4", name: "administrative_purpose", id: "administrative_purpose", autofocus: '', value: data.administrative_purpose }) }}
+            <div class="toggle-area">
+                {{ radioButtons('administrative_decision', { 'on':'Yes','off':'No'}, data.administrative_decision, 'form.administrative_decision', errors) }}
+            </div>
+            <div class="administrative_decision-toggled" >
+                {{ textArea('form.administrative_purpose', null, 'form.administrative_purpose.desc', data.administrative_purpose, { class: "w-3-4", name: "administrative_purpose", id: "administrative_purpose", autofocus: '', value: data.administrative_purpose }) }}
+            </div>
 
             {{ radioButtons('form.consent', { '1':'Verbally','2':'On paper','3':'action'}, data.consent, 'form.consent', errors) }}
 
