@@ -23,13 +23,18 @@ module.exports = app => {
 
     app
     .get(route.path, (req, res) => {
-      var filename = "agreement-" + getRandomString() + ".docx"
+      var randomString = getRandomString()
+      var docxFilename = "agreement-" + randomString + ".docx"
 
-      res.render(name, { ...routeUtils.getViewData(req, {}), nextRoute: getNextRoute(name).path }, function(err, html) {
+      res.render(name, { 
+        ...routeUtils.getViewData(req, {}), 
+        nextRoute: getNextRoute(name).path,
+        docxFilename: docxFilename,
+      }, function(err, html) {
         if(err) {
           console.log(err)
         }
-        nodePandoc(html, "-f html -t docx -o public/documents/" + filename, callback)
+        nodePandoc(html, "-f html -t docx -o public/documents/" + docxFilename, callback)
         res.send(html);
       })
     })
