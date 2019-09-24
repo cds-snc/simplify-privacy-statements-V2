@@ -3,6 +3,7 @@
   "description": "",
   "formation": {},
   "addons": [],
+  "stack": "container",
   "buildpacks": [
     {
       "url": "heroku/nodejs"
