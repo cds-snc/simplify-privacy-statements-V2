@@ -13,4 +13,4 @@ RUN npm install --quiet --production
 
 EXPOSE 3000
 
-ENTRYPOINT [ "npm", "start" ]
+CMD [ "npm", "start" ]
