@@ -1,5 +1,7 @@
-FROM node:10-alpine
+FROM pandoc/core
 LABEL maintainer="-"
+
+RUN apk add --update nodejs nodejs-npm
 
 ARG GITHUB_SHA_ARG
 
