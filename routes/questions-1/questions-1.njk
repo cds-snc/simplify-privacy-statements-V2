@@ -22,11 +22,14 @@
 
             <h2>{{ __('testInfo.title') }}</h2>
 
-            {{ radioButtons('is_with_partner', { '1':'Yes','2':'No'}, data.is_with_partner, 'form.is_with_partner', errors) }}
-
-            {{ textInput('form.partner_department_name', null, null, { class: "w-3-4", name: "partner_department_name", id: "partner_department_name", autofocus: '', value: data.partner_department_name }) }}
-            {{ textInput('form.partner_department_acronym', null, null, { class: "w-3-4", name: "partner_department_acronym", id: "partner_department_acronym", autofocus: '', value: data.partner_department_acronym }) }}
-            {{ textInput('form.partner_department_authority', null, 'form.partner_department_authority.desc', { class: "w-3-4", name: "partner_department_authority", id: "partner_department_authority", autofocus: '', value: data.partner_department_authority }) }}
+            <div class="toggle-area">
+                {{ radioButtons('is_with_partner', { 'on':'Yes','off':'No'}, data.is_with_partner, 'form.is_with_partner', errors) }}
+            </div>
+            <div class="is_with_partner-toggled" style="display:none" >
+                {{ textInput('form.partner_department_name', null, null, { class: "w-3-4", name: "partner_department_name", id: "partner_department_name", autofocus: '', value: data.partner_department_name }) }}
+                {{ textInput('form.partner_department_acronym', null, null, { class: "w-3-4", name: "partner_department_acronym", id: "partner_department_acronym", autofocus: '', value: data.partner_department_acronym }) }}
+                {{ textInput('form.partner_department_authority', null, 'form.partner_department_authority.desc', { class: "w-3-4", name: "partner_department_authority", id: "partner_department_authority", autofocus: '', value: data.partner_department_authority }) }}
+            </div>
 
             {{ radioButtons('research_method', { '1':'Interview','2':'Usability testing'}, data.research_method, 'form.research_method', errors) }}
 
@@ -37,14 +40,21 @@
 
             {{ textArea('form.personal_information_collected', null, 'form.personal_information_collected.desc', data.session_activity, { class: "w-3-4", name: "personal_information_collected", id: "personal_information_collected", autofocus: '', value: data.personal_information_collected }) }}
 
-            {{ radioButtons('compensation', { '1':'Yes','2':'No'}, data.compensation, 'form.compensation', errors) }}
-            {{ radioButtons('compensation_method', { '1':'Mastercard gift card','2':'VISA gift card'}, data.compensation_method, 'form.compensation_method', errors) }}
-            {{ radioButtons('compensation_value', { '1':'$50 (For 1 hour of their time)','2':'$25 (For 1/2 hour of their time)','3':'$10 (For 8.5 min of their time (minimum))'}, data.compensation_value, 'form.compensation_value', errors) }}
-
+            <div class="toggle-area">
+                {{ radioButtons('compensation', { 'on':'Yes','off':'No'}, data.compensation, 'form.compensation', errors) }}
+            </div>
+            <div class="compensation-toggled" style="display:none" >
+                {{ radioButtons('compensation_method', { '1':'Mastercard gift card','2':'VISA gift card'}, data.compensation_method, 'form.compensation_method', errors) }}
+                {{ radioButtons('compensation_value', { '1':'$50 (For 1 hour of their time)','2':'$25 (For 1/2 hour of their time)','3':'$10 (For 8.5 min of their time (minimum))'}, data.compensation_value, 'form.compensation_value', errors) }}
+            </div>
             {{ radioButtons('confidentiality', { '1':'form.anonymized','2':'form.anonymous','3':'form.confidential','4':'form.not_confidential','5':'form.public'}, data.confidentiality, 'form.confidentiality', errors) }}
 
-            {{ radioButtons('administrative_decision', { '1':'Yes','2':'No'}, data.administrative_decision, 'form.administrative_decision', errors) }}
-            {{ textArea('form.administrative_purpose', null, 'form.administrative_purpose.desc', data.administrative_purpose, { class: "w-3-4", name: "administrative_purpose", id: "administrative_purpose", autofocus: '', value: data.administrative_purpose }) }}
+            <div class="toggle-area">
+                {{ radioButtons('administrative_decision', { 'on':'Yes','off':'No'}, data.administrative_decision, 'form.administrative_decision', errors) }}
+            </div>
+            <div class="administrative_decision-toggled" style="display:none" >
+                {{ textArea('form.administrative_purpose', null, 'form.administrative_purpose.desc', data.administrative_purpose, { class: "w-3-4", name: "administrative_purpose", id: "administrative_purpose", autofocus: '', value: data.administrative_purpose }) }}
+            </div>
 
             {{ radioButtons('consent', { '1':'Verbally','2':'On paper','3':'action'}, data.consent, 'form.consent', errors) }}
 
@@ -58,9 +68,6 @@
 
             {{ formButtons() }}
         </form>
-
-
-
     </div>
 
 {% endblock %}
