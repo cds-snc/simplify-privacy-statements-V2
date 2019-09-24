@@ -15,7 +15,8 @@
     "start": "NODE_ENV=production node ./bin/www",
     "test": "node node_modules/jest/bin/jest.js --coverage",
     "test:watch": "node node_modules/jest/bin/jest.js --watch",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "translate": "node utils/i18n-helper.js"
   },
   "dependencies": {
     "commander": "^3.0.1",
