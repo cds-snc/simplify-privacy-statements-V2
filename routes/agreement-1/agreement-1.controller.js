@@ -15,6 +15,14 @@ function getRandomString() {
   return Math.random().toString().split(".")[1].slice(0,8);
 }
 
+const flagHtml = `
+    <img src="public/img/GOC_colour_en.png" alt="Symbol of the Government of Canada" width="300px">
+`;
+
+const wordmarkHtml = `
+    <img src="public/img/Canwordmark_colour.png" alt="Government of Canada" width="150px">
+`;
+
 module.exports = app => {
   const name = 'agreement-1'
   const route = routeUtils.getRouteByName(name)
@@ -34,7 +42,10 @@ module.exports = app => {
         if(err) {
           console.log(err)
         }
-        nodePandoc(html, "-f html -t docx -o public/documents/" + docxFilename, callback)
+        const startIndex = html.indexOf("<h1>");
+        const endIndex = html.indexOf("</main>");
+        const htmlDoc = flagHtml + html.slice(startIndex, endIndex) + wordmarkHtml;
+        nodePandoc(htmlDoc, "-f html -t docx -o public/documents/" + docxFilename, callback)
         res.send(html);
       })
     })
