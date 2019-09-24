@@ -13,5 +13,7 @@ RUN npm install --quiet --production
 
 EXPOSE 3000
 
+# heroku needs this
 CMD [ "npm", "start" ]
+
 ENTRYPOINT [ "npm", "start" ]
