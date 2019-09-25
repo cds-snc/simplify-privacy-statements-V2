@@ -16,7 +16,7 @@ const toggleArea = event => {
 
   if (!target) return
 
-  if (toggleState === 'on') {
+  if (toggleState.includes('on')) {
     target.style.display = 'block'
   } else {
     target.style.display = 'none'

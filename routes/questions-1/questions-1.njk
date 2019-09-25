@@ -47,7 +47,13 @@
                 {{ radioButtons('compensation_method', { '1':'Mastercard gift card','2':'VISA gift card'}, data.compensation_method, 'form.compensation_method', errors) }}
                 {{ radioButtons('compensation_value', { '1':'$50 (For 1 hour of their time)','2':'$25 (For 1/2 hour of their time)','3':'$10 (For 8.5 min of their time (minimum))'}, data.compensation_value, 'form.compensation_value', errors) }}
             </div>
-            {{ radioButtons('confidentiality', { '1':'form.anonymized','2':'form.anonymous','3':'form.confidential','4':'form.not_confidential','5':'form.public'}, data.confidentiality, 'form.confidentiality', errors) }}
+
+            <div class="toggle-area">
+            {{ radioButtons('confidentiality', { 'off-1':'form.anonymized','off-2':'form.anonymous','off-3':'form.confidential','on-1':'form.not_confidential','on-2':'form.public'}, data.confidentiality, 'form.confidentiality', errors) }}
+            </div>
+            <div class="confidentiality-toggled" style="display:none" >
+                {{ textArea('form.personal_information_disclosed_to_public', null, null, data.personal_information_disclosed_to_public, { class: "w-3-4", name: "personal_information_disclosed_to_public", id: "personal_information_disclosed_to_public", autofocus: '', value: data.personal_information_disclosed_to_public }) }}
+            </div>
 
             <div class="toggle-area">
                 {{ radioButtons('administrative_decision', { 'on':'Yes','off':'No'}, data.administrative_decision, 'form.administrative_decision', errors) }}
@@ -60,12 +66,12 @@
 
             {{ radioButtons('is_business', { '1':'Yes','2':'No'}, data.is_business, 'form.is_business', errors) }}
 
-            {{ radioButtons('recording_type', { '1':'Audio only','2':'Video and audio','3':'No recording','4':'Screen recording only','5':'Screen recording with audio'}, data.recording_type, 'form.recording_type', errors) }}
-
-            {{ textArea('form.purposes_for_which_the_recording_may_be_disclosed', null, null, data.purposes_for_which_the_recording_may_be_disclosed, { class: "w-3-4", name: "purposes_for_which_the_recording_may_be_disclosed", id: "purposes_for_which_the_recording_may_be_disclosed", autofocus: '', value: data.purposes_for_which_the_recording_may_be_disclosed }) }}
-
-            {{ textArea('form.personal_information_disclosed_to_public', null, null, data.personal_information_disclosed_to_public, { class: "w-3-4", name: "personal_information_disclosed_to_public", id: "personal_information_disclosed_to_public", autofocus: '', value: data.personal_information_disclosed_to_public }) }}
-
+            <div class="toggle-area">
+                {{ radioButtons('recording_type', { 'on-1':'Video and audio','on-2':'Audio only','on-3':'Screen recording with audio','off-1':'Screen recording only','off-2':'No recording'}, data.recording_type, 'form.recording_type', errors) }}
+            </div>
+            <div class="recording_type-toggled" style="display:none" >
+                {{ textArea('form.purposes_for_which_the_recording_may_be_disclosed', null, null, data.purposes_for_which_the_recording_may_be_disclosed, { class: "w-3-4", name: "purposes_for_which_the_recording_may_be_disclosed", id: "purposes_for_which_the_recording_may_be_disclosed", autofocus: '', value: data.purposes_for_which_the_recording_may_be_disclosed }) }}
+            </div>
             {{ formButtons() }}
         </form>
     </div>
