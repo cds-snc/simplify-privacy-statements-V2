@@ -1,5 +1,5 @@
 const path = require('path')
-const { getNextRoute, routeUtils } = require('./../../utils')
+const { routeUtils } = require('./../../utils')
 const { Schema } = require('./schema.js')
 
 module.exports = app => {
@@ -13,7 +13,6 @@ module.exports = app => {
       const jsFiles = ['js/toggle-area.js']
       res.render(name, {
         ...routeUtils.getViewData(req, {}),
-        nextRoute: getNextRoute(name).path,
         jsFiles,
       })
     })

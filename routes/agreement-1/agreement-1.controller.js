@@ -36,14 +36,17 @@ module.exports = app => {
 
   app
     .get(route.path, (req, res) => {
+      var nextRoute = getNextRoute(name).path;
+      if (Object.keys(req.query).indexOf("lang") > -1) {
+        nextRoute += "?lang=" + req.query.lang;
+      }
       var randomString = getRandomString()
       var docxFilename = 'agreement-' + randomString + '.docx'
-
       res.render(
         name + `-${i18n.getLocale(req)}`,
         { 
           ...routeUtils.getViewData(req, {}), 
-          nextRoute: getNextRoute(name).path,
+          nextRoute: nextRoute,
           docxFilename: docxFilename,
         }, 
         function(err, html) {

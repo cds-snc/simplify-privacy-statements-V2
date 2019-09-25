@@ -123,7 +123,9 @@ const doRedirect = routeName => {
     if (!nextRoute.path) {
       throw new Error(`[POST ${req.path}] 'redirect' missing`)
     }
-
+    if (Object.keys(req.query).indexOf("lang") > -1) {
+      return res.redirect(nextRoute.path + "?lang=" + req.query.lang)
+    }
     return res.redirect(nextRoute.path)
   }
 }

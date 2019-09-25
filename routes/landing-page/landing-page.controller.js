@@ -10,7 +10,11 @@ module.exports = app => {
 
   app
     .get(route.path, (req, res) => {
-      res.render(name, { ...routeUtils.getViewData(req, {}), nextRoute: getNextRoute(name).path })
+      var nextRoute = getNextRoute(name).path;
+      if (Object.keys(req.query).indexOf("lang") > -1) {
+        nextRoute += "?lang=" + req.query.lang;
+      }
+      res.render(name, { ...routeUtils.getViewData(req, {}), nextRoute: nextRoute })
     })
     .post(route.path, [
       ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name }),
