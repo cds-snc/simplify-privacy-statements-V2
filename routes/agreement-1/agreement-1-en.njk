@@ -111,17 +111,17 @@
         <h2>OPTIONAL AUDIO RECORDING</h2>
       {% endif %}
 
-      <p>Recording our research will help us ensure we capture all of your input. Sharing our sessions with other departments will help illustrate the value of {research_method}s with users in building better digital services.</p>
+      <p>Recording our research will help us ensure we capture all of your input. Sharing our sessions with other departments will help illustrate the value of {{ defaultValue("research_method") }}s with users in building better digital services.</p>
 
       <p>By agreeing to be recorded, you understand that:</p>
       <ul>
         <li>You are choosing to be recorded;</li>
         <li>You are not to provide any additional information that would allow others to identify you during the recording (e.g., Name, date of birth, address, etc.)</li>
-        <li>Your responses will not be confidential due to your audio likeness in the recording, and may be shared with other departments for {{ data.purposes_for_which_the_recording_may_be_disclosed }}; and,</li>
+        <li>Your responses will not be confidential due to your audio likeness in the recording, and may be shared with other departments for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed") }}; and,</li>
         <li>If you decide to withdraw your consent, CDS will not share your recording further.</li>
       </ul>
 
-      <p>However, prior to your withdrawal, CDS may have already shared your recording with other departments, which may continue to use the recording for {{ data.purposes_for_which_the_recording_may_be_disclosed }}</p>
+      <p>However, prior to your withdrawal, CDS may have already shared your recording with other departments, which may continue to use the recording for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed") }}.</p>
 
       <p>[ ] I understand the points above and consent to be recorded.</p>
 
