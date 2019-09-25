@@ -35,13 +35,13 @@
       By participating in this study, you understand that:
     </p>
     <ul>
-      {% if data.compensation == "No" %}
-        <li>You are volunteering to participate. You can stop at any time for any reason, without any consequences.</li>
-      {% else %}
+      {% if data.compensation == "Yes" %}
         <li>You are volunteering to participate. You can stop at any time for any reason.</li>
         <li>For your {{ defaultValue("session_duration") }} of input, you will receive a one-time {{ defaultValue("compensation_method") }} of up to {{ defaultValue("compensation_value") }}. This is taxable income.</li>
         <li>Should you decide to stop participating, you will receive a one-time payment of $10 if you have provided at least 8.5 minutes of input.</li>
         <li>If you have provided less than 8.5 minutes you will be entitled to $0</li>
+      {% else %}
+        <li>You are volunteering to participate. You can stop at any time for any reason, without any consequences.</li>
       {% endif %}
 
       {% if data.confidentiality == "form.confidential" or data.confidentiality == "form.anonymized" or data.confidentiality == "form.anonymous" %}
@@ -153,10 +153,10 @@
       <p>If you have consented to being recorded, the recording may be disclosed to other departments for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed")}}.</p>
     {% endif %}
 
-    {% if data.compensation == "No" %}
-      <p>CDS may publish or share with other government institutions a summary of what we have learned from this research, including quotes or narratives. Your name will not be associated with your responses, quotes, or narratives.</p>
+    {% if data.compensation == "Yes" %}
+      <p>CDS will own the {{ defaultValue("research_method") }} information and may publish or share with other government institutions a summary of what we have learned from this research, including quotes or narratives. Your name will not be associated with your responses, quotes, or narratives.</p>
     {% else %}
-     <p>CDS will own the {{ defaultValue("research_method") }} information and may publish or share with other government institutions a summary of what we have learned from this research, including quotes or narratives. Your name will not be associated with your responses, quotes, or narratives.</p>
+      <p>CDS may publish or share with other government institutions a summary of what we have learned from this research, including quotes or narratives. Your name will not be associated with your responses, quotes, or narratives.</p>
     {% endif %}
 
     <h3>Who we are</h3>
