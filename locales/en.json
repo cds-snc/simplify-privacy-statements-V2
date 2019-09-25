@@ -134,5 +134,7 @@
   "Screen recording with audio": "Screen recording with audio",
   "Audio only": "Audio only",
   "Video and audio": "Video and audio",
-  "No recording": "No recording"
+  "No recording": "No recording",
+  "errors.field_empty": "This field cannot be empty",
+  "errors.must_choose_option": "You must choose an option"
 }
