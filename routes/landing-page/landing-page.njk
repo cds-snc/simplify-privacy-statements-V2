@@ -10,9 +10,9 @@
         </p>
         <form method="post">
             <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-            {{ radioButtons('template', { '1':__('landing-page.option1'),'2':__('landing-page.option2')}, data.template, __('landing-page.leadin'), errors) }}
+            {{ radioButtons('template', { '1': 'form.template1','2': 'form.template2'}, data.template,  'landing-page.leadin', errors) }}
             
-            {{ submitButton(__('start.submit')) }}
+            {{ submitButton('start.submit') }}
         </form>
     </div>
 
