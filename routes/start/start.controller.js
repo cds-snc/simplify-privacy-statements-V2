@@ -1,7 +1,7 @@
 const path = require('path')
 const {
   routeUtils,
-  getNextRoute,
+  getNextRouteURL,
   getRouteByName,
   addViewPath,
   getClientJs,
@@ -29,7 +29,7 @@ module.exports = app => {
     res.render(
       name,
       routeUtils.getViewData(res, {
-        nextRoute: getNextRoute(name).path,
+        nextRoute: getNextRouteURL(name, req),
         jsFiles,
       }),
     )
