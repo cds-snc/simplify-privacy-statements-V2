@@ -1,0 +1,79 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+    <h1>{{ __('questions-1.title') }}</h1>
+
+    <div>
+        <p>
+            {{ __('questions-1.intro') }}
+        </p>
+
+
+        <form method="post">
+
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+
+            <h2>{{ __('contactInfo.title') }}</h2>
+            {{ textInput('form.researcher_name', null, null, { class: "w-3-4", name: "researcher_name", id: "researcher_name", autofocus: '', value: data.researcher_name }) }}
+            {{ textInput('form.researcher_phone', null, null, { class: "w-3-4", name: "researcher_phone", id: "researcher_phone", autofocus: '', value: data.researcher_phone }) }}
+            {{ textInput('form.researcher_email', null, null, { class: "w-3-4", name: "researcher_email", id: "researcher_email", autofocus: '', value: data.researcher_email }) }}
+
+
+            <h2>{{ __('testInfo.title') }}</h2>
+
+            <div class="toggle-area">
+                {{ radioButtons('is_with_partner', { 'on':'Yes','off':'No'}, data.is_with_partner, 'form.is_with_partner', errors) }}
+            </div>
+            <div class="is_with_partner-toggled" style="display:none" >
+                {{ textInput('form.partner_department_name', null, null, { class: "w-3-4", name: "partner_department_name", id: "partner_department_name", autofocus: '', value: data.partner_department_name }) }}
+                {{ textInput('form.partner_department_acronym', null, null, { class: "w-3-4", name: "partner_department_acronym", id: "partner_department_acronym", autofocus: '', value: data.partner_department_acronym }) }}
+                {{ textInput('form.partner_department_authority', null, 'form.partner_department_authority.desc', { class: "w-3-4", name: "partner_department_authority", id: "partner_department_authority", autofocus: '', value: data.partner_department_authority }) }}
+            </div>
+
+            {{ radioButtons('research_method', { '1':'Interview','2':'Usability testing'}, data.research_method, 'form.research_method', errors) }}
+
+            {{ textArea('form.research_goal', null, 'form.research_goal.desc', data.research_goal, { class: "w-3-4", name: "research_goal", id: "research_goal", autofocus: '', value: data.research_goal }) }}
+            {{ textArea('form.session_activity', null, 'form.session_activity.desc', data.session_activity, { class: "w-3-4", name: "session_activity", id: "session_activity", autofocus: '', value: data.session_activity }) }}
+
+            {{ textInput('form.session_duration', null, 'form.session_duration.desc', { class: "w-3-4", name: "session_duration", id: "session_duration", autofocus: '', value: data.session_duration }) }}
+
+            {{ textArea('form.personal_information_collected', null, 'form.personal_information_collected.desc', data.session_activity, { class: "w-3-4", name: "personal_information_collected", id: "personal_information_collected", autofocus: '', value: data.personal_information_collected }) }}
+
+            <div class="toggle-area">
+                {{ radioButtons('compensation', { 'on':'Yes','off':'No'}, data.compensation, 'form.compensation', errors) }}
+            </div>
+            <div class="compensation-toggled" style="display:none" >
+                {{ radioButtons('compensation_method', { '1':'Mastercard gift card','2':'VISA gift card'}, data.compensation_method, 'form.compensation_method', errors) }}
+                {{ radioButtons('compensation_value', { '1':'$50 (For 1 hour of their time)','2':'$25 (For 1/2 hour of their time)','3':'$10 (For 8.5 min of their time (minimum))'}, data.compensation_value, 'form.compensation_value', errors) }}
+            </div>
+
+            <div class="toggle-area">
+            {{ radioButtons('confidentiality', { 'off-1':'form.anonymized','off-2':'form.anonymous','off-3':'form.confidential','on-1':'form.not_confidential','on-2':'form.public'}, data.confidentiality, 'form.confidentiality', errors) }}
+            </div>
+            <div class="confidentiality-toggled" style="display:none" >
+                {{ textArea('form.personal_information_disclosed_to_public', null, null, data.personal_information_disclosed_to_public, { class: "w-3-4", name: "personal_information_disclosed_to_public", id: "personal_information_disclosed_to_public", autofocus: '', value: data.personal_information_disclosed_to_public }) }}
+            </div>
+
+            <div class="toggle-area">
+                {{ radioButtons('administrative_decision', { 'on':'Yes','off':'No'}, data.administrative_decision, 'form.administrative_decision', errors) }}
+            </div>
+            <div class="administrative_decision-toggled" style="display:none" >
+                {{ textArea('form.administrative_purpose', null, 'form.administrative_purpose.desc', data.administrative_purpose, { class: "w-3-4", name: "administrative_purpose", id: "administrative_purpose", autofocus: '', value: data.administrative_purpose }) }}
+            </div>
+
+            {{ radioButtons('consent', { '1':'Verbally','2':'On paper','3':'action'}, data.consent, 'form.consent', errors) }}
+
+            {{ radioButtons('is_business', { '1':'Yes','2':'No'}, data.is_business, 'form.is_business', errors) }}
+
+            <div class="toggle-area">
+                {{ radioButtons('recording_type', { 'on-1':'Video and audio','on-2':'Audio only','on-3':'Screen recording with audio','off-1':'Screen recording only','off-2':'No recording'}, data.recording_type, 'form.recording_type', errors) }}
+            </div>
+            <div class="recording_type-toggled" style="display:none" >
+                {{ textArea('form.purposes_for_which_the_recording_may_be_disclosed', null, null, data.purposes_for_which_the_recording_may_be_disclosed, { class: "w-3-4", name: "purposes_for_which_the_recording_may_be_disclosed", id: "purposes_for_which_the_recording_may_be_disclosed", autofocus: '', value: data.purposes_for_which_the_recording_may_be_disclosed }) }}
+            </div>
+            {{ formButtons() }}
+        </form>
+    </div>
+
+{% endblock %}

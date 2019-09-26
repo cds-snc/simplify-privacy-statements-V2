@@ -1,7 +1,8 @@
 const { checkSchema } = require('express-validator')
 const { routes: defaultRoutes } = require('../config/routes.config')
 const { checkErrors } = require('./validate.helpers')
-
+const url = require('url');
+const en = require("../locales/en.json")
 const DefaultRouteObj = { name: false, path: false }
 
 /**
@@ -70,6 +71,33 @@ const getNextRoute = (name, routes = defaultRoutes) => {
   return nextRoute
 }
 
+
+const getNextRouteURL = (name, req) => {
+
+  const nextRoute = getNextRoute(name)
+
+  /* istanbul ignore next */
+  if (!nextRoute.path) {
+    throw new Error(`[POST ${req.path}] 'redirect' missing`)
+  }
+
+  if(name === "landing-page") {
+    var keys = {};
+    keys[en["form.template1"]] = "questions-1";
+    keys[en["form.template2"]] = "questions-2";
+
+    return url.format({
+      pathname: keys[req.body.template],
+      query: req.query,
+    })
+  }
+
+  return url.format({
+    pathname: nextRoute.path,
+    query: req.query,
+  })
+}
+
 /**
  * @param {String} name route name
  * @param {Array} routes array of route objects { name: "start", path: "/start" }
@@ -109,24 +137,16 @@ const getDefaultMiddleware = options => {
 }
 
 /**
- * attempt to auto redirect based on the next route it the route config
+ * attempt to auto redirect based on the neyxt route it the route config
  */
-const doRedirect = routeName => {
+const doRedirect = (routeName, _nextRoute) => {
   return (req, res, next) => {
     if (req.body.json) {
       return next()
     }
 
-    const nextRoute = getNextRoute(routeName)
+    return res.redirect(getNextRouteURL(routeName, req));
 
-    /* istanbul ignore next */
-    if (!nextRoute.path) {
-      throw new Error(`[POST ${req.path}] 'redirect' missing`)
-    }
-    if (Object.keys(req.query).indexOf("lang") > -1) {
-      return res.redirect(nextRoute.path + "?lang=" + req.query.lang)
-    }
-    return res.redirect(nextRoute.path)
   }
 }
 
@@ -137,6 +157,7 @@ module.exports = {
   doRedirect,
   getPreviousRoute,
   getNextRoute,
+  getNextRouteURL,
   getRouteByName,
   getRouteWithIndexByName,
   getDefaultMiddleware,

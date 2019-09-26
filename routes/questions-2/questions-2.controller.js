@@ -1,16 +1,20 @@
 const path = require('path')
-const { getNextRouteURL, routeUtils } = require('./../../utils')
+const { routeUtils } = require('./../../utils')
 const { Schema } = require('./schema.js')
 
 module.exports = app => {
-  const name = 'landing-page'
+  const name = 'questions-2'
   const route = routeUtils.getRouteByName(name)
 
   routeUtils.addViewPath(app, path.join(__dirname, './'))
 
   app
     .get(route.path, (req, res) => {
-      res.render(name, { ...routeUtils.getViewData(req, {}), nextRoute: getNextRouteURL(name, req) })
+      const jsFiles = ['js/toggle-area.js']
+      res.render(name, {
+        ...routeUtils.getViewData(req, {}),
+        jsFiles,
+      })
     })
     .post(route.path, [
       ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name }),

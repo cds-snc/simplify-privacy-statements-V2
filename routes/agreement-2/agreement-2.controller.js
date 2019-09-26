@@ -29,7 +29,7 @@ const wordmarkHtml = `
 `;
 
 module.exports = app => {
-  const name = 'agreement-1'
+  const name = 'agreement-2'
   const route = routeUtils.getRouteByName(name)
 
   routeUtils.addViewPath(app, path.join(__dirname, './'))
@@ -42,7 +42,7 @@ module.exports = app => {
         name + `-${i18n.getLocale(req)}`,
         { 
           ...routeUtils.getViewData(req, {}), 
-          nextRoute: getNextRouteURL(name, req) ,
+          nextRoute: getNextRouteURL(name, req),
           docxFilename: docxFilename,
         }, 
         function(err, html) {

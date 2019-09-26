@@ -1,8 +1,8 @@
 const Schema = {
-  firstname: {
+  template: {
     isLength: {
-      errorMessage: 'errors.firstname.length',
-      options: { min: 3, max: 200 },
+      errorMessage: 'errors.field_empty',
+      options: { min: 1, max: 200 },
     },
   },
 }

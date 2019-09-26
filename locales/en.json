@@ -136,5 +136,12 @@
   "Video and audio": "Video and audio",
   "No recording": "No recording",
   "errors.field_empty": "This field cannot be empty",
-  "errors.must_choose_option": "You must choose an option"
+  "errors.must_choose_option": "You must choose an option",
+  "form.template": "form.template",
+  "Choose from a:": "Choose from a:",
+  "form.template1": "consent form for research participants",
+  "form.template2": "form for recruiting through a third party",
+  "Make a form!": "Make a form!",
+  "consent form for research participants": "consent form for research participants",
+  "form for recruiting through a third party": "form for recruiting through a third party"
 }

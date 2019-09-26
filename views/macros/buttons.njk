@@ -9,6 +9,14 @@
     </div>
 {% endmacro %}
 
+{% macro submitButton(submitButtonText = 'Continue') %}
+    <div class="buttons">
+        <div class="buttons-row">
+            <button type="submit">{{ __(submitButtonText) }}</button>
+        </div>
+    </div>
+{% endmacro %}
+
 {% macro linkButtons(confirmURL) %}
     <div class="buttons-row">
         <a href="{{ confirmURL }}">{{ __('Confirm') }}</a>

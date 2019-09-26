@@ -8,26 +8,12 @@
         <p>
             {{ __('landing-page.intro') }}
         </p>
-        <p>
-            {{ __('landing-page.leadin') }}
-        </p>
-        <ul>
-            <li>
-                {{ __('landing-page.option1') }}
-            </li>
-            <li>
-                {{ __('landing-page.option2') }}
-            </li>
-        </ul>
+        <form method="post">
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+            {{ radioButtons('template', { '1':__('landing-page.option1'),'2':__('landing-page.option2')}, data.template, __('landing-page.leadin'), errors) }}
             
-
-        <div>
-            <a class="button-link" href="{{ nextRoute }}" role="button" draggable="false">
-                {{ __('start.submit') }}
-                <span aria-hidden="true">→</span>
-            </a>
-        </div>
-
+            {{ submitButton(__('start.submit')) }}
+        </form>
     </div>
 
 {% endblock %}
