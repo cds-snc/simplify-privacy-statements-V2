@@ -67,7 +67,7 @@ describe('doRedirect', () => {
   }
 
   test('Calls redirect if it finds the next route', () => {
-    const req = { body: {} }
+    const req = { body: {}, query: {} }
     const next = jest.fn()
     const redirectMock = jest.fn()
     const res = {
