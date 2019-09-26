@@ -1,4 +1,4 @@
-form {
+.form {
   margin-top: $space-xl;
   max-width: 300px;
   width: 100%;
@@ -35,7 +35,7 @@ form {
   }
 }
 
-form.form--lg {
+.form.form--lg {
   
   @include sm {
     width: 110%;
@@ -49,7 +49,7 @@ form.form--lg {
   
 }
 
-form {
+.form {
   > div:not(:last-of-type) {
     margin-bottom: $space-xl;
   }
