@@ -14,9 +14,11 @@ const toggleArea = event => {
   // look for an element with that name of the target + -toggled
   // i.e. div you want to show or hide
   const target = document.querySelector(`.${name}-toggled`)
-
   if (!checked || !target) return
 
+  if (!target.classList.contains('form')) {
+    target.classList.add('form')
+  }
   if (toggleState.includes('on')) {
     target.style.display = 'block'
   } else {
