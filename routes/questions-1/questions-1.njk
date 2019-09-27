@@ -15,9 +15,10 @@
             <input type="hidden" name="_csrf" value="{{ csrfToken }}">
 
             <h2>{{ __('contactInfo.title') }}</h2>
-            {{ textInput('form.researcher_name', null, null, { class: "w-3-4", name: "researcher_name", id: "researcher_name", autofocus: '', value: data.researcher_name }) }}
-            {{ textInput('form.researcher_phone', null, null, { class: "w-3-4", name: "researcher_phone", id: "researcher_phone", autofocus: '', value: data.researcher_phone }) }}
-            {{ textInput('form.researcher_email', null, null, { class: "w-3-4", name: "researcher_email", id: "researcher_email", autofocus: '', value: data.researcher_email }) }}
+
+            {{ textInput('researcher_name', 'form.researcher_name') }}
+            {{ textInput('researcher_phone', 'form.researcher_phone') }}
+            {{ textInput('researcher_email', 'form.researcher_email') }}
 
 
             <h2>{{ __('testInfo.title') }}</h2>
@@ -25,10 +26,10 @@
             <div class="toggle-area">
                 {{ radioButtons('is_with_partner', { 'on':'Yes','off':'No'}, data.is_with_partner, 'form.is_with_partner', errors) }}
             </div>
-            <div class="is_with_partner-toggled" style="display:none" >
-                {{ textInput('form.partner_department_name', null, null, { class: "w-3-4", name: "partner_department_name", id: "partner_department_name", autofocus: '', value: data.partner_department_name }) }}
-                {{ textInput('form.partner_department_acronym', null, null, { class: "w-3-4", name: "partner_department_acronym", id: "partner_department_acronym", autofocus: '', value: data.partner_department_acronym }) }}
-                {{ textInput('form.partner_department_authority', null, 'form.partner_department_authority.desc', { class: "w-3-4", name: "partner_department_authority", id: "partner_department_authority", autofocus: '', value: data.partner_department_authority }) }}
+            <div class="is_with_partner-toggled" style="display:none; display:block" >
+                {{ textInput('partner_department_name', 'form.partner_department_name') }}
+                {{ textInput('partner_department_acronym', 'form.partner_department_acronym') }}
+                {{ textInput('partner_department_authority', 'form.partner_department_authority', { hint: 'form.partner_department_authority.desc' }) }}
             </div>
 
             {{ radioButtons('research_method', { '1':'Interview','2':'Usability testing'}, data.research_method, 'form.research_method', errors) }}
