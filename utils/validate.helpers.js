@@ -1,7 +1,5 @@
-const { validationResult } = require('express-validator')
-const request = require('request')
+const { validationResult, checkSchema } = require('express-validator')
 const { getSessionData, saveSessionData } = require('./session.helpers')
-const { getDomain } = require('./url.helpers')
 
 /*
   original format is an array of error objects: https://express-validator.github.io/docs/validation-result-api.html
@@ -107,30 +105,40 @@ const renderPageWithErrors = (
 
 /**
  * @param {Object} req express request obj
- * @param {String} routePath the route path we want to validate the domain will be prepended
- * @param {Object} formData optional allows passing in custom form data defaults to session data
  */
-const validateRouteData = async (req, routePath, formData = {}) => {
-  const domain = getDomain(req)
-  const url = `${domain}/${routePath}`
-  const data = isEmptyObject(formData) ? getSessionData(req) : formData
 
-  // flag that we want the reponse to be json data
-  data.json = true
+const middlewareArr = options => {
+  return [checkSchema(options.schema), checkErrors(options.name)]
+}
 
-  return new Promise((resolve, reject) => {
-    request.post({ url, form: data }, (err, httpResponse, body) => {
-      if (err) {
-        resolve(err.message)
-      }
+const validateRouteData = async (req, schema) => {
+  const data = getSessionData(req)
+  const validateReq = {}
+  validateReq.body = data
+  validateReq.body.json = true
 
-      if (!isEmptyObject(JSON.parse(body))) {
-        resolve({ status: false, errors: JSON.parse(body) })
-      } else {
-        resolve({ status: true })
-      }
-    })
-  })
+  // setup middleWare to call
+  const middleWare = middlewareArr({ schema })
+
+  const res = {
+    json(payload) {
+      return payload
+    },
+  }
+
+  //run checkSchema()
+  await middleWare[0][0](validateReq, res, () => {})
+
+  //run checkErrors()
+  middleWare[1](validateReq, res, () => {})
+
+  const errors = checkErrorsJSON(validateReq, res, () => {})
+
+  if (!isEmptyObject(errors)) {
+    return { status: false, errors: errors }
+  } else {
+    return { status: true }
+  }
 }
 
 const checkErrorsJSON = (req, res, next) => {
