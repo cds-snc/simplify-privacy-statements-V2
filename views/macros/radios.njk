@@ -8,7 +8,7 @@
                 {% endif %}
                 {% for index, val in values %}
                     <div class="multiple-choice__item">
-                        <input id="{{ key }}{{ val }}" name="{{ key }}" type="radio" value="{{ val }}" {% if value == val %} checked="checked" {% endif %} {% if errors and errors[key] %} aria-describedby="{{ key + '-error' }}" aria-invalid="true" {% endif %}>
+                        <input data-index="{{ index }}" id="{{ key }}{{ val }}" name="{{ key }}" type="radio" value="{{ val }}" {% if value == val %} checked="checked" {% endif %} {% if errors and errors[key] %} aria-describedby="{{ key + '-error' }}" aria-invalid="true" {% endif %}>
                         <label for="{{ key }}{{ val }}">{{ __(val) }}</label>
                     </div>
                 {% endfor %}
