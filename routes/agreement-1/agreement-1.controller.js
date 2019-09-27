@@ -1,6 +1,5 @@
 const path = require('path')
 const { getNextRoute, routeUtils } = require('./../../utils')
-const { Schema } = require('./schema.js')
 var nodePandoc = require('node-pandoc')
 
 const i18n = require('i18n')
@@ -61,7 +60,4 @@ module.exports = app => {
       })
 
     })
-    .post(route.path, [
-      ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name }),
-    ])
 }
