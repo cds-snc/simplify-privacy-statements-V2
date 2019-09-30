@@ -85,6 +85,7 @@
   "form.recording_type": "How will you be recording the participant?",
   "landing-page.title": "Generate privacy and consent forms for research sessions",
   "landing-page.intro": "This service will generate customized forms and privacy statements for you based on the type of design research you're doing.",
+  "landing-page.intro2": "Once you've made the forms and statements, take them to your department's ATIP office for approval. You'll also need to tell them how you're planning to recruit participants, which tools you'll be using (e.g. a recorder or notepad), and what activities you'll be asking the partipant to do.",
   "landing-page.leadin": "Choose from a:",
   "landing-page.option1": "consent form for research participants",
   "landing-page.option2": "form for recruiting through a third party",
