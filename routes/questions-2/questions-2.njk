@@ -1,0 +1,39 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+    <h1>{{ __('questions-2.title') }}</h1>
+
+    <div>
+        <p>
+            {{ __('questions-2.intro') }}
+        </p>
+
+
+        <form method="post" class="form">
+
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+
+            <h2>{{ __('contactInfo.title') }}</h2>
+
+            {{ textInput('researcher_name', 'form.researcher_name') }}
+            {{ textInput('researcher_phone', 'form.researcher_phone') }}
+            {{ textInput('researcher_email', 'form.researcher_email') }}
+
+
+            <h2>{{ __('testInfo.title') }}</h2>
+
+            <div class="toggle-area">
+                {{ radioButtons('is_with_partner', { 'on':'Yes','off':'No'}, data.is_with_partner, 'form.is_with_partner', errors) }}
+            </div>
+            <div class="is_with_partner-toggled" style="display:none" >
+                {{ textInput('partner_department_name', 'form.partner_department_name') }}
+                {{ textInput('partner_department_acronym', 'form.partner_department_acronym') }}
+                {{ textInput('partner_department_authority', 'form.partner_department_authority', { hint: 'form.partner_department_authority.desc' }) }}
+            </div>
+
+            {{ formButtons() }}
+        </form>
+    </div>
+
+{% endblock %}
