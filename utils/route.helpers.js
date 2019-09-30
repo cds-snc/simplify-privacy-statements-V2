@@ -133,9 +133,7 @@ const doRedirect = routeName => {
     }
 
     const nextRoutePath = getNextRouteURL(routeName, req)
-    if (Object.keys(req.query).indexOf('lang') > -1) {
-      return res.redirect(nextRoutePath + '?lang=' + req.query.lang)
-    }
+    
     return res.redirect(nextRoutePath)
   }
 }
