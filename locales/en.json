@@ -101,6 +101,7 @@
   "form.partner_department_acronym": "What are that department's initials?",
   "form.partner_department_authority": "Which piece of legislation gives them the authority to collect information about the participant?",
   "form.partner_department_authority.desc": "Ask your policy advisor if you're not sure.",
+  "compensation.title": "Compensation",
   "form.compensation": "Will you be paying the participant for their time?",
   "form.compensation_method": "How will you be compensating the participant?",
   "form.compensation_value": "How much will you be compensating the participant?",
@@ -122,6 +123,7 @@
   "$50 (For 1 hour of their time)": "$50 (For 1 hour of their time)",
   "$25 (For 1/2 hour of their time)": "$25 (For 30 minutes of their time)",
   "$10 (For 8.5 min of their time (minimum))": "$10 (For at least 8.5 minutes of their time)",
+  "privacy.title": "Participant privacy",
   "form.anonymized": "By anonymizing the responses so they can't be linked to the participant",
   "form.anonymous": "By not collecting the identity of the participant",
   "form.confidential": "By referring to participants using a number or pseudonym – no one outside of CDS will know who the participant is (most common)",
@@ -138,7 +140,7 @@
   "errors.field_empty": "This field cannot be empty",
   "errors.must_choose_option": "You must choose an option",
   "warning.anon": "You can't choose video recording if you're not collecting the participant's identity, or if you're anonymizing responses.",
-  "warning.consent": "You must get consent in writing if you're paying the participant."
+  "warning.consent": "You must get consent in writing if you're paying the participant.",
   "form.expiry": "Expiry date",
   "form.expiry.desc": "eg. 2010-12",
   "form.upload": "upload file"
