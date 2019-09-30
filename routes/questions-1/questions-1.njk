@@ -27,19 +27,26 @@
                 {{ radioButtons('is_with_partner', { 'on':'Yes','off':'No'}, data.is_with_partner, 'form.is_with_partner', errors) }}
             </div>
             <div class="is_with_partner-toggled" style="display:none" >
-                {{ textInput('partner_department_name', 'form.partner_department_name') }}
-                {{ textInput('partner_department_acronym', 'form.partner_department_acronym') }}
-                {{ textInput('partner_department_authority', 'form.partner_department_authority', { hint: 'form.partner_department_authority.desc' }) }}
+                {{ textInput('partner_department_name_en', 'form.partner_department_name_en')  }}
+                {{ textInput('partner_department_name_fr', 'form.partner_department_name_fr' ) }}
+                {{ textInput('partner_department_acronym_en', 'form.partner_department_acronym_en') }}
+                {{ textInput('partner_department_acronym_fr', 'form.partner_department_acronym_fr') }}
+                {{ textInput('partner_department_authority_en', 'form.partner_department_authority_en', { hint: 'form.partner_department_authority.desc' }) }}
+                {{ textInput('partner_department_authority_fr', 'form.partner_department_authority_fr') }}
             </div>
 
             {{ radioButtons('research_method', { '1':'Interview','2':'Usability testing'}, data.research_method, 'form.research_method', errors) }}
 
-            {{ textArea('research_goal', 'form.research_goal', {hint: 'form.research_goal.desc'}) }}
-            {{ textArea('session_activity', 'form.session_activity', {hint: 'form.session_activity.desc'}) }}
+            {{ textArea('research_goal_en', 'form.research_goal_en', {hint: 'form.research_goal.desc'}) }}
+            {{ textArea('research_goal_fr', 'form.research_goal_fr') }}
+            {{ textArea('session_activity_en', 'form.session_activity_en', {hint: 'form.session_activity.desc'}) }}
+            {{ textArea('session_activity_fr', 'form.session_activity_fr') }}
 
-            {{ textInput('session_duration', 'form.session_duration', {hint: 'form.session_duration.desc'}) }}
+            {{ textInput('session_duration_en', 'form.session_duration_en', {hint: 'form.session_duration.desc'}) }}
+            {{ textInput('session_duration_fr', 'form.session_duration_fr') }}
 
-            {{ textArea('personal_information_collected', 'form.personal_information_collected', {hint: 'form.personal_information_collected.desc'}) }}
+            {{ textArea('personal_information_collected_en', 'form.personal_information_collected_en', {hint: 'form.personal_information_collected.desc'}) }}
+            {{ textArea('personal_information_collected_fr', 'form.personal_information_collected_fr') }}
 
             <div class="toggle-area">
                 {{ radioButtons('compensation', { 'on':'Yes','off':'No'}, data.compensation, 'form.compensation', errors) }}
@@ -53,14 +60,16 @@
             {{ radioButtons('confidentiality', { 'off-1':'form.anonymized','off-2':'form.anonymous','off-3':'form.confidential','on-1':'form.not_confidential','on-2':'form.public'}, data.confidentiality, 'form.confidentiality', errors) }}
             </div>
             <div class="confidentiality-toggled" style="display:none" >
-                {{ textArea('personal_information_disclosed_to_public', 'form.personal_information_disclosed_to_public') }}
+                {{ textArea('personal_information_disclosed_to_public_en', 'form.personal_information_disclosed_to_public_en') }}
+                {{ textArea('personal_information_disclosed_to_public_fr', 'form.personal_information_disclosed_to_public_fr') }}
             </div>
 
             <div class="toggle-area">
                 {{ radioButtons('administrative_decision', { 'on':'Yes','off':'No'}, data.administrative_decision, 'form.administrative_decision', errors) }}
             </div>
             <div class="administrative_decision-toggled" style="display:none" >
-                {{ textArea('administrative_purpose', 'form.administrative_purpose', {hint: 'form.administrative_purpose.desc'}) }}
+                {{ textArea('administrative_purpose_en', 'form.administrative_purpose_en', {hint: 'form.administrative_purpose.desc'}) }}
+                {{ textArea('administrative_purpose_fr', 'form.administrative_purpose_fr') }}
             </div>
 
             {{ radioButtons('consent', { '1':'Verbally','2':'On paper','3':'action'}, data.consent, 'form.consent', errors) }}
@@ -71,7 +80,8 @@
                 {{ radioButtons('recording_type', { 'on-1':'Video and audio','on-2':'Audio only','on-3':'Screen recording with audio','off-1':'Screen recording only','off-2':'No recording'}, data.recording_type, 'form.recording_type', errors) }}
             </div>
             <div class="recording_type-toggled" style="display:none" >
-                {{ textArea('purposes_for_which_the_recording_may_be_disclosed', 'form.purposes_for_which_the_recording_may_be_disclosed') }}
+                {{ textArea('purposes_for_which_the_recording_may_be_disclosed_en', 'form.purposes_for_which_the_recording_may_be_disclosed_en') }}
+                {{ textArea('purposes_for_which_the_recording_may_be_disclosed_fr', 'form.purposes_for_which_the_recording_may_be_disclosed_fr') }}
             </div>
             {{ formButtons() }}
         </form>
