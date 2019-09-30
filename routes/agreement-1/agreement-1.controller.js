@@ -1,6 +1,7 @@
 const path = require('path')
 const { getNextRoute, routeUtils } = require('./../../utils')
 var nodePandoc = require('node-pandoc')
+var url = require('url')
 
 const i18n = require('i18n')
 
@@ -41,12 +42,17 @@ module.exports = app => {
     var randomString = getRandomString()
     var docxFilename = 'agreement-' + randomString + '.docx'
 
-    let link =
-      req.get('Host') + routeUtils.getRouteByName('questions-1').path + '?'
+    let link = url.format({
+      protocol: req.protocol,
+      host: req.get('Host'),
+      pathname: routeUtils.getRouteByName('questions-1').path,
+    })
+
     const data = routeUtils.getViewData(req, {}).data
 
     link =
       link +
+      '?' +
       Object.keys(data)
         .filter(key => key !== '_csrf' && data[key] !== '')
         .map(
@@ -54,10 +60,11 @@ module.exports = app => {
         )
         .join('&')
 
+    data.link = link
     res.render(
       name + `-${i18n.getLocale(req)}`,
       {
-        ...routeUtils.getViewData(req, { data: { link } }),
+        ...routeUtils.getViewData(req, { data: { link } }), // need all the data here or else the data object is overridden (bug)
         nextRoute: nextRoute,
         docxFilename: docxFilename,
       },
