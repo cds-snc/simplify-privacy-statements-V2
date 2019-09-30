@@ -14,10 +14,18 @@
 
             <input type="hidden" name="_csrf" value="{{ csrfToken }}">
 
-            <h2>{{ __('testInfo.title') }}</h2>
-            {{ textInput('partner_department_name_trans', 'form.translation', {}, {text: __(data.partner_department_name)}) }}
-            {{ textInput('partner_department_acronym_trans', 'form.translation', {}, {text: __(data.partner_department_acronym)}) }}
-            {{ textInput('partner_department_authority_trans', 'form.translation', {}, {text: __(data.partner_department_authority)}) }}
+            {% if data.partner_department_name !== "" %}
+                {{ textInput('partner_department_name_trans', 'form.translation', {}, {text: __(data.partner_department_name)}) }}
+            {% endif %}
+
+            {% if data.partner_department_acronym !== "" %}
+                {{ textInput('partner_department_acronym_trans', 'form.translation', {}, {text: __(data.partner_department_acronym)}) }}
+            {% endif %}
+
+            {% if data.partner_department_authority !== "" %}
+                {{ textInput('partner_department_authority_trans', 'form.translation', {}, {text: __(data.partner_department_authority)}) }}
+            {% endif %}
+            
             {{ formButtons() }}
         </form>
     </div>
