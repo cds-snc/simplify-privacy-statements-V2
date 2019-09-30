@@ -1,6 +1,7 @@
 const { checkSchema } = require('express-validator')
 const { routes: defaultRoutes } = require('../config/routes.config')
 const { checkErrors } = require('./validate.helpers')
+const url = require('url')
 
 const DefaultRouteObj = { name: false, path: false }
 
@@ -70,6 +71,20 @@ const getNextRoute = (name, routes = defaultRoutes) => {
   return nextRoute
 }
 
+const getNextRouteURL = (name, req) => {
+  const nextRoute = getNextRoute(name)
+
+  /* istanbul ignore next */
+  if (!nextRoute.path) {
+    throw new Error(`[POST ${req.path}] 'redirect' missing`)
+  }
+
+  return url.format({
+    pathname: nextRoute.path,
+    query: req.query,
+  })
+}
+
 /**
  * @param {String} name route name
  * @param {Array} routes array of route objects { name: "start", path: "/start" }
@@ -117,16 +132,11 @@ const doRedirect = routeName => {
       return next()
     }
 
-    const nextRoute = getNextRoute(routeName)
-
-    /* istanbul ignore next */
-    if (!nextRoute.path) {
-      throw new Error(`[POST ${req.path}] 'redirect' missing`)
+    const nextRoutePath = getNextRouteURL(routeName, req)
+    if (Object.keys(req.query).indexOf('lang') > -1) {
+      return res.redirect(nextRoutePath + '?lang=' + req.query.lang)
     }
-    if (Object.keys(req.query).indexOf("lang") > -1) {
-      return res.redirect(nextRoute.path + "?lang=" + req.query.lang)
-    }
-    return res.redirect(nextRoute.path)
+    return res.redirect(nextRoutePath)
   }
 }
 
@@ -137,6 +147,7 @@ module.exports = {
   doRedirect,
   getPreviousRoute,
   getNextRoute,
+  getNextRouteURL,
   getRouteByName,
   getRouteWithIndexByName,
   getDefaultMiddleware,

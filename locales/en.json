@@ -10,7 +10,8 @@
   "start.intro.banner": "This is a demo",
   "start.intro": "What you’ll need to set up notifications:<ul><li>Your information 1</li><li>Your information 2</li></ul>",
   "start.submit": "Make a form!",
-  "footer.link1": "Canadian Digital Service",
+  "footer.link1": "https://digital.canada.ca",
+  "footer.link1.desc": "Canadian Digital Service",
   "wordmark.alt": "Symbol of the Government of Canada",
   "app.desc": "Node Starter App",
   "personal.title": "Personal Information",
@@ -57,9 +58,6 @@
   "chart.title": "Chart example",
   "chart.intro": "chart.intro",
   "next": "Next",
-  "form.expiry": "form.expiry",
-  "form.expiry.desc": "form.expiry.desc",
-  "form.upload": "upload file",
   "participant-consent-form.title": "Participant consent form",
   "participant-consent-form.intro": "Enter information about your research project.",
   "form.researcher_name": "Name",
@@ -136,5 +134,8 @@
   "Video and audio": "Video and audio",
   "No recording": "No recording",
   "errors.field_empty": "This field cannot be empty",
-  "errors.must_choose_option": "You must choose an option"
+  "errors.must_choose_option": "You must choose an option",
+  "form.expiry": "Expiry date",
+  "form.expiry.desc": "eg. 2010-12",
+  "form.upload": "upload file"
 }
