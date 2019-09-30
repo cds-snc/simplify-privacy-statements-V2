@@ -137,5 +137,10 @@
   "errors.must_choose_option": "You must choose an option",
   "form.expiry": "Expiry date",
   "form.expiry.desc": "eg. 2010-12",
-  "form.upload": "upload file"
+  "form.upload": "upload file",
+  "questions-1b.title": "Translations",
+  "questions-1b.intro": "The following questions should be completed if you wish to generate a french form. If not, leave them blank.",
+  "form.translation": "French translation of: {{ text }}",
+  "asdfasdf": "asdfasdf",
+  "": ""
 }
