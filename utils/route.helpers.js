@@ -1,151 +1,91 @@
-const { checkSchema } = require('express-validator')
-const { routes: defaultRoutes } = require('../config/routes.config')
-const { checkErrors } = require('./validate.helpers')
+const path = require('path')
 const url = require('url');
 
-const DefaultRouteObj = { name: false, path: false }
+const { checkSchema } = require('express-validator')
+const { checkErrors } = require('./validate.helpers')
+const { addViewPath } = require('./view.helpers')
 
-/**
- * This request middleware checks if we are visiting a public path
- */
-const checkPublic = function (req, res, next) {
-  const publicPaths = ['/', '/clear', '/start']
-  if (publicPaths.includes(req.path)) {
-    return next()
+class RoutingTable {
+  constructor(routes, conf) {
+    Object.assign(this, conf)
+    this.directory = path.resolve(this.directory || './routes')
+    this.routes = routes.map((r, i) => new Route(this, i, r))
   }
 
-  return next()
+  get(name) { return this.routes.find(r => r.name === name) }
+
+  config(app) {
+    this.routes.forEach(r => r.config(app))
+    require(`${this.directory}/global/global.controller`)(app, this)
+    return this
+  }
 }
 
-const routeHasIndex = route => {
-  if (!route || !route.hasOwnProperty('index')) {
-    return false
+class Route {
+  constructor(table, index, conf) {
+    this.table = table
+    this.index = index
+    Object.assign(this, conf)
   }
 
-  return true
-}
+  get(routeName) { return this.table.get(routeName) }
 
-/**
- * @param {String} name route name
- * @param {Array} routes array of route objects { name: "start", path: "/start" },
- * @returns { name: "", path: "" }
- */
-const getPreviousRoute = (name, routes = defaultRoutes) => {
-  const route = getRouteWithIndexByName(name, routes)
+  get directory() { return `${this.table.directory}/${this.name}` }
+  get controllerPath() { return `${this.directory}/${this.name}.controller` }
 
-  if (!routeHasIndex(route) && process.env.NODE_ENV !== 'production') {
-    throw new Error(`Previous route error can't find => "${name}"`)
+  get next() { return this.table.routes[this.index + 1] }
+  get prev() { return this.table.routes[this.index - 1] }
+
+  get nextPath() { return this.next && this.next.path }
+  get prevPath() { return this.prev && this.prev.path }
+
+  url(query={}) {
+    return url.format({
+      pathname: this.path,
+      query: query
+    })
   }
 
-  const prevRoute = routes[Number(route.index) - 1]
-    ? routes[Number(route.index) - 1]
-    : false
-
-  if (!prevRoute) {
-    return DefaultRouteObj
+  config(app) {
+    addViewPath(app, this.directory)
+    require(this.controllerPath)(app, this)
+    return this
   }
 
-  return prevRoute
-}
-
-/**
- * @param {String} name route name
- * @param {Array} routes array of route objects { name: "start", path: "/start" }
- * @returns { name: "", path: "" }
- */
-const getNextRoute = (name, routes = defaultRoutes) => {
-  const route = getRouteWithIndexByName(name, routes)
-
-  if (!routeHasIndex(route) && process.env.NODE_ENV !== 'production') {
-    throw new Error(`Next route error can't find => "${name}"`)
+  defaultMiddleware(opts) {
+    return [
+      checkSchema(opts.schema),
+      checkErrors(this.name),
+      doRedirect(this.next)
+    ]
   }
-
-  const nextRoute = routes[Number(route.index) + 1]
-    ? routes[Number(route.index) + 1]
-    : false
-
-  if (!nextRoute) {
-    return DefaultRouteObj
-  }
-
-  return nextRoute
-}
-
-const getNextRouteURL = (name, req) => {
-
-  const nextRoute = getNextRoute(name)
-
-  /* istanbul ignore next */
-  if (!nextRoute.path) {
-    throw new Error(`[POST ${req.path}] 'redirect' missing`)
-  }
-
-  return url.format({
-    pathname: nextRoute.path,
-    query: req.query,
-  })
 }
 
 /**
- * @param {String} name route name
- * @param {Array} routes array of route objects { name: "start", path: "/start" }
- * @returns { name: "", path: "" }
+ * @returns a new routing table
  */
-const getRouteByName = (name, routes = defaultRoutes) => {
-  return getRouteWithIndexByName(name, routes).route
-}
+const makeRoutingTable = (routes, opts={}) => new RoutingTable(routes, opts)
 
-/**
- * @param {String} name route name
- * @param {Array} routes array of route objects { name: "start", path: "/start" }
- * @returns { index: "1", route: { name: "start", path: "/start" } }
- */
-const getRouteWithIndexByName = (name, routes = defaultRoutes) => {
-  const index = routes.findIndex(r => r.name === name)
-  if (index >= 0) return { index, route: routes[index] }
-}
-
-const configRoutes = (app, routes = []) => {
+const configRoutes = (app, routes, opts={}) => {
   // require the controllers defined in the routes
   // dir and file name based on the route name
-  routes.forEach(routeObj => {
-    const routeName = routeObj.name
-    require(`../routes/${routeName}/${routeName}.controller`)(app)
-  })
-
-  require('../routes/global/global.controller')(app)
-}
-
-const getDefaultMiddleware = options => {
-  return [
-    checkSchema(options.schema),
-    checkErrors(options.name),
-    doRedirect(options.name),
-  ]
+  return makeRoutingTable(routes, opts).config(app)
 }
 
 /**
  * attempt to auto redirect based on the next route it the route config
  */
-const doRedirect = routeName => {
+const doRedirect = route => {
   return (req, res, next) => {
-    if (req.body.json) {
-      return next()
-    }
+    if (req.body.json) return next()
+    if (!route.path) throw new Error(`[POST ${req.path}] 'redirect' missing`)
 
-    return res.redirect(getNextRouteURL(routeName, req));
+    return res.redirect(route.url(req.query))
   }
 }
 
 module.exports = {
-  routeHasIndex,
+  makeRoutingTable,
   configRoutes,
-  checkPublic,
   doRedirect,
-  getPreviousRoute,
-  getNextRoute,
-  getNextRouteURL,
-  getRouteByName,
-  getRouteWithIndexByName,
-  getDefaultMiddleware,
 }

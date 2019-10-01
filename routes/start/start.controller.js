@@ -1,17 +1,10 @@
-const path = require('path')
 const {
   routeUtils,
-  getNextRouteURL,
-  getRouteByName,
-  addViewPath,
   getClientJs,
 } = require('../../utils/index')
 
-module.exports = app => {
-  const name = 'start'
-  const route = getRouteByName(name)
-
-  addViewPath(app, path.join(__dirname, './'))
+module.exports = (app, route) => {
+  const name = route.name
 
   // redirect from "/" → "/start"
   app.get('/', (req, res) => res.redirect(route.path))
@@ -29,7 +22,7 @@ module.exports = app => {
     res.render(
       name,
       routeUtils.getViewData(res, {
-        nextRoute: getNextRouteURL(name, req),
+        nextRoute: route.nextPath,
         jsFiles,
       }),
     )

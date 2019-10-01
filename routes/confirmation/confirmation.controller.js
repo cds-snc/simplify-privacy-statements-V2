@@ -1,18 +1,10 @@
-const path = require('path')
 const {
   validateRouteData,
-  getRouteByName,
-  addViewPath,
   getViewData,
   setFlashMessageContent,
 } = require('../../utils/index')
 
-module.exports = app => {
-  const name = 'confirmation'
-  const route = getRouteByName(name)
-
-  addViewPath(app, path.join(__dirname, './'))
-
+module.exports = (app, route) => {
   app.get(route.path, async (req, res) => {
     // ⚠️ experimental
     // validate data from previous step
@@ -21,9 +13,9 @@ module.exports = app => {
     const result = await validateRouteData(req, Schema)
     if (!result.status) {
       setFlashMessageContent(req, result.errors)
-      return res.redirect(getRouteByName('personal').path)
+      return res.redirect(route.get('personal').path)
     }
 
-    res.render(name, getViewData(req))
+    res.render(route.name, getViewData(req))
   })
 }
