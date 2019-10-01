@@ -2,7 +2,6 @@ const path = require('path')
 const { getNextRoute, routeUtils } = require('./../../utils')
 var nodePandoc = require('node-pandoc')
 var url = require('url')
-
 const i18n = require('i18n')
 
 var callback = (err, result) => {
@@ -39,26 +38,22 @@ module.exports = app => {
     var randomString = getRandomString()
     var docxFilename = 'agreement-' + randomString + '.docx'
 
-    let link = url.format({
+    const data = routeUtils.getViewData(req, {}).data
+
+    var queryParams = {}
+    Object.keys(data)
+      .filter(key => key !== '_csrf' && data[`${key}`] !== '')
+      .forEach(key => {
+        queryParams[`${key}`] = data[`${key}`]
+      })
+    const link = url.format({
       protocol: req.protocol,
       host: req.get('Host'),
       pathname: routeUtils.getRouteByName('questions-1').path,
+      query: queryParams,
     })
 
-    const data = routeUtils.getViewData(req, {}).data
-
-    link =
-      link +
-      '?' +
-      Object.keys(data)
-        .filter(key => key !== '_csrf' && data[`${key}`] !== '')
-        .map(
-          key =>
-            `${encodeURIComponent(key)}=${encodeURIComponent(data[`${key}`])}`,
-        )
-        .join('&')
-
-    data.link = link
+    console.log(`length of link: ${link.length}`)
 
     res.render(
       name + `-${i18n.getLocale(req)}`,
