@@ -28,7 +28,7 @@ const wordmarkHtml = `
 `;
 
 module.exports = app => {
-  const name = 'agreement-1'
+  const name = 'agreement-2'
   const route = routeUtils.getRouteByName(name)
 
   routeUtils.addViewPath(app, path.join(__dirname, './'))

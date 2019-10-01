@@ -137,5 +137,7 @@
   "errors.must_choose_option": "You must choose an option",
   "form.expiry": "Expiry date",
   "form.expiry.desc": "eg. 2010-12",
-  "form.upload": "upload file"
+  "form.upload": "upload file",
+  "questions-2.title": "questions-2.title",
+  "questions-2.intro": "questions-2.intro"
 }
