@@ -54,9 +54,10 @@ module.exports = app => {
       link +
       '?' +
       Object.keys(data)
-        .filter(key => key !== '_csrf' && data[key] !== '')
+        .filter(key => key !== '_csrf' && data[`${key}`] !== '')
         .map(
-          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`,
+          key =>
+            `${encodeURIComponent(key)}=${encodeURIComponent(data[`${key}`])}`,
         )
         .join('&')
 
