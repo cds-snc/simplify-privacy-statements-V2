@@ -1,0 +1,60 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+<a href={{ "documents/" + docxFilename }}>Download Word Document</a>
+
+<h1>Proof of Concept Agreement</h1>
+
+<div>
+    <p>
+        For any questions about this research, please contact:
+        <br>
+        <strong>{{ defaultValue("researcher_name") }}</strong>
+        <br>
+        <strong>{{ defaultValue("researcher_phone") }}</strong>
+        <br>
+        <strong>{{ defaultValue("researcher_email") }}</strong>
+    </p>
+
+    <p>
+    Thank you for volunteering to talk to us.
+    We work with the Canadian Digital Service (CDS).
+    {% if data.is_with_partner == "Yes" %}
+      We are working with {{ defaultValue("partner_department_name") }}  ({{ defaultValue("partner_department_acronym") }}) to {{ defaultValue("research_goal") }}.
+    {% else %}
+      We are conducting this research today to help us {{ defaultValue("research_goal") }}.
+    {% endif %}
+    </p>
+
+    <h3>Your legal rights</h3>
+
+    {% if data.confidentiality == "form.anonymized" or data.confidentiality == "form.anonymous" %}
+      <p>Due to the anonymity of responses, CDS will have no reliable means of associating you with your information provided. This means we will not be able to access or respond to your request for correction to inaccurate information or withdrawal.</p>
+    {% endif %}
+
+    <p>
+      CDS/TBS may record your personal information. If you want to access or correct that personal information, or for any questions or concerns, please contact their privacy office:
+      <br>
+      <br>
+      <i>TBS Access to Information and Privacy Coordinator</i>
+      <br>
+      ATIP.AIPRP@tbs-sct.gc.ca
+      <br>
+      1-866-312-1511
+    </p>
+
+    <p>
+      You can complain to the Office of the Privacy Commissioner of Canada about the handling of your personal information:
+      <br>
+      <br>
+      <i>Office of the Privacy Commissioner of Canada</i>
+      <br>
+      info@priv.gc.ca
+      <br>
+      1-800-282-1376
+    </p>
+
+</div>
+
+{% endblock %}
