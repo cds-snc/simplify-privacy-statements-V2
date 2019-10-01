@@ -12,7 +12,7 @@ module.exports = app => {
     .get(route.path, (req, res) => {
       const jsFiles = ['js/toggle-area.js']
       res.render(name, {
-        ...routeUtils.getViewData(req, {}),
+        ...routeUtils.getViewData(req, { data: req.query }),
         jsFiles,
       })
     })
