@@ -1,8 +1,8 @@
 const path = require('path')
 const { getNextRoute, routeUtils } = require('./../../utils')
-var nodePandoc = require('node-pandoc')
-var url = require('url')
+const nodePandoc = require('node-pandoc')
 const i18n = require('i18n')
+const url = require('url')
 
 var callback = (err, result) => {
   if (err) {
@@ -39,7 +39,6 @@ module.exports = app => {
     var docxFilename = 'agreement-' + randomString + '.docx'
 
     const data = routeUtils.getViewData(req, {}).data
-
     var queryParams = {}
     Object.keys(data)
       .filter(key => key !== '_csrf' && data[`${key}`] !== '')
@@ -52,7 +51,6 @@ module.exports = app => {
       pathname: routeUtils.getRouteByName('questions-1').path,
       query: queryParams,
     })
-
     console.log(`length of link: ${link.length}`)
 
     res.render(
