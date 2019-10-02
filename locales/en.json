@@ -135,6 +135,8 @@
   "No recording": "No recording",
   "errors.field_empty": "This field cannot be empty",
   "errors.must_choose_option": "You must choose an option",
+  "errors.recording_type": "You can't choose video recording if you're not collecting the participant's identity, or if you're anonymizing responses.",
+  "errors.consent": "You must get consent in writing if you're paying the participant.",
   "form.expiry": "Expiry date",
   "form.expiry.desc": "eg. 2010-12",
   "form.upload": "upload file",
