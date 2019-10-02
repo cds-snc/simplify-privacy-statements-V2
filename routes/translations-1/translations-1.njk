@@ -1,0 +1,62 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+    <h1>{{ __('translations-1.title') }}</h1>
+
+    <div>
+        <p>
+            {{ __('translations-1.intro') }}
+        </p>
+
+
+        <form method="post" class="form">
+
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+
+            {% if data.partner_department_name !== "" %}
+                {{ textInput('partner_department_name_fr', 'form.translation', {}, {text: __(data.partner_department_name)}) }}
+            {% endif %}
+
+            {% if data.partner_department_acronym !== "" %}
+                {{ textInput('partner_department_acronym_fr', 'form.translation', {}, {text: __(data.partner_department_acronym)}) }}
+            {% endif %}
+
+            {% if data.partner_department_authority !== "" %}
+                {{ textInput('partner_department_authority_fr', 'form.translation', {}, {text: __(data.partner_department_authority)}) }}
+            {% endif %}
+
+            {% if data.research_goal !== "" %}
+                {{ textInput('research_goal_fr', 'form.translation', {}, {text: __(data.research_goal)}) }}
+            {% endif %}
+
+            {% if data.session_activity !== "" %}
+                {{ textInput('session_activity_fr', 'form.translation', {}, {text: __(data.session_activity)}) }}
+            {% endif %}
+
+            {% if data.session_duration !== "" %}
+                {{ textInput('session_duration_fr', 'form.translation', {}, {text: __(data.session_duration)}) }}
+            {% endif %}
+
+            {% if data.personal_information_collected !== "" %}
+                {{ textInput('personal_information_collected_fr', 'form.translation', {}, {text: __(data.personal_information_collected)}) }}
+            {% endif %}
+
+            {% if data.personal_information_disclosed_to_public !== "" %}
+                {{ textInput('personal_information_disclosed_to_public_fr', 'form.translation', {}, {text: __(data.personal_information_disclosed_to_public)}) }}
+            {% endif %}
+
+            {% if data.administrative_purpose !== "" %}
+                {{ textInput('administrative_purpose_fr', 'form.translation', {}, {text: __(data.administrative_purpose)}) }}
+            {% endif %}
+
+            {% if data.purposes_for_which_the_recording_may_be_disclosed !== "" %}
+                {{ textInput('purposes_for_which_the_recording_may_be_disclosed_fr', 'form.translation', {}, {text: __(data.purposes_for_which_the_recording_may_be_disclosed)}) }}
+            {% endif %}
+
+
+            {{ formButtons() }}
+        </form>
+    </div>
+
+{% endblock %}

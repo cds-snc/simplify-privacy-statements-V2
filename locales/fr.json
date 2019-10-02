@@ -137,5 +137,9 @@
   "No recording": "Aucun enregistrement",
   "questions-2.title": "questions-2.title",
   "questions-2.intro": "questions-2.intro",
-  "footer.link1.desc": "footer.link1.desc"
+  "footer.link1.desc": "footer.link1.desc",
+  "asdf": "asdf",
+  "form.translation": "English translation of: \"{{ text }}\"",
+  "translations-1.title": "translations-1.title",
+  "translations-1.intro": "translations-1.intro"
 }
