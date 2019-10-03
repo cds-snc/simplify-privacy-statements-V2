@@ -138,8 +138,7 @@
   "questions-2.title": "questions-2.title",
   "questions-2.intro": "questions-2.intro",
   "footer.link1.desc": "footer.link1.desc",
-  "asdf": "asdf",
-  "form.translation": "English translation of: \"{{ text }}\"",
-  "translations-1.title": "translations-1.title",
-  "translations-1.intro": "translations-1.intro"
+  "form.translation": "Traduction anglaise de: \"{{ text }}\"",
+  "translations-1.title": "Traductions",
+  "translations-1.intro": "Les questions suivantes doivent être complétées si vous souhaitez générer un formulaire en anglais. Si ce n'est pas le cas, laissez-les vides."
 }
