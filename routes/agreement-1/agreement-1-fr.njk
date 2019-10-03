@@ -46,12 +46,16 @@
         <li>If you have provided less than 8.5 minutes you will be entitled to $0</li>
       {% endif %}
 
-      {% if data.confidentiality == "form.confidential" or data.confidentiality == "form.anonymized" or data.confidentiality == "form.anonymous" %}
-        <li>Your information will be {{ defaultValue("confidentiality") }}. This means your responses will not be linked to you.</li>
-      {% endif %}
-
-      {% if data.confidentiality == "form.public" or data.confidentiality == "form.not_confidential" %}
-        <li>Your information will be {{ defaultValue("confidentiality") }}. Your input will be associated with your name.</li>
+      {% if data.confidentiality == "form.confidential" %}
+        <li>Your information will be confidential. This means your responses will not be linked to you.</li>
+      {% elif data.confidentiality == "form.anonymized" %}
+        <li>Your information will be anonymized. This means your responses will not be linked to you.</li>
+      {% elif data.confidentiality == "form.anonymous" %}
+        <li>Your information will be anonymous. This means your responses will not be linked to you.</li>
+      {% elif data.confidentiality == "form.public" %}
+        <li>Your information will be public. Your input will be associated with your name.</li>
+      {% elif data.confidentiality == "form.not_confidential" %}
+        <li>Your information will not be confidential. Your input will be associated with your name.</li>
       {% endif %}
 
       {% if data.compensation == "Yes" %}
