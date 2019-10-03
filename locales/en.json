@@ -141,19 +141,8 @@
   "form.expiry.desc": "eg. 2010-12",
   "form.upload": "upload file",
   "form.translation": "French translation of: \"{{ text }}\"",
-  "asdfasdf": "asdfasdf",
-  "": "",
   "questions-2.title": "questions-2.title",
   "questions-2.intro": "questions-2.intro",
-  "asdf": "asdf",
   "translations-1.title": "Translations",
-  "translations-1.intro": "The following questions should be completed if you wish to generate a french form. If not, leave them blank.",
-  "goal1": "goal1",
-  "asdfasd": "asdfasd",
-  "234jql;sedf": "234jql;sedf",
-  "23rq;lkdfasdf": "23rq;lkdfasdf",
-  "a;lskdjf": "a;lskdjf",
-  "wasefasdf": "wasefasdf",
-  "VAC": "VAC",
-  "Policy X": "Policy X"
+  "translations-1.intro": "The following questions should be completed if you wish to generate a french form. If not, leave them blank."
 }
