@@ -14,44 +14,44 @@
 
             <input type="hidden" name="_csrf" value="{{ csrfToken }}">
 
-            {% if data.partner_department_name !== "" %}
-                {{ textInput('partner_department_name_fr', 'form.translation', {}, {text: __(data.partner_department_name)}) }}
+            {% if data["partner_department_name"+language] !== "" %}
+                {{ textInput('partner_department_name' + otherLanguage, 'form.translation', {}, {text: data["partner_department_name"+language]}) }}
             {% endif %}
 
-            {% if data.partner_department_acronym !== "" %}
-                {{ textInput('partner_department_acronym_fr', 'form.translation', {}, {text: __(data.partner_department_acronym)}) }}
+            {% if data["partner_department_acronym"+language] !== "" %}
+                {{ textInput('partner_department_acronym' + otherLanguage, 'form.translation', {}, {text: data["partner_department_acronym"+language]}) }}
             {% endif %}
 
-            {% if data.partner_department_authority !== "" %}
-                {{ textInput('partner_department_authority_fr', 'form.translation', {}, {text: __(data.partner_department_authority)}) }}
+            {% if data["partner_department_authority"+language] !== "" %}
+                {{ textInput('partner_department_authority' + otherLanguage, 'form.translation', {}, {text: data["partner_department_authority"+language]}) }}
             {% endif %}
 
-            {% if data.research_goal !== "" %}
-                {{ textInput('research_goal_fr', 'form.translation', {}, {text: __(data.research_goal)}) }}
+            {% if data["research_goal"+language] !== "" %}
+                {{ textArea('research_goal' + otherLanguage, 'form.translation', {}, {text: data["research_goal"+language]}) }}
             {% endif %}
 
-            {% if data.session_activity !== "" %}
-                {{ textInput('session_activity_fr', 'form.translation', {}, {text: __(data.session_activity)}) }}
+            {% if data["session_activity"+language] !== "" %}
+                {{ textInput('session_activity' + otherLanguage, 'form.translation', {}, {text: data["session_activity"+language]}) }}
             {% endif %}
 
-            {% if data.session_duration !== "" %}
-                {{ textInput('session_duration_fr', 'form.translation', {}, {text: __(data.session_duration)}) }}
+            {% if data["session_duration"+language] !== "" %}
+                {{ textInput('session_duration' + otherLanguage, 'form.translation', {}, {text: data["session_duration"+language]}) }}
             {% endif %}
 
-            {% if data.personal_information_collected !== "" %}
-                {{ textInput('personal_information_collected_fr', 'form.translation', {}, {text: __(data.personal_information_collected)}) }}
+            {% if data["personal_information_collected"+language] !== "" %}
+                {{ textArea('personal_information_collected' + otherLanguage, 'form.translation', {}, {text: data["personal_information_collected"+language]}) }}
             {% endif %}
 
-            {% if data.personal_information_disclosed_to_public !== "" %}
-                {{ textInput('personal_information_disclosed_to_public_fr', 'form.translation', {}, {text: __(data.personal_information_disclosed_to_public)}) }}
+            {% if data["personal_information_disclosed_to_public"+language] !== "" %}
+                {{ textArea('personal_information_disclosed_to_public' + otherLanguage, 'form.translation', {}, {text: data["personal_information_disclosed_to_public"+language]}) }}
             {% endif %}
 
-            {% if data.administrative_purpose !== "" %}
-                {{ textInput('administrative_purpose_fr', 'form.translation', {}, {text: __(data.administrative_purpose)}) }}
+            {% if data["administrative_purpose"+language] !== "" %}
+                {{ textArea('administrative_purpose' + otherLanguage, 'form.translation', {}, {text: data["administrative_purpose"+language]}) }}
             {% endif %}
 
-            {% if data.purposes_for_which_the_recording_may_be_disclosed !== "" %}
-                {{ textInput('purposes_for_which_the_recording_may_be_disclosed_fr', 'form.translation', {}, {text: __(data.purposes_for_which_the_recording_may_be_disclosed)}) }}
+            {% if data["purposes_for_which_the_recording_may_be_disclosed"+language] !== "" %}
+                {{ textArea('purposes_for_which_the_recording_may_be_disclosed' + otherLanguage, 'form.translation', {}, {text: data["purposes_for_which_the_recording_may_be_disclosed"+language]}) }}
             {% endif %}
 
 
