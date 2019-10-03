@@ -160,7 +160,8 @@
     flex-direction: column;
 
     .buttons--left,
-    .buttons--right {
+    .buttons--right,
+    .buttons--centre {
       flex: 1;
     }
 
@@ -171,6 +172,10 @@
         margin-right: $space-xs;
       }
       .buttons--right {
+        margin-left: $space-xs;
+      }
+      .buttons--centre {
+        margin-right: $space-xs;
         margin-left: $space-xs;
       }
     }
