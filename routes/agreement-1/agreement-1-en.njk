@@ -46,14 +46,18 @@
         <li>You are volunteering to participate. You can stop at any time for any reason, without any consequences.</li>
       {% endif %}
 
-      {% if data.confidentiality == "form.confidential" or data.confidentiality == "form.anonymized" or data.confidentiality == "form.anonymous" %}
-        <li>Your information will be {{ data.confidentiality }}. This means your responses will not be linked to you.</li>
-      {% endif %}
-
-      {% if data.confidentiality == "form.public" or data.confidentiality == "form.not_confidential" %}
-        <li>Your information will be {{ data.confidentiality }}. Your input will be associated with your name.</li>
-      {% endif %}
-
+      {% if data.confidentiality == "form.confidential" %}
+        <li>Your information will be confidential. This means your responses will not be linked to you.</li>
+      {% elif data.confidentiality == "form.anonymized" %}
+        <li>Your information will be anonymized. This means your responses will not be linked to you.</li>
+      {% elif data.confidentiality == "form.anonymous" %}
+        <li>Your information will be anonymous. This means your responses will not be linked to you.</li>
+      {% elif data.confidentiality == "form.public" %}
+        <li>Your information will be public. Your input will be associated with your name.</li>
+      {% elif data.confidentiality == "form.not_confidential" %}
+        <li>Your information will not be confidential. Your input will be associated with your name.</li>
+      {% endif %}      
+      
       {% if data.compensation == "Yes" %}
          <li>The fact that you participated will not be confidential.</li>
       {% endif %}
@@ -167,7 +171,7 @@
     <ul>
       <li>The collection and use of your personal information by TBS is authorized by the <i>Financial Administration Act</i>. </li>
       {% if data.is_with_partner == "Yes" %}
-        <li>The collection and use of your personal information by {{ defaultValue("partner_department_acronym_en") }} is authorized by the _{{ defaultValue("partner_department_authority_en") }}_ .</li>
+        <li>The collection and use of your personal information by {{ defaultValue("partner_department_acronym_en") }} is authorized by the <i>{{ defaultValue("partner_department_authority_en") }}</i>.</li>
       {% endif %}
       <li>The collection, use, and disclosure of your personal information is in accordance with the federal <i>Privacy Act</i>. Under the <i>Privacy Act</i>, you have a right of protection, access to and correction or notation of your personal information.</li>
     </ul>
