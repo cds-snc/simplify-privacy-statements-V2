@@ -2,6 +2,11 @@
   "name": "node-starter",
   "description": "",
   "formation": {},
+  "env": {
+    "GOOGLE_ANALYTICS": {
+      "required": true
+    }
+  },
   "addons": [],
   "stack": "container",
   "buildpacks": [
