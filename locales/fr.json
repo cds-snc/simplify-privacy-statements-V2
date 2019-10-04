@@ -140,5 +140,6 @@
   "footer.link1.desc": "footer.link1.desc",
   "form.translation": "Traduction anglaise de: \"{{ text }}\"",
   "translations-1.title": "Traductions",
-  "translations-1.intro": "Les questions suivantes doivent être complétées si vous souhaitez générer un formulaire en anglais. Si ce n'est pas le cas, laissez-les vides."
+  "translations-1.intro": "Les questions suivantes doivent être complétées si vous souhaitez générer un formulaire en anglais. Si ce n'est pas le cas, laissez-les vides.",
+  "Skip": "Sauter"
 }
