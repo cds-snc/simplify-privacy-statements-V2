@@ -5,8 +5,8 @@ module.exports = (app, route) => {
   const name = route.name
 
   route.draw(app)
-    .get(route.path, (req, res) => {
+    .get((req, res) => {
       res.render(name, routeUtils.getViewData(req, {}))
     })
-    .post(route.path, ...route.defaultMiddleware({ schema: Schema }))
+    .post(route.applySchema(Schema), route.doRedirect())
 }

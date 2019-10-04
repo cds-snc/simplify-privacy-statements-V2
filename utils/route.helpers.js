@@ -105,10 +105,24 @@ class Route {
    */
   defaultMiddleware(opts) {
     return [
-      checkSchema(opts.schema),
-      checkErrors(this.name),
-      doRedirect(this.next),
+      ...this.applySchema(opts.schema),
+      this.doRedirect(opts.computeNext),
     ]
+  }
+
+  applySchema(schema) {
+    return [checkSchema(schema), checkErrors(this.name)]
+  }
+
+  doRedirect(redirectTo = null) {
+    return (req, res, next) => {
+      if (req.body.json) return next()
+
+      if (typeof redirectTo === 'function') redirectTo = redirectTo(req, res, this)
+      if (!redirectTo) redirectTo = this.next
+      if (typeof redirectTo === 'string') redirectTo = this.get(redirectTo)
+      res.redirect(redirectTo.url(req.locale))
+    }
   }
 }
 
@@ -165,20 +179,7 @@ const configRoutes = (app, routes, locales, opts={}) => {
   return makeRoutingTable(routes, locales, opts).config(app)
 }
 
-/**
- * attempt to auto redirect based on the next route it the route config
- */
-const doRedirect = route => {
-  return (req, res, next) => {
-    if (req.body.json) return next()
-    if (!route.path) throw new Error(`[POST ${req.path}] 'redirect' missing`)
-
-    return res.redirect(route.url(req.locale, req.query))
-  }
-}
-
 module.exports = {
   makeRoutingTable,
   configRoutes,
-  doRedirect,
 }
