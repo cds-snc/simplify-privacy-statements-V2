@@ -1,5 +1,5 @@
 const path = require('path')
-const { getNextRoute, routeUtils } = require('./../../utils')
+const { routeUtils } = require('./../../utils')
 const { Schema } = require('./schema.js')
 
 module.exports = app => {
@@ -10,11 +10,13 @@ module.exports = app => {
 
   app
     .get(route.path, (req, res) => {
-      var nextRoute = getNextRoute(name).path;
+      var questions1URL = "/questions-1"
+      var questions2URL = "/questions-2"
       if (Object.keys(req.query).indexOf("lang") > -1) {
-        nextRoute += "?lang=" + req.query.lang;
+        questions1URL += "?lang=" + req.query.lang;
+        questions2URL += "?lang=" + req.query.lang;
       }
-      res.render(name, { ...routeUtils.getViewData(req, {}), nextRoute: nextRoute })
+      res.render(name, { ...routeUtils.getViewData(req, {}), questions1URL: questions1URL, questions2URL: questions2URL })
     })
     .post(route.path, [
       ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name }),

@@ -12,7 +12,11 @@ const getViewData = (req, optionalParams = {}) => {
     params.errors = errors
   }
 
-  return { ...params, ...optionalParams }
+  const data = optionalParams.data
+    ? { ...params.data, ...optionalParams.data }
+    : params.data
+
+  return { ...params, ...optionalParams, data }
 }
 
 module.exports = {

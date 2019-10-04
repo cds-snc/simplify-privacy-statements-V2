@@ -142,7 +142,14 @@
   "errors.must_choose_option": "You must choose an option",
   "warning.anon": "You can't choose video recording if you're not collecting the participant's identity, or if you're anonymizing responses.",
   "warning.consent": "You must get consent in writing if you're paying the participant.",
+  "errors.recording_type": "You can't choose video recording if you're not collecting the participant's identity, or if you're anonymizing responses.",
+  "errors.consent": "You must get consent in writing if you're paying the participant.",
   "form.expiry": "Expiry date",
   "form.expiry.desc": "eg. 2010-12",
-  "form.upload": "upload file"
+  "form.upload": "upload file",
+  "form.translation": "French translation of: \"{{ text }}\"",
+  "questions-2.title": "questions-2.title",
+  "questions-2.intro": "questions-2.intro",
+  "translations-1.title": "Translations",
+  "translations-1.intro": "The following questions should be completed if you wish to generate a french form. If not, leave them blank."
 }

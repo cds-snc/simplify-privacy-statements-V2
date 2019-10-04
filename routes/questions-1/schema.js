@@ -1,24 +1,34 @@
 const Schema = {
-  researcher_name: {
-    isLength: {
-      errorMessage: 'errors.field_empty',
-      options: { min: 1, max: 200 },
+  recording_type: {
+    custom: {
+      options: (value, { req }) => {
+        const confidentiality = req.body.confidentiality
+        if (confidentiality && ['form.anonymized', 'form.anonymous'].includes(confidentiality)) {
+          if (value === 'Video and audio') {
+            return false
+          }
+        }
+        return true
+      },
+      errorMessage: 'errors.recording_type',
     },
   },
-  is_with_partner: {
-    isLength: {
-      errorMessage: 'errors.must_choose_option',
-      options: { min: 1, max: 200 },
-    },
-  },
-  research_method: {
-    isLength: {
-      errorMessage: 'errors.must_choose_option',
-      options: { min: 1, max: 200 },
+  consent: {
+    custom: {
+      options: (value, { req }) => {
+        const compensation = req.body.compensation
+        if (compensation && compensation === "Yes") {
+          if (value !== 'On paper') {
+            return false
+          }
+        }
+        return true
+      },
+      errorMessage: 'errors.consent',
     },
   },
 }
 
 module.exports = {
-  Schema: process.env.NODE_ENV === 'REMOVE_THISproduction' ? Schema : {},
+  Schema,
 }

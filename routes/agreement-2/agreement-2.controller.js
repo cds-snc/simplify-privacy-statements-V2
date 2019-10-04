@@ -28,7 +28,7 @@ const wordmarkHtml = `
 `
 
 module.exports = app => {
-  const name = 'agreement-1'
+  const name = 'agreement-2'
   const route = routeUtils.getRouteByName(name)
 
   routeUtils.addViewPath(app, path.join(__dirname, './'))
@@ -48,7 +48,7 @@ module.exports = app => {
     const link = url.format({
       protocol: req.protocol,
       host: req.get('Host'),
-      pathname: routeUtils.getRouteByName('questions-1').path,
+      pathname: routeUtils.getRouteByName('questions-2').path,
       query: queryParams,
     })
     console.log(`length of link: ${link.length}`)
@@ -56,7 +56,7 @@ module.exports = app => {
     res.render(
       name + `-${i18n.getLocale(req)}`,
       {
-        ...routeUtils.getViewData(req, { data: { link } }), // need all the data here or else the data object is overridden (bug)
+        ...routeUtils.getViewData(req, { data: { link } }),
         nextRoute: nextRoute,
         docxFilename: docxFilename,
       },
