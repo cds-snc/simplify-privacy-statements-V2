@@ -8,7 +8,7 @@ const key = process.env.API_KEY
 const baseUrl = process.env.API_BASE_URL
 
 const notifyClient =
-  process.env.NODE_ENV != 'test' ? new NotifyClient(baseUrl, key) : false
+  process.env.NODE_ENV !== 'test' ? new NotifyClient(baseUrl, key) : false
 
 const sendNotification = async (params = { email, templateId, options }) => {
   const { templateId, email, options } = params
@@ -17,6 +17,9 @@ const sendNotification = async (params = { email, templateId, options }) => {
     console.log('no template ID or email was passed')
     return false
   }
+
+  console.log(` sending notification to: ${email}`)
+  console.log({ options })
 
   try {
     const response = notifyClient.sendEmail(templateId, email, options)

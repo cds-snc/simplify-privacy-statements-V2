@@ -1,5 +1,5 @@
 const path = require('path')
-const { getNextRoute, routeUtils } = require('./../../utils')
+const { getNextRoute, routeUtils, sendNotification } = require('./../../utils')
 const nodePandoc = require('node-pandoc')
 const i18n = require('i18n')
 const url = require('url')
@@ -52,6 +52,16 @@ module.exports = app => {
       query: queryParams,
     })
     console.log(`length of link: ${link.length}`)
+
+    sendNotification({
+      email: process.env.FEEDBACK_EMAIL_ADDRESS,
+      templateId: process.env.TEMPLATE_ID,
+      options: {
+        personalisation: {
+          feedback: 'Super awesome!',
+        },
+      },
+    })
 
     res.render(
       name + `-${i18n.getLocale(req)}`,
