@@ -154,7 +154,7 @@
   "form.translation": "French translation of: \"{{ text }}\"",
   "questions-2.title": "questions-2.title",
   "questions-2.intro": "questions-2.intro",
-  "translations-1.title": "Translations",
-  "translations-1.intro": "The following questions should be completed if you wish to generate a french form. If not, leave them blank.",
+  "translations-1.title": "Translate into French",
+  "translations-1.intro": "Provide translations of your answers to generate a French version of the form. You can also come back and do this later.",
   "Skip": "Skip"
 }
