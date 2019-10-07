@@ -152,5 +152,11 @@
   "questions-2.intro": "questions-2.intro",
   "translations-1.title": "Translations",
   "translations-1.intro": "The following questions should be completed if you wish to generate a french form. If not, leave them blank.",
-  "Skip": "Skip"
+  "Skip": "Skip",
+  "feedback.title": "Feedback",
+  "form.what_went_wrong": "What went wrong?",
+  "form.what_went_wrong.desc": "The information you provide in the open text field should not contain any identifiable personal information.",
+  "feedback-thanks.title": "Thank You",
+  "feedback-thanks.intro": "Thank you for your feedback.",
+  "feedback_link_text": "Did something go wrong?"
 }
