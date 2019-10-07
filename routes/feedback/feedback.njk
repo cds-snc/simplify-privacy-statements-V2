@@ -1,0 +1,15 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+    <h1>{{ __('feedback.title') }}</h1>
+
+    <div>
+        <form method="post" class="form">
+            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+            {{ textArea('what_went_wrong', 'form.what_went_wrong', {hint: 'form.what_went_wrong.desc'}) }}
+            {{ formButtons() }}
+        </form>
+    </div>
+
+{% endblock %}
