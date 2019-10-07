@@ -1,5 +1,6 @@
 const path = require('path')
 const { routeUtils } = require('./../../utils')
+const { Schema } = require('./schema.js')
 const i18n = require('i18n')
 
 module.exports = app => {
@@ -9,15 +10,18 @@ module.exports = app => {
   routeUtils.addViewPath(app, path.join(__dirname, './'))
   app
     .get(route.path, (req, res) => {
-      const language = i18n.getLocale(req) === "en" ? "en" : "fr"
-      const otherLanguage = i18n.getLocale(req) === "en" ? "fr" : "en"
+      const language = i18n.getLocale(req) === 'en' ? 'en' : 'fr'
+      const otherLanguage = i18n.getLocale(req) === 'en' ? 'fr' : 'en'
       const jsFiles = ['js/toggle-area.js']
       res.render(name, {
-        ...routeUtils.getViewData(req, {otherLanguage: `_${otherLanguage}`, language: `_${language}`}),
+        ...routeUtils.getViewData(req, {
+          otherLanguage: `_${otherLanguage}`,
+          language: `_${language}`,
+        }),
         jsFiles,
       })
     })
     .post(route.path, [
-      ...routeUtils.getDefaultMiddleware({ schema: {}, name: name }),
+      ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name }),
     ])
 }
