@@ -2,15 +2,17 @@
 
 {% block content %}
 
+<h1>Here's your generated privacy form</h1>
+
 <p>
-    Copy and paste the agreement into your favourite word processing application, or <a href={{ "documents/" + docxFilename }}>download it as a Word document</a>. You might need to check it for punctuation and spelling before sending to your ATIP office.
+    Copy and paste the agreement into your favourite word processing application, or <a href={{ "documents/" + docxFilename }}>download it as a Word document</a>. You might need to check it for punctuation and spelling before you send it to your ATIP office.
 </p>
-&nbsp&nbsp
+
 <p>
     You can also <a href= {{ data.link }}>email yourself a link to your answers</a>. 
 </p>
 
-<h1>Research Participant Agreement</h1>
+<h2>Research Participant Agreement</h2>
 
 <div>
     <p>
@@ -116,9 +118,9 @@
     {% if data.recording_type == "Video and audio" or data.recording_type == "Audio only" or data.recording_type == "Screen recording with audio" %}
 
       {% if data.recording_type == "Video and audio" %}
-        <h2>Optional video recording</h2>
+        <h3>Optional video recording</h3>
       {% else %}
-        <h2>Optional audio recording</h2>
+        <h3>Optional audio recording</h3>
       {% endif %}
 
       <p>Recording our research will help us ensure we capture all of your input. Sharing our sessions with other departments will help illustrate the value of {{ defaultValue("research_method") }}s with users in building better digital services.</p>
@@ -139,7 +141,7 @@
     {% endif %}
 
 
-    <h2>Privacy Statement</h2>
+    <h3>Privacy Statement</h3>
     <p>Participation is completely voluntary.</p>
 
     <h3>What we will collect</h3>
