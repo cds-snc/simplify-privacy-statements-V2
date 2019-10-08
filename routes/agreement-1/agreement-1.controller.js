@@ -23,6 +23,10 @@ function getRandomString() {
 const toPhrase = s =>
   s && s.length > 0 ? (s[0].toLowerCase() + s.slice(1)).replace(/\.+$/, '') : s
 
+const eligibleKey = key =>
+  (key.includes('_en') || key.includes('_fr')) &&
+  !key.includes('partner_department')
+
 const flagHtml = `
     <img src="public/img/GOC_colour_en.png" alt="Symbol of the Government of Canada" width="300px">
 `
@@ -47,7 +51,7 @@ module.exports = app => {
     Object.keys(data)
       .filter(key => key !== '_csrf' && data[`${key}`] !== '')
       .forEach(key => {
-        if (key.includes('_en') || key.includes('_fr')) {
+        if (eligibleKey(key)) {
           data[`${key}`] = toPhrase(data[`${key}`])
         }
         queryParams[`${key}`] = data[`${key}`]
