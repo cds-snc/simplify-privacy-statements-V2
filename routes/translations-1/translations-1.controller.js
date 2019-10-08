@@ -1,6 +1,5 @@
 const path = require('path')
 const { routeUtils } = require('./../../utils')
-const { Schema } = require('./schema.js')
 const i18n = require('i18n')
 
 module.exports = app => {
@@ -22,6 +21,6 @@ module.exports = app => {
       })
     })
     .post(route.path, [
-      ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name }),
+      ...routeUtils.getDefaultMiddleware({ schema: {}, name: name }),
     ])
 }
