@@ -16,6 +16,7 @@ module.exports = app => {
         ...routeUtils.getViewData(req, {
           otherLanguage: `_${otherLanguage}`,
           language: `_${language}`,
+          skipUrl: routeUtils.getRouteByName('agreement-1').path,
         }),
         jsFiles,
       })
