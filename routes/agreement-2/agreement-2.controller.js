@@ -19,6 +19,10 @@ function getRandomString() {
     .slice(0, 8)
 }
 
+// make first letter lowercase and delete trailing periods
+const toPhrase = s =>
+  s && s.length > 0 ? (s[0].toLowerCase() + s.slice(1)).replace(/\.+$/, '') : s
+
 const flagHtml = `
     <img src="public/img/GOC_colour_en.png" alt="Symbol of the Government of Canada" width="300px">
 `
@@ -43,6 +47,9 @@ module.exports = app => {
     Object.keys(data)
       .filter(key => key !== '_csrf' && data[`${key}`] !== '')
       .forEach(key => {
+        if (key.includes('_en') || key.includes('_fr')) {
+          data[`${key}`] = toPhrase(data[`${key}`])
+        }
         queryParams[`${key}`] = data[`${key}`]
       })
     const link = url.format({
