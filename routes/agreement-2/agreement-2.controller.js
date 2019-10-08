@@ -28,7 +28,7 @@ const eligibleKey = key =>
   !key.includes('partner_department')
 
 const flagHtml = `
-    <img src="public/img/GOC_colour_en.png" alt="Symbol of the Government of Canada" width="300px">
+    <div>[Add Symbol of the Government of Canada here]</div>
 `
 
 const wordmarkHtml = `
