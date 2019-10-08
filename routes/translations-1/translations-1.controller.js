@@ -9,11 +9,14 @@ module.exports = app => {
   routeUtils.addViewPath(app, path.join(__dirname, './'))
   app
     .get(route.path, (req, res) => {
-      const language = i18n.getLocale(req) === "en" ? "en" : "fr"
-      const otherLanguage = i18n.getLocale(req) === "en" ? "fr" : "en"
+      const language = i18n.getLocale(req) === 'en' ? 'en' : 'fr'
+      const otherLanguage = i18n.getLocale(req) === 'en' ? 'fr' : 'en'
       const jsFiles = ['js/toggle-area.js']
       res.render(name, {
-        ...routeUtils.getViewData(req, {otherLanguage: `_${otherLanguage}`, language: `_${language}`}),
+        ...routeUtils.getViewData(req, {
+          otherLanguage: `_${otherLanguage}`,
+          language: `_${language}`,
+        }),
         jsFiles,
       })
     })
