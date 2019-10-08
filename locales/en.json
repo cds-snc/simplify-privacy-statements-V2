@@ -157,4 +157,10 @@
   "translations-1.title": "Translate into French",
   "translations-1.intro": "Provide translations of your answers to generate a French version of the form. You can also come back and do this later.",
   "Skip": "Skip"
+  "feedback.title": "Feedback",
+  "form.what_went_wrong": "What went wrong?",
+  "form.what_went_wrong.desc": "Don't put any identifiable personal information in the text box.",
+  "feedback-thanks.title": "Thank you",
+  "feedback-thanks.intro": "Thank you for your feedback.",
+  "feedback_link_text": "Did something go wrong?"
 }
