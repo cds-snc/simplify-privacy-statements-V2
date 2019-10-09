@@ -1,0 +1,10 @@
+{% macro translation(property, language, otherLanguage) %}
+    {% if (property+language in data) and (data[property+language] !== "") %}
+        {{ 
+            textInput(
+                property + otherLanguage, 'form.translation', {}, 
+                {text: data[property+language]}
+            ) 
+        }}
+    {% endif %}
+{% endmacro %}
