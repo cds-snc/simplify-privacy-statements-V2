@@ -2,6 +2,20 @@
   "name": "node-starter",
   "description": "",
   "formation": {},
+  "env": {
+    "API_BASE_URL": {
+      "required": true
+    },
+    "API_KEY": {
+      "required": true
+    },
+    "FEEDBACK_EMAIL_ADDRESS": {
+      "required": true
+    },
+    "TEMPLATE_ID": {
+      "required": true
+    }
+  },
   "addons": [],
   "stack": "container",
   "buildpacks": [

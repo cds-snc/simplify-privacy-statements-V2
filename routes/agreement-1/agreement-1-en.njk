@@ -2,11 +2,17 @@
 
 {% block content %}
 
-<a href={{ "documents/" + docxFilename }}>Download Word Document</a>
-&nbsp&nbsp
-<a href= {{ data.link }}>Link to Filled Form</a>
+<h1>Here's your generated privacy form</h1>
 
-<h1>Proof of Concept Agreement</h1>
+<p>
+    Copy and paste the agreement into your favourite word processing application, or <a href={{ "documents/" + docxFilename }}>download it as a Word document</a>. You might need to check it for punctuation and spelling before you send it to your ATIP office.
+</p>
+
+<p>
+    You can also <a href= {{ data.link }}>email yourself a link to your answers</a>. 
+</p>
+
+<h2>Research Participant Agreement</h2>
 
 <div>
     <p>
@@ -23,7 +29,7 @@
     Thank you for volunteering to talk to us.
     We work with the Canadian Digital Service (CDS).
     {% if data.is_with_partner == "Yes" %}
-      We are working with {{ defaultValue("partner_department_name_en") }}  ({{ defaultValue("partner_department_acronym_en") }}) to {{ defaultValue("research_goal_en") }}.
+      We are working with {{ defaultValue("partner_department_name_en") }} ({{ defaultValue("partner_department_acronym_en") }}) to {{ defaultValue("research_goal_en") }}.
     {% else %}
       We are conducting this research today to help us {{ defaultValue("research_goal_en") }}.
     {% endif %}
@@ -106,15 +112,15 @@
     {% endif %}
 
     {% if data.is_business == "Yes" %}
-      <p>Legal Business Name: ____________________________</p>
+      <p>Legal business name: ____________________________</p>
     {% endif %}
 
     {% if data.recording_type == "Video and audio" or data.recording_type == "Audio only" or data.recording_type == "Screen recording with audio" %}
 
       {% if data.recording_type == "Video and audio" %}
-        <h2>OPTIONAL VIDEO RECORDING</h2>
+        <h3>Optional video recording</h3>
       {% else %}
-        <h2>OPTIONAL AUDIO RECORDING</h2>
+        <h3>Optional audio recording</h3>
       {% endif %}
 
       <p>Recording our research will help us ensure we capture all of your input. Sharing our sessions with other departments will help illustrate the value of {{ defaultValue("research_method") }}s with users in building better digital services.</p>
@@ -122,7 +128,7 @@
       <p>By agreeing to be recorded, you understand that:</p>
       <ul>
         <li>You are choosing to be recorded;</li>
-        <li>You are not to provide any additional information that would allow others to identify you during the recording (e.g., Name, date of birth, address, etc.)</li>
+        <li>You are not to provide any additional information that would allow others to identify you during the recording (e.g. your name, date of birth, address, etc.)</li>
         <li>Your responses will not be confidential due to your audio likeness in the recording, and may be shared with other departments for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed_en") }}; and,</li>
         <li>If you decide to withdraw your consent, CDS will not share your recording further.</li>
       </ul>
@@ -135,7 +141,7 @@
     {% endif %}
 
 
-    <h2>Privacy Statement</h2>
+    <h3>Privacy Statement</h3>
     <p>Participation is completely voluntary.</p>
 
     <h3>What we will collect</h3>
@@ -152,7 +158,7 @@
     {% endif %}
 
     {% if data.administrative_decision == "No" %}
-      <p>This personal information will not be used for any “administrative  purposes”. Your information will not be used to make a decision that affects you or your access to Government of Canada services.</p>
+      <p>This personal information will not be used for any “administrative purposes”. Your information will not be used to make a decision that affects you or your access to Government of Canada services.</p>
     {% endif %}
 
     {% if data.recording_type != "No recording" %}
