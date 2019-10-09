@@ -14,16 +14,16 @@
 
             <input type="hidden" name="_csrf" value="{{ csrfToken }}">
 
-            {{ translation("partner_department_name", language, otherLanguage) }}
-            {{ translation("partner_department_acronym", language, otherLanguage) }}
-            {{ translation("partner_department_authority", language, otherLanguage) }}
-            {{ translation("research_goal", language, otherLanguage) }}
-            {{ translation("session_activity", language, otherLanguage) }}
-            {{ translation("session_duration", language, otherLanguage) }}
-            {{ translation("personal_information_collected", language, otherLanguage) }}
-            {{ translation("personal_information_disclosed_to_public", language, otherLanguage) }}
-            {{ translation("administrative_purpose", language, otherLanguage) }}
-            {{ translation("purposes_for_which_the_recording_may_be_disclosed", language, otherLanguage) }}
+            {{ translation("partner_department_name", language, otherLanguage, "textInput") }}
+            {{ translation("partner_department_acronym", language, otherLanguage, "textInput") }}
+            {{ translation("partner_department_authority", language, otherLanguage, "textInput") }}
+            {{ translation("research_goal", language, otherLanguage, "textArea") }}
+            {{ translation("session_activity", language, otherLanguage, "textArea") }}
+            {{ translation("session_duration", language, otherLanguage, "textInput") }}
+            {{ translation("personal_information_collected", language, otherLanguage, "textArea") }}
+            {{ translation("personal_information_disclosed_to_public", language, otherLanguage, "textArea") }}
+            {{ translation("administrative_purpose", language, otherLanguage, "textArea") }}
+            {{ translation("purposes_for_which_the_recording_may_be_disclosed", language, otherLanguage, "textArea") }}
 
             {{ formButtonsSkip(skipUrl, 'Skip', 'Continue') }}
         </form>

@@ -1,10 +1,19 @@
-{% macro translation(property, language, otherLanguage) %}
+{% macro translation(property, language, otherLanguage, inputType = "textInput") %}
     {% if (property+language in data) and (data[property+language] !== "") %}
-        {{ 
-            textInput(
-                property + otherLanguage, 'form.translation', {}, 
-                {text: data[property+language]}
-            ) 
-        }}
+        {% if inputType == "textInput" %}
+            {{ 
+                textInput(
+                    property + otherLanguage, 'form.translation', {}, 
+                    {text: data[property+language]}
+                ) 
+            }}
+        {% else %}
+            {{ 
+                textArea(
+                    property + otherLanguage, 'form.translation', {}, 
+                    {text: data[property+language]}
+                ) 
+            }}
+        {% endif %}
     {% endif %}
 {% endmacro %}
