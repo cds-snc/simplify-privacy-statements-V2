@@ -1,4 +1,4 @@
-{% macro radioButtons(key, values, value, question, errors, attributes) %}
+{% macro radioButtons(key, values, value, question, hint, errors, attributes) %}
     <div class="{{ 'has-error' if errors and errors[key] }}">
         <fieldset class="fieldset">
             <legend class="fieldset__legend">{{ __(question) }}</legend>
