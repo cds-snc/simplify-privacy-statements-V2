@@ -158,5 +158,9 @@
   "feedback_link_text": "Il y a eu un problème?",
   "feedback.title": "Rétroaction",
   "form.what_went_wrong": "Qu'est-ce qui s'est mal passé ?",
-  "form.what_went_wrong.desc": "Les informations que vous fournissez dans le champ de texte ouvert ne doivent pas contenir d'informations personnelles identifiables."
+  "form.what_went_wrong.desc": "Les informations que vous fournissez dans le champ de texte ouvert ne doivent pas contenir d'informations personnelles identifiables.",
+  "landing-page.steps-lead-in": "landing-page.steps-lead-in",
+  "landing-page.steps-recruit": "landing-page.steps-recruit",
+  "landing-page.steps-tools": "landing-page.steps-tools",
+  "landing-page.steps-activities": "landing-page.steps-activities"
 }

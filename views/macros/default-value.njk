@@ -2,8 +2,8 @@
   - `property`: form value to look up
 #}
 
-{% macro defaultValue(property) %}{% if data[property] %}{{ data[property] }}{% else %}
+{% macro defaultValue(property) %}
+  {% if (property in data) and (data[property] !== "")  %}
+    {{ data[property] }}{% else %}
     <span style="color:red; font-weight:bold">
-      **{{ property }}**
-    </span>
-  {% endif %}{% endmacro %}
+      **{{ property }}**</span>{% endif %}{% endmacro %}
