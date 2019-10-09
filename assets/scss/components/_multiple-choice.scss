@@ -57,6 +57,10 @@
   }
 }
 
+.multiple-choice--radios  {
+  margin-top: $space-md;
+}
+
 .multiple-choice--radios .multiple-choice__item {
   > input[type='radio'] {
     top: -2px;

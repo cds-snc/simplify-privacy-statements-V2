@@ -64,7 +64,7 @@
 
             {{ radioButtons('consent', { '1':'Verbally','2':'On paper'}, data.consent, 'form.consent', errors) }}
 
-            {{ radioButtons('is_business', { '1':'Yes','2':'No'}, data.is_business, 'form.is_business', {hint: 'form.is_business.desc'},  errors) }}
+            {{ radioButtons('is_business', { '1':'Yes','2':'No'}, data.is_business, 'form.is_business', errors, {hint: 'form.is_business.desc'}) }}
 
             <div class="toggle-area">
                 {{ radioButtons('recording_type', { 'on-1':'Video and audio','on-2':'Audio only','on-3':'Screen recording with audio','off-1':'Screen recording only','off-2':'No recording'}, data.recording_type, 'form.recording_type', errors) }}
