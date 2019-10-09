@@ -28,11 +28,11 @@ const eligibleKey = key =>
   !key.includes('partner_department')
 
 const flagHtml = `
-    <div>[Add Symbol of the Government of Canada here]</div>
+  <div>[Add <a href="https://www.canada.ca/en/treasury-board-secretariat/topics/government-communications/federal-identity-requirements.html">Symbol of the Government of Canada</a> here]</div>
 `
 
 const wordmarkHtml = `
-    <img src="public/img/Canwordmark_colour.png" alt="Government of Canada" width="150px">
+<div>[Add <a href="https://www.canada.ca/en/treasury-board-secretariat/topics/government-communications/federal-identity-requirements.html">Government of Canada Wordmark</a> here]</div>
 `
 
 module.exports = app => {
