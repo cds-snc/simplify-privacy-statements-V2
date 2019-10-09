@@ -2,7 +2,6 @@ const path = require('path')
 const { getNextRoute, routeUtils } = require('./../../utils')
 const nodePandoc = require('node-pandoc')
 const i18n = require('i18n')
-const url = require('url')
 
 var callback = (err, result) => {
   if (err) {
