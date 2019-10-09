@@ -12,7 +12,10 @@
     "FEEDBACK_EMAIL_ADDRESS": {
       "required": true
     },
-    "TEMPLATE_ID": {
+    "FEEDBACK_TEMPLATE_ID": {
+      "required": true
+    },
+    "LINK_TEMPLATE_ID": {
       "required": true
     }
   },
