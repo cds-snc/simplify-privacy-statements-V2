@@ -12,6 +12,7 @@
                         <label for="{{ key }}{{ val }}">{{ __(val) }}</label>
                         {% if attributes.hint %}
                             <span class="form-message">{{ __(attributes.hint) }}</span>
+                        {% endif %}
                     </div>
                 {% endfor %}
             </div>
