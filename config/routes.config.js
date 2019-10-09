@@ -8,6 +8,7 @@ const routes = [
   { name: 'agreement-2', path: '/agreement-2' },
   { name: 'feedback', path: '/feedback' },
   { name: 'feedback-thanks', path: '/feedback-thanks' },
+  { name: 'email-link', path: '/email-link' },
 ]
 
 // note: you can define and export a custom configRoutes function here

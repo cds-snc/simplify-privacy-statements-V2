@@ -1,0 +1,17 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+{% if data.researcher_email %}
+    <h1>{{ __('email-link.title') }}</h1>
+    <p>
+        {{ __('email-link.intro') }} {{data.researcher_email}}
+    </p>
+{% else %}
+    <h1>{{ __('email-link.title-missing') }}</h1>
+    <p>
+        {{ __('email-link.missing') }}
+    </p>
+{% endif %}
+
+{% endblock %}

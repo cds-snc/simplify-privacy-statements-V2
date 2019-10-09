@@ -1,9 +1,9 @@
 const path = require('path')
+const url = require('url')
 const { getNextRoute, routeUtils, sendNotification } = require('./../../utils')
-const { Schema } = require('./schema.js')
 
 module.exports = app => {
-  const name = 'feedback-thanks'
+  const name = 'email-link'
   const route = routeUtils.getRouteByName(name)
 
   routeUtils.addViewPath(app, path.join(__dirname, './'))
@@ -11,15 +11,25 @@ module.exports = app => {
   app
     .get(route.path, (req, res) => {
       const data = routeUtils.getViewData(req, {}).data
-      console.log({ data })
-
+      var queryParams = {}
+      Object.keys(data)
+        .filter(key => key !== '_csrf' && data[`${key}`] !== '')
+        .forEach(key => {
+          queryParams[`${key}`] = data[`${key}`]
+        })
+      const link = url.format({
+        protocol: req.protocol,
+        host: req.get('Host'),
+        pathname: routeUtils.getRouteByName('questions-1').path,
+        query: queryParams,
+      })
       try {
         sendNotification({
-          email: process.env.FEEDBACK_EMAIL_ADDRESS,
-          templateId: process.env.FEEDBACK_TEMPLATE_ID,
+          email: data.researcher_email,
+          templateId: process.env.LINK_TEMPLATE_ID,
           options: {
             personalisation: {
-              feedback: data.what_went_wrong,
+              link,
             },
           },
         })
@@ -32,6 +42,6 @@ module.exports = app => {
       })
     })
     .post(route.path, [
-      ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name }),
+      ...routeUtils.getDefaultMiddleware({ schema: {}, name: name }),
     ])
 }
