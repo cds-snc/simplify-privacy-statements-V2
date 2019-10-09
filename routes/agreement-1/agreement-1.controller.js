@@ -56,14 +56,6 @@ module.exports = app => {
         }
         queryParams[`${key}`] = data[`${key}`]
       })
-    const link = url.format({
-      protocol: req.protocol,
-      host: req.get('Host'),
-      pathname: routeUtils.getRouteByName('questions-1').path,
-      query: queryParams,
-    })
-    data.link = link
-    console.log(`length of link: ${link.length}`)
 
     res.render(
       name + `-${i18n.getLocale(req)}`,

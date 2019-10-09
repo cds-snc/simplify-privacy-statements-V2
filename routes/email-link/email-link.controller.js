@@ -13,7 +13,11 @@ module.exports = app => {
       const data = routeUtils.getViewData(req, {}).data
       var queryParams = {}
       Object.keys(data)
-        .filter(key => key !== '_csrf' && data[`${key}`] !== '')
+        .filter(
+          key =>
+            !['_csrf', 'what_went_wrong'].includes(key) &&
+            data[`${key}`] !== '',
+        )
         .forEach(key => {
           queryParams[`${key}`] = data[`${key}`]
         })
@@ -23,6 +27,8 @@ module.exports = app => {
         pathname: routeUtils.getRouteByName('questions-1').path,
         query: queryParams,
       })
+      data.link = link
+      console.log(`length of link: ${link.length}`)
       try {
         sendNotification({
           email: data.researcher_email,
@@ -37,7 +43,7 @@ module.exports = app => {
         console.log(`Error: ${err}`)
       }
       res.render(name, {
-        ...routeUtils.getViewData(req, {}),
+        data,
         nextRoute: getNextRoute(name).path,
       })
     })
