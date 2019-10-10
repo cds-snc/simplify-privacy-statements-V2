@@ -27,11 +27,11 @@ const eligibleKey = key =>
   !key.includes('partner_department')
 
 const flagHtml = `
-  <div>[Put your agreement in an existing privacy form template to add the <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/stationery/letterhead-flag-symbol.html">Symbol of the Government of Canada</a>.]</div>
+  <div>[Put your agreement in an existing privacy form template to add the <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/stationery/letterhead-flag-symbol.html">Canadian flag symbol signature</a>.]</div>
 `
 
 const wordmarkHtml = `
-  <div>[Put your agreement in an existing privacy form template to add the <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/stationery/letterhead-flag-symbol.html">Government of Canada Wordmark</a>.]</div>
+  <div>[Put your agreement in an existing privacy form template to add the <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/stationery/letterhead-flag-symbol.html"> Canada Wordmark</a>.]</div>
 `
 
 module.exports = app => {
