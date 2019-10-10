@@ -14,46 +14,16 @@
 
             <input type="hidden" name="_csrf" value="{{ csrfToken }}">
 
-            {% if data["partner_department_name"+language] !== "" %}
-                {{ textInput('partner_department_name' + otherLanguage, 'form.translation', {}, {text: data["partner_department_name"+language]}) }}
-            {% endif %}
-
-            {% if data["partner_department_acronym"+language] !== "" %}
-                {{ textInput('partner_department_acronym' + otherLanguage, 'form.translation', {}, {text: data["partner_department_acronym"+language]}) }}
-            {% endif %}
-
-            {% if data["partner_department_authority"+language] !== "" %}
-                {{ textInput('partner_department_authority' + otherLanguage, 'form.translation', {}, {text: data["partner_department_authority"+language]}) }}
-            {% endif %}
-
-            {% if data["research_goal"+language] !== "" %}
-                {{ textArea('research_goal' + otherLanguage, 'form.translation', {}, {text: data["research_goal"+language]}) }}
-            {% endif %}
-
-            {% if data["session_activity"+language] !== "" %}
-                {{ textInput('session_activity' + otherLanguage, 'form.translation', {}, {text: data["session_activity"+language]}) }}
-            {% endif %}
-
-            {% if data["session_duration"+language] !== "" %}
-                {{ textInput('session_duration' + otherLanguage, 'form.translation', {}, {text: data["session_duration"+language]}) }}
-            {% endif %}
-
-            {% if data["personal_information_collected"+language] !== "" %}
-                {{ textArea('personal_information_collected' + otherLanguage, 'form.translation', {}, {text: data["personal_information_collected"+language]}) }}
-            {% endif %}
-
-            {% if data["personal_information_disclosed_to_public"+language] !== "" %}
-                {{ textArea('personal_information_disclosed_to_public' + otherLanguage, 'form.translation', {}, {text: data["personal_information_disclosed_to_public"+language]}) }}
-            {% endif %}
-
-            {% if data["administrative_purpose"+language] !== "" %}
-                {{ textArea('administrative_purpose' + otherLanguage, 'form.translation', {}, {text: data["administrative_purpose"+language]}) }}
-            {% endif %}
-
-            {% if data["purposes_for_which_the_recording_may_be_disclosed"+language] !== "" %}
-                {{ textArea('purposes_for_which_the_recording_may_be_disclosed' + otherLanguage, 'form.translation', {}, {text: data["purposes_for_which_the_recording_may_be_disclosed"+language]}) }}
-            {% endif %}
-
+            {{ translation("partner_department_name", language, otherLanguage, "textInput") }}
+            {{ translation("partner_department_acronym", language, otherLanguage, "textInput") }}
+            {{ translation("partner_department_authority", language, otherLanguage, "textInput") }}
+            {{ translation("research_goal", language, otherLanguage, "textArea") }}
+            {{ translation("session_activity", language, otherLanguage, "textArea") }}
+            {{ translation("session_duration", language, otherLanguage, "textInput") }}
+            {{ translation("personal_information_collected", language, otherLanguage, "textArea") }}
+            {{ translation("personal_information_disclosed_to_public", language, otherLanguage, "textArea") }}
+            {{ translation("administrative_purpose", language, otherLanguage, "textArea") }}
+            {{ translation("purposes_for_which_the_recording_may_be_disclosed", language, otherLanguage, "textArea") }}
 
             {{ formButtonsSkip(skipUrl, 'Skip', 'Continue') }}
         </form>
