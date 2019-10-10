@@ -98,10 +98,12 @@ const renderPageWithErrors = (
   options = { template: '', errors: [] },
 ) => {
   return res.status(422).render(options.template, {
-    data: getSessionData(req),
     name: options.template,
     body: req.body,
     errors: options.errors,
+    ...(global.getData
+      ? global.getData(req, options.template)
+      : { data: getSessionData(req) }),
   })
 }
 
