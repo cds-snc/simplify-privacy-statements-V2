@@ -16,7 +16,7 @@ module.exports = app => {
       try {
         sendNotification({
           email: process.env.FEEDBACK_EMAIL_ADDRESS,
-          templateId: process.env.TEMPLATE_ID,
+          templateId: process.env.FEEDBACK_TEMPLATE_ID,
           options: {
             personalisation: {
               feedback: data.what_went_wrong,

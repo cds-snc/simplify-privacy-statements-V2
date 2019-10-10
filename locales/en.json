@@ -62,8 +62,8 @@
   "landing-page.intro": "This service will generate customized forms and privacy statements for you based on the type of design research you're doing. Ask your policy colleagues if you need one.",
   "landing-page.steps-lead-in": "Once you've made the forms and statements, take them to your department's ATIP office for approval. You also need to tell them:",
   "landing-page.steps-atip": "",
-  "landing-page.steps-recruit": "how you're planning to recruit participants", 
-  "landing-page.steps-tools": "which tools you'll be using (e.g. a voice recorder, notepad or camera)", 
+  "landing-page.steps-recruit": "how you're planning to recruit participants",
+  "landing-page.steps-tools": "which tools you'll be using (e.g. a voice recorder, notepad or camera)",
   "landing-page.steps-activities": "the activities you'll be asking the partipant to do",
   "landing-page.leadin": "Choose from a:",
   "landing-page.option1": "Make a consent form for intercept recruiting",
@@ -164,5 +164,9 @@
   "form.what_went_wrong.desc": "Don't put any identifiable personal information in the text box.",
   "feedback-thanks.title": "Thank you",
   "feedback-thanks.intro": "Thank you for your feedback.",
-  "feedback_link_text": "Did something go wrong?"
+  "feedback_link_text": "Did something go wrong?",
+  "email-link.title": "Your link has been emailed",
+  "email-link.title-missing": "Your link has not been emailed",
+  "email-link.intro": "We have emailed your link to",
+  "email-link.missing": "We were unable to email your link - did you provide an email address?"
 }
