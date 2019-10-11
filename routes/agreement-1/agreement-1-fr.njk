@@ -2,11 +2,23 @@
 
 {% block content %}
 
-<a href={{ "documents/" + docxFilename }}>Download Word Document</a>
-&nbsp&nbsp
-<a href= {{ data.link }}>Lien vers le formulaire rempli</a>
+<h1>FR Here's your generated privacy form</h1>
 
-<h1>Accord Sur la Preuve de Concept</h1>
+<p>
+    Copy and paste the agreement into your favourite word processing application, or <a href={{ "documents/" + docxFilename }}>download it as a Word document</a>. You might need to check it for punctuation and spelling before you <a target="_blank" href="https://atip-aiprp.apps.gc.ca/atip/welcome.do">send it to your ATIP office</a>.
+</p>
+
+<p>
+    You can also <a target="_blank" href="email-link">email yourself a link to your answers</a>. 
+</p>
+
+<div style="display: none">start of agreement</div>
+
+<p>
+    [Put your agreement in an exisiting privacy form template to add the <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/stationery/letterhead-flag-symbol.html">Canadian flag symbol signature</a>.]
+</p>
+
+<h2>FR DRAFT Research Participant Agreement to send to your ATIP office</h2>
 
 <div>
     <p>
@@ -23,7 +35,7 @@
     Thank you for volunteering to talk to us.
     We work with the Canadian Digital Service (CDS).
     {% if data.is_with_partner == "Yes" %}
-      We are working with {{ defaultValue("partner_department_name_fr") }}  ({{ defaultValue("partner_department_acronym_fr") }}) to {{ defaultValue("research_goal_fr") }}.
+      We are working with {{ defaultValue("partner_department_name_fr") }} ({{ defaultValue("partner_department_acronym_fr") }}) to {{ defaultValue("research_goal_fr") }}.
     {% else %}
       We are conducting this research today to help us {{ defaultValue("research_goal_fr") }}.
     {% endif %}
@@ -37,13 +49,13 @@
       By participating in this study, you understand that:
     </p>
     <ul>
-      {% if data.compensation == "No" %}
-        <li>You are volunteering to participate. You can stop at any time for any reason, without any consequences.</li>
-      {% else %}
+      {% if data.compensation == "Yes" %}
         <li>You are volunteering to participate. You can stop at any time for any reason.</li>
         <li>For your {{ defaultValue("session_duration_fr") }} of input, you will receive a one-time {{ defaultValue("compensation_method") }} of up to {{ defaultValue("compensation_value") }}. This is taxable income.</li>
         <li>Should you decide to stop participating, you will receive a one-time payment of $10 if you have provided at least 8.5 minutes of input.</li>
         <li>If you have provided less than 8.5 minutes you will be entitled to $0</li>
+      {% else %}
+        <li>You are volunteering to participate. You can stop at any time for any reason, without any consequences.</li>
       {% endif %}
 
       {% if data.confidentiality == "form.confidential" %}
@@ -56,8 +68,8 @@
         <li>Your information will be public. Your input will be associated with your name.</li>
       {% elif data.confidentiality == "form.not_confidential" %}
         <li>Your information will not be confidential. Your input will be associated with your name.</li>
-      {% endif %}
-
+      {% endif %}      
+      
       {% if data.compensation == "Yes" %}
          <li>The fact that you participated will not be confidential.</li>
       {% endif %}
@@ -75,7 +87,8 @@
       {% endif %}
 
       {% if data.is_with_partner == "Yes" %}
-        <li>CDS and {{ defaultValue("partner_department_acronym_fr") }} may collect your personal information. For example, your {{ defaultValue("personal_information_collected_fr") }}. To learn about how CDS and {{ defaultValue(partner_department_acronym_fr) }} protect your personal information, please see the attached privacy statement.</li>
+        <li>CDS and {{ defaultValue("partner_department_acronym_fr")}} may collect your personal information. For example, your {{ defaultValue("personal_information_collected_fr") }}.
+        To learn about how CDS and {{ defaultValue("partner_department_acronym_fr") }} protect your personal information, please see the attached privacy statement.</li>
       {% else %}
         <li>CDS may collect your personal information. For example, your {{ defaultValue("personal_information_collected_fr") }}. To learn about how CDS protects your personal information, please see the attached privacy statement.</li>
       {% endif %}
@@ -105,28 +118,28 @@
     {% endif %}
 
     {% if data.is_business == "Yes" %}
-      <p>Legal Business Name: ____________________________</p>
+      <p>Legal business name: ____________________________</p>
     {% endif %}
 
     {% if data.recording_type == "Video and audio" or data.recording_type == "Audio only" or data.recording_type == "Screen recording with audio" %}
 
       {% if data.recording_type == "Video and audio" %}
-        <h2>OPTIONAL VIDEO RECORDING</h2>
+        <h3>Optional video recording</h3>
       {% else %}
-        <h2>OPTIONAL AUDIO RECORDING</h2>
+        <h3>Optional audio recording</h3>
       {% endif %}
 
-      <p>Recording our research will help us ensure we capture all of your input. Sharing our sessions with other departments will help illustrate the value of {research_method}s with users in building better digital services.</p>
+      <p>Recording our research will help us ensure we capture all of your input. Sharing our sessions with other departments will help illustrate the value of {{ defaultValue("research_method") }}s with users in building better digital services.</p>
 
       <p>By agreeing to be recorded, you understand that:</p>
       <ul>
         <li>You are choosing to be recorded;</li>
-        <li>You are not to provide any additional information that would allow others to identify you during the recording (e.g., Name, date of birth, address, etc.)</li>
+        <li>You are not to provide any additional information that would allow others to identify you during the recording (e.g. your name, date of birth, address, etc.)</li>
         <li>Your responses will not be confidential due to your audio likeness in the recording, and may be shared with other departments for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed_fr") }}; and,</li>
         <li>If you decide to withdraw your consent, CDS will not share your recording further.</li>
       </ul>
 
-      <p>However, prior to your withdrawal, CDS may have already shared your recording with other departments, which may continue to use the recording for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed_fr") }}</p>
+      <p>However, prior to your withdrawal, CDS may have already shared your recording with other departments, which may continue to use the recording for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed_fr") }}.</p>
 
       <p>[ ] I understand the points above and consent to be recorded.</p>
 
@@ -134,7 +147,7 @@
     {% endif %}
 
 
-    <h2>Privacy Statement</h2>
+    <h3>Privacy Statement</h3>
     <p>Participation is completely voluntary.</p>
 
     <h3>What we will collect</h3>
@@ -151,17 +164,17 @@
     {% endif %}
 
     {% if data.administrative_decision == "No" %}
-      <p>This personal information will not be used for any “administrative  purposes”. Your information will not be used to make a decision that affects you or your access to Government of Canada services.</p>
+      <p>This personal information will not be used for any “administrative purposes”. Your information will not be used to make a decision that affects you or your access to Government of Canada services.</p>
     {% endif %}
 
     {% if data.recording_type != "No recording" %}
-      <p>If you have consented to being recorded, the recording may be disclosed to other departments for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed_fr") }}.</p>
+      <p>If you have consented to being recorded, the recording may be disclosed to other departments for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed_fr")}}.</p>
     {% endif %}
 
-    {% if data.compensation == "No" %}
-      <p>CDS may publish or share with other government institutions a summary of what we have learned from this research, including quotes or narratives. Your name will not be associated with your responses, quotes, or narratives.</p>
+    {% if data.compensation == "Yes" %}
+      <p>CDS will own the {{ defaultValue("research_method") }} information and may publish or share with other government institutions a summary of what we have learned from this research, including quotes or narratives. Your name will not be associated with your responses, quotes, or narratives.</p>
     {% else %}
-     <p>CDS will own the {{ defaultValue("research_method") }} information and may publish or share with other government institutions a summary of what we have learned from this research, including quotes or narratives. Your name will not be associated with your responses, quotes, or narratives.</p>
+      <p>CDS may publish or share with other government institutions a summary of what we have learned from this research, including quotes or narratives. Your name will not be associated with your responses, quotes, or narratives.</p>
     {% endif %}
 
     <h3>Who we are</h3>
@@ -212,5 +225,9 @@
     </p>
 
 </div>
+
+<p>
+    [Put your agreement in an existing privacy form template to add the <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/stationery/letterhead-flag-symbol.html">Canada Wordmark</a>.]
+</p>
 
 {% endblock %}
