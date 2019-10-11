@@ -27,14 +27,6 @@ const eligibleKey = key =>
   (key.includes('_en') || key.includes('_fr')) &&
   !key.includes('partner_department')
 
-const flagHtml = `
-    <div>[Add <a href="https://www.canada.ca/en/treasury-board-secretariat/topics/government-communications/federal-identity-requirements.html">Symbol of the Government of Canada</a> here]</div>
-`
-
-const wordmarkHtml = `
-<div>[Add <a href="https://www.canada.ca/en/treasury-board-secretariat/topics/government-communications/federal-identity-requirements.html">Government of Canada Wordmark</a> here]</div>
-`
-
 module.exports = app => {
   const name = 'agreement-2'
   const route = routeUtils.getRouteByName(name)
@@ -77,8 +69,7 @@ module.exports = app => {
         }
         const startIndex = html.indexOf('<h1>')
         const endIndex = html.indexOf('</main>')
-        const htmlDoc =
-          flagHtml + html.slice(startIndex, endIndex) + wordmarkHtml
+        const htmlDoc = html.slice(startIndex, endIndex)
         nodePandoc(
           htmlDoc,
           '-f html -t docx -o public/documents/' + docxFilename,
