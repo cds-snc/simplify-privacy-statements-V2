@@ -168,5 +168,6 @@
   "email-link.title": "You've got mail",
   "email-link.title-missing": "Your link has not been emailed",
   "email-link.intro": "A link to retrieve your answers has been emailed to",
-  "email-link.missing": "We were unable to email your link - did you provide an email address?"
+  "email-link.missing": "We were unable to email your link - did you provide an email address?",
+  "errors.requiredField": "A required field is missing"
 }
