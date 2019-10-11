@@ -58,6 +58,19 @@ const Schema = {
       errorMessage: 'errors.consent',
     },
   },
+  researcher_email: {
+    custom: {
+      options: (value, { req }) => {
+        if (value && value.length > 0) {
+          if (!(value.endsWith('@cds-snc.ca') || value.endsWith('.gc.ca'))) {
+            return false
+          }
+        }
+        return true
+      },
+      errorMessage: 'errors.researcher_email',
+    },
+  },
 }
 
 module.exports = {
