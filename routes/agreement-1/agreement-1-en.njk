@@ -4,14 +4,14 @@
 
 <h1>Here's your generated privacy form</h1>
 
-<a target="_blank" href="email-link">email yourself a link to your answers</a>
+<a target="_blank" href="email-link">Email yourself a link to your answers</a>
 &nbsp; &nbsp;
-<a href={{ "documents/" + docxFilename }}>Download Word document</a>
+<a href={{ "documents/" + docxFilename }}>Download as a Word doc</a>
 &nbsp; &nbsp;
-<a href="agreement-1?lang=fr">French agreement</a> 
+<a href="agreement-1?lang=fr">Get the French version</a>
 
 <p style="margin-top: 30px">
-    You might need to check it for punctuation and spelling before you 
+    Make sure you check the draft form for errors before you
     <a target="_blank" href="https://atip-aiprp.apps.gc.ca/atip/welcome.do">send it to your ATIP office</a>.
 </p>
 
@@ -20,7 +20,7 @@
 <hr style="margin-top: 40px"/>
 
 <p style="margin-top: 40px">
-    [Put your agreement in an exisiting privacy form template to add the <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/stationery/letterhead-flag-symbol.html">Canadian flag symbol signature</a>.]
+    [Put your agreement in an existing privacy form template to add the <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/stationery/letterhead-flag-symbol.html">Canadian flag symbol signature</a>.]
 </p>
 
 <h2>DRAFT 'Consent to participate in research form' to send to your ATIP office</h2>
@@ -73,8 +73,8 @@
         <li>Your information will be public. Your input will be associated with your name.</li>
       {% elif data.confidentiality == "form.not_confidential" %}
         <li>Your information will not be confidential. Your input will be associated with your name.</li>
-      {% endif %}      
-      
+      {% endif %}
+
       {% if data.compensation == "Yes" %}
          <li>The fact that you participated will not be confidential.</li>
       {% endif %}
@@ -134,21 +134,21 @@
         <h3>Optional audio recording</h3>
       {% endif %}
 
-      <p>Recording our research will help us ensure we capture all of your input. Sharing our sessions with other departments will help illustrate the value of {{ defaultValue("research_method") }}s with users in building better digital services.</p>
+      <p>Recording our research will help us ensure we capture all of your input. </p>
 
       <p>By agreeing to be recorded, you understand that:</p>
       <ul>
         <li>You are choosing to be recorded;</li>
         <li>You are not to provide any additional information that would allow others to identify you during the recording (e.g. your name, date of birth, address, etc.)</li>
-        
+        <li>Your responses will not be confidential due to your audio likeness in the recording.</li>
+      </ul>
         {% if data.will_the_recording_be_disclosed == "Yes" %}
-          <li>Your responses will not be confidential due to your audio likeness in the recording, and may be shared with other departments for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed_en") }}; and,</li>
-          <li>If you decide to withdraw your consent, CDS will not share your recording further.</li>
-          </ul>
+          <p>Your responses may be shared with other departments for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed_en") }}. </p>
+          <p>If you decide to withdraw your consent, CDS will not share your recording further.</p>
           <p>However, prior to your withdrawal, CDS may have already shared your recording with other departments, which may continue to use the recording for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed_en") }}.</p>
+          <p>Sharing our sessions with other departments will help illustrate the value of {{ defaultValue("research_method") }}s with users in building better digital services.</p>
         {% else %}
-          <li>Your responses will not be confidential due to your audio likeness in the recording.</li>
-          </ul>
+
         {% endif %}
 
       <p>[ ] I understand the points above and consent to be recorded.</p>
