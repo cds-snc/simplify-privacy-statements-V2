@@ -18,6 +18,8 @@ function getRandomString() {
     .slice(0, 8)
 }
 
+const startHtml = `<div style="display: none">start of agreement</div>`
+
 // make first letter lowercase and delete trailing periods
 const toPhrase = s =>
   s && s.length > 0 ? (s[0].toLowerCase() + s.slice(1)).replace(/\.+$/, '') : s
@@ -59,7 +61,7 @@ module.exports = app => {
         if (err) {
           console.log(err)
         }
-        const startIndex = html.indexOf('<h1>')
+        const startIndex = html.indexOf(startHtml) + startHtml.length
         const endIndex = html.indexOf('</main>')
         const htmlDoc = html.slice(startIndex, endIndex)
         nodePandoc(
