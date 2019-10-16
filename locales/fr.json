@@ -164,5 +164,6 @@
   "landing-page.steps-tools": "landing-page.steps-tools",
   "landing-page.steps-activities": "landing-page.steps-activities",
   "email-link.title-missing": "email-link.title-missing",
-  "email-link.missing": "email-link.missing"
+  "email-link.missing": "email-link.missing",
+  "feedback.not_setup": "Malheureusement, le retour d'information n'est pas encore mis en place."
 }

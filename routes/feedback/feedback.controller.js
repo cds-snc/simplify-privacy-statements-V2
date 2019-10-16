@@ -1,5 +1,5 @@
 const path = require('path')
-const { getNextRoute, routeUtils } = require('./../../utils')
+const { getNextRoute, routeUtils, notifySetup } = require('./../../utils')
 
 module.exports = app => {
   const name = 'feedback'
@@ -10,7 +10,7 @@ module.exports = app => {
   app
     .get(route.path, (req, res) => {
       res.render(name, {
-        ...routeUtils.getViewData(req, {}),
+        ...routeUtils.getViewData(req, { notifySetup }),
         nextRoute: getNextRoute(name).path,
       })
     })

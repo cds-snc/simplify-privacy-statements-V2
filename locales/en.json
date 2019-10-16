@@ -179,5 +179,6 @@
   "form.expiry.desc": "eg. 2010-12",
   "form.upload": "upload file",
   "backgroundInfo.title": "Background information",
-  "backgroundInfo.desc": "Will you be conducting research with another department?"
+  "backgroundInfo.desc": "Will you be conducting research with another department?",
+  "feedback.not_setup": "Unfortunately feedback is not currently set up."
 }
