@@ -10,9 +10,15 @@ _Goal:_ A working prototype that generates P&C statements.
 
 Trello board: https://trello.com/b/vptWzBnE/generate-privacy-statements-portage
 
-## Installing and running locally
+## Installing and running locally (Mac)
 
-- install `node`
-- clone the repo locally and go into the repo directory
-- `npm install`
-- `npm run dev`
+- Install `git`, `node` and `pandoc`. The best way to do this is probably using Homebrew (which you need to install first)
+  - homebrew: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+  - others: `brew install git node pandoc`
+- You might want to set up ssh keys to make it easier to interact with GitHub. See [Generating a new SSH key and adding it to the ssh-agent](https://help.github.com/en/enterprise/2.16/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent). Alternatively, you could use [GitHub Desktop](https://desktop.github.com/) or an IDE with integrated git support.
+- Clone the repo locally and go into the repo directory
+  - `git clone git@github.com:cds-snc/simplify-privacy-statements-V2.git`
+  - `cd simplify-privacy-statements-V2`
+- If you want to use Google Analytics or to send feedback or link emails, you have to set up proper environment variables. Copy the `.env.example` file into `.env` and set the variables appropriately.
+- Next install the third party modules using `npm install`
+- You can now run the app locally! run `npm run dev` and then open a web browser to `localhost:3000`.
