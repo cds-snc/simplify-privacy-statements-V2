@@ -21,12 +21,13 @@ function getRandomString() {
 const startHtml = `<div style="display: none">start of agreement</div>`
 
 // make first letter lowercase and delete trailing periods
-const toPhrase = s =>
-  s && s.length > 0
-    ? (s[0].toLowerCase() + s.slice(1)).replace(/\.*\s*$/, '')
-    : s
+const lowerCaseFirstLetter = s =>
+  s && s.length > 0 ? s[0].toLowerCase() + s.slice(1) : s
 
-const eligibleKey = key =>
+const stripTrailingPeriods = s =>
+  s && s.length > 0 ? s.replace(/\.*\s*$/, '') : s
+
+const changeToPhrase = key =>
   (key.includes('_en') || key.includes('_fr')) &&
   !key.includes('partner_department')
 
@@ -46,8 +47,12 @@ module.exports = app => {
     Object.keys(data)
       .filter(key => key !== '_csrf' && data[`${key}`] !== '')
       .forEach(key => {
-        if (eligibleKey(key)) {
-          data[`${key}`] = toPhrase(data[`${key}`])
+        if (changeToPhrase(key)) {
+          data[`${key}`] = lowerCaseFirstLetter(
+            stripTrailingPeriods(data[`${key}`]),
+          )
+        } else if (key.includes('partner_department')) {
+          data[`${key}`] = stripTrailingPeriods(data[`${key}`])
         }
         queryParams[`${key}`] = data[`${key}`]
       })
