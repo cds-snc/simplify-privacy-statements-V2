@@ -22,7 +22,9 @@ const startHtml = `<div style="display: none">start of agreement</div>`
 
 // make first letter lowercase and delete trailing periods
 const toPhrase = s =>
-  s && s.length > 0 ? (s[0].toLowerCase() + s.slice(1)).replace(/\.+$/, '') : s
+  s && s.length > 0
+    ? (s[0].toLowerCase() + s.slice(1)).replace(/\.*\s*$/, '')
+    : s
 
 const eligibleKey = key =>
   (key.includes('_en') || key.includes('_fr')) &&
