@@ -3,7 +3,7 @@
 {% block content %}
 
     <h1>{{ __('questions-1.title') }}</h1>
-
+    <p>{{ __('questions-1.intro') }}</p>
     <div>
         <form method="post" class="form">
 
@@ -23,7 +23,7 @@
                 {{ radioButtons('is_with_partner', { 'on':'Yes','off':'No'}, data.is_with_partner, 'form.is_with_partner', errors) }}
             </div>
             <div class="is_with_partner-toggled" style="display:none" >
-                {{ textInput('partner_department_name' + language, 'form.partner_department_name') }}
+                {{ textInput('partner_department_name' + language, 'form.partner_department_name', { hint: 'form.partner_department_name.desc' }) }}
                 {{ textInput('partner_department_acronym' + language, 'form.partner_department_acronym') }}
                 {{ textInput('partner_department_authority' + language, 'form.partner_department_authority', { hint: 'form.partner_department_authority.desc' }) }}
             </div>
