@@ -7,6 +7,7 @@ const getData = (req, name) => {
   const data = routeUtils.getViewData(req, {
     jsFiles: ['js/toggle-area.js'],
     language: `_${i18n.getLocale(req)}`,
+    data: req.query,
   })
   return data
 }
