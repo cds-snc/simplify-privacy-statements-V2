@@ -140,11 +140,16 @@
       <ul>
         <li>You are choosing to be recorded;</li>
         <li>You are not to provide any additional information that would allow others to identify you during the recording (e.g. your name, date of birth, address, etc.)</li>
-        <li>Your responses will not be confidential due to your audio likeness in the recording, and may be shared with other departments for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed_fr") }}; and,</li>
-        <li>If you decide to withdraw your consent, CDS will not share your recording further.</li>
-      </ul>
 
-      <p>However, prior to your withdrawal, CDS may have already shared your recording with other departments, which may continue to use the recording for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed_fr") }}.</p>
+        {% if data.will_the_recording_be_disclosed == "Yes" %}
+          <li>Your responses will not be confidential due to your audio likeness in the recording, and may be shared with other departments for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed_en") }}; and,</li>
+          <li>If you decide to withdraw your consent, CDS will not share your recording further.</li>
+          </ul>
+          <p>However, prior to your withdrawal, CDS may have already shared your recording with other departments, which may continue to use the recording for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed_en") }}.</p>
+        {% else %}
+          <li>Your responses will not be confidential due to your audio likeness in the recording.</li>
+          </ul>
+        {% endif %}
 
       <p>[ ] I understand the points above and consent to be recorded.</p>
 
