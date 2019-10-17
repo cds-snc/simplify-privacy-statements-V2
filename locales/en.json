@@ -147,7 +147,6 @@
   "warning.consent": "You must get consent in writing if you're paying the participant.",
   "errors.recording_type": "You can't choose video recording if you're not collecting the participant's identity, or if you're anonymizing responses.",
   "errors.consent": "You must get consent in writing if you're paying the participant.",
-  "form.translation": "French translation of: \"{{ text }}\"",
   "questions-2.title": "questions-2.title",
   "questions-2.intro": "questions-2.intro",
   "Skip": "Skip",
