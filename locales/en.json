@@ -164,7 +164,7 @@
   "email-link.intro": "A link to retrieve your answers has been emailed to",
   "email-link.missing": "We were unable to email your link - did you provide an email address?",
   "errors.requiredField": "A required field is missing",
-  "errors.researcher_email": "Your email address must end in either 'cds-snc.ca' or '.gc.ca'",
+  "errors.researcher_email": "Your email address must end in '.gc.ca'",
   "agreement-1.title": "agreement-1.title",
   "agreement-1.contact": "agreement-1.contact",
   "agreement-1.thanks": "agreement-1.thanks",
