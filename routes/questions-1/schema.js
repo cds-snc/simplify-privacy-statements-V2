@@ -17,7 +17,7 @@ const isRequired = () => {
 }
 
 const Schema = {
-  research_goal_fr: isRequired(),
+  research_goal: isRequired(),
   session_activity: isRequired(),
   session_duration: isRequired(),
   personal_information_collected: isRequired(),
