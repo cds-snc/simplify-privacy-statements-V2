@@ -71,7 +71,12 @@
                 {{ radioButtons('recording_type', { 'on-1':'Video and audio','on-2':'Audio only','on-3':'Screen recording with audio','off-1':'Screen recording only','off-2':'No recording'}, data.recording_type, 'form.recording_type', errors) }}
             </div>
             <div class="recording_type-toggled" style="display:none" >
-                {{ textArea('purposes_for_which_the_recording_may_be_disclosed' + language, 'form.purposes_for_which_the_recording_may_be_disclosed', {hint: 'form.purposes_for_which_the_recording_may_be_disclosed.desc'}) }}
+                <div class="toggle-area">
+                    {{ radioButtons('will_the_recording_be_disclosed', { 'on':'Yes','off':'No'}, data.consent, 'form.will_the_recording_be_disclosed', errors) }}
+                </div>
+                <div class="will_the_recording_be_disclosed-toggled" style="display:none" >
+                    {{ textArea('purposes_for_which_the_recording_may_be_disclosed' + language, 'form.purposes_for_which_the_recording_may_be_disclosed', {hint: 'form.purposes_for_which_the_recording_may_be_disclosed.desc'}) }}
+                </div>
             </div>
             {{ formButtons() }}
         </form>

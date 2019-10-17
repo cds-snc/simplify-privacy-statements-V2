@@ -140,7 +140,7 @@
   "No recording": "No recording",
   "form.will_the_recording_be_disclosed": "Will you share the recording with other departments?",
   "form.purposes_for_which_the_recording_may_be_disclosed": "When might the recording be shared with other departments?",
-  "form.purposes_for_which_the_recording_may_be_disclosed.desc": "e.g. 'prove that a part of a service requires improvement'",
+  "form.purposes_for_which_the_recording_may_be_disclosed.desc": "e.g. 'proving that a part of a service requires improvement'",
   "errors.field_empty": "This field cannot be empty",
   "errors.must_choose_option": "You must choose an option",
   "warning.anon": "You can't choose video recording if you're not collecting the participant's identity, or if you're anonymizing responses.",
