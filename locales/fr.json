@@ -139,8 +139,6 @@
   "footer.link1": "https://numerique.canada.ca",
   "footer.link1.desc": "Service numérique canadien",
   "form.translation": "Traduction anglaise de: \"{{ text }}\"",
-  "translations-1.title": "Traductions",
-  "translations-1.intro": "Les questions suivantes doivent être complétées si vous souhaitez générer un formulaire en anglais. Si ce n'est pas le cas, laissez-les vides.",
   "Skip": "Sauter",
   "landing-page.intro2": "Une fois que vous avez fait les formulaires et les déclarations, apportez-les au bureau de l'AIPRP de votre ministère pour approbation. Vous devrez également leur dire comment vous prévoyez recruter des participants, quels outils vous utiliserez (p. ex. un enregistreur ou un bloc-notes) et quelles activités vous demanderez au participant d'effectuer.",
   "compensation.title": "Rémunération",

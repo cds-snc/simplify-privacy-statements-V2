@@ -23,19 +23,19 @@
                 {{ radioButtons('is_with_partner', { 'on':'Yes','off':'No'}, data.is_with_partner, 'form.is_with_partner', errors) }}
             </div>
             <div class="is_with_partner-toggled" style="display:none" >
-                {{ textInput('partner_department_name' + language, 'form.partner_department_name', { hint: 'form.partner_department_name.desc' }) }}
-                {{ textInput('partner_department_acronym' + language, 'form.partner_department_acronym') }}
-                {{ textInput('partner_department_authority' + language, 'form.partner_department_authority', { hint: 'form.partner_department_authority.desc' }) }}
+                {{ textInput('partner_department_name', 'form.partner_department_name', { hint: 'form.partner_department_name.desc' }) }}
+                {{ textInput('partner_department_acronym', 'form.partner_department_acronym') }}
+                {{ textInput('partner_department_authority', 'form.partner_department_authority', { hint: 'form.partner_department_authority.desc' }) }}
             </div>
 
             {{ radioButtons('research_method', { '1':'Interview','2':'Usability testing'}, data.research_method, 'form.research_method', errors) }}
 
-            {{ textArea('research_goal' + language, 'form.research_goal', {hint: 'form.research_goal.desc'}) }}
-            {{ textArea('session_activity' + language, 'form.session_activity', {hint: 'form.session_activity.desc'}) }}
+            {{ textArea('research_goal', 'form.research_goal', {hint: 'form.research_goal.desc'}) }}
+            {{ textArea('session_activity', 'form.session_activity', {hint: 'form.session_activity.desc'}) }}
 
-            {{ textInput('session_duration' + language, 'form.session_duration', {hint: 'form.session_duration.desc'}) }}
+            {{ textInput('session_duration', 'form.session_duration', {hint: 'form.session_duration.desc'}) }}
 
-            {{ textArea('personal_information_collected' + language, 'form.personal_information_collected', {hint: 'form.personal_information_collected.desc'}) }}
+            {{ textArea('personal_information_collected', 'form.personal_information_collected', {hint: 'form.personal_information_collected.desc'}) }}
             
             <h2>{{ __('compensation.title') }}</h2>
             
@@ -53,14 +53,14 @@
             {{ radioButtons('confidentiality', { 'off-1':'form.anonymized','off-2':'form.anonymous','off-3':'form.confidential','on-1':'form.not_confidential','on-2':'form.public'}, data.confidentiality, 'form.confidentiality', errors) }}
             </div>
             <div class="confidentiality-toggled" style="display:none" >
-                {{ textArea('personal_information_disclosed_to_public' + language, 'form.personal_information_disclosed_to_public', {hint: 'form.personal_information_disclosed_to_public.desc'}) }}
+                {{ textArea('personal_information_disclosed_to_public', 'form.personal_information_disclosed_to_public', {hint: 'form.personal_information_disclosed_to_public.desc'}) }}
             </div>
 
             <div class="toggle-area">
                 {{ radioButtons('administrative_decision', { 'on':'Yes','off':'No'}, data.administrative_decision, 'form.administrative_decision', errors) }}
             </div>
             <div class="administrative_decision-toggled" style="display:none" >
-                {{ textArea('administrative_purpose' + language, 'form.administrative_purpose', {hint: 'form.administrative_purpose.desc'}) }}
+                {{ textArea('administrative_purpose', 'form.administrative_purpose', {hint: 'form.administrative_purpose.desc'}) }}
             </div>
 
             {{ radioButtons('consent', { '1':'Verbally','2':'On paper'}, data.consent, 'form.consent', errors) }}
@@ -75,7 +75,7 @@
                     {{ radioButtons('will_the_recording_be_disclosed', { 'on':'Yes','off':'No'}, data.consent, 'form.will_the_recording_be_disclosed', errors) }}
                 </div>
                 <div class="will_the_recording_be_disclosed-toggled" style="display:none" >
-                    {{ textArea('purposes_for_which_the_recording_may_be_disclosed' + language, 'form.purposes_for_which_the_recording_may_be_disclosed', {hint: 'form.purposes_for_which_the_recording_may_be_disclosed.desc'}) }}
+                    {{ textArea('purposes_for_which_the_recording_may_be_disclosed', 'form.purposes_for_which_the_recording_may_be_disclosed', {hint: 'form.purposes_for_which_the_recording_may_be_disclosed.desc'}) }}
                 </div>
             </div>
             {{ formButtons() }}
