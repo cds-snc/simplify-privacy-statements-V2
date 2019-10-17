@@ -28,8 +28,7 @@ const stripTrailingPeriods = s =>
   s && s.length > 0 ? s.replace(/\.*\s*$/, '') : s
 
 const changeToPhrase = key =>
-  (key.includes('_en') || key.includes('_fr')) &&
-  !key.includes('partner_department')
+  !key.includes('partner_department') && !key.includes('researcher')
 
 module.exports = app => {
   const name = 'agreement-1'
