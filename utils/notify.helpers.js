@@ -3,17 +3,38 @@ const NotifyClient = require('notifications-node-client').NotifyClient
 const key = process.env.API_KEY
 const baseUrl = process.env.API_BASE_URL
 
+const notifyEnvVars = [
+  'API_KEY',
+  'API_BASE_URL',
+  'FEEDBACK_EMAIL_ADDRESS',
+  'FEEDBACK_TEMPLATE_ID',
+  'LINK_TEMPLATE_ID',
+]
+
+let notifySetup = true
+notifyEnvVars.forEach(k => {
+  if (!process.env[`${k}`]) {
+    notifySetup = false
+    console.warn(
+      `WARNING: Notify environment variable ${k} is missing. Feedback will be disabled and emailing links will probably not work.`,
+    )
+  }
+})
+
 const notifyClient =
-  process.env.NODE_ENV !== 'test' ? new NotifyClient(baseUrl, key) : false
+  process.env.NODE_ENV !== 'test' && key && baseUrl
+    ? new NotifyClient(baseUrl, key)
+    : false
 
 const sendNotification = async (params = { email, templateId, options }) => {
   const { templateId, email, options } = params
 
   if (!templateId || !email) {
-    console.log('no template ID or email was passed')
+    console.warn(
+      'WARNING: no Notify template ID or email was passed, mail not sent',
+    )
     return false
   }
-
   console.log(` sending notification to: ${email}`)
   console.log({ options })
 
@@ -26,25 +47,8 @@ const sendNotification = async (params = { email, templateId, options }) => {
   }
 }
 
-const sendSMSNotification = async (params = { phone, templateId, options }) => {
-  const { templateId, phone, options } = params
-
-  if (!templateId || !phone) {
-    console.log('no template ID or phone was passed')
-    return false
-  }
-
-  try {
-    const response = notifyClient.sendSms(templateId, phone, options)
-    return response.body
-  } catch (err) {
-    console.log(err.message)
-    return false
-  }
-}
-
 module.exports = {
+  notifySetup,
   sendNotification,
   notifyClient,
-  sendSMSNotification,
 }
