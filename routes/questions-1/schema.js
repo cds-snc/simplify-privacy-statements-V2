@@ -57,7 +57,7 @@ const Schema = {
     custom: {
       options: (value, { req }) => {
         if (value && value.length > 0) {
-          if (!(value.endsWith('@cds-snc.ca') || value.endsWith('.gc.ca'))) {
+          if (!value.endsWith('.gc.ca')) {
             return false
           }
         }

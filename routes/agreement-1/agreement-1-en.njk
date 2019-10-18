@@ -91,9 +91,15 @@
         <li>Please do not provide any information in your responses that would identify you.</li>
       {% endif %}
 
+      {% if data.administrative_decision == "yes" %}
+        <li>Your personal information will be used to {{ defaultValue("administrative_purpose_en")}}.</li>
+      {% else %}
+        <li>Your participation and answers will not affect your access to Government of Canada services or benefits.</li>
+      {% endif %}
+
       {% if data.is_with_partner == "yes" %}
-        <li>CDS and {{ defaultValue("partner_department_acronym")}} may collect your personal information. For example, your {{ defaultValue("personal_information_collected") }}.
-        To learn about how CDS and {{ defaultValue("partner_department_acronym") }} protect your personal information, please see the attached privacy statement.</li>
+        <li>CDS and {{ defaultValue("partner_department_acronym_en")}} may collect your personal information. For example, your {{ defaultValue("personal_information_collected_en") }}.
+        To learn about how CDS and {{ defaultValue("partner_department_acronym_en") }} protect your personal information, please see the attached privacy statement.</li>
       {% else %}
         <li>CDS may collect your personal information. For example, your {{ defaultValue("personal_information_collected") }}. To learn about how CDS protects your personal information, please see the attached privacy statement.</li>
       {% endif %}
@@ -193,13 +199,15 @@
     <ul>
       <li>The collection and use of your personal information by TBS is authorized by the <i>Financial Administration Act</i>. </li>
       {% if data.is_with_partner == "yes" %}
-        <li>The collection and use of your personal information by {{ defaultValue("partner_department_acronym") }} is authorized by the <i>{{ defaultValue("partner_department_authority") }}</i>.</li>
+        <li>The collection and use of your personal information by {{ defaultValue("partner_department_acronym_en") }} is authorized by <i>{{ defaultValue("partner_department_authority_en") }}</i>.</li>
       {% endif %}
       <li>The collection, use, and disclosure of your personal information is in accordance with the federal <i>Privacy Act</i>. Under the <i>Privacy Act</i>, you have a right of protection, access to and correction or notation of your personal information.</li>
     </ul>
 
     {% if data.compensation == "yes" %}
       <p>The Standard Personal Information Bank entitled “Outreach Activities, PSU 938” and "Accounts Payable, PSU 931", describes the personal information that may be written down.</p>
+      <p>PSU 938: http://www.infosource.gc.ca/emp/emp03-eng.asp#psu938</p>
+      <p>PSU 931: http://www.infosource.gc.ca/emp/emp03-eng.asp#psu931</p>
       <p>Information on programs and holdings: https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information/information-about-programs-information-holdings.html</p>
     {% else %}
       <p>The Standard Personal Information Bank entitled “Outreach Activities, PSU 938”, describes the personal information that may be written down.</p>
