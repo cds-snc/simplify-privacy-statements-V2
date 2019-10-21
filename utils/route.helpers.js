@@ -2,6 +2,7 @@ const { checkSchema } = require('express-validator')
 const { routes: defaultRoutes } = require('../config/routes.config')
 const { checkErrors } = require('./validate.helpers')
 const url = require('url')
+const i18n = require('i18n')
 
 const DefaultRouteObj = { name: false, path: false }
 
@@ -81,7 +82,7 @@ const getNextRouteURL = (name, req) => {
 
   return url.format({
     pathname: nextRoute.path,
-    query: req.query,
+    query: { lang: i18n.getLocale(req) },
   })
 }
 
@@ -133,7 +134,7 @@ const doRedirect = routeName => {
     }
 
     const nextRoutePath = getNextRouteURL(routeName, req)
-    
+
     return res.redirect(nextRoutePath)
   }
 }
