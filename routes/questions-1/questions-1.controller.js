@@ -1,12 +1,10 @@
 const path = require('path')
 const { routeUtils } = require('./../../utils')
 const { Schema } = require('./schema.js')
-const i18n = require('i18n')
 
 const getData = (req, name) => {
   const data = routeUtils.getViewData(req, {
     jsFiles: ['js/toggle-area.js'],
-    language: `_${i18n.getLocale(req)}`,
     data: req.query,
   })
   return data

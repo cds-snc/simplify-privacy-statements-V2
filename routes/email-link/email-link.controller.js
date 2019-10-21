@@ -1,6 +1,7 @@
 const path = require('path')
 const url = require('url')
 const { getNextRoute, routeUtils, sendNotification } = require('./../../utils')
+const i18n = require('i18n')
 
 module.exports = app => {
   const name = 'email-link'
@@ -11,7 +12,7 @@ module.exports = app => {
   app
     .get(route.path, (req, res) => {
       const data = routeUtils.getViewData(req, {}).data
-      var queryParams = {}
+      const queryParams = { lang: i18n.getLocale(req) }
       Object.keys(data)
         .filter(
           key =>
