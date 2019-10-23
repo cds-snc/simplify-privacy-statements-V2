@@ -44,7 +44,7 @@
     {% block scripts %}
         {% if jsFiles %}
             {% for val in jsFiles %}
-                <script type="text/javascript" src={{val}}></script>
+                <script type="text/javascript" src="{{val}}"></script>
             {% endfor %}
         {% endif %}
     {% endblock %}
