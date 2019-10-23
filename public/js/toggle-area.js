@@ -29,7 +29,7 @@ function toggleArea(event) {
 // add an event listener for all inputs within a toggle area
 var toggles = document.querySelectorAll('.toggle-area input')
 
-toggles.forEach(el => {
+toggles.forEach(function toggle(el) {
   toggleArea({ target: el })
   el.addEventListener('click', toggleArea)
 })
