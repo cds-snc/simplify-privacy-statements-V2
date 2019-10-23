@@ -7,13 +7,13 @@ function toggleArea(event) {
   // for individual inputs
   // current { 'on':'Yes','off':'No'}
   // - future {attributes : {data-something: "something"}, values: { '1':'Yes','2':'No'}}
-  const toggleState = event.target.getAttribute('data-index')
-  const name = event.target.name
-  const checked = event.target.checked
+  var toggleState = event.target.getAttribute('data-index')
+  var name = event.target.name
+  var checked = event.target.checked
 
   // look for an element with that name of the target + -toggled
   // i.e. div you want to show or hide
-  const target = document.querySelector(`.${name}-toggled`)
+  var target = document.querySelector(`.${name}-toggled`)
   if (!checked || !target) return
 
   if (!target.classList.contains('form')) {
@@ -27,7 +27,7 @@ function toggleArea(event) {
 }
 
 // add an event listener for all inputs within a toggle area
-const toggles = document.querySelectorAll('.toggle-area input')
+var toggles = document.querySelectorAll('.toggle-area input')
 
 toggles.forEach(el => {
   toggleArea({ target: el })
