@@ -1,7 +1,7 @@
 // generic show hide toggle
 // show or hide a div (more form fields) when clicked etc...
 
-const toggleArea = event => {
+function toggleArea(event) {
   // ideally this won't be based on the index but....
   // we need to adjust the radio macro so we can set attributes
   // for individual inputs
