@@ -22,12 +22,15 @@ module.exports = app => {
         .forEach(key => {
           queryParams[`${key}`] = data[`${key}`]
         })
-      const link = url.format({
-        protocol: req.protocol,
-        host: req.get('Host'),
-        pathname: routeUtils.getRouteByName('questions-1').path,
-        query: queryParams,
-      })
+      const link = url
+        .format({
+          protocol: req.protocol,
+          host: req.get('Host'),
+          pathname: routeUtils.getRouteByName('questions-1').path,
+          query: queryParams,
+        })
+        .replace('(', '%28') // otherwise our Notify template gets messed up :(
+        .replace(')', '%29') // still works with form though
       data.link = link
       console.log(`length of link: ${link.length}`)
       try {
