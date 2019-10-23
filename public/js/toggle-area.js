@@ -13,7 +13,7 @@ function toggleArea(event) {
 
   // look for an element with that name of the target + -toggled
   // i.e. div you want to show or hide
-  var target = document.querySelector(`.${name}-toggled`)
+  var target = document.querySelector('.' + name + '-toggled')
   if (!checked || !target) return
 
   if (!target.classList.contains('form')) {
