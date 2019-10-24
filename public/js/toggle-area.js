@@ -29,7 +29,13 @@ function toggleArea(event) {
 // add an event listener for all inputs within a toggle area
 var toggles = document.querySelectorAll('.toggle-area input')
 
-toggles.forEach(function toggle(el) {
-  toggleArea({ target: el })
+for (var i = 0; i < toggles.length; i++) {
+  // eslint-disable-next-line security/detect-object-injection
+  var el = toggles[i]
   el.addEventListener('click', toggleArea)
-})
+}
+
+// toggles.forEach(function toggle(el) {
+//   toggleArea({ target: el })
+//   el.addEventListener('click', toggleArea)
+// })
