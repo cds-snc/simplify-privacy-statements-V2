@@ -19,7 +19,7 @@ function toggleArea(event) {
   if (!target.classList.contains('form')) {
     target.classList.add('form')
   }
-  if (toggleState.includes('on')) {
+  if (toggleState.indexOf('on') >= 0) {
     target.style.display = 'block'
   } else {
     target.style.display = 'none'
