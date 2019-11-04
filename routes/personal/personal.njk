@@ -20,9 +20,9 @@
 
         {{ fileInput('form.upload', null, {name: "myfile", id: "myfile"} ) }}
 
-        {{ radioButtons('send_notifications', { '1':'Yes','2':'No'}, data.send_notifications, 'form.send_notifications', errors, { required: true }) }}
+        {{ radioButtons('send_notifications', { '1':'Yes','2':'No'}, data.send_notifications, 'form.send_notifications', errors, {hint: 'form.send_notifications.desc'}, { required: true }) }}
 
-        {{ checkBoxes('notify_type', {'1':'SMS','2':'Email'}, data.notify_type, 'form.notify_by', errors ) }}
+        {{ checkBoxes('notify_type', {'1':'SMS','2':'Email'}, data.notify_type, 'form.notify_by', errors, {hint: 'form.notify_by.desc'} ) }}
 
         {{ formButtons() }}
     </form>
