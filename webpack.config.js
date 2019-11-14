@@ -5,12 +5,14 @@ module.exports = (env, argv) => {
   const config = getConfig({
     mode: argv.mode,
     entry: {
+      styles: './assets/scss/app.scss',
       personal: './routes/personal/js/personal.js',
     },
     output: {
-      filename: '[name].[chunkhash].js',
-      path: path.resolve(__dirname, 'public/js/dist'),
+      filename: 'js/[name].[chunkhash].js',
+      path: path.resolve(__dirname, 'public/dist'),
     },
+    stats: 'errors-only',
   })
 
   return config
