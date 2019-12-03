@@ -2,17 +2,17 @@
 
 {% block content %}
 
-<h1>FR Here's your generated privacy form</h1>
+<h1>Voici l’avis de confidentialité généré pour vous.</h1>
 
-<a target="_blank" href="email-link">Email yourself a link to your answers</a>
+<a target="_blank" href="email-link">Envoyez-vous par courriel un lien vers vos réponses</a>
 &nbsp; &nbsp;
-<a href={{ "documents/" + docxFilename }}>Download as a Word doc</a>
+<a href={{ "documents/" + docxFilename }}>Téléchargez le document en format Word</a>
 &nbsp; &nbsp;
-<a href="agreement-1?lang=en">Get the English version</a> 
+<a href="agreement-1?lang=en">Obtenez la version anglaise</a>
 
 <p style="margin-top: 30px">
-    You might need to check it for punctuation and spelling before you 
-    <a target="_blank" href="https://atip-aiprp.apps.gc.ca/atip/welcome.do">send it to your ATIP office</a>.
+    Assurez-vous de vérifier la version préliminaire du formulaire avant de
+    <a target="_blank" href="https://atip-aiprp.apps.gc.ca/atip/welcome.do">l’envoyer à votre bureau de l’AIPRP (s’ouvre dans un nouvel onglet)</a>.
 </p>
 
 <div style="display: none">start of agreement</div>
@@ -20,10 +20,233 @@
 <hr style="margin-top: 40px"/>
 
 <p style="margin-top: 40px">
-    [Put your agreement in an exisiting privacy form template to add the <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/stationery/letterhead-flag-symbol.html">Canadian flag symbol signature</a>.]
+    [Intégrez le formulaire de consentement et l’avis de confidentialité dans un modèle existant afin d’ajouter la <a target="_blank" href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/stationery/letterhead-flag-symbol.html">signature affichant le symbole du drapeau canadien (s’ouvre dans un nouvel onglet)</a>.]
 </p>
 
-<h2>French DRAFT Research Participant Agreement to send to your ATIP office</h2>
+<h2>ÉBAUCHE du « Formulaire de consentement de participation à une recherche » à envoyer à votre bureau de l’AIPRP</h2>
 
+<div>
+    <p>
+        Pour toute question au sujet de cette recherche, veuillez communiquer avec :
+        <br>
+        <strong>{{ defaultValue("researcher_name") }}</strong>
+        <br>
+        <strong>{{ defaultValue("researcher_phone") }}</strong>
+        <br>
+        <strong>{{ defaultValue("researcher_email") }}</strong>
+    </p>
+
+    <p>
+    Merci de prendre le temps de nous parler.
+    Nous collaborons avec le Service numérique canadien (SNC).
+    {% if data.is_with_partner == "yes" %}
+      Nous collaborons avec {{ defaultValue("partner_department_name") }} ({{ defaultValue("partner_department_acronym") }}) pour {{ defaultValue("research_goal") }}.
+    {% else %}
+      Nous menons cette recherche aujourd’hui pour nous aider à {{ defaultValue("research_goal") }}.
+    {% endif %}
+    </p>
+
+    <p>
+      Pour ce faire, nous vous demanderons {{ defaultValue("session_activity") }}. Cela prendra {{ defaultValue("session_duration") }}.
+    </p>
+
+    <p>
+      En participant à cette recherche, vous comprenez que :
+    </p>
+    <ul>
+      {% if data.compensation == "yes" %}
+        <li>Vous vous portez volontaire pour participer. Vous pouvez arrêter à tout moment pour quelque raison que ce soit.</li>
+        <li>Pour votre participation de {{ defaultValue("session_duration") }} vous recevrez une {{ defaultValue("compensation_method") }} à usage unique d’un maximum de {{ defaultValue("compensation_value") }}. Il s’agit d’un revenu imposable.</li>
+        <li>Si vous décidez de cesser de participer et que vous avez fourni des commentaires pendant au moins 8,5 minutes, vous recevrez un paiement unique de 10 $.</li>
+        <li>Si vous avez participé pendant moins de 8,5 minutes, vous aurez droit à 0 $.</li>
+      {% else %}
+        <li>Votre participation est volontaire. Vous pouvez arrêter de participer en tout temps et peu importe la raison, sans aucune conséquence.</li>
+      {% endif %}
+
+      {% if data.confidentiality == "form.confidential" %}
+        <li>Vos renseignements seront confidentiels, ce qui signifie que vos réponses ne seront pas reliées à vous.</li>
+      {% elif data.confidentiality == "form.anonymized" %}
+        <li>Vos renseignements seront anonymisés, ce qui signifie que vos réponses ne seront pas reliées à vous.</li>
+      {% elif data.confidentiality == "form.anonymous" %}
+        <li>Vos renseignements seront anonymes, ce qui signifie que vos réponses ne seront pas reliées à vous.</li>
+      {% elif data.confidentiality == "form.public" %}
+        <li>Vos renseignements seront publics. Vos commentaires seront associés à votre nom.</li>
+      {% elif data.confidentiality == "form.not_confidential" %}
+        <li>Vos renseignements ne seront pas confidentiels. Vos commentaires seront associés à votre nom.</li>
+      {% endif %}
+
+      {% if data.compensation == "yes" %}
+         <li>Le fait que vous ayez participé ne sera pas de nature confidentielle.</li>
+      {% endif %}
+
+      {% if data.confidentiality == "form.public" %}
+        <li>Le SNC communiquera publiquement {{ defaultValue("personal_information_disclosed_to_public") }}.</li>
+      {% endif %}
+
+      {% if data.confidentiality == "form.anonymous" or data.confidentiality == "form.anonymized" %}
+        <li>Pour cette raison, vous ne pourrez pas retirer ou corriger vos renseignements une fois que vous les aurez fournis.</li>
+      {% endif %}
+
+      {% if data.confidentiality == "form.anonymous" %}
+        <li>Dans vos réponses, veuillez ne pas fournir de renseignements permettant de vous identifier.</li>
+      {% endif %}
+
+      {% if data.administrative_decision == "yes" %}
+        <li>Vos renseignements personnels seront utilisés pour {{ defaultValue("administrative_purpose")}}.</li>
+      {% else %}
+        <li>Votre participation et vos réponses n’affecteront pas votre accès aux services ou aux prestations du gouvernement du Canada.</li>
+      {% endif %}
+
+      {% if data.is_with_partner == "yes" %}
+        <li>Le SNC et {{ defaultValue("partner_department_acronym")}} peuvent recueillir des renseignements personnels comme {{ defaultValue("personal_information_collected") }}.
+        Pour vous renseigner sur la façon dont le SNC et {{ defaultValue("partner_department_acronym") }} protègent vos renseignements personnels, veuillez consulter l’avis de confidentialité ci-joint.</li>
+      {% else %}
+        <li>Le SNC peut recueillir des renseignements personnels comme {{ defaultValue("personal_information_collected") }}. Pour vous renseigner sur la façon dont le SNC protège vos renseignements personnels, veuillez consulter l’avis de confidentialité ci-joint.</li>
+      {% endif %}
+
+      {% if data.compensation == "yes" %}
+        <li>J’atteste que je ne suis pas un ancien fonctionnaire qui touche une pension ou un paiement forfaitaire du gouvernement du Canada.</li>
+        <li>J’atteste que je ne suis pas un fonctionnaire qui participe pendant les heures de travail.
+</li>
+      {% endif %}
+    </ul>
+    <p>
+      {% if data.consent == "verbally" %}
+        Nom : ________________________
+        <br>
+        Date : _________________________ Heure : _________________________
+      {% endif %}
+
+      {% if data.consent == "on paper" %}
+        [ ] <b>Je comprends ce qui précède et je consens à participer à la recherche.</b>
+        <br>
+        Nom : _________________________      Date : _________________________
+        <br>
+        Signature : ____________________________
+      {% endif %}
+    </p>
+    {% if data.consent == "action" %}
+      <p>Je comprends ce qui précède et je consens à participer à la recherche.</p>
+    {% endif %}
+
+    {% if data.is_business == "yes" %}
+      <p>Nom d’entreprise : ____________________________</p>
+    {% endif %}
+
+    {% if data.recording_type == "video and audio" or data.recording_type == "audio only" or data.recording_type == "screen recording with audio" %}
+
+      {% if data.recording_type == "video and audio" %}
+        <h3>Enregistrement vidéo facultatif</h3>
+      {% else %}
+        <h3>Enregistrement audio facultatif</h3>
+      {% endif %}
+
+      <p>L’enregistrement de notre recherche nous permettra de nous assurer que nous avons recueilli tous vos commentaires.</p>
+
+      <p>En acceptant d’être enregistré, vous comprenez que :</p>
+      <ul>
+        <li>Vous choisissez d’être enregistré;</li>
+        <li>Pendant l’enregistrement, vous ne devez pas fournir de renseignements supplémentaires qui permettraient à d’autres personnes de vous identifier (p. ex., nom, date de naissance, adresse);</li>
+        <li>Vos réponses ne seront pas confidentielles en raison de vos caractéristiques audio dans l’enregistrement.</li>
+      </ul>
+        {% if data.will_the_recording_be_disclosed == "yes" %}
+          <p>Vos réponses peuvent être partagées avec d’autres ministères pour {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed") }}. </p>
+          <p>Si vous décidez de retirer votre consentement, le SNC cessera de partager votre enregistrement.</p>
+          <p>Toutefois, il se peut qu’avant le retrait de votre consentement, le SNC ait déjà partagé votre enregistrement avec d’autres ministères. Ces derniers peuvent continuer de l’utiliser pour {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed") }}.</p>
+          <p>Le partage de nos séances avec d’autres ministères nous permettra de faire valoir l’importance des {{ defaultValue("research_method") }}s auprès des utilisateurs pour la conception de meilleurs services numériques.</p>
+        {% else %}
+
+        {% endif %}
+
+      <p>[ ] Je comprends ce qui précède et je consens à être enregistré.</p>
+
+      <p>Name: ____________________________ Date: _______________________</p>
+    {% endif %}
+
+
+    <h3>Avis de confidentialité</h3>
+    <p>La participation est entièrement volontaire.</p>
+
+    <h3>Ce que nous recueillerons</h3>
+    <p>En participant à cette recherche, vous consentez à ce que vos {{ defaultValue("personal_information_collected") }} soient recueillis.</p>
+    <h3>Comment nous utiliserons ces renseignements</h3>
+
+    {% if data.compensation == "no" %}
+      <p>Le Service numérique canadien (SNC) utilisera cette information pour {{ defaultValue("research_goal") }}.</p>
+      <p>Nous recueillons ces renseignements pour nous assurer que nos cohortes de recherche sont diversifiées et pour dégager des tendances dans les commentaires de groupes particuliers.</p>
+    {% else %}
+      <p>Le Service numérique canadien (SNC) utilisera cette information pour {{ defaultValue("research_goal") }}.</p>
+      <p>Nous recueillons ces renseignements pour nous assurer que nos cohortes de recherche sont diversifiées, pour dégager des tendances dans les commentaires de groupes particuliers et pour vous offrir une rémunération.</p>
+      <p>Veuillez noter que nous pourrions communiquer avec vous à une date ultérieure pour vérifier que vous avez reçu une rémunération.</p>
+    {% endif %}
+
+    {% if data.administrative_decision == "no" %}
+      <p>Vos renseignements personnels ne seront pas utilisés à des « fins administratives ». Ils ne seront pas utilisés pour prendre une décision qui vous touche ou qui touche votre accès aux services du gouvernement du Canada.</p>
+    {% endif %}
+
+    {% if data.recording_type != "no recording" %}
+      <p>Si vous avez accepté d’être enregistré, l’enregistrement peut être divulgué à d’autres ministères pour {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed")}}.</p>
+    {% endif %}
+
+    {% if data.compensation == "yes" %}
+      <p>Le SNC sera le propriétaire des renseignements issus des {{ defaultValue("research_method") }}. Il peut publier ou partager avec d’autres organismes gouvernementaux un résumé de ce qu’il a appris dans le cadre de cette recherche, y compris des citations ou des récits. Votre nom ne sera pas associé à vos réponses, citations ou récits.</p>
+    {% else %}
+      <p>Le SNC peut publier ou partager avec d’autres organismes gouvernementaux un résumé de ce qu’il a appris dans le cadre de cette recherche, y compris des citations ou récits. Votre nom ne sera pas associé à vos réponses, citations ou récits.</p>
+    {% endif %}
+
+    <h3>Qui sommes-nous?</h3>
+
+    <p>Le SNC fait partie du Secrétariat du Conseil du Trésor du Canada (SCT).</p>
+    <ul>
+      <li>La collecte et l’utilisation de vos renseignements personnels par le SCT sont autorisées par la <i>Loi sur la gestion des finances publiques</i>. </li>
+      {% if data.is_with_partner == "yes" %}
+        <li>La collecte et l’utilisation de vos renseignements personnels par {{ defaultValue("partner_department_acronym") }} sont autorisées par <i>{{ defaultValue("partner_department_authority") }}</i>.</li>
+      {% endif %}
+      <li>La collecte, l’utilisation et la divulgation de vos renseignements personnels sont conformes à la <i>Loi sur la protection des renseignements personnels</i> du gouvernement fédéral. Selon la <i>Loi sur la protection des renseignements personnels</i>, vous avez droit à la protection de vos renseignements personnels, à leur accès et à leur correction ou annotation.</li>
+    </ul>
+
+    {% if data.compensation == "yes" %}
+      <p>Les Fichiers de renseignements personnels ordinaires intitulés « Activités de sensibilisation – POU 938 » et « Comptes créditeurs – POU 931 » décrivent les renseignements personnels qui peuvent être recueillis.</p>
+      <p>PSU 938: https://www.canada.ca/fr/secretariat-conseil-tresor/services/acces-information-protection-reseignements-personnels/acces-information/renseignements-programmes-fonds-renseignements/fichiers-renseignements-personnels-ordinaires.html#pou938</p>
+      <p>PSU 931: https://www.canada.ca/fr/secretariat-conseil-tresor/services/acces-information-protection-reseignements-personnels/acces-information/renseignements-programmes-fonds-renseignements/fichiers-renseignements-personnels-ordinaires.html#pou931</p>
+      <p>Renseignements sur les programmes et les fonds de renseignements : https://www.canada.ca/fr/secretariat-conseil-tresor/services/acces-information-protection-reseignements-personnels/acces-information/renseignements-programmes-fonds-renseignements/sources-renseignements-gouvernement-federal-fonctionnaires-federaux.html</p>
+    {% else %}
+      <p>Les Fichiers de renseignements personnels ordinaires intitulés « Activités de sensibilisation – POU 938 » décrivent les renseignements personnels qui peuvent être recueillis.</p>
+      <p>PSU 938: https://www.canada.ca/fr/secretariat-conseil-tresor/services/acces-information-protection-reseignements-personnels/acces-information/renseignements-programmes-fonds-renseignements/fichiers-renseignements-personnels-ordinaires.html#pou938</p>
+    {% endif %}
+
+    <h3>Vos droits reconnus par la loi</h3>
+
+    {% if data.confidentiality == "form.anonymized" or data.confidentiality == "form.anonymous" %}
+      <p>En raison de l’anonymisation des réponses, le SNC n’aura aucun moyen fiable de vous associer à vos réponses. Ainsi, nous ne serons pas en mesure d’accéder aux renseignements que vous avez fournis pour répondre à une demande de retrait ou de correction de renseignements inexacts.</p>
+    {% endif %}
+
+    <p>
+      Le SNC/SCT peut enregistrer vos renseignements personnels. Si vous souhaitez accéder à ces renseignements personnels ou les corriger, ou si vous avez d’autres questions ou préoccupations, veuillez communiquer avec leur Bureau de l’accès à l’information et de la protection des renseignements personnels :
+      <br>
+      <br>
+      <i>Coordonnateur de l’accès à l’information et de la protection des renseignements personnels du SCT</i>
+      <br>
+      ATIP.AIPRP@tbs-sct.gc.ca
+      <br>
+      1-866-312-1511
+    </p>
+
+    <p>
+      Vous pouvez adresser vos plaintes au Commissariat à la protection de la vie privée du Canada au sujet de la gestion de vos renseignements personnels :
+      <br>
+      <br>
+      <i>Commissariat à la protection de la vie privée du Canada</i>
+      <br>
+      info@priv.gc.ca
+      <br>
+      1-800-282-1376
+    </p>
+
+</div>
+
+<p>
+    [Intégrez le formulaire de consentement et l’avis de confidentialité dans un modèle existant afin d’ajouter le <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/stationery/letterhead-flag-symbol.html">mot-symbole du Canada (s’ouvre dans un nouvel onglet)</a>.]
+</p>
 
 {% endblock %}
