@@ -8,8 +8,7 @@ const compression = require('compression')
 const helmet = require('helmet')
 const sassMiddleware = require('node-sass-middleware')
 const path = require('path')
-const cookieSession = require('cookie-session')
-const cookieSessionConfig = require('./config/cookieSession.config')
+const sessionConfig = require('./config/session.config')
 const { hasData, checkPublic, checkLangQuery } = require('./utils')
 const { addNunjucksFilters } = require('./filters')
 const csp = require('./config/csp.config')
@@ -48,7 +47,7 @@ app.use(function(req, res, next) {
 
 // in production: use redis for sessions
 // but this works for now
-app.use(cookieSession(cookieSessionConfig))
+app.use(sessionConfig)
 
 // in production: precompile CSS
 app.use(
