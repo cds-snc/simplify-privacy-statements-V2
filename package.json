@@ -37,7 +37,8 @@
     "normalize.css": "^8.0.1",
     "notifications-node-client": "^4.7.2",
     "nunjucks": "^3.2.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "feedback-plugin": "git+https://git@github.com/cds-snc/feedback-plugin.git#v1.0.2"
   },
   "devDependencies": {
     "acorn": "^7.1.0",
