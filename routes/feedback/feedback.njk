@@ -1,21 +1,15 @@
 {% extends "base.njk" %}
 
 {% block content %}
+    <a href="agreement-1">&#9666; {{  __("back") }}</a>
+    <h1>{{ __("post-service-feedback.title") }}</h1>
 
-    <h1>{{ __('feedback.title') }}</h1>
-
-    <div>
-    {% if notifySetup %}
-        <form method="post" class="form">
+        <form method="post" class="form" action="https://cds-feedback-collector.herokuapp.com/en/send?id=c966af51-e0a3-412f-99fd-47411788da9f">
             <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-            {{ textArea('what_went_wrong', 'form.what_went_wrong', {hint: 'form.what_went_wrong.desc'}) }}
-            {{ formButtons() }}
+            {{ radioButtons('was_service_hard_or_easy', { '1':'very hard', '2':'hard', '3':'neutral', '4':'easy', '5':'very easy' }, data.was_service_hard_or_easy, 'form.was_service_hard_or_easy', errors) }}
+            {{ radioButtons('would_you_use_service_again', { '1':'Yes', '2':'No' }, data.would_you_use_service_again, 'form.would_you_use_service_again', errors) }}
+            {{ textArea('how_can_we_do_better', 'form.how_can_we_do_better.label', {hint: 'form.how_can_we_do_better.hint'}) }}
+            {{ formButtons(submitButtonText = 'Submit') }}
         </form>
-    {% else %}
-    <p>
-    {{ __('feedback.not_setup') }}
-    </p>
-    {% endif %}
-    </div>
 
 {% endblock %}
