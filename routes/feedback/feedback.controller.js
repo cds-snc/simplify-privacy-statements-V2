@@ -1,20 +1,10 @@
-const path = require('path')
-const { getNextRoute, routeUtils, notifySetup } = require('./../../utils')
+const { routeUtils, notifySetup } = require('./../../utils')
 
-module.exports = app => {
-  const name = 'feedback'
-  const route = routeUtils.getRouteByName(name)
-
-  routeUtils.addViewPath(app, path.join(__dirname, './'))
-
-  app
-    .get(route.path, (req, res) => {
-      res.render(name, {
-        ...routeUtils.getViewData(req, { notifySetup }),
-        nextRoute: getNextRoute(name).path,
-      })
+module.exports = (app, route) => {
+  route
+    .draw(app)
+    .get((req, res) => {
+      res.render(route.name, routeUtils.getViewData(req, { notifySetup }))
     })
-    .post(route.path, [
-      ...routeUtils.getDefaultMiddleware({ schema: {}, name: name }),
-    ])
+    .post(route.doRedirect())
 }

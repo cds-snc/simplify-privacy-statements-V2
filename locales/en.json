@@ -145,5 +145,6 @@
   "backgroundInfo.title": "Background information",
   "backgroundInfo.desc": "Will you be conducting research with another department?",
   "feedback.not_setup": "Unfortunately feedback is not currently set up.",
-  "phase": "BETA"
+  "phase": "BETA",
+  "Government of Canada": "Government of Canada"
 }

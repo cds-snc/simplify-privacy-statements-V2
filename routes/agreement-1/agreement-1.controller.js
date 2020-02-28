@@ -1,5 +1,4 @@
-const path = require('path')
-const { getNextRoute, routeUtils } = require('./../../utils')
+const { routeUtils } = require('./../../utils')
 const nodePandoc = require('node-pandoc')
 const i18n = require('i18n')
 
@@ -30,14 +29,12 @@ const stripTrailingPeriods = s =>
 const changeToPhrase = key =>
   !key.includes('partner_department') && !key.includes('researcher')
 
-module.exports = app => {
+module.exports = (app, route) => {
   const name = 'agreement-1'
-  const route = routeUtils.getRouteByName(name)
 
-  routeUtils.addViewPath(app, path.join(__dirname, './'))
-
-  app.get(route.path, (req, res) => {
-    var nextRoute = getNextRoute(name).path
+  route
+    .draw(app)
+    .get((req, res) => {
     var randomString = getRandomString()
     var docxFilename = 'agreement-' + randomString + '.docx'
 
@@ -60,7 +57,6 @@ module.exports = app => {
       name + `-${i18n.getLocale(req)}`,
       {
         data,
-        nextRoute: nextRoute,
         docxFilename: docxFilename,
       },
       function(err, html) {

@@ -165,20 +165,6 @@ const routeMiddleware = (route, locale) => (req, res, next) => {
   return next()
 }
 
-const getNextRouteURL = (name, req) => {
-  const nextRoute = getNextRoute(name)
-
-  /* istanbul ignore next */
-  if (!nextRoute.path) {
-    throw new Error(`[POST ${req.path}] 'redirect' missing`)
-  }
-
-  return url.format({
-    pathname: nextRoute.path,
-    query: { lang: i18n.getLocale(req) },
-  })
-}
-
 /**
  * @returns a new routing table
  */
@@ -191,21 +177,6 @@ const configRoutes = (app, routes, locales, opts={}) => {
   // require the controllers defined in the routes
   // dir and file name based on the route name
   return makeRoutingTable(routes, locales, opts).config(app)
-}
-
-/**
- * attempt to auto redirect based on the next route it the route config
- */
-const doRedirect = routeName => {
-  return (req, res, next) => {
-    if (req.body.json) {
-      return next()
-    }
-
-    const nextRoutePath = getNextRouteURL(routeName, req)
-
-    return res.redirect(nextRoutePath)
-  }
 }
 
 module.exports = {
