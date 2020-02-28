@@ -1,17 +1,11 @@
-const path = require('path')
-const { getNextRoute, routeUtils, sendNotification } = require('./../../utils')
+const { routeUtils, sendNotification } = require('./../../utils')
 const { Schema } = require('./schema.js')
 
-module.exports = app => {
-  const name = 'feedback-thanks'
-  const route = routeUtils.getRouteByName(name)
-
-  routeUtils.addViewPath(app, path.join(__dirname, './'))
-
-  app
-    .get(route.path, (req, res) => {
+module.exports = (app, route) => {
+  route
+    .draw(app)
+    .get((req, res) => {
       const data = routeUtils.getViewData(req, {}).data
-      console.log({ data })
 
       try {
         sendNotification({
@@ -26,12 +20,7 @@ module.exports = app => {
       } catch (err) {
         console.log(`Error: ${err}`)
       }
-      res.render(name, {
-        ...routeUtils.getViewData(req, {}),
-        nextRoute: getNextRoute(name).path,
-      })
+      res.render(route.name, routeUtils.getViewData(req, {}))
     })
-    .post(route.path, [
-      ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name }),
-    ])
+    .post(route.applySchema(Schema), route.doRedirect())
 }
