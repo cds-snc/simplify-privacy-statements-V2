@@ -6,21 +6,19 @@ const express = require('express')
 const cookieParser = require('cookie-parser')
 const compression = require('compression')
 const helmet = require('helmet')
-const sassMiddleware = require('node-sass-middleware')
 const path = require('path')
-const sessionConfig = require('./config/session.config')
-const { hasData, checkPublic, checkLangQuery } = require('./utils')
+const cookieSession = require('cookie-session')
+const cookieSessionConfig = require('./config/cookieSession.config')
+const { hasData } = require('./utils')
 const { addNunjucksFilters } = require('./filters')
 const csp = require('./config/csp.config')
 const csrf = require('csurf')
 
 // check to see if we have a custom configRoutes function
-let { configRoutes, routes } = require('./config/routes.config') // test mock sets as undefined but says line isn't covered
+let { configRoutes, routes, locales } = require('./config/routes.config')
 
-/* istanbul ignore next */ if (typeof configRoutes === 'undefined') {
-  // if not use the default
-  configRoutes = require('./utils/route.helpers').configRoutes
-}
+if (!configRoutes) configRoutes = require('./utils/route.helpers').configRoutes
+if (!locales) locales = ['en', 'fr']
 
 // initialize application.
 const app = express()
@@ -49,18 +47,6 @@ app.use(function(req, res, next) {
 // but this works for now
 app.use(sessionConfig)
 
-// in production: precompile CSS
-app.use(
-  sassMiddleware({
-    src: path.join(__dirname, 'assets/scss'),
-    dest: path.join(__dirname, 'public'),
-    debug: false,
-    indentedSyntax: false, // look for .scss files, not .sass files
-    sourceMap: true,
-    outputStyle: 'compressed',
-  }),
-)
-
 // public assets go here (css, js, etc)
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -76,9 +62,6 @@ app.use(helmet.contentSecurityPolicy({ directives: csp }))
 // gzip response body compression.
 app.use(compression())
 
-app.use(checkPublic)
-app.use(checkLangQuery)
-
 // Adding values/functions to app.locals means we can access them in our templates
 app.locals.GITHUB_SHA = process.env.GITHUB_SHA || null
 app.locals.hasData = hasData
@@ -87,7 +70,7 @@ app.locals.hasData = hasData
 app.locals.basedir = path.join(__dirname, './views')
 app.set('views', [path.join(__dirname, './views')])
 
-configRoutes(app, routes)
+app.routes = configRoutes(app, routes, locales)
 
 // view engine setup
 const nunjucks = require('nunjucks')

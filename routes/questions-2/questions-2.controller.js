@@ -1,5 +1,4 @@
-const path = require('path')
-const { routeUtils } = require('./../../utils')
+const { routeUtils, getClientJs } = require('./../../utils')
 const { Schema } = require('./schema.js')
 
 module.exports = app => {
@@ -16,7 +15,5 @@ module.exports = app => {
         jsFiles,
       })
     })
-    .post(route.path, [
-      ...routeUtils.getDefaultMiddleware({ schema: Schema, name: name }),
-    ])
+    .post(route.applySchema(Schema), route.doRedirect())
 }
