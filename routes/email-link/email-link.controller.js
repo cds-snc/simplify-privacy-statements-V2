@@ -1,13 +1,12 @@
 const url = require('url')
 const { routeUtils, sendNotification } = require('./../../utils')
-const i18n = require('i18n')
 
 module.exports = (app, route) => {
   route
     .draw(app)
     .get((req, res) => {
       const data = routeUtils.getViewData(req, {}).data
-      const queryParams = { lang: i18n.getLocale(req) }
+      const queryParams = { }
       Object.keys(data)
         .filter(
           key =>
@@ -21,7 +20,7 @@ module.exports = (app, route) => {
         .format({
           protocol: req.protocol,
           host: req.get('Host'),
-          pathname: routeUtils.getRouteByName('questions-1').path,
+          pathname: req.url,
           query: queryParams,
         })
         .replace('(', '%28') // otherwise our Notify template gets messed up :(
