@@ -26,7 +26,7 @@ const notifyClient =
     ? new NotifyClient(baseUrl, key)
     : false
 
-const sendNotification = async (params = { email, templateId, options }) => {
+const sendNotification = async (params = { email: "", templateId: "", options: {} }) => {
   const { templateId, email, options } = params
 
   if (!templateId || !email) {
