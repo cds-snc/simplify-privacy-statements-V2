@@ -146,5 +146,6 @@
   "form.upload": "fichier téléchargé",
   "backgroundInfo.title": "Informations de base",
   "backgroundInfo.desc": "Effectuerez-vous des recherches avec un autre ministère ?",
-  "feedback.not_setup": "Malheureusement, l’ajout de commentaires n’est pas encore configuré."
+  "feedback.not_setup": "Malheureusement, l’ajout de commentaires n’est pas encore configuré.",
+  "phase": "BÊTA"
 }
