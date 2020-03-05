@@ -2,18 +2,24 @@
     <div class="{{ 'has-error' if errors and errors[key] }}">
         <fieldset class="fieldset">
             <legend class="fieldset__legend">
-                {{ __(question) }}
+            {% if attributes.required %}
+                <span aria-hidden="true" class="required">*</span>
+            {% endif %}
+            {{ __(question) }}
+            {% if attributes.required %}
+                <span class="required">{{ __("required")}}</span>
+            {% endif %}
             </legend>
-                {% if attributes.hint %}
-                    <span class="form-message">{{ __(attributes.hint) }}</span>
-                {% endif %}
+            {% if attributes.hint %}
+                <span class="form-message">{{ __(attributes.hint) }}</span>
+            {% endif %}
             <div class="multiple-choice multiple-choice--radios" id="{{ key }}">
                 {% if errors and errors[key] %}
                     {{ validationMessage(errors[key].msg, key) }}
                 {% endif %}
                 {% for index, val in values %}
                     <div class="multiple-choice__item">
-                        <input data-index="{{ index }}" id="{{ key }}{{ val }}" name="{{ key }}" type="radio" value="{{ val }}" {% if value == val %} checked="checked" {% endif %} {% if errors and errors[key] %} aria-describedby="{{ key + '-error' }}" aria-invalid="true" {% endif %}>
+                        <input id="{{ key }}{{ val }}" name="{{ key }}" type="radio" value="{{ val }}" {% if value == val %} checked="checked" {% endif %} {% if errors and errors[key] %} aria-describedby="{{ key + '-error' }}" aria-invalid="true" {% endif %}>
                         <label for="{{ key }}{{ val }}">{{ __(val) }}</label>
                     </div>
                 {% endfor %}

@@ -3,12 +3,12 @@ const routes = [
   { name: 'landing-page', path: '/' },
   { name: 'questions-1', path: '/questions-1' },
   { name: 'agreement-1', path: '/agreement-1' },
-  { name: 'questions-2', path: '/questions-2' },
-  { name: 'agreement-2', path: '/agreement-2' },
   { name: 'feedback', path: '/feedback' },
   { name: 'feedback-thanks', path: '/feedback-thanks' },
   { name: 'email-link', path: '/email-link' },
 ]
+
+const locales = ['en', 'fr']
 
 // note: you can define and export a custom configRoutes function here
 // see route.helpers.js which is where the default one is defined
@@ -16,4 +16,5 @@ const routes = [
 
 module.exports = {
   routes,
+  locales,
 }
