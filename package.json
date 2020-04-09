@@ -40,7 +40,7 @@
     "express-session": "^1.17.0",
     "express-validator": "^6.4.0",
     "helmet": "^3.21.3",
-    "i18n": "^0.8.5",
+    "i18n": "^0.8.6",
     "memorystore": "^1.6.2",
     "node-pandoc": "^0.3.0",
     "node-sass": "^4.13.1",
