@@ -31,7 +31,7 @@
   "dependencies": {
     "@cdssnc/webpack-starter": "^2.0.2",
     "compression": "^1.7.4",
-    "cookie-parser": "~1.4.4",
+    "cookie-parser": "~1.4.5",
     "cookie-session": "^1.4.0",
     "copy-template-dir": "^1.4.0",
     "csurf": "^1.11.0",
