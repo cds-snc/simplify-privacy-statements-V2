@@ -54,14 +54,7 @@
       By participating in this research session, you understand that:
     </p>
     <ul>
-      {% if data.compensation == "yes" %}
-        <li>you can choose to stop participating at any time for any reason, there are no consequences</li>
-        <li>you will receive {{ defaultValue("compensation_value") }} on a {{ defaultValue("compensation_method") }} if you take part for {{ defaultValue("session_duration") }} – you'll need to declare this on your tax return</li>
-        <li>if you decide to stop participating, you'll receive a payment of $10 if you've spent at least 8.5 minutes taking part</li>
-        <li>if you've taken part for less than 8.5 minutes, you won't receive a payment.</li>
-      {% else %}
         <li>you can choose to stop participating at any time for any reason, there are no consequences.</li>
-      {% endif %}
 
       {% if data.confidentiality == "form.confidential" %}
         <li>The people who interview you will know your identity, but no one else will. The responses you give won't be linked to you.</li>
@@ -73,10 +66,6 @@
         <li>The information you give us can be linked to you, and might be shared outside of CDS.</li>
       {% elif data.confidentiality == "form.not_confidential" %}
         <li>The information you give us could be used to identify you. The information will not be shared outside of CDS.</li>
-      {% endif %}
-
-      {% if data.compensation == "yes" %}
-         <li>A record of your payment will be publicly available.</li>
       {% endif %}
 
       {% if data.confidentiality == "form.public" %}
@@ -101,11 +90,6 @@
         <li>CDS and {{ defaultValue("partner_department_acronym")}} will take a note of your responses and your {{ defaultValue("personal_information_collected") }} as part of this session. Read 'How we'll use your information' to find out how we protect the information you give us.</li>
       {% else %}
         <li>CDS will take a note of your responses and your {{ defaultValue("personal_information_collected") }} as part of this session. Read 'How we'll use your information' to find out how we protect the information you give us.</li>
-      {% endif %}
-
-      {% if data.compensation == "yes" %}
-        <li>I certify that I am not a former public servant in receipt of a pension or lump sum payment from the Government of Canada.</li>
-        <li>I certify that I am not a public servant participating during working hours.</li>
       {% endif %}
     </ul>
     <p>
@@ -163,24 +147,14 @@
 
     <h3>How we'll use your information</h3>
 
-    {% if data.compensation == "no" %}
       <p>We will use the information you give us to {{ defaultValue("research_goal") }}.</p>
       <p>We collect {{ defaultValue("personal_information_collected") }} to try to make sure we have a diverse sample of responses, and to identify trends.</p>
-    {% else %}
-      <p>We will use the information you give us to {{ defaultValue("research_goal") }}.</p>
-      <p>We collect {{ defaultValue("personal_information_collected") }} to try to make sure we have a diverse sample of responses, to identify trends, and to provide you with a payment.</p>
-      <p>You might be contacted at a later date to make sure you received your payment.</p>
-    {% endif %}
 
     {% if data.administrative_decision == "no" %}
       <p>Your participation, personal information and answers will not be used to make any decisions that affect your access to Government of Canada services.</p>
     {% endif %}
 
-    {% if data.compensation == "yes" %}
-      <p>We (CDS) will own the {{ defaultValue("research_method") }} information you give us. We may share a summary of what we have learned from this research, including quotes or narratives, with other government departments. Your name will not be associated with any of those quotes or narratives.</p>
-    {% else %}
       <p>We may share a summary of what we have learned from this research, including quotes or narratives, with other government departments. Your name will not be associated with any of those quotes or narratives.</p>
-    {% endif %}
 
     <h3>Who we are</h3>
 
@@ -204,12 +178,7 @@
       <li>they’ve used it to make an administrative decision about you.</li>
     </ul>
 
-    {% if data.compensation == "yes" %}
-      <p>The type of information we can hold about you and how we can collect it, is listed in "Outreach Activities - PSU 938" (http://www.infosource.gc.ca/emp/emp03-eng.asp#psu938) and "Accounts Payable - PSU 931" (http://www.infosource.gc.ca/emp/emp03-eng.asp#psu931).</p>
-      <p>Information on programs and holdings: https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information/information-about-programs-information-holdings.html</p>
-    {% else %}
       <p>The type of information we can hold about you and how we can collect it, is listed in "Outreach Activities - PSU 938" (http://www.infosource.gc.ca/emp/emp03-eng.asp#psu938).</p>
-    {% endif %}
 
     {% if data.confidentiality == "form.anonymized" or data.confidentiality == "form.anonymous" %}
       <p>As we will not be able to link what you told us to your name, you will not be able to withdraw or correct your information after the session.</p>
