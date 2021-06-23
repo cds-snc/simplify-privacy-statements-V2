@@ -30,7 +30,7 @@ const changeToPhrase = key =>
   !key.includes('partner_department') && !key.includes('researcher')
 
 module.exports = (app, route) => {
-  const name = 'agreement-1'
+  const name = 'agreement-generic'
 
   route
     .draw(app)
