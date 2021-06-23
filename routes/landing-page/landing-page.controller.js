@@ -10,7 +10,7 @@ module.exports = (app, route) => {
     .get((req, res) => {
       res.render(name, { ...routeUtils.getViewData(req, {}), questionUrls: {
         cds: "questions-1",
-        generic: "questions-generic"
+        generic: "questions-generic",
       } })
     })
     .post(route.applySchema(Schema), route.doRedirect())
