@@ -52,7 +52,8 @@
   "contactInfo.title": "Your contact information",
   "form.researcher_name": "Name",
   "form.researcher_phone": "Work phone number",
-  "form.researcher_email": "Work (TBS) email address",
+  "form.cds.researcher_email": "Work (TBS) email address",
+  "form.generic.researcher_email": "Work email address",
   "testInfo.title": "Research information",
   "form.is_with_partner": "Will you be conducting research with another (partner) department?",
   "form.partner_department_name": "Which department will you be conducting the research with?",
@@ -128,7 +129,7 @@
   "email-link.intro": "A link to retrieve your answers has been emailed to",
   "email-link.missing": "We were unable to email your link – did you provide an email address?",
   "errors.requiredField": "A required field is missing",
-  "errors.researcher_email": "Your email address must end in '.gc.ca'",
+  "errors.researcher_email": "Your email address must end in 'canada.ca' or '.gc.ca'",
   "agreement-1.title": "agreement-1.title",
   "agreement-1.contact": "agreement-1.contact",
   "agreement-1.thanks": "agreement-1.thanks",
@@ -146,5 +147,6 @@
   "backgroundInfo.desc": "Will you be conducting research with another department?",
   "feedback.not_setup": "Unfortunately feedback is not currently set up.",
   "phase": "BETA",
-  "Government of Canada": "Government of Canada"
+  "Government of Canada": "Government of Canada",
+  "Please correct the errors on the page": "Please correct the errors on the page"
 }
