@@ -1,0 +1,246 @@
+{% extends "base.njk" %}
+
+{% block content %}
+
+<h1>Here's your generated privacy form</h1>
+
+<a target="_blank" href="email-link">Email yourself a link to your answers</a>
+&nbsp; &nbsp;
+<a href={{ "/documents/" + docxFilename }}>Download as a Word doc</a>
+&nbsp; &nbsp;
+<a href="agreement-1?lang=fr">Get the French version</a>
+
+<p style="margin-top: 30px">
+    Make sure you check the draft form for errors before you
+    <a target="_blank" href="https://atip-aiprp.apps.gc.ca/atip/welcome.do">send it to your ATIP office (opens in new tab)</a>.
+</p>
+
+<div style="display: none">start of agreement</div>
+
+<hr style="margin-top: 40px"/>
+
+<p style="margin-top: 40px">
+    [Put your consent form and privacy statement in an existing privacy form template to add the <a target="_blank" href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/stationery/letterhead-flag-symbol.html">Canadian flag symbol signature (opens in new tab)</a>.]
+</p>
+
+<h2>DRAFT 'Consent to participate in research form' to send to your ATIP office</h2>
+
+<div>
+    <p>
+        For any questions about this research, please contact:
+        <br>
+        <strong>{{ defaultValue("researcher_name") }}</strong>
+        <br>
+        <strong>{{ defaultValue("researcher_phone") }}</strong>
+        <br>
+        <strong>{{ defaultValue("researcher_email") }}</strong>
+    </p>
+
+    <p>
+    Thank you for volunteering to talk to us.
+    We work for the Canadian Digital Service (CDS).
+    {% if data.is_with_partner == "yes" %}
+      We are working with {{ defaultValue("partner_department_name") }} ({{ defaultValue("partner_department_acronym") }}) to {{ defaultValue("research_goal") }}.
+    {% else %}
+      We're conducting this research today to help us {{ defaultValue("research_goal") }}.
+    {% endif %}
+    </p>
+
+    <p>
+      To do this we will ask you to {{ defaultValue("session_activity") }}. This will take {{ defaultValue("session_duration") }}.
+    </p>
+
+    <p>
+      By participating in this research session, you understand that:
+    </p>
+    <ul>
+      {% if data.compensation == "yes" %}
+        <li>you can choose to stop participating at any time for any reason, there are no consequences</li>
+        <li>you will receive {{ defaultValue("compensation_value") }} on a {{ defaultValue("compensation_method") }} if you take part for {{ defaultValue("session_duration") }} – you'll need to declare this on your tax return</li>
+        <li>if you decide to stop participating, you'll receive a payment of $10 if you've spent at least 8.5 minutes taking part</li>
+        <li>if you've taken part for less than 8.5 minutes, you won't receive a payment.</li>
+      {% else %}
+        <li>you can choose to stop participating at any time for any reason, there are no consequences.</li>
+      {% endif %}
+
+      {% if data.confidentiality == "form.confidential" %}
+        <li>The people who interview you will know your identity, but no one else will. The responses you give won't be linked to you.</li>
+      {% elif data.confidentiality == "form.anonymized" %}
+        <li>The information you give us will be anonymized. No one will be able to link your responses to you once anonymization is completed.</li>
+      {% elif data.confidentiality == "form.anonymous" %}
+        <li>You're giving us information anonymously. No one will know your identity, or who gave your responses.</li>
+      {% elif data.confidentiality == "form.public" %}
+        <li>The information you give us can be linked to you, and might be shared outside of CDS.</li>
+      {% elif data.confidentiality == "form.not_confidential" %}
+        <li>The information you give us could be used to identify you. The information will not be shared outside of CDS.</li>
+      {% endif %}
+
+      {% if data.compensation == "yes" %}
+         <li>A record of your payment will be publicly available.</li>
+      {% endif %}
+
+      {% if data.confidentiality == "form.public" %}
+        <li>CDS might share {{ defaultValue("personal_information_disclosed_to_public") }} from this session in public.</li>
+      {% endif %}
+
+      {% if data.confidentiality == "form.anonymous" or data.confidentiality == "form.anonymized" %}
+        <li>As we will not be able to link what you told us to your name, you will not be able to withdraw or correct your information after the session.</li>
+      {% endif %}
+    </ul>
+      {% if data.confidentiality == "form.anonymous" %}
+        <p>Do not provide any information in your responses that could identify you.</p>
+      {% endif %}
+    <ul>
+      {% if data.administrative_decision == "yes" %}
+        <li>Your personal information or responses might be used to {{ defaultValue("administrative_purpose")}}.</li>
+      {% else %}
+        <li>Your participation and answers will not affect your access to Government of Canada services or benefits.</li>
+      {% endif %}
+
+      {% if data.is_with_partner == "yes" %}
+        <li>CDS and {{ defaultValue("partner_department_acronym")}} will take a note of your responses and your {{ defaultValue("personal_information_collected") }} as part of this session. Read 'How we'll use your information' to find out how we protect the information you give us.</li>
+      {% else %}
+        <li>CDS will take a note of your responses and your {{ defaultValue("personal_information_collected") }} as part of this session. Read 'How we'll use your information' to find out how we protect the information you give us.</li>
+      {% endif %}
+
+      {% if data.compensation == "yes" %}
+        <li>I certify that I am not a former public servant in receipt of a pension or lump sum payment from the Government of Canada.</li>
+        <li>I certify that I am not a public servant participating during working hours.</li>
+      {% endif %}
+    </ul>
+    <p>
+      {% if data.consent == "verbally" %}
+        Name: ________________________
+        <br>
+        Date: _________________________ Time: _________________________
+      {% endif %}
+
+      {% if data.consent == "on paper" %}
+        [ ] <b>I understand the points above and consent to participate in the research.</b>
+        <br>
+        Name: _________________________      Date: _________________________
+        <br>
+        Signature: ____________________________
+      {% endif %}
+    </p>
+    {% if data.consent == "action" %}
+      <p>I understand the points above and consent to participate in the research.</p>
+    {% endif %}
+
+    {% if data.is_business == "yes" %}
+      <p>Legal business name: ____________________________</p>
+    {% endif %}
+
+    {% if data.recording_type == "video and audio" or data.recording_type == "audio only" or data.recording_type == "screen recording with audio" %}
+
+      {% if data.recording_type == "video and audio" %}
+        <h3>Video recording consent (optional)</h3>
+      {% else %}
+        <h3>Audio recording consent (optional)</h3>
+      {% endif %}
+
+      <p>Recording our session will help us make sure we don't miss any of your responses.</p>
+
+      <p>By agreeing to be recorded, you understand that:</p>
+      <ul>
+        <li>You must not provide any personal information that could be used to identify you, such as your name, date of birth etc.</li>
+        <li>People who listen to the recording may recognise your voice – therefore your responses cannot be confidential.</li>
+      </ul>
+        {% if data.will_the_recording_be_disclosed == "yes" %}
+          <p>Your responses may be shared with other departments for {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed") }}. </p>
+          <p>If you tell us you don't want us to share your recording anymore, we'll stop sharing it.</p>
+          <p>However, if we've already shared it with {{ defaultValue("partner_department_acronym")}}, they may continue to use it to {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed") }}.</p>
+          <p>If you consent, we might share this recording with {{ defaultValue("partner_department_acronym")}} as it helps demonstrate the value of {{ defaultValue("research_method") }}s in building better digital services. We may also use it to {{ defaultValue("purposes_for_which_the_recording_may_be_disclosed") }}.</p>
+        {% else %}
+
+        {% endif %}
+
+      <p>[ ] I understand the points above and consent to be recorded.</p>
+
+      <p>Name: ____________________________ Date: _______________________</p>
+    {% endif %}
+
+
+    <h3>How we'll use your information</h3>
+
+    {% if data.compensation == "no" %}
+      <p>We will use the information you give us to {{ defaultValue("research_goal") }}.</p>
+      <p>We collect {{ defaultValue("personal_information_collected") }} to try to make sure we have a diverse sample of responses, and to identify trends.</p>
+    {% else %}
+      <p>We will use the information you give us to {{ defaultValue("research_goal") }}.</p>
+      <p>We collect {{ defaultValue("personal_information_collected") }} to try to make sure we have a diverse sample of responses, to identify trends, and to provide you with a payment.</p>
+      <p>You might be contacted at a later date to make sure you received your payment.</p>
+    {% endif %}
+
+    {% if data.administrative_decision == "no" %}
+      <p>Your participation, personal information and answers will not be used to make any decisions that affect your access to Government of Canada services.</p>
+    {% endif %}
+
+    {% if data.compensation == "yes" %}
+      <p>We (CDS) will own the {{ defaultValue("research_method") }} information you give us. We may share a summary of what we have learned from this research, including quotes or narratives, with other government departments. Your name will not be associated with any of those quotes or narratives.</p>
+    {% else %}
+      <p>We may share a summary of what we have learned from this research, including quotes or narratives, with other government departments. Your name will not be associated with any of those quotes or narratives.</p>
+    {% endif %}
+
+    <h3>Who we are</h3>
+
+    <p>As part of the Treasury Board of Canada Secretariat (TBS), we have the permission to collect and store personal information from the <i>Financial Administration Act</i>.</p>
+    <ul>
+      {% if data.is_with_partner == "yes" %}
+        <li>{{ defaultValue("partner_department_acronym") }} has the permission to collect and store personal information from <i>{{ defaultValue("partner_department_authority") }}</i>.</li>
+      {% endif %}
+    </ul>
+    
+    <h3>Your rights</h3>
+    <p>The <i>Privacy Act</i> gives you the right to: </p>
+    <ul>
+      <li>access the information we hold about you</li>
+      <li>ask us to correct information about you if it's wrong</li>
+      <li>have us add a note to your personal information to say that you have requested a change, if we do not make the change.</li>
+    </ul>
+    <p>You can also tell us to contact people we’ve shared your information with so they can correct it, if:</p>
+    <ul>
+      <li>we shared it in the 2 years before you asked for a change or a correction, and</li>
+      <li>they’ve used it to make an administrative decision about you.</li>
+    </ul>
+
+    {% if data.compensation == "yes" %}
+      <p>The type of information we can hold about you and how we can collect it, is listed in "Outreach Activities - PSU 938" (http://www.infosource.gc.ca/emp/emp03-eng.asp#psu938) and "Accounts Payable - PSU 931" (http://www.infosource.gc.ca/emp/emp03-eng.asp#psu931).</p>
+      <p>Information on programs and holdings: https://www.canada.ca/en/treasury-board-secretariat/services/access-information-privacy/access-information/information-about-programs-information-holdings.html</p>
+    {% else %}
+      <p>The type of information we can hold about you and how we can collect it, is listed in "Outreach Activities - PSU 938" (http://www.infosource.gc.ca/emp/emp03-eng.asp#psu938).</p>
+    {% endif %}
+
+    {% if data.confidentiality == "form.anonymized" or data.confidentiality == "form.anonymous" %}
+      <p>As we will not be able to link what you told us to your name, you will not be able to withdraw or correct your information after the session.</p>
+    {% endif %}
+
+    <p>
+      As well as contacting the researcher named above to ask any questions or to modify your information, you can also contact: 
+      <br>
+      <br>
+      <i>TBS Access to Information and Privacy Coordinator</i>
+      <br>
+      ATIP.AIPRP@tbs-sct.gc.ca
+      <br>
+      1-866-312-1511
+    </p>
+
+    <p>
+      You can complain to the Office of the Privacy Commissioner of Canada if you're not happy with the way your personal information has been handled:
+      <br>
+      <br>
+      <i>Office of the Privacy Commissioner of Canada</i>
+      <br>
+      info@priv.gc.ca
+      <br>
+      1-800-282-1376
+    </p>
+
+</div>
+
+<p>
+    [Put your agreement in an existing privacy form template to add the <a href="https://www.canada.ca/en/treasury-board-secretariat/services/government-communications/federal-identity-program/technical-specifications/stationery/letterhead-flag-symbol.html">Canada Wordmark (opens in new tab)</a>.]
+</p>
+
+{% endblock %}

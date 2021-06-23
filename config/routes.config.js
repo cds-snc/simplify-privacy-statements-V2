@@ -4,6 +4,7 @@ const routes = [
   { name: 'questions-1', path: '/questions-1' },
   { name: 'agreement-1', path: '/agreement-1' },
   { name: 'questions-generic', path: '/questions-generic' },
+  { name: 'agreement-1', path: '/agreement-generic' },
   { name: 'feedback', path: '/feedback' },
   { name: 'feedback-thanks', path: '/feedback-thanks' },
   { name: 'email-link', path: '/email-link' },
