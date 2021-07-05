@@ -164,5 +164,7 @@
   "start.submit": "Let's Go",
   "start.title": "Node Starter App",
   "Government of Canada": "Government of Canada",
-  "required": "required"
+  "required": "required",
+  "landing-page.questionnaires.cds": "landing-page.questionnaires.cds",
+  "landing-page.questionnaires.generic": "landing-page.questionnaires.generic"
 }
