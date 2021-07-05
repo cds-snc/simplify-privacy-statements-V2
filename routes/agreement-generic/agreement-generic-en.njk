@@ -80,11 +80,7 @@
         <p>Do not provide any information in your responses that could identify you.</p>
       {% endif %}
     <ul>
-      {% if data.administrative_decision == "yes" %}
-        <li>Your personal information or responses might be used to {{ defaultValue("administrative_purpose")}}.</li>
-      {% else %}
         <li>Your participation and answers will not affect your access to Government of Canada services or benefits.</li>
-      {% endif %}
 
       {% if data.is_with_partner == "yes" %}
         <li>CDS and {{ defaultValue("partner_department_acronym")}} will take a note of your responses and your {{ defaultValue("personal_information_collected") }} as part of this session. Read 'How we'll use your information' to find out how we protect the information you give us.</li>
@@ -150,9 +146,7 @@
       <p>We will use the information you give us to {{ defaultValue("research_goal") }}.</p>
       <p>We collect {{ defaultValue("personal_information_collected") }} to try to make sure we have a diverse sample of responses, and to identify trends.</p>
 
-    {% if data.administrative_decision == "no" %}
       <p>Your participation, personal information and answers will not be used to make any decisions that affect your access to Government of Canada services.</p>
-    {% endif %}
 
       <p>We may share a summary of what we have learned from this research, including quotes or narratives, with other government departments. Your name will not be associated with any of those quotes or narratives.</p>
 

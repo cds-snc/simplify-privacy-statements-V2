@@ -40,13 +40,6 @@
                 {{ textArea('personal_information_disclosed_to_public', 'form.personal_information_disclosed_to_public', {hint: 'form.personal_information_disclosed_to_public.desc'}) }}
             </div>
 
-            <div class="toggle-area">
-                {{ radioButtons('administrative_decision', { 'on':'Yes','off':'No'}, data.administrative_decision, 'form.administrative_decision', errors) }}
-            </div>
-            <div class="administrative_decision-toggled" style="display:none" >
-                {{ textArea('administrative_purpose', 'form.administrative_purpose', {hint: 'form.administrative_purpose.desc'}) }}
-            </div>
-
             {{ radioButtons('consent', { '1':'Verbally','2':'On paper'}, data.consent, 'form.consent', errors) }}
 
             {{ radioButtons('is_business', { '1':'Yes','2':'No'}, data.is_business, 'form.is_business', errors, {hint: 'form.is_business.desc'}) }}
