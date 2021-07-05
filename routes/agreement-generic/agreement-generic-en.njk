@@ -38,12 +38,8 @@
 
     <p>
     Thank you for volunteering to talk to us.
-    We work for the Canadian Digital Service (CDS).
-    {% if data.is_with_partner == "yes" %}
-      We are working with {{ defaultValue("partner_department_name") }} ({{ defaultValue("partner_department_acronym") }}) to {{ defaultValue("research_goal") }}.
-    {% else %}
+    We work for the {{ defaultValue("partner_department_name") }} ({{ defaultValue("partner_department_acronym") }}).
       We're conducting this research today to help us {{ defaultValue("research_goal") }}.
-    {% endif %}
     </p>
 
     <p>
@@ -54,7 +50,7 @@
       By participating in this research session, you understand that:
     </p>
     <ul>
-        <li>you can choose to stop participating at any time for any reason, there are no consequences.</li>
+        <li>You can choose to stop participating at any time for any reason, there are no consequences.</li>
 
       {% if data.confidentiality == "form.confidential" %}
         <li>The people who interview you will know your identity, but no one else will. The responses you give won't be linked to you.</li>
@@ -69,7 +65,7 @@
       {% endif %}
 
       {% if data.confidentiality == "form.public" %}
-        <li>CDS might share {{ defaultValue("personal_information_disclosed_to_public") }} from this session in public.</li>
+        <li>{{ defaultValue("partner_department_acronym") }} might share {{ defaultValue("personal_information_disclosed_to_public") }} from this session in public.</li>
       {% endif %}
 
       {% if data.confidentiality == "form.anonymous" or data.confidentiality == "form.anonymized" %}
@@ -82,11 +78,7 @@
     <ul>
         <li>Your participation and answers will not affect your access to Government of Canada services or benefits.</li>
 
-      {% if data.is_with_partner == "yes" %}
-        <li>CDS and {{ defaultValue("partner_department_acronym")}} will take a note of your responses and your {{ defaultValue("personal_information_collected") }} as part of this session. Read 'How we'll use your information' to find out how we protect the information you give us.</li>
-      {% else %}
-        <li>CDS will take a note of your responses and your {{ defaultValue("personal_information_collected") }} as part of this session. Read 'How we'll use your information' to find out how we protect the information you give us.</li>
-      {% endif %}
+        <li>{{ defaultValue("partner_department_acronym") }} will take a note of your responses and your {{ defaultValue("personal_information_collected") }} as part of this session. Read 'How we'll use your information' to find out how we protect the information you give us.</li>
     </ul>
     <p>
       {% if data.consent == "verbally" %}
@@ -152,12 +144,7 @@
 
     <h3>Who we are</h3>
 
-    <p>As part of the Treasury Board of Canada Secretariat (TBS), we have the permission to collect and store personal information from the <i>Financial Administration Act</i>.</p>
-    <ul>
-      {% if data.is_with_partner == "yes" %}
-        <li>{{ defaultValue("partner_department_acronym") }} has the permission to collect and store personal information from <i>{{ defaultValue("partner_department_authority") }}</i>.</li>
-      {% endif %}
-    </ul>
+    <p>As part of the {{ defaultValue("partner_department_acronym") }}, we have the permission to collect and store personal information from the <i>{{ defaultValue("partner_department_authority") }}</i>.</p>
     
     <h3>Your rights</h3>
     <p>The <i>Privacy Act</i> gives you the right to: </p>
