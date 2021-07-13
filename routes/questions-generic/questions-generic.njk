@@ -26,6 +26,8 @@
             {{ textInput('partner_department_atip_email', 'form.generic.partner_department_atip_email', { hint: 'form.generic.department_atip_email.desc' }) }}
             {{ textInput('partner_department_atip_phone', 'form.generic.partner_department_atip_phone', { hint: 'form.generic.department_atip_phone.desc' }) }}
 
+            {{ selectInput('partner_department', 'form.generic.partner_department', institutions, { hint: 'form.generic.partner_department.desc' }) }}
+
             {{ radioButtons('research_method', { '1':'Interview','2':'Usability testing'}, data.research_method, 'form.research_method', errors) }}
 
             {{ textArea('research_goal', 'form.research_goal', {hint: 'form.research_goal.desc'}) }}
