@@ -19,12 +19,12 @@
             <h2>{{ __('testInfo.title') }}</h2>
 
             {{ textInput('partner_department_name', 'form.generic.department_name', { hint: 'form.partner_department_name.desc' }) }}
-                {{ textInput('partner_department_acronym', 'form.partner_department_acronym') }}
-                {{ textInput('partner_department_authority', 'form.partner_department_authority', { hint: 'form.generic.department_authority.desc' }) }}
-                {{ textInput('partner_department_pib', 'form.generic.partner_department_pib', { hint: 'form.generic.department_pib.desc' }) }}
-                {{ textInput('partner_department_pib_url', 'form.generic.partner_department_pib_url', { hint: 'form.generic.department_pib_url.desc' }) }}
-                {{ textInput('partner_department_atip_email', 'form.generic.partner_department_atip_email', { hint: 'form.generic.department_atip_email.desc' }) }}
-                {{ textInput('partner_department_atip_phone', 'form.generic.partner_department_atip_phone', { hint: 'form.generic.department_atip_phone.desc' }) }}
+            {{ textInput('partner_department_acronym', 'form.partner_department_acronym') }}
+            {{ textInput('partner_department_authority', 'form.partner_department_authority', { hint: 'form.generic.department_authority.desc' }) }}
+            {{ textInput('partner_department_pib', 'form.generic.partner_department_pib', { hint: 'form.generic.department_pib.desc' }) }}
+            {{ textInput('partner_department_pib_url', 'form.generic.partner_department_pib_url', { hint: 'form.generic.department_pib_url.desc' }) }}
+            {{ textInput('partner_department_atip_email', 'form.generic.partner_department_atip_email', { hint: 'form.generic.department_atip_email.desc' }) }}
+            {{ textInput('partner_department_atip_phone', 'form.generic.partner_department_atip_phone', { hint: 'form.generic.department_atip_phone.desc' }) }}
 
             {{ radioButtons('research_method', { '1':'Interview','2':'Usability testing'}, data.research_method, 'form.research_method', errors) }}
 
