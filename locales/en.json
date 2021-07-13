@@ -64,7 +64,7 @@
   "form.partner_department_authority.desc": "e.g. 'The Canada Revenue Agency Act'. Ask your policy advisor if you're not sure.",
   "form.generic.department_authority.desc": "e.g. 'The Canada Revenue Agency Act'. Ask your ATIP office if you're not sure.",
   "form.generic.partner_department_pib": "Which Personal Information Bank (PIB) describes the information you’re collecting?",
-  "form.generic.department_pib.desc": "e.g. 'Outreach Activities - PSU 938'",
+  "form.generic.department_pib.desc": "e.g. 'Outreach Activities - PSU 938'. Ask your ATIP office if you're not sure.",
   "form.generic.partner_department_pib_url": "Where can the participant learn more about that PIB?",
   "form.generic.department_pib_url.desc": "e.g. a link to your department’s “Info Source” webpage, or equivalent",
   "form.generic.partner_department_atip_email": "What is your departmental ATIP office’s generic email address?",
