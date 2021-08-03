@@ -1,0 +1,938 @@
+[
+  {
+    "id": "asc-nac",
+    "label": "Accessibility Standards Canada",
+    "name": "Marie-Claude Lessard",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "NC-COMM-ATIP-AIPRP-GD@hrsdc-rhdcc.gc.ca",
+    "phone": "819-654-6981"
+  },
+  {
+    "id": "atssc-scdata",
+    "label": "Administrative Tribunals Support Service of Canada",
+    "name": "Marie-Josée Labrecque",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@tribunal.gc.ca",
+    "phone": "613-853-2870"
+  },
+  {
+    "id": "aafc-aac",
+    "label": "Agriculture and Agri-Food Canada",
+    "name": "Vincent Beaulieu",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "aafc.atip-aiprp.aac@canada.ca",
+    "phone": "613-773-0970"
+  },
+  {
+    "id": "acoa-apeca",
+    "label": "Atlantic Canada Opportunities Agency",
+    "name": "Danie Landry",
+    "title": "A/Access to Information and Privacy Coordinator",
+    "email": "ACOA.atip-aiprp.APECA@canada.ca",
+    "phone": "506-871-2806"
+  },
+  {
+    "id": "apa-apa",
+    "label": "Atlantic Pilotage Authority Canada",
+    "name": "Brian Bradley",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "bbradley@atlanticpilotage.com",
+    "phone": "902-426-1964"
+  },
+  {
+    "id": "aecl-eacl",
+    "label": "Atomic Energy of Canada Limited",
+    "name": "Jean Boulais",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "jboulais@aecl.ca",
+    "phone": "343-303-5401"
+  },
+  {
+    "id": "bdc-bdc",
+    "label": "Business Development Bank of Canada",
+    "name": "Matthew Baer",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "atip-aiprp@bdc.ca",
+    "phone": "514-283-0588"
+  },
+  {
+    "id": "cbsa-asfc",
+    "label": "Canada Border Services Agency",
+    "name": "Dan Proulx",
+    "title": "Executive Director and Chief Privacy Officer",
+    "email": "ATIP-AIPRP@cbsa-asfc.gc.ca",
+    "phone": "343-291-7021"
+  },
+  {
+    "id": "cdic-sadc",
+    "label": "Canada Deposit Insurance Corporation",
+    "name": "Christa Walker",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@cdic.ca",
+    "phone": "613-947-0269"
+  },
+  {
+    "id": "cdev-cdev",
+    "label": "Canada Development Investment Corporation",
+    "name": "Risa Appleton",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "atip-aiprp@cdev.gc.ca",
+    "phone": "416-966-3022"
+  },
+  {
+    "id": "ced-dec",
+    "label": "Canada Economic Development for Quebec Regions",
+    "name": "Gabrielle Joly",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "dec.aiprp-atip.ced@canada.ca",
+    "phone": "514-213-1441"
+  },
+  {
+    "id": "ceic-caec",
+    "label": "Canada Employment Insurance Commission",
+    "name": "Marie-Claude Lessard",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "NC-COMM-ATIP-AIPRP-GD@hrsdc-rhdcc.gc.ca",
+    "phone": "819-654-6981"
+  },
+  {
+    "id": "cer-rec",
+    "label": "Canada Energy Regulator",
+    "name": "Barb van Noord",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP.Office@neb-one.gc.ca",
+    "phone": "403-560-1498"
+  },
+  {
+    "id": "clcl-sicl",
+    "label": "Canada Lands Company Limited",
+    "name": "Greg Barker",
+    "title": "General Counsel & Corporate Secretary",
+    "email": "gbarker@clc.ca",
+    "phone": "416-214-1225"
+  },
+  {
+    "id": "cmhc-schl",
+    "label": "Canada Mortgage and Housing Corporation",
+    "name": "Derek Antoine",
+    "title": "Senior Manager, ATIP",
+    "email": "atip-aiprp@cmhc-schl.gc.ca",
+    "phone": "613-748-2248"
+  },
+  {
+    "id": "cpc-scp",
+    "label": "Canada Post",
+    "name": "Anne-Mari Phillips",
+    "title": "Director, Access to Information and Privacy",
+    "email": "atip_aiprp@canadapost.postescanada.ca",
+    "phone": "1-866-913-2473"
+  },
+  {
+    "id": "cra-arc",
+    "label": "Canada Revenue Agency",
+    "name": "Steven Morgan",
+    "title": "Director General",
+    "email": "atip-aiprp@cra-arc.gc.ca",
+    "phone": "613-960-5393"
+  },
+  {
+    "id": "csps-efpc",
+    "label": "Canada School of Public Service",
+    "name": "Julie Bureau-Kajjoub",
+    "title": "Manager and ATIP Coordinator",
+    "email": "csps.atipaiprp.efpc@canada.ca",
+    "phone": "613-301-3837"
+  },
+  {
+    "id": "cstm-mstc",
+    "label": "Canada Science and Technology Museum",
+    "name": "Monique Horth",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "atip-aiprp@technomuses.ca",
+    "phone": "613-991-9508"
+  },
+  {
+    "id": "catsa-acsta",
+    "label": "Canadian Air Transport Security Authority",
+    "name": "Natalie Sabourin",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "atip@catsa.gc.ca",
+    "phone": "613-949-2721"
+  },
+  {
+    "id": "ccohs-cchst",
+    "label": "Canadian Centre for Occupational Health and Safety",
+    "name": "Anne Tennier",
+    "title": "President and Chief Executive Officer",
+    "email": "atip_aiprp@ccohs.ca",
+    "phone": "905-572-2981 Ext.4432"
+  },
+  {
+    "id": "ccc-ccc",
+    "label": "Canadian Commercial Corporation",
+    "name": "Michelle Taylor",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "mtaylor@ccc.ca",
+    "phone": "613-995-0110"
+  },
+  {
+    "id": "cdc-ccl",
+    "label": "Canadian Dairy Commission",
+    "name": "Danie Cousineau",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "danie.cousineau@cdc-ccl.gc.ca",
+    "phone": "613-792-2016"
+  },
+  {
+    "id": "cfia-acia",
+    "label": "Canadian Food Inspection Agency",
+    "name": "Everett Ethier",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "cfia.atip-aiprp.acia@canada.ca",
+    "phone": "613-773-5415"
+  },
+  {
+    "id": "cgc-ccg",
+    "label": "Canadian Grain Commission",
+    "name": "Cari Miller",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "atip-aiprp@grainscanada.gc.ca",
+    "phone": "204-983-3081"
+  },
+  {
+    "id": "pch-pch",
+    "label": "Canadian Heritage",
+    "name": "Marc-André Bujold",
+    "title": "Director, Access to Information and Privacy Secretariat",
+    "email": "marc-andre.bujold@canada.ca",
+    "phone": "819-997-2894"
+  },
+  {
+    "id": "chrc-ccdp",
+    "label": "Canadian Human Rights Commission",
+    "name": "Ginette Bastien",
+    "title": "Coordinator - Access to Information and Privacy",
+    "email": "ATIP.AIPRP@chrc-ccdp.gc.ca",
+    "phone": "613-943-8950"
+  },
+  {
+    "id": "cihr-irsc",
+    "label": "Canadian Institutes of Health Research",
+    "name": "Sharon Robertson",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIPCoordinator@cihr-irsc.gc.ca",
+    "phone": "613-894-6567"
+  },
+  {
+    "id": "cmhr-mcdp",
+    "label": "Canadian Museum for Human Rights",
+    "name": "Lisanne Lambert",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "atip@museumforhumanrights.ca",
+    "phone": "204-289-2132"
+  },
+  {
+    "id": "cmh-mch",
+    "label": "Canadian Museum of History",
+    "name": "Chrissie Unterhoffer",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "AIPRP-ATIP@museedelhistoire.ca",
+    "phone": "819-776-8493"
+  },
+  {
+    "id": "cmip-mciq",
+    "label": "Canadian Museum of Immigration at Pier 21",
+    "name": "Jennifer Tramble",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "Atip-aiprp@pier21.ca",
+    "phone": "902-425-7770 Ext.266"
+  },
+  {
+    "id": "cmn-mcn",
+    "label": "Canadian Museum of Nature",
+    "name": "Skye Cameron",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "scameron@nature.ca",
+    "phone": "613-566-4738"
+  },
+  {
+    "id": "cannor-cannor",
+    "label": "Canadian Northern Economic Development Agency",
+    "name": "Claudia David",
+    "title": "Corporate Secretary",
+    "email": "cannor.atip-aiprp.cannor@canada.ca",
+    "phone": "613-240-3678"
+  },
+  {
+    "id": "cnsc-ccsn",
+    "label": "Canadian Nuclear Safety Commission",
+    "name": "Philip Dubuc",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "cnsc.atip-aiprp.ccsn@canada.ca",
+    "phone": "613-947-7669"
+  },
+  {
+    "id": "crtc-crtc",
+    "label": "Canadian Radio-television and Telecommunications Commission",
+    "name": "Mpume Mtimkulu",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "aiprp-atip@crtc.gc.ca",
+    "phone": "819-997-4274"
+  },
+  {
+    "id": "csis-scrs",
+    "label": "Canadian Security Intelligence Service",
+    "name": "",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@smtp.gc.ca",
+    "phone": "613-231-0107"
+  },
+  {
+    "id": "csa-asc",
+    "label": "Canadian Space Agency",
+    "name": "Nathalie Levesque",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "asc.aiprp-atip.csa@canada.ca",
+    "phone": "450-926-4866"
+  },
+  {
+    "id": "cta-otc",
+    "label": "Canadian Transportation Agency",
+    "name": "Myriame Côté",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "OTC.AIPRP-ATIP.CTA@otc-cta.gc.ca",
+    "phone": "819-743-7259"
+  },
+  {
+    "id": "crcc-ccetp",
+    "label": "Civilian Review and Complaints Commission for the RCMP",
+    "name": "Rochelle Boudreau",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP.AIPRP@crcc-ccetp.gc.ca",
+    "phone": "343-571-0130"
+  },
+  {
+    "id": "csec-cstc",
+    "label": "Communications Security Establishment Canada",
+    "name": "-",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "atip-aiprp@cse-cst.gc.ca",
+    "phone": "613-991-8443"
+  },
+  {
+    "id": "cb-cda",
+    "label": "Copyright Board Canada",
+    "name": "Sabrina Korolus",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "sabrina.korolus@cb-cda.gc.ca",
+    "phone": "613-799-6086"
+  },
+  {
+    "id": "csc-scc",
+    "label": "Correctional Service Canada",
+    "name": "Stéphane Brisson",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "csc.atip-aiprp.scc@csc-scc.gc.ca",
+    "phone": "1-844-757-8031"
+  },
+  {
+    "id": "cirnac-rcaanc",
+    "label": "Crown-Indigenous Relations and Northern Affairs Canada",
+    "name": "Tammy Anne Martin",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "aadnc.aiprpdemande-atiprequest.aandc@canada.ca",
+    "phone": "819-953-3947"
+  },
+  {
+    "id": "dcc-cdc",
+    "label": "Defence Construction Canada",
+    "name": "Alison Lawford",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@DCC-CDC.gc.ca",
+    "phone": "613-998-9548"
+  },
+  {
+    "id": "fin-fin",
+    "label": "Department of Finance Canada",
+    "name": "Josh Keon",
+    "title": "A/Director, Access to Information and Privacy",
+    "email": "fin.atip-aiprp.fin@canada.ca",
+    "phone": "613-369-9322"
+  },
+  {
+    "id": "jus-jus",
+    "label": "Department of Justice Canada",
+    "name": "Malaka Hendela",
+    "title": "Director, Access to Information and Privacy",
+    "email": "ATIP-AIP@justice.gc.ca",
+    "phone": "613-907-3700"
+  },
+  {
+    "id": "dc-dc",
+    "label": "Destination Canada",
+    "name": "Sarah Sidhu",
+    "title": "General Counsel and Corporate Secretary",
+    "email": "atip-aiprp@destinationcanada.com",
+    "phone": "604-638-8323"
+  },
+  {
+    "id": "esdc-edsc",
+    "label": "Employment and Social Development Canada",
+    "name": "Marie-Claude Lessard",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "NC-COMM-ATIP-AIPRP-GD@hrsdc-rhdcc.gc.ca",
+    "phone": "819-654-6981"
+  },
+  {
+    "id": "eccc-eccc",
+    "label": "Environment and Climate Change Canada",
+    "name": "Shelley Emmerson",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ECATIP-ECAIPRP@ec.gc.ca",
+    "phone": "819-938-3443"
+  },
+  {
+    "id": "edc-edc",
+    "label": "Export Development Canada",
+    "name": "Laura W. Davison",
+    "title": "Director, Privacy and Information Risk| Compliance & Ethics",
+    "email": "ATIPTeam@edc.ca",
+    "phone": "1800-229-0575"
+  },
+  {
+    "id": "fcc-fac",
+    "label": "Farm Credit Canada",
+    "name": "Veronica Bosche",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP_AIPRP@fcc-fac.ca",
+    "phone": "306-780-8668"
+  },
+  {
+    "id": "fpcc-cpac",
+    "label": "Farm Products Council of Canada",
+    "name": "Mike Iwaskow",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "aafc.fpcatip-aiprpcpac.cpac.aac@canada.ca",
+    "phone": "613-759-1639"
+  },
+  {
+    "id": "fbcl-spfl",
+    "label": "Federal Bridge Corporation",
+    "name": "Anthony Pickett",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "apickett@federalbridge.ca",
+    "phone": "613-366-5074 Ext.120"
+  },
+  {
+    "id": "feddev ontario-feddev ontario",
+    "label": "Federal Economic Development Agency for Southern Ontario",
+    "name": "Dawn Cobden",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "fdo.atip-aiprp.fdo@canada.ca",
+    "phone": "613-941-7754"
+  },
+  {
+    "id": "fcac-acfc",
+    "label": "Financial Consumer Agency of Canada",
+    "name": "Paul Potvin",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "Paul.Potvin@fcac-acfc.gc.ca",
+    "phone": "613-220-7165"
+  },
+  {
+    "id": "fintrac-canafe",
+    "label": "Financial Transactions and Reports Analysis Centre of Canada",
+    "name": "John Widdis",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@fintrac-canafe.gc.ca",
+    "phone": "613-943-4473"
+  },
+  {
+    "id": "dfo-mpo",
+    "label": "Fisheries and Oceans Canada",
+    "name": "César Kagame",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-LAIPRP.XNCR@dfo-mpo.gc.ca",
+    "phone": "613-993-8937"
+  },
+  {
+    "id": "ffmc-ocped",
+    "label": "Freshwater Fish Marketing Corporation",
+    "name": "Susan Young",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIPcontrol@freshwaterfish.com",
+    "phone": "204-983-4299"
+  },
+  {
+    "id": "gac-amc",
+    "label": "Global Affairs Canada",
+    "name": "Alexandre Drago",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "dcp@international.gc.ca",
+    "phone": "343-203-6530"
+  },
+  {
+    "id": "glpa-apgl",
+    "label": "Great Lakes Pilotage Authority Canada",
+    "name": "Kim Pecore",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "kpecore@glpa-apgl.com",
+    "phone": "613-933-2991 Ext.208"
+  },
+  {
+    "id": "hc-sc",
+    "label": "Health Canada",
+    "name": "Cynthia Richardson",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@HC-SC.GC.CA",
+    "phone": "613-954-9165"
+  },
+  {
+    "id": "irb-cisr",
+    "label": "Immigration and Refugee Board of Canada",
+    "name": "Eric Villemaire",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "atip@irb-cisr.gc.ca",
+    "phone": "613-716-9986"
+  },
+  {
+    "id": "ircc-ircc",
+    "label": "Immigration, Refugees and Citizenship Canada",
+    "name": "Tracy Perry",
+    "title": "A/Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@cic.gc.ca",
+    "phone": "1-800-667-6703"
+  },
+  {
+    "id": "iaac-aeic",
+    "label": "Impact Assessment Agency of Canada",
+    "name": "Louise Guillemette",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "iaac.atip-aiprp.aeic@canada.ca",
+    "phone": "613-948-1362"
+  },
+  {
+    "id": "isc-sac",
+    "label": "Indigenous Services Canada",
+    "name": "Tammy Anne Martin",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "aadnc.aiprpdemande-atiprequest.aandc@canada.ca",
+    "phone": "819-953-3947"
+  },
+  {
+    "id": "infc-infc",
+    "label": "Infrastructure Canada",
+    "name": "Melanie Davis",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "atip-aiprp@infc.gc.ca",
+    "phone": "343-550-1166"
+  },
+  {
+    "id": "ised-isde",
+    "label": "Innovation, Science and Economic Development Canada",
+    "name": "Chris Parsons",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ic.atip-aiprpa.ic@canada.ca",
+    "phone": "343-291-2788"
+  },
+  {
+    "id": "lpa-apl",
+    "label": "Laurentian Pilotage Authority Canada",
+    "name": "Anaïs de Lausnay",
+    "title": "General Counsel and Corporate Secretary",
+    "email": "anais.delausnay@apl.gc.ca",
+    "phone": "514-283-6320 Ext.209"
+  },
+  {
+    "id": "lac-bac",
+    "label": "Library and Archives Canada",
+    "name": "Amy Tector",
+    "title": "Director, ATIP and Litigation Response & ATIP Coordinator",
+    "email": "bac.daiprp-atipd.lac@canada.ca",
+    "phone": "613-996-5115"
+  },
+  {
+    "id": "marineatlantic-marineatlantique",
+    "label": "Marine Atlantic Inc.",
+    "name": "Grant Hiscock",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "atip@marine-atlantic.ca",
+    "phone": "709-772-0380"
+  },
+  {
+    "id": "mgerc-ceegm",
+    "label": "Military Grievances External Review Committee",
+    "name": "Natasha Després",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "mgerc.atip-aiprp.ceegm@mgerc-ceegm.gc.ca",
+    "phone": "613-404-9326"
+  },
+  {
+    "id": "mpcc-cppm",
+    "label": "Military Police Complaints Commission of Canada",
+    "name": "Richard Roulx",
+    "title": "Senior Director of Corporate Services",
+    "email": "Richard.Roulx@mpcc-cppm.gc.ca",
+    "phone": "613-947-5704"
+  },
+  {
+    "id": "ncc-ccn",
+    "label": "National Capital Commission",
+    "name": "Alain Belleville",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "atip-aiprp@ncc-ccn.ca",
+    "phone": "613-239-5678 Ext.5788"
+  },
+  {
+    "id": "dnd-mdn",
+    "label": "National Defence",
+    "name": "Deirdra Finn",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@forces.gc.ca",
+    "phone": "613-901-6720"
+  },
+  {
+    "id": "nfb-onf",
+    "label": "National Film Board",
+    "name": "Oleksandra Synytsyna",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@nfb.ca",
+    "phone": "514-283-9338"
+  },
+  {
+    "id": "ngc-mbac",
+    "label": "National Gallery of Canada",
+    "name": "Linda Breiding",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "lbreiding@gallery.ca",
+    "phone": "613-714-6000 Ext.6129"
+  },
+  {
+    "id": "nrc-cnrc",
+    "label": "National Research Council Canada",
+    "name": "Maria Krioutchkova",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@nrc-cnrc.gc.ca",
+    "phone": "613-993-3464"
+  },
+  {
+    "id": "nrcan-rncan",
+    "label": "Natural Resources Canada",
+    "name": "Ami Najm",
+    "title": "Director, ATIP",
+    "email": "nrcan.atip-aiprp.rncan@canada.ca",
+    "phone": "343-292-8999"
+  },
+  {
+    "id": "nserc-crsng",
+    "label": "Natural Sciences and Engineering Research Council of Canada",
+    "name": "Nathalie Séguin",
+    "title": "Access to Information and Privacy Secretariat Officer",
+    "email": "atip-aiprp@nserc-crsng.gc.ca",
+    "phone": "613-995-5897"
+  },
+  {
+    "id": "npa-apn",
+    "label": "Northern Pipeline Agency Canada",
+    "name": "Ami Najm",
+    "title": "Director, Access to Information and Privacy",
+    "email": "nrcan.atip-aiprp.rncan@canada.ca",
+    "phone": "343-292-8999"
+  },
+  {
+    "id": "oag-bvg",
+    "label": "Office of the Auditor General of Canada",
+    "name": "Cameron Fraser",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "atip-aiprp@oag-bvg.gc.ca",
+    "phone": "613-952-0213 Ext.6455"
+  },
+  {
+    "id": "elections-elections",
+    "label": "Office of the Chief Electoral Officer",
+    "name": "Andrée Marie Delisle",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "aiprp-atip@elections.ca",
+    "phone": "873-416-2444"
+  },
+  {
+    "id": "ocl-cal",
+    "label": "Office of the Commissioner of Lobbying of Canada",
+    "name": "François Bertrand",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "atip-aiprp@lobbycanada.gc.ca",
+    "phone": "613-762-4815"
+  },
+  {
+    "id": "ocol-clo",
+    "label": "Office of the Commissioner of Official Languages",
+    "name": "Francois Mailhot",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@ocol-clo.gc.ca",
+    "phone": "819-420-4723"
+  },
+  {
+    "id": "oic-ci",
+    "label": "Office of the Information Commissioner of Canada",
+    "name": "Angelle Moore",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-Services-AIPRP@oic-ci.gc.ca",
+    "phone": "819-994-1226"
+  },
+  {
+    "id": "opc-cpvp",
+    "label": "Office of the Privacy Commissioner of Canada",
+    "name": "Denis Vaillancourt",
+    "title": "A/Director Access to Information and Privacy",
+    "email": "atip-aiprp@priv.gc.ca",
+    "phone": "819-230-8672"
+  },
+  {
+    "id": "psic-ispc",
+    "label": "Office of the Public Sector Integrity Commissioner of Canada",
+    "name": "Denis Bilodeau",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "bilodeau.denis@psic-ispc.gc.ca",
+    "phone": "613-946-2142"
+  },
+  {
+    "id": "osfi-bsif",
+    "label": "Office of the Superintendent of Financial Institutions Canada",
+    "name": "Robert McNeil",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP.AIPRP@osfi-bsif.gc.ca",
+    "phone": "613-998-4422"
+  },
+  {
+    "id": "ppa-app",
+    "label": "Pacific Pilotage Authority Canada",
+    "name": "Stuart Mackenzie",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "smackenzie@ppa.gc.ca",
+    "phone": "604-666-6771"
+  },
+  {
+    "id": "pc-pc",
+    "label": "Parks Canada",
+    "name": "Sahar Soleymani",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "pc.aiprp-atip.pc@canada.ca",
+    "phone": "819-938-0306"
+  },
+  {
+    "id": "pbc-clcc",
+    "label": "Parole Board of Canada",
+    "name": "Mark Prieur",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@pbc-clcc.gc.ca",
+    "phone": "613-954-6547"
+  },
+  {
+    "id": "pmprb-cepmb",
+    "label": "Patented Medicine Prices Review Board Canada",
+    "name": "Johanne Gamache",
+    "title": "Senior Hearing Officer",
+    "email": "Johanne.gamache@pmprb-cepmb.gc.ca",
+    "phone": "613-288-9647"
+  },
+  {
+    "id": "polar-polaire",
+    "label": "Polar Knowledge Canada",
+    "name": "Renee McCarter",
+    "title": "Director, Human Resources, Planning and Reporting",
+    "email": "Reports-rapports@polar-polaire.gc.ca",
+    "phone": "613-292-4028"
+  },
+  {
+    "id": "pco-bcp",
+    "label": "Privy Council Office",
+    "name": "David Neilson",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@pco-bcp.gc.ca",
+    "phone": "613-957-5228"
+  },
+  {
+    "id": "phac-aspc",
+    "label": "Public Health Agency of Canada",
+    "name": "Cynthia Richardson",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@HC-SC.GC.CA",
+    "phone": "613-954-9165"
+  },
+  {
+    "id": "ppsc-sppc",
+    "label": "Public Prosecution Service of Canada",
+    "name": "Elizabeth Armitage",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@ppsc-sppc.gc.ca",
+    "phone": "613-946-7922"
+  },
+  {
+    "id": "ps-sp",
+    "label": "Public Safety Canada",
+    "name": "Derek Melchin",
+    "title": "Director, Access to Information and Privacy and Executive Services",
+    "email": "ps.atip-aiprp.sp@canada.ca",
+    "phone": "613-949-1676"
+  },
+  {
+    "id": "psc-cfp",
+    "label": "Public Service Commission of Canada",
+    "name": "Genevieve Longchamps",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "CFP.AIPRP-ATIP.PSC@cfp-psc.gc.ca",
+    "phone": "819-420-6561"
+  },
+  {
+    "id": "pspc-spac",
+    "label": "Public Services and Procurement Canada",
+    "name": "Manon McMillan Bruyère",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "aiprp.atip@tpsgc-pwgsc.gc.ca",
+    "phone": "873-469-3721"
+  },
+  {
+    "id": "erc-cee",
+    "label": "RCMP External Review Committee",
+    "name": "Julie Brunet",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "erc.corporateandhrservices-servicesgenerauxetrh.cee@canada.ca",
+    "phone": "343-549-7425"
+  },
+  {
+    "id": "mint-monnaie",
+    "label": "Royal Canadian Mint",
+    "name": "Andrea Kniewasser",
+    "title": "Interim Access to Information and Privacy Coordinator",
+    "email": "atip@mint.ca",
+    "phone": "613-993-2711"
+  },
+  {
+    "id": "rcmp-grc",
+    "label": "Royal Canadian Mounted Police",
+    "name": "Ray Duguay",
+    "title": "Director, Access to Information and Privacy Branch",
+    "email": "ATIPB@rcmp-grc.gc.ca",
+    "phone": "613-843-6800"
+  },
+  {
+    "id": "ssc-spc",
+    "label": "Shared Services Canada",
+    "name": "James Larkin",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "SSC.atip-aiprp.SPC@canada.ca",
+    "phone": "613-670-1657"
+  },
+  {
+    "id": "sshrc-crsh",
+    "label": "Social Sciences and Humanities Research Council of Canada",
+    "name": "Michele Dupuis",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@sshrc-crsh.gc.ca",
+    "phone": "613-947-8639"
+  },
+  {
+    "id": "scc-ccn-scc-ccn",
+    "label": "Standards Council of Canada",
+    "name": "Simon Céré",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "atip-aiprp@scc.ca",
+    "phone": "613-238-3222 Ext.475"
+  },
+  {
+    "id": "statcan-statcan",
+    "label": "Statistics Canada",
+    "name": "Pierre Desrochers",
+    "title": "Director Access to Information and Privacy",
+    "email": "ATIP-AIPRP@statcan.gc.ca",
+    "phone": "613-894-4086"
+  },
+  {
+    "id": "oci-bec",
+    "label": "The Correctional Investigator Canada",
+    "name": "Jean-Frédéric Boulais",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "org@oci-bec.gc.ca",
+    "phone": "613-716-2845"
+  },
+  {
+    "id": "nbc-ccbn",
+    "label": "The National Battlefields Commission",
+    "name": "Annie Talbot",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "aiprp-atip@ccbn-nbc.gc.ca",
+    "phone": "418-648-3553"
+  },
+  {
+    "id": "tc-tc",
+    "label": "Transport Canada",
+    "name": "Brigitte Parent",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP/AIPRP@tc.gc.ca",
+    "phone": "613-993-6161"
+  },
+  {
+    "id": "tsb-bst",
+    "label": "Transportation Safety Board of Canada",
+    "name": "Luc Casault, MBA, CPA, CGA",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP.AIPRP@bst-tsb.gc.ca",
+    "phone": "613-290-3870"
+  },
+  {
+    "id": "tbs-sct",
+    "label": "Treasury Board of Canada Secretariat",
+    "name": "Natalie Acres",
+    "title": "Director, Access to Information and Privacy",
+    "email": "atip.aiprp@tbs-sct.gc.ca",
+    "phone": "613-369-3201"
+  },
+  {
+    "id": "vac-acc",
+    "label": "Veterans Affairs Canada",
+    "name": "Mary Nicholson",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "VAC.ATIP-AIPRP.ACC@canada.ca",
+    "phone": "877-566-8609"
+  },
+  {
+    "id": "vrab-tacra",
+    "label": "Veterans Review and Appeal Board",
+    "name": "Tracy Cudmore",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "vrab.atip-aiprp.tacra@canada.ca",
+    "phone": "902-626-7161"
+  },
+  {
+    "id": "via rail-via rail",
+    "label": "VIA Rail Canada Inc.",
+    "name": "Gabrielle Caron",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "aiprp@viarail.ca",
+    "phone": "514-871-6125"
+  },
+  {
+    "id": "wd-deo",
+    "label": "Western Economic Diversification Canada",
+    "name": "Cathy McLean",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "WD.atip-aiprp.DEO@canada.ca",
+    "phone": "780-495-4301"
+  },
+  {
+    "id": "wdba-apwd",
+    "label": "Windsor-Detroit Bridge Authority",
+    "name": "Heather Grondin",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "Heather.Grondin@wdbridge.com",
+    "phone": "519-946-4865"
+  },
+  {
+    "id": "wage-fegc",
+    "label": "Women and Gender Equality Canada",
+    "name": "Rachelle Roy",
+    "title": "Access to Information and Privacy Coordinator",
+    "email": "ATIP-AIPRP@swc-cfc.gc.ca",
+    "phone": "819-420-6816"
+  }
+]
