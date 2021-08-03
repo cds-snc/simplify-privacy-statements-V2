@@ -2,6 +2,8 @@ const { routeUtils } = require('./../../utils')
 const nodePandoc = require('node-pandoc')
 const i18n = require('i18n')
 
+const coordinators = require('./../../assets/data/coordinators.json')
+
 var callback = (err, result) => {
   if (err) {
     console.error(err)
@@ -53,10 +55,14 @@ module.exports = (app, route) => {
         queryParams[`${key}`] = data[`${key}`]
       })
 
+    // find the coordinator for the chosen institution; TODO consider more elegantly handling undefined (i.e., no institution selected)
+    const coordinator = coordinators.find((institution) => institution.id == data.partner_department)
+
     res.render(
       name + `-${i18n.getLocale(req)}`,
       {
         data,
+        coordinator,
         docxFilename: docxFilename,
       },
       function(err, html) {
