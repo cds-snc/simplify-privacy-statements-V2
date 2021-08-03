@@ -56,7 +56,7 @@ module.exports = (app, route) => {
       })
 
     // find the coordinator for the chosen institution; TODO consider more elegantly handling undefined (i.e., no institution selected)
-    const coordinator = coordinators.find((institution) => institution.id == data.partner_department)
+    const coordinator = coordinators.find((institution) => institution.id === data.partner_department)
 
     res.render(
       name + `-${i18n.getLocale(req)}`,
