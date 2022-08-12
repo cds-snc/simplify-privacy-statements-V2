@@ -1,0 +1,13 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.241.1/containers/javascript-node
+{
+	"name": "Node.js",
+	"image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:12",
+	"remoteUser": "node",
+	"features": {
+		"terraform": "latest",
+		"github-cli": "latest",
+		"aws-cli": "latest"
+	},
+	"postCreateCommand": "npm install -g pandoc && npm install"
+}
