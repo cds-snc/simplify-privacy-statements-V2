@@ -5,18 +5,18 @@ on:
     branches:
       - 'main'
 
+env:
+  NODE_VERSION: 12
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ env.NODE_VERSION }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: ${{ env.NODE_VERSION }}
     - name: npm install, build, and test
       run: |
         npm ci
@@ -24,15 +24,20 @@ jobs:
         npm test
       env:
         CI: true
+    - name: npm lint
+      run: |
+        npm run lint
+      env:
+        CI: true
   
   deploy: 
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: akhileshns/heroku-deploy@v3.12.12 
         with:
-          heroku_api_key: ::add-mask::${{secrets.HEROKU_API_KEY}}
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "simplify-privacy-statements-v2" 
-          heroku_email: "platform-admin-heroku-user@cds-snc.ca"
+          heroku_email: "service-account+github@cds-snc.ca"
           dontautocreate: true
