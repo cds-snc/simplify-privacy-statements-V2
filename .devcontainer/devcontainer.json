@@ -9,5 +9,8 @@
 		"github-cli": "latest",
 		"aws-cli": "latest"
 	},
+	"mounts": [
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
+	],
 	"postCreateCommand": "npm install -g pandoc && npm install"
 }
