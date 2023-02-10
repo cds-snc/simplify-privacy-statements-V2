@@ -17,7 +17,7 @@ function getRandomString() {
     .slice(0, 8)
 }
 
-const startHtml = `<div style="display: none">start of agreement</div>`
+// const startHtml = `<div style="display: none">start of agreement</div>`
 
 // make first letter lowercase and delete trailing periods
 const lowerCaseFirstLetter = s =>
