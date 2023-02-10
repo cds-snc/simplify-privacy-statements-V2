@@ -31,22 +31,22 @@ app.use(cookieParser(process.env.app_session_secret))
 app.use(require('./config/i18n.config').init)
 
 // CSRF setup
-// app.use(
-//   csrf({
-//     cookie: true,
-//     signed: true,
-//   }),
-// )
+app.use(
+  csrf({
+    cookie: true,
+    signed: true,
+  }),
+)
 
 // append csrfToken to all responses
-// app.use(function(req, res, next) {
-//   res.locals.csrfToken = req.csrfToken()
-//   next()
-// })
+app.use(function(req, res, next) {
+  res.locals.csrfToken = req.csrfToken()
+  next()
+})
 
 // in production: use redis for sessions
 // but this works for now
-// app.use(sessionConfig)
+app.use(sessionConfig)
 
 // public assets go here (css, js, etc)
 app.use(express.static(path.join(__dirname, 'public')))

@@ -66,11 +66,11 @@ module.exports = (app, route) => {
         const startIndex = html.indexOf(startHtml) + startHtml.length
         const endIndex = html.indexOf('</main>')
         const htmlDoc = html.slice(startIndex, endIndex)
-        nodePandoc(
-          htmlDoc,
-          '-f html -t docx -o public/documents/' + docxFilename,
-          callback,
-        )
+        // nodePandoc(
+        //   htmlDoc,
+        //   '-f html -t docx -o public/documents/' + docxFilename,
+        //   callback,
+        // )
         res.send(html)
       },
     )

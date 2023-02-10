@@ -28,7 +28,7 @@
   "errors.notify_type": "errors.notify_type",
   "Cannot read property 'length' of undefined": "Cannot read property 'length' of undefined",
   "next": "Next",
-  "landing-page.title": "Updated Code Generate consent forms and privacy statements for design research sessions",
+  "landing-page.title": "Code Generate consent forms and privacy statements for design research sessions",
   "landing-page.intro": "This service will generate customized forms and privacy statements for you based on the type of design research you're doing. Ask your policy colleagues if you need one.",
   "landing-page.steps-lead-in": "Once you've made the forms and statements, send them to your department's Access to Information and Privacy (ATIP) office for approval. You also need to tell them:",
   "landing-page.steps-atip": "",
