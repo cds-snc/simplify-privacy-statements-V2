@@ -1,7 +1,7 @@
-provider "azurerm" {
-  version = "~> 1.27"
-}
+# provider "azurerm" {
+#   version = "~> 1.27"
+# }
 
-terraform {
-  backend "azurerm" {}
-}
+# terraform {
+#   backend "azurerm" {}
+# }

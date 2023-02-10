@@ -1,4 +1,5 @@
 // import environment variables.
+
 require('dotenv').config()
 
 // import node modules.
@@ -12,6 +13,7 @@ const { hasData } = require('./utils')
 const { addNunjucksFilters } = require('./filters')
 const csp = require('./config/csp.config')
 const csrf = require('csurf')
+const sls = require('serverless-http')
 
 // check to see if we have a custom configRoutes function
 let { configRoutes, routes, locales } = require('./config/routes.config')
@@ -29,22 +31,22 @@ app.use(cookieParser(process.env.app_session_secret))
 app.use(require('./config/i18n.config').init)
 
 // CSRF setup
-app.use(
-  csrf({
-    cookie: true,
-    signed: true,
-  }),
-)
+// app.use(
+//   csrf({
+//     cookie: true,
+//     signed: true,
+//   }),
+// )
 
 // append csrfToken to all responses
-app.use(function(req, res, next) {
-  res.locals.csrfToken = req.csrfToken()
-  next()
-})
+// app.use(function(req, res, next) {
+//   res.locals.csrfToken = req.csrfToken()
+//   next()
+// })
 
 // in production: use redis for sessions
 // but this works for now
-app.use(sessionConfig)
+// app.use(sessionConfig)
 
 // public assets go here (css, js, etc)
 app.use(express.static(path.join(__dirname, 'public')))
@@ -87,4 +89,20 @@ nunjucks.installJinjaCompat()
 
 app.set('view engine', 'njk')
 
-module.exports = app
+module.exports.server = sls(app)
+
+// const express = require('express')
+// const sls = require('serverless-http')
+// const nunjucks = require('nunjucks')
+// const app = express()
+// nunjucks.configure('views', {
+//     autoescape: true,
+//     express: app
+// })
+// app.set('view engine', 'njk')
+// app.get('/', async (req, res, next) => {
+//   // res.status(200).send('Hello World!')
+//   res.render("index")
+// })
+
+// module.exports.server = sls(app)
