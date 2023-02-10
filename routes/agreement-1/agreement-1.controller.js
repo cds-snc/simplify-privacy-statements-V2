@@ -1,14 +1,14 @@
 const { routeUtils } = require('./../../utils')
-const nodePandoc = require('node-pandoc')
+// const nodePandoc = require('node-pandoc')
 const i18n = require('i18n')
 
-var callback = (err, result) => {
-  if (err) {
-    console.error(err)
-  } else {
-    console.log('done conversion')
-  }
-}
+// var callback = (err, result) => {
+//   if (err) {
+//     console.error(err)
+//   } else {
+//     console.log('done conversion')
+//   }
+// }
 
 function getRandomString() {
   return Math.random()
@@ -65,7 +65,7 @@ module.exports = (app, route) => {
         }
         const startIndex = html.indexOf(startHtml) + startHtml.length
         const endIndex = html.indexOf('</main>')
-        const htmlDoc = html.slice(startIndex, endIndex)
+        // const htmlDoc = html.slice(startIndex, endIndex)
         // nodePandoc(
         //   htmlDoc,
         //   '-f html -t docx -o public/documents/' + docxFilename,
