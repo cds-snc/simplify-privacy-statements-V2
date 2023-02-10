@@ -63,8 +63,8 @@ module.exports = (app, route) => {
         if (err) {
           console.log(err)
         }
-        const startIndex = html.indexOf(startHtml) + startHtml.length
-        const endIndex = html.indexOf('</main>')
+        // const startIndex = html.indexOf(startHtml) + startHtml.length
+        // const endIndex = html.indexOf('</main>')
         // const htmlDoc = html.slice(startIndex, endIndex)
         // nodePandoc(
         //   htmlDoc,
