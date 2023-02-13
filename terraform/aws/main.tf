@@ -35,7 +35,7 @@ resource "aws_ecr_repository" "privacy-statement-lambda-container" {
 }
 
 resource "docker_registry_image" "js-lambda-image-docker" {
-  name = "${aws_ecr_repository.privacy-statement-lambda-container.repository_url}:v1"
+  name = "${aws_ecr_repository.privacy-statement-lambda-container.repository_url}:v8"
   build {
     context    = "../../../simplify-privacy-statements-V2/"
     dockerfile = "Dockerfile"
@@ -44,7 +44,7 @@ resource "docker_registry_image" "js-lambda-image-docker" {
 
 resource "aws_lambda_function" "privacy_statement_lambda_function" {
   function_name = "privacy_statement_lambda_function"
-  image_uri     = "${aws_ecr_repository.privacy-statement-lambda-container.repository_url}:v1"
+  image_uri     = "${aws_ecr_repository.privacy-statement-lambda-container.repository_url}:v8"
   role          = aws_iam_role.iam_for_privacy_statement_lambda.arn
   package_type  = "Image"
   //depends

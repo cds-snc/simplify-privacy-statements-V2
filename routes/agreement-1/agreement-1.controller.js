@@ -1,14 +1,14 @@
 const { routeUtils } = require('./../../utils')
-// const nodePandoc = require('node-pandoc')
+const nodePandoc = require('node-pandoc')
 const i18n = require('i18n')
 
-// var callback = (err, result) => {
-//   if (err) {
-//     console.error(err)
-//   } else {
-//     console.log('done conversion')
-//   }
-// }
+var callback = (err, result) => {
+  if (err) {
+    console.error(err)
+  } else {
+    console.log('done conversion')
+  }
+}
 
 function getRandomString() {
   return Math.random()
@@ -17,7 +17,7 @@ function getRandomString() {
     .slice(0, 8)
 }
 
-// const startHtml = `<div style="display: none">start of agreement</div>`
+const startHtml = `<div style="display: none">start of agreement</div>`
 
 // make first letter lowercase and delete trailing periods
 const lowerCaseFirstLetter = s =>
@@ -63,14 +63,14 @@ module.exports = (app, route) => {
         if (err) {
           console.log(err)
         }
-        // const startIndex = html.indexOf(startHtml) + startHtml.length
-        // const endIndex = html.indexOf('</main>')
-        // const htmlDoc = html.slice(startIndex, endIndex)
-        // nodePandoc(
-        //   htmlDoc,
-        //   '-f html -t docx -o public/documents/' + docxFilename,
-        //   callback,
-        // )
+        const startIndex = html.indexOf(startHtml) + startHtml.length
+        const endIndex = html.indexOf('</main>')
+        const htmlDoc = html.slice(startIndex, endIndex)
+        nodePandoc(
+          htmlDoc,
+          '-f html -t docx -o public/documents/' + docxFilename,
+          callback,
+        )
         res.send(html)
       },
     )
