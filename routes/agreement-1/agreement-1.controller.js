@@ -32,9 +32,18 @@ const changeToPhrase = key =>
 module.exports = (app, route) => {
   const name = 'agreement-1'
 
-  route
-    .draw(app)
-    .get((req, res) => {
+  app.get('/download/:fileName', function(req, res) {
+    const fileName = req.params.fileName
+    if (/^agreement-[0-9]{8}.docx$/.test(fileName)) {
+      res.download(`/tmp/${fileName}`)
+    } else {
+      throw new Error(
+        `Filename download does not match allowed pattern: ${fileName}`,
+      )
+    }
+  })
+
+  route.draw(app).get((req, res) => {
     var randomString = getRandomString()
     var docxFilename = 'agreement-' + randomString + '.docx'
 
@@ -66,11 +75,7 @@ module.exports = (app, route) => {
         const startIndex = html.indexOf(startHtml) + startHtml.length
         const endIndex = html.indexOf('</main>')
         const htmlDoc = html.slice(startIndex, endIndex)
-        nodePandoc(
-          htmlDoc,
-          '-f html -t docx -o /tmp/' + docxFilename,
-          callback,
-        )
+        nodePandoc(htmlDoc, '-f html -t docx -o /tmp/' + docxFilename, callback)
         res.send(html)
       },
     )
