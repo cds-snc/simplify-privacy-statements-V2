@@ -1,6 +1,8 @@
 const { routeUtils } = require('./../../utils')
 const nodePandoc = require('node-pandoc')
 const i18n = require('i18n')
+const path = require('path')
+const fs = require('fs');
 
 var callback = (err, result) => {
   if (err) {
@@ -31,12 +33,44 @@ const changeToPhrase = key =>
 
 module.exports = (app, route) => {
   const name = 'agreement-1'
+  var randomString = getRandomString()
+  var docxFilename = 'agreement-' + randomString + '.docx'
 
-  route
-    .draw(app)
-    .get((req, res) => {
-    var randomString = getRandomString()
-    var docxFilename = 'agreement-' + randomString + '.docx'
+  const src = '<h1>Hello</h1><p>It&rsquo;s a test</p>'
+  app.get('/download/:fileName', function(req, res) {
+    nodePandoc(src, '-f html -t docx -o /tmp/' + docxFilename, callback)
+    const fileName = req.params.fileName
+    if (/^agreement-[0-9]{8}.docx$/.test(fileName)) {
+      res.download(`/tmp/${fileName}`)
+    } else {
+      throw new Error(
+        `Filename download does not match allowed pattern: ${fileName}`,
+      )
+    }
+  })
+
+//   let data = "This is a file containing a collection of books.";
+//   fs.writeFile("/tmp/books.txt", data, (err) => {
+//       if (err)
+//         console.log(err);
+//       else {
+//         console.log("File written successfully\n");
+//         console.log("The written has the following contents:");
+//         // console.log(fs.readFileSync("/tmp/books.txt", "utf8"));
+//       }
+//     });
+
+//   fs.readdir('/tmp', (err, files) => {
+//     if (err) {
+//         console.error(err)
+//         return;
+//     }
+//     console.log('files in tmp directory', files);
+// })
+
+  route.draw(app).get((req, res) => {
+    // var randomString = getRandomString()
+    // var docxFilename = 'agreement-' + randomString + '.docx'
 
     const data = routeUtils.getViewData(req, {}).data
     var queryParams = {}
@@ -66,11 +100,7 @@ module.exports = (app, route) => {
         const startIndex = html.indexOf(startHtml) + startHtml.length
         const endIndex = html.indexOf('</main>')
         const htmlDoc = html.slice(startIndex, endIndex)
-        nodePandoc(
-          htmlDoc,
-          '-f html -t docx -o public/documents/' + docxFilename,
-          callback,
-        )
+        // nodePandoc(htmlDoc, '-f html -t docx -o /tmp/' + docxFilename, callback)
         res.send(html)
       },
     )

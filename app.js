@@ -14,6 +14,7 @@ const { addNunjucksFilters } = require('./filters')
 const csp = require('./config/csp.config')
 const csrf = require('csurf')
 const sls = require('serverless-http')
+let fs = require("fs");
 
 // check to see if we have a custom configRoutes function
 let { configRoutes, routes, locales } = require('./config/routes.config')
@@ -90,19 +91,3 @@ nunjucks.installJinjaCompat()
 app.set('view engine', 'njk')
 
 module.exports.server = sls(app)
-
-// const express = require('express')
-// const sls = require('serverless-http')
-// const nunjucks = require('nunjucks')
-// const app = express()
-// nunjucks.configure('views', {
-//     autoescape: true,
-//     express: app
-// })
-// app.set('view engine', 'njk')
-// app.get('/', async (req, res, next) => {
-//   // res.status(200).send('Hello World!')
-//   res.render("index")
-// })
-
-// module.exports.server = sls(app)

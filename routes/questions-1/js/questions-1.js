@@ -35,7 +35,7 @@ for (var i = 0; i < toggles.length; i++) {
   el.addEventListener('click', toggleArea)
 }
 
-// toggles.forEach(function toggle(el) {
-//   toggleArea({ target: el })
-//   el.addEventListener('click', toggleArea)
-// })
+toggles.forEach(function toggle(el) {
+  toggleArea({ target: el })
+  el.addEventListener('click', toggleArea)
+})

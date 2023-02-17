@@ -16,13 +16,19 @@ WORKDIR ${FUNCTION_DIR}
 RUN wget https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-linux-amd64.tar.gz \
     && tar -xvzf pandoc-$PANDOC_VERSION-linux-amd64.tar.gz --strip-components 1 -C /usr/local \
     && rm -rf pandoc-$PANDOC_VERSION-linux-amd64.tar.gz
+RUN npm install aws-lambda-ric 
 RUN npm install
+RUN npm start
 
 FROM node:12-buster-slim
 ARG FUNCTION_DIR
 WORKDIR ${FUNCTION_DIR}
-ADD https://github.com/aws/aws-lambda-runtime-interface-emulator/releases/latest/download/aws-lambda-rie /usr/bin/aws-lambda-rie
+# ADD https://github.com/aws/aws-lambda-runtime-interface-emulator/releases/latest/download/aws-lambda-rie /usr/local/bin/aws-lambda-rie
 COPY --from=build-image ${FUNCTION_DIR} ${FUNCTION_DIR}
+COPY --from=build-image /usr/local /usr/local
 
 ENTRYPOINT ["/usr/local/bin/npx", "aws-lambda-ric"]
+
 CMD ["app.server"]
+# EXPOSE 3000
+# CMD ["node", "app.js"]

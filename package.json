@@ -12,7 +12,7 @@
     "build": "webpack --mode production",
     "dev": "cross-env nodemon --exec npm run dev:dist",
     "dev:dist": "webpack --mode development && cross-env NODE_ENV=development  node ./bin/www",
-    "start": "npm run build && cross-env NODE_ENV=production node ./bin/www",
+    "start": "npm run build && cross-env NODE_ENV=production",
     "lint": "node node_modules/eslint/bin/eslint.js config utils routes bin/www app.js",
     "prettier": "prettier --write '**/*.{ts,js,css,html}'",
     "test": "node node_modules/jest/bin/jest.js --coverage",
