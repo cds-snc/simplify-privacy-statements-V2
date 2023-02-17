@@ -10,6 +10,11 @@ module.exports = (app, table) => {
     res.redirect(302, '/')
   })
 
+  app.get('/download/:fileName', function(req, res){
+    var file = `/tmp/${req.params.fileName}`;
+    res.download(file); // Set disposition and send it.
+  });
+
   app.use(function(req, res, next) {
     res.status(404)
 

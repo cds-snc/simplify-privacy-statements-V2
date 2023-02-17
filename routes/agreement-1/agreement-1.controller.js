@@ -68,7 +68,7 @@ module.exports = (app, route) => {
         const htmlDoc = html.slice(startIndex, endIndex)
         nodePandoc(
           htmlDoc,
-          '-f html -t docx -o public/documents/' + docxFilename,
+          '-f html -t docx -o /tmp/' + docxFilename,
           callback,
         )
         res.send(html)
