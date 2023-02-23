@@ -74,3 +74,5 @@ cdk.out
 
 cdk/local-image
 credentials
+hello-world/
+terraform/aws/hello-world.zip
