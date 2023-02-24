@@ -62,6 +62,15 @@ resource "aws_lambda_function" "privacy_statement_lambda_function" {
   image_uri     = "${aws_ecr_repository.privacy-statement-lambda-container.repository_url}:v1"
   role          = aws_iam_role.lambda_efs.arn
   package_type  = "Image"
+  timeout       = 30 # Give pandoc time to generate the file
+
+  # Let serverless-http know that it should base64 the docx file before streaming the response
+  # https://github.com/dougmoscrop/serverless-http/blob/master/docs/ADVANCED.md#binary-mode
+  environment {
+    variables = {
+      BINARY_CONTENT_TYPES = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    }
+  }
 
   file_system_config {
     arn = aws_efs_access_point.efs_access_point.arn
