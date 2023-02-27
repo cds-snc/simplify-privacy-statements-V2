@@ -25,6 +25,7 @@
       "pre-push": "npm run lint && npm test"
     }
   },
+  
   "dependencies": {
     "@cdssnc/webpack-starter": "^2.0.2",
     "@csstools/postcss-sass": "^4.0.0",
