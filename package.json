@@ -20,6 +20,11 @@
     "postinstall": "patch-package",
     "translate": "node utils/i18n-helper.js"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm test"
+    }
+  },
   "dependencies": {
     "@cdssnc/webpack-starter": "^2.0.2",
     "@csstools/postcss-sass": "^4.0.0",
