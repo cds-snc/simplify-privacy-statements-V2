@@ -43,6 +43,6 @@ jobs:
         with:
           comment-delete: true
           comment-title: "Production"
-          directory: ./terragrunt/env/production/
+          directory: terragrunt/env/production/
           github-token: ${{ secrets.GITHUB_TOKEN }}
           terragrunt: true            
