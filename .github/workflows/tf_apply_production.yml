@@ -24,21 +24,21 @@ permissions:
   
 job:
   terragrunt-apply:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout
-      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
 
-    - name: setup terraform tools
-      uses: cds-snc/terraform-tools-setup@v1
+      - name: setup terraform tools
+        uses: cds-snc/terraform-tools-setup@v1
 
-    - name: configure aws credentials using OIDC
-      uses: aws-actions/configure-aws-credentials@67fbcbb121271f7775d2e7715933280b06314838 # tag=v1.7.0
-      with:
-        role-to-assume: arn:aws:iam::414662622316:role/simplify-privacy-statements-V2-apply
-        role-session-name: Terraform Apply
-        aws-region: ${{ env.AWS_REGION }}
+      - name: configure aws credentials using OIDC
+        uses: aws-actions/configure-aws-credentials@67fbcbb121271f7775d2e7715933280b06314838 # tag=v1.7.0
+        with:
+          role-to-assume: arn:aws:iam::414662622316:role/simplify-privacy-statements-V2-apply
+          role-session-name: Terraform Apply
+          aws-region: ${{ env.AWS_REGION }}
 
-    - name: Terraform Apply
-      working-directory: terragrunt/env/production/
-      run: terragrunt apply --terragrunt-non-interactive -auto-approve           
+      - name: Terraform Apply
+        working-directory: terragrunt/env/production/
+        run: terragrunt apply --terragrunt-non-interactive -auto-approve           

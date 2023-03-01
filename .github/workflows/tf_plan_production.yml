@@ -23,26 +23,26 @@ permissions:
   
 job:
   terragrunt-plan:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout
-      uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
 
-    - name: setup terraform tools
-      uses: cds-snc/terraform-tools-setup@v1
+      - name: setup terraform tools
+        uses: cds-snc/terraform-tools-setup@v1
 
-    - name: configure aws credentials using OIDC
-      uses: aws-actions/configure-aws-credentials@67fbcbb121271f7775d2e7715933280b06314838 # tag=v1.7.0
-      with:
-        role-to-assume: arn:aws:iam::414662622316:role/simplify-privacy-statements-V2-plan
-        role-session-name: Terraform Plan
-        aws-region: ${{ env.AWS_REGION }}
+      - name: configure aws credentials using OIDC
+        uses: aws-actions/configure-aws-credentials@67fbcbb121271f7775d2e7715933280b06314838 # tag=v1.7.0
+        with:
+          role-to-assume: arn:aws:iam::414662622316:role/simplify-privacy-statements-V2-plan
+          role-session-name: Terraform Plan
+          aws-region: ${{ env.AWS_REGION }}
 
-    - name: Terraform plan
-      uses: cds-snc/terraform-plan@5dabd36aabffca551363241c9a4032f81eb6cab1 # tag=v2.2.0
-      with:
-        comment-delete: true
-        comment-title: "Production"
-        directory: ./terragrunt/env/production/
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        terragrunt: true            
+      - name: Terraform plan
+        uses: cds-snc/terraform-plan@5dabd36aabffca551363241c9a4032f81eb6cab1 # tag=v2.2.0
+        with:
+          comment-delete: true
+          comment-title: "Production"
+          directory: ./terragrunt/env/production/
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          terragrunt: true            
