@@ -36,7 +36,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@67fbcbb121271f7775d2e7715933280b06314838 # tag=v1.7.0
         with:
           role-to-assume: arn:aws:iam::414662622316:role/simplify-privacy-statements-V2-apply
-          role-session-name: Terraform Apply
+          role-session-name: TFApply
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Terraform Apply
