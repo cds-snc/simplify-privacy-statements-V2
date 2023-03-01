@@ -21,7 +21,7 @@ permissions:
   checks: write
   statuses: write
   
-job:
+jobs:
   terragrunt-plan:
     runs-on: ubuntu-latest
     steps:

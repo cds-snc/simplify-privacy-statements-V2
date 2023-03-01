@@ -22,7 +22,7 @@ permissions:
   checks: write
   statuses: write
   
-job:
+jobs:
   terragrunt-apply:
     runs-on: ubuntu-latest
     steps:
