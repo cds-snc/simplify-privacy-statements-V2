@@ -46,7 +46,7 @@ jobs:
         uses: cds-snc/terraform-plan@5dabd36aabffca551363241c9a4032f81eb6cab1 # tag=v2.2.0
         with:
           comment-delete: true
-          comment-title: "Production"
+          comment-title: "Production: ${{ matrix.module }}"
           directory: terragrunt/env/production/${{ matrix.module }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           terragrunt: true            
