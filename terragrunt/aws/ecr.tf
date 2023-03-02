@@ -5,3 +5,37 @@ resource "aws_ecr_repository" "privacy_statement_container" {
     scan_on_push = true
   }
 }
+
+resource "aws_ecr_lifecycle_policy" "privacy_statement_untagged" {
+  repository = aws_ecr_repository.privacy_statement_container.name
+  policy = jsonencode({
+    "rules" : [
+      {
+        "rulePriority" : 1,
+        "description" : "Expire untagged images older than 14 days",
+        "selection" : {
+          "tagStatus" : "untagged",
+          "countType" : "sinceImagePushed",
+          "countUnit" : "days",
+          "countNumber" : 14
+        },
+        "action" : {
+          "type" : "expire"
+        }
+      },
+      {
+        "rulePriority" : 2,
+        "description" : "Keep last 20 tagged images",
+        "selection" : {
+          "tagStatus" : "tagged",
+          "tagPrefixList" : ["latest"],
+          "countType" : "imageCountMoreThan",
+          "countNumber" : 20
+        },
+        "action" : {
+          "type" : "expire"
+        }
+      }
+    ]
+  })
+}
