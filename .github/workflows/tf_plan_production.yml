@@ -23,6 +23,10 @@ permissions:
   
 jobs:
   terragrunt-plan:
+    strategy:
+      matrix:
+        include:
+          - module: ecr
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -43,6 +47,6 @@ jobs:
         with:
           comment-delete: true
           comment-title: "Production"
-          directory: terragrunt/env/production/
+          directory: terragrunt/env/production/${{ matrix.module }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           terragrunt: true            
