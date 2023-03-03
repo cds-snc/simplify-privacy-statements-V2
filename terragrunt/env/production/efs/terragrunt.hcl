@@ -1,5 +1,5 @@
 terrafrom {
-    source = "../../../aws//efs
+    source = "../../../aws//efs"
 }
 
 dependencies {

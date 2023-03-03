@@ -1,3 +1,3 @@
 terrafrom {
-    source = "../../../aws//vpc
+    source = "../../../aws//vpc"
 }
