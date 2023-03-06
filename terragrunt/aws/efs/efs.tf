@@ -36,8 +36,8 @@ data "aws_iam_policy_document" "efs_policy" {
     effect = "Allow"
 
     principals {
-      type        = "AWS"
-      identifiers = ["*"]
+      type        = "Service"
+      identifiers = ["lambda.amazonaws.com"]
     }
 
     actions = [
@@ -57,7 +57,6 @@ data "aws_iam_policy_document" "efs_policy" {
 }
 
 resource "aws_efs_file_system_policy" "policy" {
-  file_system_id                     = aws_efs_file_system.generated_statement_efs.id
-  bypass_policy_lockout_safety_check = true
-  policy                             = data.aws_iam_policy_document.efs_policy.json
+  file_system_id = aws_efs_file_system.generated_statement_efs.id
+  policy         = data.aws_iam_policy_document.efs_policy.json
 }
