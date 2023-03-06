@@ -1,3 +1,3 @@
-terrafrom {
+terraform {
     source = "../../../aws//vpc"
 }
