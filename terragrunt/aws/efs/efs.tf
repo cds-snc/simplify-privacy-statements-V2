@@ -7,8 +7,8 @@ resource "aws_efs_file_system" "generated_statement_efs" {
 
 resource "aws_efs_mount_target" "efs_mount" {
   file_system_id  = aws_efs_file_system.generated_statement_efs.id
-  subnet_id       = var.vpc_public_subnets_ids
-  security_groups = var.aws_security_group_ids
+  subnet_id       = var.public_subnets_ids
+  security_groups = ["${var.aws_security_group_ids}"]
 }
 
 resource "aws_efs_access_point" "efs_access_point" {
@@ -59,5 +59,5 @@ data "aws_iam_policy_document" "efs_policy" {
 resource "aws_efs_file_system_policy" "policy" {
   file_system_id                     = aws_efs_file_system.generated_statement_efs.id
   bypass_policy_lockout_safety_check = true
-  policy                             = data.aws_iam_policy_document.efs_policy
+  policy                             = data.aws_iam_policy_document.efs_policy.json
 }

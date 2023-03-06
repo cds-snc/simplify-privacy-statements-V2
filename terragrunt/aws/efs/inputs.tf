@@ -3,7 +3,7 @@ variable "aws_security_group_ids" {
   type        = string
 }
 
-variable "vpc_public_subnets_ids" {
-  description = "vpc_public_subnets_ids"
+variable "public_subnets_ids" {
+  description = "public_subnets_ids"
   type        = string
 }
