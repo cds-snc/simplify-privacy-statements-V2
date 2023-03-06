@@ -43,10 +43,10 @@ jobs:
         working-directory: terragrunt/env/production/ecr
         run: terragrunt apply --terragrunt-non-interactive -auto-approve
 
-      - name: Terraform Apply VPC
-        working-directory: terragrunt/env/production/efs
-        run: terragrunt apply --terragrunt-non-interactive -auto-approve  
-
       - name: Terraform Apply EFS
+        working-directory: terragrunt/env/production/efs
+        run: terragrunt apply --terragrunt-non-interactive -auto-approve
+
+      - name: Terraform Apply VPC
         working-directory: terragrunt/env/production/efs
         run: terragrunt apply --terragrunt-non-interactive -auto-approve
