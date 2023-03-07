@@ -1,6 +1,6 @@
 variable "aws_ecr_repository" {
-    description = "aws_ecr_repository"
-    type = string
+  description = "aws_ecr_repository"
+  type        = string
 }
 variable "aws_security_group_ids" {
   description = "AWS security group ID used by the EFS mount target."
@@ -13,6 +13,6 @@ variable "public_subnets_ids" {
 }
 
 variable "aws_efs_access_point" {
-    description = "aws_efs_access_point"
-    type = "string"
+  description = "aws_efs_access_point"
+  type        = string
 }
