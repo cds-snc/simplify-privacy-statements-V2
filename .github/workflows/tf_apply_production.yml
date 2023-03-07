@@ -11,7 +11,7 @@ on:
 env:
   AWS_REGION: ca-central-1
   TERRAFORM_VERSION: 1.3.9
-  TERRAGRUNT_VERSION: 0.38.4
+  TERRAGRUNT_VERSION: 0.44.4
   CONFTEST_VERSION: 0.27.0
 
 permissions:
@@ -41,4 +41,12 @@ jobs:
 
       - name: Terraform Apply ECR
         working-directory: terragrunt/env/production/ecr
-        run: terragrunt apply --terragrunt-non-interactive -auto-approve           
+        run: terragrunt apply --terragrunt-non-interactive -auto-approve
+
+      - name: Terraform Apply VPC
+        working-directory: terragrunt/env/production/vpc
+        run: terragrunt apply --terragrunt-non-interactive -auto-approve
+
+      - name: Terraform Apply EFS
+        working-directory: terragrunt/env/production/efs
+        run: terragrunt apply --terragrunt-non-interactive -auto-approve

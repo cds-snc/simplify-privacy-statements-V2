@@ -1,5 +1,5 @@
 terraform {
-    source = "../../../aws//ecr"
+    source = "../../../aws//vpc"
 }
 
 include {
