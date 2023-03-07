@@ -27,6 +27,8 @@ jobs:
       matrix:
         include:
           - module: ecr
+          - module: efs
+          - module: vpc
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
