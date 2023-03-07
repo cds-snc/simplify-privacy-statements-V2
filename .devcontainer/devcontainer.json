@@ -5,7 +5,11 @@
 	"image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:12",
 	"remoteUser": "node",
 	"features": {
-		"terraform": "latest",
+		"terraform": {
+			"version": "1.3.9",
+			"tflint": "latest",
+			"terragrunt": "0.44.4"
+		},
 		"github-cli": "latest",
 		"aws-cli": "latest"
 	},
