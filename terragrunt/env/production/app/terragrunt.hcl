@@ -1,5 +1,5 @@
 terraform {
-  source = "../../../aws//lambda"
+  source = "../../../aws//app"
 }
 
 dependencies {
