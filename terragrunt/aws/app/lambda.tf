@@ -26,11 +26,4 @@ module "generated_statement_lambda" {
 resource "aws_lambda_function_url" "generated_statement_url" {
   function_name      = module.generated_statement_lambda.function_name
   authorization_type = "NONE"
-
-  cors {
-    allow_credentials = true
-    allow_origins     = ["*"]
-    allow_methods     = ["*"]
-    max_age           = 86400
-  }
 }
