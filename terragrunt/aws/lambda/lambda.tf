@@ -2,14 +2,14 @@ module "generated_statement_lambda" {
   source                 = "github.com/cds-snc/terraform-modules?ref=v5.1.1//lambda"
   name                   = "generated_statement_lambda_function"
   billing_tag_value      = var.billing_code
-  ecr_arn                = var.aws_ecr_repository
+  ecr_arn                = var.aws_ecr_repository_arn
   enable_lambda_insights = true
-  image_uri              = "${var.aws_ecr_repository}:latest"
+  image_uri              = "${var.aws_ecr_repository_url}:latest"
   timeout                = 30
 
   vpc = {
-    security_group_id = [var.aws_security_group_ids]
-    subnet_ids        = var.public_subnets_ids
+    security_group_ids = [var.aws_security_group_ids]
+    subnet_ids         = [var.public_subnets_ids]
   }
 
   environment_variables = {

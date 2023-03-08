@@ -1,5 +1,9 @@
-variable "aws_ecr_repository" {
-  description = "aws_ecr_repository"
+variable "aws_ecr_repository_arn" {
+  description = "Full ARN of the repository containing the image"
+  type        = string
+}
+variable "aws_ecr_repository_url" {
+  description = "The URL of the repository"
   type        = string
 }
 variable "aws_security_group_ids" {
@@ -13,6 +17,6 @@ variable "public_subnets_ids" {
 }
 
 variable "aws_efs_access_point" {
-  description = "aws_efs_access_point"
+  description = "Provides and EFS Access Point"
   type        = string
 }
