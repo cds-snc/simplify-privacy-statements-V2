@@ -29,4 +29,4 @@ COPY --from=build-image /usr/local /usr/local
 
 ENTRYPOINT ["/usr/local/bin/npx", "aws-lambda-ric"]
 
-CMD ["app.server"]
+CMD ["index.server"]
