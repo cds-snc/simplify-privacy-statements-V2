@@ -5,7 +5,6 @@ on:
     branches: [ main ]
 
 env:
-  GITHUB_SHA: ${{ github.sha }}
   IMAGE_NAME: 414662622316.dkr.ecr.ca-central-1.amazonaws.com/privacy-statement-container:latest
 
 permissions:
