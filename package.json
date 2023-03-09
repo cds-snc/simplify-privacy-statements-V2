@@ -15,7 +15,7 @@
     "start": "npm run build && cross-env NODE_ENV=production",
     "lint": "node node_modules/eslint/bin/eslint.js config utils routes bin/www app.js",
     "prettier": "prettier --write '**/*.{ts,js,css,html}'",
-    "test": "node node_modules/jest/bin/jest.js --coverage",
+    "test": "jest --env node",
     "test:watch": "node node_modules/jest/bin/jest.js --watch",
     "postinstall": "patch-package",
     "translate": "node utils/i18n-helper.js"

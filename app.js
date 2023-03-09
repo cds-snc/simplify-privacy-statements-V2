@@ -89,4 +89,4 @@ nunjucks.installJinjaCompat()
 
 app.set('view engine', 'njk')
 
-module.exports.server = sls(app)
+module.exports = app
