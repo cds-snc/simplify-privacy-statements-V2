@@ -74,8 +74,9 @@ module.exports = (app, route) => {
           if(err){
             console.error(`Error from pandoc: ${err}`);
           }
-          res.send(html)
-        })        
+          
+        })
+        res.send(html)        
       },
     )
   })
