@@ -2,14 +2,6 @@ const { routeUtils } = require('./../../utils')
 const nodePandoc = require('node-pandoc')
 const i18n = require('i18n')
 
-var callback = (err, result) => {
-  if (err) {
-    console.error(err)
-  } else {
-    console.log('done conversion')
-  }
-}
-
 function getRandomString() {
   return Math.random()
     .toString()
@@ -32,9 +24,18 @@ const changeToPhrase = key =>
 module.exports = (app, route) => {
   const name = 'agreement-1'
 
-  route
-    .draw(app)
-    .get((req, res) => {
+  app.get('/access/:fileName', function(req, res) {
+    const fileName = req.params.fileName
+    if (/^agreement-[0-9]{8}.docx$/.test(fileName)) {
+      res.download(`/mnt/access/${fileName}`)
+    } else {
+      throw new Error(
+        `Filename download does not match allowed pattern: ${fileName}`,
+      )
+    }
+  })
+
+  route.draw(app).get((req, res) => {
     var randomString = getRandomString()
     var docxFilename = 'agreement-' + randomString + '.docx'
 
@@ -59,19 +60,23 @@ module.exports = (app, route) => {
         data,
         docxFilename: docxFilename,
       },
-      function(err, html) {
+      function (err, html) {
         if (err) {
           console.log(err)
         }
         const startIndex = html.indexOf(startHtml) + startHtml.length
         const endIndex = html.indexOf('</main>')
         const htmlDoc = html.slice(startIndex, endIndex)
-        nodePandoc(
-          htmlDoc,
-          '-f html -t docx -o public/documents/' + docxFilename,
-          callback,
-        )
-        res.send(html)
+
+        // Send the HTML response in the nodePandoc callback to give pandoc time to generate the docx file
+        // as the Lambda function will be terminated once it sends the response.
+        nodePandoc(htmlDoc, '-f html -t docx -o /mnt/access/' + docxFilename, (err) => {
+          if(err){
+            console.error(`Error from pandoc: ${err}`);
+          }
+          res.send(html)
+        })
+                
       },
     )
   })

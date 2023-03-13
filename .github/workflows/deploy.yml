@@ -1,9 +1,8 @@
 name: Deploy
 
 on:
-  push:
-    branches:
-      - 'main'
+  workflow_dispatch:
+    branches: [ main ]
 
 env:
   NODE_VERSION: 12

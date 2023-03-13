@@ -1,0 +1,47 @@
+name: Build and Push Container to ECR
+
+on:
+  push:
+    branches: [ main ]
+
+env:
+  IMAGE_NAME: 414662622316.dkr.ecr.ca-central-1.amazonaws.com/privacy-statement-container:latest
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: write
+  actions: write
+  checks: write
+  statuses: write
+
+jobs:
+  build-push-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+
+      - name: Configure AWS credentials using OIDC
+        uses: aws-actions/configure-aws-credentials@67fbcbb121271f7775d2e7715933280b06314838 # tag=v1.7.0
+        with:
+          role-to-assume: arn:aws:iam::806545929748:role/OIDCGithubWorkflowRole
+          role-session-name: ECRPush
+          aws-region: ca-central-1
+
+      - name: Build Container
+        run: |
+          docker build -t $IMAGE_NAME .
+
+      - name: Login to ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@9149ade017c57f86dea2f76a01f8b2d5bd06b10f # tag=v1.5.1
+
+      - name: Push containers to ECR
+        run: |
+          docker push $IMAGE_NAME
+
+      - name: Logout of Amazon ECR
+        run: docker logout ${{ steps.login-ecr.outputs.registry }}      
+
+
