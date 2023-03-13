@@ -29,6 +29,8 @@ jobs:
           - module: ecr
           - module: efs
           - module: vpc
+          - module: app
+          
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
