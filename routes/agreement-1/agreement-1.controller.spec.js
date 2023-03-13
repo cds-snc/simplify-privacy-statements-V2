@@ -8,7 +8,6 @@ test('Can send get request agreement-1 route ', async () => {
   
   jest.fn().mockImplementation(() => {
     const response = request(app).get(route.path.en)
-    console.log('my response', response)
     expect(response.statusCode).toBe(200)
   })
 })
