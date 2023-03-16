@@ -16,7 +16,7 @@ dependency "vpc" {
 }
 
 inputs = {
-  aws_security_group_ids = dependency.vpc.outputs.aws_security_group_ids
+  aws_security_group_ids = [dependency.vpc.outputs.aws_security_group_ids]
   public_subnets_ids = dependency.vpc.outputs.public_subnets_ids
 }
 include {

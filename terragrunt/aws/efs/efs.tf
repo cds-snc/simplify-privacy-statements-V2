@@ -8,7 +8,7 @@ resource "aws_efs_file_system" "generated_statement_efs" {
 resource "aws_efs_mount_target" "efs_mount" {
   file_system_id  = aws_efs_file_system.generated_statement_efs.id
   subnet_id       = var.public_subnets_ids
-  security_groups = ["${var.aws_security_group_ids}"]
+  security_groups = var.aws_security_group_ids
 }
 
 resource "aws_efs_access_point" "efs_access_point" {
