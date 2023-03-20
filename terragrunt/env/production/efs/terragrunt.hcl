@@ -11,7 +11,7 @@ dependency "vpc" {
   mock_outputs_allowed_terraform_commands = ["init", "fmt", "validate", "plan", "show"]
   mock_outputs = {
     aws_security_group_ids = ""
-    public_subnets_ids = ""
+    public_subnets_ids = []
   }
 }
 
