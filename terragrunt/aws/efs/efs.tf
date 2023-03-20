@@ -1,13 +1,14 @@
 resource "aws_efs_file_system" "generated_statement_efs" {
   creation_token   = "generated-statement-efs"
   performance_mode = "generalPurpose"
-  throughput_mode  = "bursting" # throughput that scales with the amount of storage in your file system https://docs.aws.amazon.com/efs/latest/ug/performance.html#bursting
+  throughput_mode  = "bursting" # Throughput that scales with the amount of storage in your file system https://docs.aws.amazon.com/efs/latest/ug/performance.html#bursting
   encrypted        = true
 }
 
 resource "aws_efs_mount_target" "efs_mount" {
+  count           = length(var.public_subnets_ids)
   file_system_id  = aws_efs_file_system.generated_statement_efs.id
-  subnet_id       = var.public_subnets_ids
+  subnet_id       = tolist(var.public_subnets_ids)[count.index]
   security_groups = var.aws_security_group_ids
 }
 
@@ -29,7 +30,6 @@ resource "aws_efs_access_point" "efs_access_point" {
     }
   }
 }
-
 data "aws_iam_policy_document" "efs_policy" {
   statement {
     sid    = "EFSPolicy"
