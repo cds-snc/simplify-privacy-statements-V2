@@ -9,7 +9,7 @@ module "generated_statement_lambda" {
 
   vpc = {
     security_group_ids = [var.aws_security_group_ids]
-    subnet_ids         = [var.public_subnets_ids]
+    subnet_ids         = var.public_subnets_ids
   }
 
   environment_variables = {
