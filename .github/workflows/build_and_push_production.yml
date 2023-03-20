@@ -25,7 +25,7 @@ jobs:
       - name: Configure AWS credentials using OIDC
         uses: aws-actions/configure-aws-credentials@67fbcbb121271f7775d2e7715933280b06314838 # tag=v1.7.0
         with:
-          role-to-assume: arn:aws:iam::414662622316:role/OIDCGithubWorkflowRole
+          role-to-assume: arn:aws:iam::414662622316:role/simplify-privacy-statements-V2-apply
           role-session-name: ECRPush
           aws-region: ca-central-1
 
