@@ -1,7 +1,7 @@
 resource "aws_efs_file_system" "generated_statement_efs" {
   creation_token   = "generated-statement-efs"
   performance_mode = "generalPurpose"
-  throughput_mode  = "bursting" # throughput that scales with the amount of storage in your file system https://docs.aws.amazon.com/efs/latest/ug/performance.html#bursting
+  throughput_mode  = "bursting" # Throughput that scales with the amount of storage in your file system https://docs.aws.amazon.com/efs/latest/ug/performance.html#bursting
   encrypted        = true
 }
 
