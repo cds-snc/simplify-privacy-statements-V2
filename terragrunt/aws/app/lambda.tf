@@ -22,7 +22,7 @@ module "generated_statement_lambda" {
   }
 
   policies = [
-    data.aws_iam_policy.efs_full_access.json
+    data.aws_iam_policy.efs_full_access
   ]
 
 }
