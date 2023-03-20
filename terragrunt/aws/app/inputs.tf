@@ -13,7 +13,7 @@ variable "aws_security_group_ids" {
 
 variable "public_subnets_ids" {
   description = "AWS Public Subnet ID used by the EFS mount target."
-  type        = string
+  type        = list(string)
 }
 
 variable "aws_efs_access_point" {

@@ -9,7 +9,6 @@ dependencies {
 dependency "ecr" {
   config_path = "../ecr"
   mock_outputs_allowed_terraform_commands = ["init", "fmt", "validate", "plan", "show"]
-  mock_outputs_merge_strategy_with_state  = "shallow"
   mock_outputs = {
     aws_ecr_repository_arn = ""
     aws_ecr_repository_url = ""
