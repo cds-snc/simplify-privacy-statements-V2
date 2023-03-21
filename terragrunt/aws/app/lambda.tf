@@ -22,7 +22,8 @@ module "generated_statement_lambda" {
   }
 
   policies = [
-    data.aws_iam_policy.efs_full_access.policy
+    data.aws_iam_policy.efs_full_access.policy,
+    data.aws_iam_policy.lambda_vpc_access.policy
   ]
 
 }
@@ -34,4 +35,8 @@ resource "aws_lambda_function_url" "generated_statement_url" {
 
 data "aws_iam_policy" "efs_full_access" {
   arn = "arn:aws:iam::aws:policy/AmazonElasticFileSystemFullAccess"
+}
+
+data "aws_iam_policy" "lambda_vpc_access" {
+  arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
 }
