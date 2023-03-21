@@ -46,6 +46,7 @@ data "aws_iam_policy_document" "lambda_efs_access" {
       "elasticfilesystem:ClientWrite",
       "elasticfilesystem:ClientMount",
       "elasticfilesystem:DescribeMountTargets",
+      "elasticfilesystem:ClientRootAccess"
     ]
     resources = [
       var.aws_efs_file_system
