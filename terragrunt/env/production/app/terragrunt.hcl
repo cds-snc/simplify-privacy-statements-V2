@@ -28,6 +28,7 @@ dependency "vpc" {
 dependency "efs" {
   config_path = "../efs"
   mock_outputs_allowed_terraform_commands = ["init", "fmt", "validate", "plan", "show"]
+  mock_outputs_merge_strategy_with_state  = "shallow"
   mock_outputs = {
     aws_efs_access_point = ""
     aws_efs_file_system = ""
