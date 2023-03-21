@@ -4,6 +4,6 @@ output "aws_efs_access_point" {
 }
 
 output "aws_efs_file_system" {
-  description = "EFS File System"
+  description = "Provides an Elastic File System (EFS) File System resource"
   value       = aws_efs_file_system.generated_statement_efs.arn
 }

@@ -22,6 +22,6 @@ variable "aws_efs_access_point" {
 }
 
 variable "aws_efs_file_system" {
-  description = ""
+  description = "Provides an Elastic File System (EFS) File System resource"
   type        = string
 }
