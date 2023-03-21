@@ -28,8 +28,10 @@ dependency "vpc" {
 dependency "efs" {
   config_path = "../efs"
   mock_outputs_allowed_terraform_commands = ["init", "fmt", "validate", "plan", "show"]
+  mock_outputs_merge_strategy_with_state  = "shallow"
   mock_outputs = {
     aws_efs_access_point = ""
+    aws_efs_file_system = ""
   }
 }
 
@@ -39,6 +41,7 @@ inputs = {
   aws_security_group_ids = dependency.vpc.outputs.aws_security_group_ids
   public_subnets_ids = dependency.vpc.outputs.public_subnets_ids
   aws_efs_access_point = dependency.efs.outputs.aws_efs_access_point
+  aws_efs_file_system = dependency.efs.outputs.aws_efs_file_system
 }
 include {
   path = find_in_parent_folders()
