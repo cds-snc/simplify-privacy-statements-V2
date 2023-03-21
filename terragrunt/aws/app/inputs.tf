@@ -20,3 +20,8 @@ variable "aws_efs_access_point" {
   description = "Provides and EFS Access Point"
   type        = string
 }
+
+variable "aws_efs_file_system" {
+  description = ""
+  type = string
+}

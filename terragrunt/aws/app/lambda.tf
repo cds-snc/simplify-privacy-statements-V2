@@ -23,7 +23,8 @@ module "generated_statement_lambda" {
 
   policies = [
     data.aws_iam_policy.efs_full_access.policy,
-    data.aws_iam_policy.lambda_vpc_access.policy
+    data.aws_iam_policy_document.lambda_efs_access.json
+    
   ]
 
 }
@@ -37,6 +38,17 @@ data "aws_iam_policy" "efs_full_access" {
   arn = "arn:aws:iam::aws:policy/AmazonElasticFileSystemFullAccess"
 }
 
-data "aws_iam_policy" "lambda_vpc_access" {
-  arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+data "aws_iam_policy_document" "lambda_efs_access" {
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "elasticfilesystem:ClientWrite",
+      "elasticfilesystem:ClientMount",
+      "elasticfilesystem:DescribeMountTargets",
+    ]
+    resources = [
+      var.aws_efs_file_system
+    ]
+  }
 }
