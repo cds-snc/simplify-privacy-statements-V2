@@ -23,5 +23,5 @@ variable "aws_efs_access_point" {
 
 variable "aws_efs_file_system" {
   description = ""
-  type = string
+  type        = string
 }

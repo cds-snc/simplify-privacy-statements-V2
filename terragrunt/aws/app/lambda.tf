@@ -24,7 +24,7 @@ module "generated_statement_lambda" {
   policies = [
     data.aws_iam_policy.efs_full_access.policy,
     data.aws_iam_policy_document.lambda_efs_access.json
-    
+
   ]
 
 }
