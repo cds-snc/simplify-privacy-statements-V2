@@ -22,9 +22,7 @@ module "generated_statement_lambda" {
   }
 
   policies = [
-    data.aws_iam_policy.efs_full_access.policy,
     data.aws_iam_policy_document.lambda_efs_access.json
-
   ]
 
 }
@@ -32,10 +30,6 @@ module "generated_statement_lambda" {
 resource "aws_lambda_function_url" "generated_statement_url" {
   function_name      = module.generated_statement_lambda.function_name
   authorization_type = "NONE"
-}
-
-data "aws_iam_policy" "efs_full_access" {
-  arn = "arn:aws:iam::aws:policy/AmazonElasticFileSystemFullAccess"
 }
 
 data "aws_iam_policy_document" "lambda_efs_access" {
