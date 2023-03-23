@@ -17,24 +17,41 @@ module "vpc" {
 
 resource "aws_security_group" "efs_access_sg" {
   name        = "efs_access_sg"
-  description = "SG for Lambda"
+  description = "SG for EFS"
+  vpc_id      = module.vpc.vpc_id
+}
+
+resource "aws_security_group" "lambda_access_sg" {
+  name        = "lambda_sg"
+  description = "Security group for Lambda"
   vpc_id      = module.vpc.vpc_id
 }
 
 resource "aws_security_group_rule" "efs_ingress" {
-  description       = "Enables inbound traffic to the Network File System"
-  type              = "ingress"
-  security_group_id = aws_security_group.efs_access_sg.id
-  from_port         = 2049
-  to_port           = 2049
-  protocol          = "tcp"
-  cidr_blocks       = ["0.0.0.0/0"]
+  description              = "Enables inbound traffic to the Network File System"
+  type                     = "ingress"
+  security_group_id        = aws_security_group.efs_access_sg.id
+  from_port                = 2049
+  to_port                  = 2049
+  protocol                 = "tcp"
+  source_security_group_id = aws_security_group.lambda_access_sg.id
 }
 
-resource "aws_security_group_rule" "efs_egress" {
+
+resource "aws_security_group_rule" "lambda_ingress" {
+  description       = "Ingress from the lambda security group"
+  type              = "ingress"
+  security_group_id = aws_security_group.lambda_access_sg.id
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+
+}
+resource "aws_security_group_rule" "lambda_egress" {
   description       = "Allows outbound connections to the internet"
   type              = "egress"
-  security_group_id = aws_security_group.efs_access_sg.id
+  security_group_id = aws_security_group.lambda_access_sg.id
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
