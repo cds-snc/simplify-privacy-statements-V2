@@ -30,3 +30,13 @@ resource "aws_security_group_rule" "efs_ingress" {
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
 }
+
+resource "aws_security_group_rule" "efs_egress" {
+  description       = "Allows outbound connections to the internet"
+  type              = "egress"
+  security_group_id = aws_security_group.efs_access_sg.id
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+}
