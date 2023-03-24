@@ -8,7 +8,7 @@ variable "public_subnets_ids" {
   type        = list(string)
 }
 
-variable "private_subnets_ids" {
+variable "private_subnet_ids" {
   description = "AWS Private Subnet ID used by the EFS mount target."
   type        = list(string)
 }
