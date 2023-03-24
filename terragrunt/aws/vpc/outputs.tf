@@ -7,3 +7,8 @@ output "public_subnets_ids" {
   description = "AWS Public Subnet ID used by the EFS mount target."
   value       = module.vpc.public_subnet_ids
 }
+
+output "private_subnets_ids" {
+  description = "AWS Public Subnet ID used by the EFS mount target."
+  value       = module.vpc.private_subnet_ids
+}

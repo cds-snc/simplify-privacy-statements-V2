@@ -6,9 +6,9 @@ resource "aws_efs_file_system" "generated_statement_efs" {
 }
 
 resource "aws_efs_mount_target" "efs_mount" {
-  count           = length(var.public_subnets_ids)
+  count           = length(var.private_subnets_ids)
   file_system_id  = aws_efs_file_system.generated_statement_efs.id
-  subnet_id       = tolist(var.public_subnets_ids)[count.index]
+  subnet_id       = tolist(var.private_subnets_ids)[count.index]
   security_groups = var.aws_security_group_ids
 }
 
