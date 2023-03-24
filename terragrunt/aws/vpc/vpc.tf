@@ -17,7 +17,7 @@ module "vpc" {
 
 resource "aws_security_group" "efs_access_sg" {
   name        = "efs_access_sg"
-  description = "SG for EFS"
+  description = "Security Group for EFS"
   vpc_id      = module.vpc.vpc_id
 }
 
