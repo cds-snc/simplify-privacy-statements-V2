@@ -22,6 +22,7 @@ dependency "vpc" {
   mock_outputs = {
     aws_security_group_ids = ""
     public_subnets_ids = ""
+    private_subnet_ids = []
   }
 }
 
@@ -40,6 +41,7 @@ inputs = {
   aws_ecr_repository_url = dependency.ecr.outputs.aws_ecr_repository_url
   aws_security_group_ids = dependency.vpc.outputs.aws_security_group_ids
   public_subnets_ids = dependency.vpc.outputs.public_subnets_ids
+  private_subnet_ids = dependency.vpc.outputs.private_subnet_ids
   aws_efs_access_point = dependency.efs.outputs.aws_efs_access_point
   aws_efs_file_system = dependency.efs.outputs.aws_efs_file_system
 }

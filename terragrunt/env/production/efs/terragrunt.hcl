@@ -12,12 +12,14 @@ dependency "vpc" {
   mock_outputs = {
     aws_security_group_ids = ""
     public_subnets_ids = []
+    private_subnet_ids = []
   }
 }
 
 inputs = {
   aws_security_group_ids = [dependency.vpc.outputs.aws_security_group_ids]
   public_subnets_ids = dependency.vpc.outputs.public_subnets_ids
+  private_subnet_ids = dependency.vpc.outputs.private_subnet_ids
 }
 include {
   path = find_in_parent_folders()
