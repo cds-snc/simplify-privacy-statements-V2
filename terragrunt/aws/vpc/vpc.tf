@@ -59,11 +59,11 @@ resource "aws_security_group_rule" "lambda_egress" {
 }
 
 resource "aws_security_group_rule" "lambda_egress_efs" {
-  description       = "Allows outbound connections to the EFS"
-  type              = "egress"
-  security_group_id = aws_security_group.lambda_access_sg.id
-  from_port         = 2049
-  to_port           = 2049
-  protocol          = "tcp"
+  description              = "Allows outbound connections to the EFS"
+  type                     = "egress"
+  security_group_id        = aws_security_group.lambda_access_sg.id
+  from_port                = 2049
+  to_port                  = 2049
+  protocol                 = "tcp"
   source_security_group_id = aws_security_group.efs_access_sg.id
 }
