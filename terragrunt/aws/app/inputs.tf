@@ -6,8 +6,8 @@ variable "aws_ecr_repository_url" {
   description = "The URL of the repository"
   type        = string
 }
-variable "aws_security_group_ids" {
-  description = "AWS security group ID used by the EFS mount target."
+variable "lambda_aws_security_group_ids" {
+  description = "AWS security group ID used by the Lambda function target."
   type        = string
 }
 
@@ -17,12 +17,12 @@ variable "public_subnets_ids" {
 }
 
 variable "private_subnet_ids" {
-  description = "AWS Private Subnet ID used by the EFS mount target."
+  description = "AWS Private Subnet ID used by the Lambda function target."
   type        = list(string)
 }
 
 variable "aws_efs_access_point" {
-  description = "Provides and EFS Access Point"
+  description = "Provides an EFS Access Point"
   type        = string
 }
 

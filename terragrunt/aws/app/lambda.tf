@@ -8,7 +8,7 @@ module "generated_statement_lambda" {
   timeout                = 30
 
   vpc = {
-    security_group_ids = [var.aws_security_group_ids]
+    security_group_ids = [var.lambda_aws_security_group_ids]
     subnet_ids         = var.private_subnet_ids
   }
 
