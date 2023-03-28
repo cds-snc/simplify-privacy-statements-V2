@@ -6,7 +6,7 @@ variable "aws_ecr_repository_url" {
   description = "The URL of the repository"
   type        = string
 }
-variable "aws_security_group_ids" {
+variable "lambda_aws_security_group_ids" {
   description = "AWS security group ID used by the EFS mount target."
   type        = string
 }
