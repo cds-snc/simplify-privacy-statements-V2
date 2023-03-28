@@ -7,7 +7,7 @@ variable "aws_ecr_repository_url" {
   type        = string
 }
 variable "lambda_aws_security_group_ids" {
-  description = "AWS security group ID used by the EFS mount target."
+  description = "AWS security group ID used by the Lambda function target."
   type        = string
 }
 
