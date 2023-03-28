@@ -11,11 +11,6 @@ variable "lambda_aws_security_group_ids" {
   type        = string
 }
 
-variable "public_subnets_ids" {
-  description = "AWS Public Subnet ID used by the EFS mount target."
-  type        = list(string)
-}
-
 variable "private_subnet_ids" {
   description = "AWS Private Subnet ID used by the Lambda function target."
   type        = list(string)
