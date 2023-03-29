@@ -33,6 +33,7 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
     viewer_protocol_policy     = "redirect-to-https"
     response_headers_policy_id = aws_cloudfront_response_headers_policy.simplify_privacy_app_headers_policy.id
   }
+
   restrictions {
     geo_restriction {
       locations        = []
@@ -43,6 +44,12 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
   viewer_certificate {
     cloudfront_default_certificate = true
     minimum_protocol_version       = "TLSv1.2_2021"
+  }
+
+  logging_config {
+    include_cookies = false
+    bucket          = module.log_bucket.s3_bucket_domain_name
+    prefix          = "cloudfront"
   }
   tags = {
     CostCentre = var.billing_code
