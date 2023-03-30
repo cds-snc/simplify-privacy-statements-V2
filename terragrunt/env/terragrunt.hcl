@@ -10,6 +10,7 @@ inputs = {
   env                          = "${local.vars.inputs.env}"
   region                       = "ca-central-1"
   billing_code                 = "${local.vars.inputs.billing_code}"
+  domain                       = "${local.vars.inputs.domain}"
 }
 
 generate "provider" {
