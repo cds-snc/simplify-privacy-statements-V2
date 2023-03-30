@@ -22,3 +22,8 @@ variable "billing_code" {
   description = "The billing code to tag our resources with"
   type        = string
 }
+
+variable "domain" {
+  description = "Domain name of the simplify privacy statements app"
+  type        = string
+}
