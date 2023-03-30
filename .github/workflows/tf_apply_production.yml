@@ -54,3 +54,7 @@ jobs:
       - name: Terraform Apply Lambda
         working-directory: terragrunt/env/production/app
         run: terragrunt apply --terragrunt-non-interactive -auto-approve
+
+      - name: Terraform Apply Hosted Zone
+        working-directory: terragrunt/env/production/hosted_zone
+        run: terragrunt apply --terragrunt-non-interactive -auto-approve  
