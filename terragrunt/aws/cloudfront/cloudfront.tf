@@ -42,8 +42,9 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
-    minimum_protocol_version       = "TLSv1.2_2021"
+    acm_certificate_arn      = aws_acm_certificate_validation.simplify_privacy_statement_certificate_validation.certificate_arn
+    minimum_protocol_version = "TLSv1.2_2021"
+    ssl_support_method       = "sni-only"
   }
 
   logging_config {
