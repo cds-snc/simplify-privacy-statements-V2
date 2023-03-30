@@ -1,5 +1,5 @@
 resource "aws_acm_certificate" "simplify_privacy_statement_certificate" {
-  provider = aws.ca-central-1
+  provider = aws.us-east-1
 
   domain_name               = var.domain
   subject_alternative_names = ["*.${var.domain}"]
@@ -35,7 +35,7 @@ resource "aws_route53_record" "simplify_privacy_statement_dns_validation" {
 }
 
 resource "aws_acm_certificate_validation" "simplify_privacy_statement_certificate_validation" {
-  provider                = aws.ca-central-1
+  provider                = aws.us-east-1
   certificate_arn         = aws_acm_certificate.simplify_privacy_statement_certificate.arn
   validation_record_fqdns = [for record in aws_route53_record.simplify_privacy_statement_dns_validation : record.fqdn]
 }

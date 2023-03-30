@@ -1,5 +1,5 @@
 resource "aws_wafv2_web_acl" "api_waf" {
-  provider = aws.ca-central-1
+  provider = aws.us-east-1
 
   name        = "api_waf"
   description = "WAF for API protection"
@@ -207,7 +207,7 @@ resource "aws_wafv2_web_acl" "api_waf" {
 }
 
 resource "aws_wafv2_regex_pattern_set" "body_exclusions" {
-  provider    = aws.ca-central-1
+  provider    = aws.us-east-1
   name        = "RequestBodyExclusions"
   description = "Regex to match request urls with bodies that will trigger rulesets"
   scope       = "CLOUDFRONT"
@@ -223,7 +223,7 @@ resource "aws_wafv2_regex_pattern_set" "body_exclusions" {
 }
 
 resource "aws_wafv2_regex_pattern_set" "valid_uri_paths" {
-  provider    = aws.ca-central-1
+  provider    = aws.us-east-1
   name        = "ValidURIPaths"
   description = "Regex to match the APIs valid URI paths"
   scope       = "CLOUDFRONT"
@@ -260,7 +260,7 @@ resource "aws_cloudwatch_log_group" "api_waf" {
 }
 
 resource "aws_kinesis_firehose_delivery_stream" "api_waf" {
-  provider = aws.ca-central-1
+  provider = aws.us-east-1
 
   name        = "aws-waf-logs-simplify_privacy"
   destination = "extended_s3"
@@ -289,7 +289,7 @@ resource "aws_kinesis_firehose_delivery_stream" "api_waf" {
 }
 
 resource "aws_wafv2_web_acl_logging_configuration" "api_waf" {
-  provider                = aws.ca-central-1
+  provider                = aws.us-east-1
   log_destination_configs = [aws_kinesis_firehose_delivery_stream.api_waf.arn]
   resource_arn            = aws_wafv2_web_acl.api_waf.arn
 }
@@ -297,7 +297,7 @@ resource "aws_wafv2_web_acl_logging_configuration" "api_waf" {
 # Azure US East CIDR blocks that are being identified as being in Germany
 # These should be allowed.
 resource "aws_wafv2_ip_set" "ip_allowlist" {
-  provider = aws.ca-central-1
+  provider = aws.us-east-1
 
   name               = "ip_allowlist"
   scope              = "CLOUDFRONT"
