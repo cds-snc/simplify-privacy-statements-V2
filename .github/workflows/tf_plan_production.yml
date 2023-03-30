@@ -30,6 +30,7 @@ jobs:
           - module: efs
           - module: vpc
           - module: app
+          - module: hosted_zone
           
     runs-on: ubuntu-latest
     steps:
