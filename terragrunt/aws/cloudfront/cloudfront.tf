@@ -22,7 +22,7 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
 
     forwarded_values {
       query_string = true
-      headers      = ["Authorization"]
+      headers      = []
 
       cookies {
         forward = "none"
