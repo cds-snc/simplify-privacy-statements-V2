@@ -2,7 +2,7 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
   enabled     = true
   aliases     = [var.domain]
   price_class = "PriceClass_100"
-  web_acl_id  = aws_wafv2_web_acl.api_waf.arn
+  web_acl_id  = aws_wafv2_web_acl.simplify_privacy_statements_waf.arn
 
   origin {
     domain_name = split("/", var.generated_statement_lambda_function_url)[2]
