@@ -4,6 +4,13 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
   price_class = "PriceClass_100"
   web_acl_id  = aws_wafv2_web_acl.simplify_privacy_statements_waf.arn
 
+  restrictions {
+    geo_restriction {
+      locations        = []
+      restriction_type = "none"
+    }
+  }
+
   origin {
     domain_name = split("/", var.generated_statement_lambda_function_url)[2]
     origin_id   = var.generated_statement_lambda_function_url_name
