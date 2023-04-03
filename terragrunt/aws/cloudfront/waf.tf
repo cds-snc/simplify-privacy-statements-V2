@@ -136,6 +136,9 @@ resource "aws_wafv2_web_acl" "simplify_privacy_statements_waf" {
   rule {
     name     = "APIInvalidPath"
     priority = 5
+    action {
+      block {}
+    }
 
     statement {
       not_statement {
