@@ -70,14 +70,12 @@ module.exports = (app, route) => {
 
         // Send the HTML response in the nodePandoc callback to give pandoc time to generate the docx file
         // as the Lambda function will be terminated once it sends the response.
-        // nodePandoc(htmlDoc, '-f html -t docx -o /mnt/access/' + docxFilename, (err) => {
-        //   if(err){
-        //     console.error(`Error from pandoc: ${err}`);
-        //   }
-        //   res.send(html)
-        // })
-
-        res.send(html)
+        nodePandoc(htmlDoc, '-f html -t docx -o /mnt/access/' + docxFilename, (err) => {
+          if(err){
+            console.error(`Error from pandoc: ${err}`);
+          }
+          res.send(html)
+        })
                 
       },
     )
