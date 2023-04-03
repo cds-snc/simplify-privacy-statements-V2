@@ -132,11 +132,79 @@ resource "aws_wafv2_web_acl" "simplify_privacy_statements_waf" {
     metric_name                = "api"
     sampled_requests_enabled   = false
   }
+
+  rule {
+    name     = "APIInvalidPath"
+    priority = 5
+    action {
+      block {}
+    }
+
+    statement {
+      not_statement {
+        statement {
+          regex_pattern_set_reference_statement {
+            arn = aws_wafv2_regex_pattern_set.valid_uri_paths.arn
+            field_to_match {
+              uri_path {}
+            }
+            text_transformation {
+              priority = 1
+              type     = "COMPRESS_WHITE_SPACE"
+            }
+            text_transformation {
+              priority = 2
+              type     = "LOWERCASE"
+            }
+          }
+        }
+      }
+    }
+
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "APIInvalidPaths"
+      sampled_requests_enabled   = true
+    }
+  }
 }
 
 resource "aws_cloudwatch_log_group" "simplify_privacy_statements_waf" {
   name              = "/aws/kinesisfirehose/simplify_privacy_statements_waf"
   retention_in_days = 14
+
+  tags = {
+    CostCentre = var.billing_code
+    Terraform  = true
+  }
+}
+resource "aws_wafv2_regex_pattern_set" "valid_uri_paths" {
+  provider    = aws.us-east-1
+  name        = "ValidURIPaths"
+  description = "Regex to match the APIs valid URI paths"
+  scope       = "CLOUDFRONT"
+
+  # languages
+  regular_expression {
+    regex_string = "^/(en|fr)$"
+  }
+
+  # agreement-1
+
+  regular_expression {
+    regex_string = "^/(en/agreement-1|fr/agreement-1)$"
+  }
+
+  # downloading agreement
+  regular_expression {
+    regex_string = "^/access/(agreement-[\\d]{8}.docx)?$"
+  }
+
+  # language toggle
+
+  regular_expression {
+    regex_string = "^/(en/agreement-1?lang=fr|fr/agreement-1?lang=en)?$"
+  }
 
   tags = {
     CostCentre = var.billing_code
