@@ -18,6 +18,10 @@ resource "aws_wafv2_web_acl" "simplify_privacy_statements_waf" {
     name     = "AWSManagedRulesAmazonIpReputationList"
     priority = 10
 
+    override_action {
+      count {}
+    }
+
 
     statement {
       managed_rule_group_statement {
@@ -36,6 +40,10 @@ resource "aws_wafv2_web_acl" "simplify_privacy_statements_waf" {
   rule {
     name     = "APIRateLimit"
     priority = 20
+
+    action {
+      block {}
+    }
 
 
     statement {
@@ -56,6 +64,10 @@ resource "aws_wafv2_web_acl" "simplify_privacy_statements_waf" {
     name     = "AWSManagedRulesCommonRuleSet"
     priority = 30
 
+    override_action {
+      count {}
+    }
+
     statement {
       managed_rule_group_statement {
         name        = "AWSManagedRulesCommonRuleSet"
@@ -73,6 +85,10 @@ resource "aws_wafv2_web_acl" "simplify_privacy_statements_waf" {
   rule {
     name     = "AWSManagedRulesKnownBadInputsRuleSet"
     priority = 40
+
+    override_action {
+      count {}
+    }
 
     statement {
       managed_rule_group_statement {
@@ -92,6 +108,10 @@ resource "aws_wafv2_web_acl" "simplify_privacy_statements_waf" {
   rule {
     name     = "AWSManagedRulesLinuxRuleSet"
     priority = 50
+
+    override_action {
+      count {}
+    }
 
     statement {
       managed_rule_group_statement {
