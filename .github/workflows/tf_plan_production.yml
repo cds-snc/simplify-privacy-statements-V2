@@ -31,6 +31,7 @@ jobs:
           - module: vpc
           - module: app
           - module: hosted_zone
+          - module: cloudfront
           
     runs-on: ubuntu-latest
     steps:

@@ -27,3 +27,8 @@ variable "domain" {
   description = "Domain name of the simplify privacy statements app"
   type        = string
 }
+
+variable "cbs_satellite_bucket_name" {
+  description = "(Required) Name of the Cloud Based Sensor S3 satellite bucket"
+  type        = string
+}
