@@ -19,7 +19,7 @@ resource "aws_wafv2_web_acl" "simplify_privacy_statements_waf" {
     priority = 10
 
     override_action {
-      count {}
+      none {}
     }
 
 
@@ -65,7 +65,7 @@ resource "aws_wafv2_web_acl" "simplify_privacy_statements_waf" {
     priority = 30
 
     override_action {
-      count {}
+      none {}
     }
 
     statement {
@@ -87,7 +87,7 @@ resource "aws_wafv2_web_acl" "simplify_privacy_statements_waf" {
     priority = 40
 
     override_action {
-      count {}
+      none {}
     }
 
     statement {
@@ -110,7 +110,7 @@ resource "aws_wafv2_web_acl" "simplify_privacy_statements_waf" {
     priority = 50
 
     override_action {
-      count {}
+      none {}
     }
 
     statement {
