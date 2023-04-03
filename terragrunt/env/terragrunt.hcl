@@ -11,7 +11,7 @@ inputs = {
   region                       = "ca-central-1"
   billing_code                 = "${local.vars.inputs.billing_code}"
   domain                       = "${local.vars.inputs.domain}"
-  cbs_satelitte_bucket_name    = "cbs-statellite-${local.vars.inputs.account_id}"
+  cbs_satellite_bucket_name    = "cbs-statellite-${local.vars.inputs.account_id}"
 }
 
 generate "provider" {
