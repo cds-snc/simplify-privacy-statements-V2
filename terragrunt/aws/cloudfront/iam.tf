@@ -20,6 +20,10 @@ data "aws_iam_policy_document" "firehose_assume_role" {
     actions = ["sts:AssumeRole"]
   }
 }
+resource "aws_iam_role_policy_attachment" "write_waf_logs" {
+  role       = aws_iam_role.waf_log_role.name
+  policy_arn = aws_iam_policy.write_waf_logs.arn
+}
 
 resource "aws_iam_policy" "write_waf_logs" {
   name        = "${var.product_name}_WriteLogs"
