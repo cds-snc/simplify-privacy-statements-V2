@@ -30,5 +30,5 @@ variable "domain" {
 
 variable "cbs_satelitte_bucket_name" {
   description = "(Required) Name of the Cloud Based Sensor S3 satellite bucket"
-  type = string
+  type        = string
 }
