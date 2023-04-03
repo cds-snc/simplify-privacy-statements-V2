@@ -22,7 +22,6 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
 
     forwarded_values {
       query_string = true
-      headers      = []
 
       cookies {
         forward = "none"
@@ -32,13 +31,6 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
     target_origin_id           = var.generated_statement_lambda_function_url_name
     viewer_protocol_policy     = "redirect-to-https"
     response_headers_policy_id = aws_cloudfront_response_headers_policy.simplify_privacy_app_headers_policy.id
-  }
-
-  restrictions {
-    geo_restriction {
-      locations        = []
-      restriction_type = "none"
-    }
   }
 
   viewer_certificate {
