@@ -158,26 +158,3 @@ resource "aws_wafv2_web_acl_logging_configuration" "simplify_privacy_statements_
   log_destination_configs = [aws_kinesis_firehose_delivery_stream.simplify_privacy_statements_waf.arn]
   resource_arn            = aws_wafv2_web_acl.simplify_privacy_statements_waf.arn
 }
-
-resource "aws_iam_role" "waf_log_role" {
-  name               = "simplify-privacy-app-logs"
-  assume_role_policy = data.aws_iam_policy_document.firehose_assume_role.json
-
-  tags = {
-    CostCentre = var.billing_code
-    Terraform  = true
-  }
-}
-
-data "aws_iam_policy_document" "firehose_assume_role" {
-  statement {
-    effect = "Allow"
-
-    principals {
-      type        = "Service"
-      identifiers = ["firehose.amazonaws.com"]
-    }
-
-    actions = ["sts:AssumeRole"]
-  }
-}
