@@ -1,6 +1,6 @@
 // docs: https://helmetjs.github.io/docs/csp/
 
-const scriptSrc = ["'self'", "'unsafe-inline'", 'cdnjs.cloudflare.com', '*.herokuapp.com', 'https://www.googletagmanager.com', 'https://www.google-analytics.com']
+const scriptSrc = ["'self'", "'unsafe-inline'", 'cdnjs.cloudflare.com', '*.herokuapp.com', 'https://www.googletagmanager.com', 'https://www.google-analytics.com', '*.lambda-url.ca-central-1.on.aws/*']
 
 if (process.env.NODE_ENV === 'development') {
   scriptSrc.push("'unsafe-eval'")
