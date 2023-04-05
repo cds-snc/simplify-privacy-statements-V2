@@ -68,8 +68,9 @@ resource "aws_cloudfront_response_headers_policy" "simplify_privacy_app_headers_
       override = true
     }
     content_security_policy {
-      content_security_policy = "script-src 'self', 'unsafe-inline', 'cdnjs.cloudflare.com', 'https://www.googletagmanager.com', 'https://www.google-analytics.com'; default-src 'self'; base-uri 'none'; font-src 'self', 'https://fonts.gstatic.com'; img-src 'self', 'data:', 'https://www.google-analytics.com'; style-src 'self', 'https://fonts.googleapis.com', 'unsafe-inline'; upgrade-insecure-requests 'true'"
-      override                = false
+      content_security_policy = "script-src 'self' 'unsafe-inline' cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://${var.domain}/; default-src 'self'; base-uri 'none'; font-src 'self' https://fonts.gstatic.com/; img-src 'self' data: https://www.google-analytics.com; style-src 'self' https://fonts.googleapis.com/ 'unsafe-inline';"
+
+      override = false
     }
 
     referrer_policy {

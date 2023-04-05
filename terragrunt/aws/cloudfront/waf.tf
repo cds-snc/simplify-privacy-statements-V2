@@ -184,6 +184,9 @@ resource "aws_wafv2_regex_pattern_set" "valid_uri_paths" {
   description = "Regex to match the APIs valid URI paths"
   scope       = "CLOUDFRONT"
 
+  regular_expression {
+    regex_string = "^/"
+  }
   # languages
   regular_expression {
     regex_string = "^/(en|fr)$"
