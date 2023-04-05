@@ -30,7 +30,7 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
       query_string = true
 
       cookies {
-        forward = "whitelist"
+        forward           = "whitelist"
         whitelisted_names = ["_csrf"]
       }
     }
