@@ -25,3 +25,14 @@ Trello board: https://trello.com/b/vptWzBnE/generate-privacy-statements-portage
 
 ## April 2023 Update
 
+As part of the Migration to AWS from Heroku, infrastructure for this was created and is hosted on AWS.
+
+# Requires
+- Terraform (https://www.terraform.io/)
+- Terragrunt (https://terragrunt.gruntwork.io/)
+
+# How is this repository structured?
+
+The Terraform code contained in `aws` is split into several independent modules that all use their own remote Terraform state file.These modules know nothing about Terragrunt and are used by Terragrunt as simple infrastructure definitions.
+
+The directory structure inside `aws` reflects the split into independent modules. For example, `ecr`, contains the lifecycle policy and configuration that creates the ECR that will be used by the `app (lambda)` module.
