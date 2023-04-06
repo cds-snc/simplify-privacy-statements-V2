@@ -5,7 +5,9 @@ on:
     branches: [ main ]
 
 env:
-  IMAGE_NAME: 414662622316.dkr.ecr.ca-central-1.amazonaws.com/privacy-statement-container:latest
+  IMAGE_NAME: 414662622316.dkr.ecr.ca-central-1.amazonaws.com/privacy-statement-container
+  FUNCTION_NAME: generated_statement_lambda_function
+  GITHUB_SHA: ${{ github.sha }}
 
 permissions:
   id-token: write
@@ -31,7 +33,7 @@ jobs:
 
       - name: Build Container
         run: |
-          docker build -t $IMAGE_NAME .
+          docker build -t ${{ env.IMAGE_NAME }}:$GITHUB_SHA .
 
       - name: Login to ECR
         id: login-ecr
@@ -39,7 +41,14 @@ jobs:
 
       - name: Push containers to ECR
         run: |
-          docker push $IMAGE_NAME
+          docker push ${{ env.IMAGE_NAME }}:$GITHUB_SHA
+
+      - name: Deploy new image
+        run: |
+          aws lambda update-function-code \
+            --function-name $FUNCTION_NAME \
+            --image-uri ${{ env.IMAGE_NAME }}:$GITHUB_SHA > /dev/null 2>&1
+
 
       - name: Logout of Amazon ECR
         run: docker logout ${{ steps.login-ecr.outputs.registry }}      
