@@ -36,3 +36,7 @@ As part of the Migration to AWS from Heroku, infrastructure for this was created
 The Terraform code contained in `aws` is split into several independent modules that all use their own remote Terraform state file.These modules know nothing about Terragrunt and are used by Terragrunt as simple infrastructure definitions.
 
 The directory structure inside `aws` reflects the split into independent modules. For example, `ecr`, contains the lifecycle policy and configuration that creates the ECR that will be used by the `app (lambda)` module.
+
+# What is each Terraform module
+
+``
