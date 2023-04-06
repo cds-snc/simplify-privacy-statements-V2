@@ -6,6 +6,7 @@ on:
 
 env:
   IMAGE_NAME: 414662622316.dkr.ecr.ca-central-1.amazonaws.com/privacy-statement-container:latest
+  FUNCTION_NAME: generated_statement_lambda_function
 
 permissions:
   id-token: write
@@ -40,6 +41,13 @@ jobs:
       - name: Push containers to ECR
         run: |
           docker push $IMAGE_NAME
+
+      - name: Deploy new image
+        run: |
+          aws lambda update-function-code \
+            --function-name $FUNCTION_NAME \
+            --image-uri $IMAGE_NAME
+
 
       - name: Logout of Amazon ECR
         run: docker logout ${{ steps.login-ecr.outputs.registry }}      
