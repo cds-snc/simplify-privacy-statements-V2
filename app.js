@@ -10,7 +10,6 @@ const path = require('path')
 const sessionConfig = require('./config/session.config')
 const { hasData } = require('./utils')
 const { addNunjucksFilters } = require('./filters')
-const csp = require('./config/csp.config')
 const csrf = require('csurf')
 
 // check to see if we have a custom configRoutes function
@@ -57,7 +56,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 // noSniff to keep clients from sniffing the MIME type
 // xssFilter adds some small XSS protections
 app.use(helmet())
-app.use(helmet.contentSecurityPolicy({ directives: csp }))
 // gzip response body compression.
 app.use(compression())
 
