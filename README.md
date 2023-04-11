@@ -39,4 +39,4 @@ The directory structure inside `aws` reflects the split into independent modules
 
 # What is each Terraform module
 
-``
+`aws/app`
