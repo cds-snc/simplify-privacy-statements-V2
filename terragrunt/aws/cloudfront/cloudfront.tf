@@ -30,7 +30,7 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
       query_string = true
 
       cookies {
-        forward           = "all"
+        forward = "all"
       }
     }
 
@@ -69,7 +69,7 @@ resource "aws_cloudfront_response_headers_policy" "simplify_privacy_app_headers_
     }
     content_security_policy {
       content_security_policy = "script-src 'self' 'unsafe-inline' 'unsafe-eval' cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://${var.domain}/dist/js/ https://${var.generated_statement_lambda_function_url}.cell-1-lambda-url.ca-central-1.on.aws/dist/js/questions-1.3e7d142ac08d78a0424a.js; default-src 'self'; base-uri 'none'; font-src 'self' https://fonts.gstatic.com/; img-src 'self' data: https://www.google-analytics.com; style-src 'self' https://fonts.googleapis.com/ 'unsafe-inline';"
-      override = false
+      override                = false
     }
 
     referrer_policy {
