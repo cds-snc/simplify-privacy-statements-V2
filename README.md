@@ -37,6 +37,31 @@ The Terraform code contained in `aws` is split into several independent modules 
 
 The directory structure inside `aws` reflects the split into independent modules. For example, `ecr`, contains the lifecycle policy and configuration that creates the ECR that will be used by the `app (lambda)` module.
 
+At the moment, there is only a production environment in the `env` which contains the Terragrunt scripts.
+
 # What is each Terraform module
 
 `aws/app`
+
+Contains the Lambda function module that has read, write and root user access to the Elastic File System (EFS). Also contains lambda function url that is used by the cloudfront module.
+
+`aws/cloudfront`
+Contains:
+- Certificates: used to request a DNS validated certificate, deploy the required validation records and wait for validation to complete.
+- Cloudfront: creates an Cloudfront web distribution and contains HTTP response headers and their values.
+- IAM
+- Route53
+- S3: holds access logs
+- WAF: WAFv2 Web ACL resource
+
+`aws/ecr`
+Contains the Elastic Container Registry (ECR) Repository, that will hold the docker image
+
+`aws/efs`
+Contains resources to allow the storage for and access of the generated privacy statements
+
+`aws/hosted_zone`
+Manages Route53 Hosted Zone
+
+`aws/vpc`
+Contains the VPC module and ingress and egress rules. It allows the lambda function to be able to access the VPC.
