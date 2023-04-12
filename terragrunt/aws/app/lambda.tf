@@ -13,7 +13,7 @@ module "generated_statement_lambda" {
   }
 
   environment_variables = {
-    BINARY_CONTENT_TYPES = ["application/vnd.openxmlformats-officedocument.wordprocessingml.document", "image/*"]
+    BINARY_CONTENT_TYPES = "application/vnd.openxmlformats-officedocument.wordprocessingml.document, image/*"
   }
 
   file_system_config = {
