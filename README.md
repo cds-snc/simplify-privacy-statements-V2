@@ -65,3 +65,19 @@ Manages Route53 Hosted Zone
 
 `aws/vpc`
 Contains the VPC module and ingress and egress rules. It allows the lambda function to be able to access the VPC.
+
+
+## Architectural Decision Record (ADR)
+
+## Architecture
+
+Use a Docker image based AWS Lambda function to run the App, accessed using a Lambda Function URL. A Cloudfront distribution will then provide a custom URL and caching. Data storage will be provided by EFS.
+
+Using AWS Lambda with Cloudfront provides the following benefits:
+1. Highly available and scalable as it is using AWS Lambda.
+2. CloudFront will further improve the availability and performance by caching redirect responses and serving responses geographically close to the user.
+3. The use of Lambda Function URLs entirely removes the need to manage an API Gateway instance.
+
+
+
+![Diagram of Simplify Privacy Statements App](./public/img/Simplify\_Privacy\_app\_ADR.png)
