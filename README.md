@@ -25,6 +25,10 @@ Trello board: https://trello.com/b/vptWzBnE/generate-privacy-statements-portage
 
 # April 2023 Update
 
+## Running it locally
+At the moment, it is still possible to run locally, one way is simply running `npm run dev`
+
+
 As part of the Migration to AWS from Heroku, infrastructure for this was created and is hosted on AWS.
 
 ## Requires
