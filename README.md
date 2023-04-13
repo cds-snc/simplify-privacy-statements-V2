@@ -23,15 +23,15 @@ Trello board: https://trello.com/b/vptWzBnE/generate-privacy-statements-portage
 - Next install the third party modules using `npm install`
 - You can now run the app locally! run `npm run dev` and then open a web browser to `localhost:3000`.
 
-## April 2023 Update
+# April 2023 Update
 
 As part of the Migration to AWS from Heroku, infrastructure for this was created and is hosted on AWS.
 
-# Requires
+## Requires
 - Terraform (https://www.terraform.io/)
 - Terragrunt (https://terragrunt.gruntwork.io/)
 
-# How is this repository structured?
+## How is this repository structured?
 
 The Terraform code contained in `aws` is split into several independent modules that all use their own remote Terraform state file.These modules know nothing about Terragrunt and are used by Terragrunt as simple infrastructure definitions.
 
@@ -39,7 +39,7 @@ The directory structure inside `aws` reflects the split into independent modules
 
 At the moment, there is only a production environment in the `env` which contains the Terragrunt scripts.
 
-# What is each Terraform module
+## What is each Terraform module
 
 `aws/app`
 
@@ -69,15 +69,12 @@ Contains the VPC module and ingress and egress rules. It allows the lambda funct
 
 ## Architectural Decision Record (ADR)
 
-## Architecture
-
 Use a Docker image based AWS Lambda function to run the App, accessed using a Lambda Function URL. A Cloudfront distribution will then provide a custom URL and caching. Data storage will be provided by EFS.
 
 Using AWS Lambda with Cloudfront provides the following benefits:
 1. Highly available and scalable as it is using AWS Lambda.
 2. CloudFront will further improve the availability and performance by caching redirect responses and serving responses geographically close to the user.
 3. The use of Lambda Function URLs entirely removes the need to manage an API Gateway instance.
-
-
+4. Elastic File System (EFS) is used for storage. This required the least change from a code perspective. All we needed was a simple way to store and retrive the generated `.docx` file
 
 ![Diagram of Simplify Privacy Statements App](./public/img/Simplify\_Privacy\_app\_ADR.png)
