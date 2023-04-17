@@ -21,6 +21,11 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
       origin_protocol_policy = "https-only"
       origin_ssl_protocols   = ["TLSv1.2"]
     }
+
+    custom_header {
+      name  = "X-CloudFront-Header"
+      value = var.cloudfront_header
+    }
   }
   default_cache_behavior {
     allowed_methods = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]

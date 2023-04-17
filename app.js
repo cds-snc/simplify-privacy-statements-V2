@@ -11,6 +11,7 @@ const sessionConfig = require('./config/session.config')
 const { hasData } = require('./utils')
 const { addNunjucksFilters } = require('./filters')
 const csrf = require('csurf')
+const cloudfrontHeader = process.env.CLOUDFRONT_HEADER
 
 // check to see if we have a custom configRoutes function
 let { configRoutes, routes, locales } = require('./config/routes.config')
@@ -84,5 +85,12 @@ addNunjucksFilters(env)
 nunjucks.installJinjaCompat()
 
 app.set('view engine', 'njk')
+app.use(function (req, res, next) {
+  if (cloudfrontHeader !== req.header['X-CloudFront-Header']) {
+    res.status(403).send("Direct access is not allowed")
+  }
+  next();
+})
+
 
 module.exports = app

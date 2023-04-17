@@ -13,3 +13,8 @@ variable "hosted_zone_id" {
   description = "The hosted zone ID that holds our DNS records"
   type        = string
 }
+variable "cloudfront_header" {
+  description = "Header that gets added to all origin requests by CloudFront.  The API validates that this header is present and has the expected value."
+  type        = string
+  sensitive   = true
+}
