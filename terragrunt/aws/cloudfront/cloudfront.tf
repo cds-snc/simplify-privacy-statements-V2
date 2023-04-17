@@ -23,7 +23,7 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
     }
 
     custom_header {
-      name = "X-CloudFront-Header"
+      name  = "X-CloudFront-Header"
       value = var.cloudfront_header
     }
   }
