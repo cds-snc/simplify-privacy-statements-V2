@@ -86,7 +86,7 @@ nunjucks.installJinjaCompat()
 
 app.set('view engine', 'njk')
 app.use(function (req, res, next) {
-  if (cloudfrontHeader !== req.header['X-CloudFront-Header']) {
+  if (cloudfrontHeader !== req.headers['X-CloudFront-Header']) {
     res.status(403).send("Direct access is not allowed")
   }
   next();
