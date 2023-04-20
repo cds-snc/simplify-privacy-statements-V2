@@ -26,8 +26,8 @@ variable "aws_efs_file_system" {
   type        = string
 }
 
- variable "cloudfront_header" { 
-   description = "Header that gets added to all origin requests by CloudFront.  The API validates that this header is present and has the expected value." 
-   type        = string 
-   sensitive   = true 
- } 
+variable "cloudfront_header" {
+  description = "Header that gets added to all origin requests by CloudFront.  The API validates that this header is present and has the expected value."
+  type        = string
+  sensitive   = true
+} 
