@@ -11,7 +11,7 @@ const sessionConfig = require('./config/session.config')
 const { hasData } = require('./utils')
 const { addNunjucksFilters } = require('./filters')
 const csrf = require('csurf')
-const cloudfrontHeader = process.env.TF_VAR_cloudfront_header
+const cloudfrontHeader = process.env.CLOUDFRONT_HEADER
 
 // check to see if we have a custom configRoutes function
 let { configRoutes, routes, locales } = require('./config/routes.config')
