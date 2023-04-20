@@ -60,6 +60,15 @@ app.use(helmet())
 // gzip response body compression.
 app.use(compression())
 
+app.use(function(req, res, next){
+  const headers = req.headers['x-cloudfront-header']
+  if (cloudfrontHeader !== headers) {
+    res.status(403).send("Direct access is not allowed")
+  } else {
+    next()
+  }
+})
+
 // Adding values/functions to app.locals means we can access them in our templates
 app.locals.GITHUB_SHA = process.env.GITHUB_SHA || null
 app.locals.hasData = hasData
@@ -85,12 +94,6 @@ addNunjucksFilters(env)
 nunjucks.installJinjaCompat()
 
 app.set('view engine', 'njk')
-app.use(function (req, res, next) {
-  if (cloudfrontHeader !== req.headers['X-CloudFront-Header']) {
-    res.status(403).send("Direct access is not allowed")
-  }
-  next();
-})
 
 
 module.exports = app
