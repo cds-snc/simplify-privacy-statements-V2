@@ -13,7 +13,7 @@ env:
   TERRAFORM_VERSION: 1.3.9
   TERRAGRUNT_VERSION: 0.44.4
   CONFTEST_VERSION: 0.27.0
-  TF_CLOUDFRONT_HEADER: ${{ secrets.CLOUDFRONT_HEADER }}
+  TF_VAR_cloudfront_header: ${{ secrets.CLOUDFRONT_HEADER }}
 
 permissions:
   id-token: write
