@@ -14,7 +14,7 @@ variable "hosted_zone_id" {
   type        = string
 }
 variable "cloudfront_header" {
-  description = "Header that gets added to all origin requests by CloudFront.  The API validates that this header is present and has the expected value."
+  description = "Header that gets added to all origin requests by CloudFront.  The API validates that this header is present and has the expected value. This is added to have the cloudfront header in scope of the lambda function"
   type        = string
   sensitive   = true
 }
