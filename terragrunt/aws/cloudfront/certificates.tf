@@ -2,7 +2,7 @@ resource "aws_acm_certificate" "simplify_privacy_statement_certificate" {
   provider = aws.us-east-1
 
   domain_name               = var.domain
-  subject_alternative_names = ["*.${var.domain}"]
+  subject_alternative_names = ["*.${var.domain}", var.fr_domain]
   validation_method         = "DNS"
 
   tags = {
