@@ -22,6 +22,7 @@ dependency "hosted_zone" {
     mock_outputs_merge_strategy_with_state  = "shallow"
     mock_outputs = {
         hosted_zone_id = ""
+        hosted_zone_id_fr = ""
     }
 }
 
@@ -29,6 +30,7 @@ inputs = {
     generated_statement_lambda_function_url = dependency.app.outputs.generated_statement_lambda_function_url
     generated_statement_lambda_function_url_name = dependency.app.outputs.generated_statement_lambda_function_url_name
     hosted_zone_id = dependency.hosted_zone.outputs.hosted_zone_id
+    hosted_zone_id_fr = dependency.hosted_zone.outputs.hosted_zone_id_fr
 }
 
 include {

@@ -18,3 +18,7 @@ variable "cloudfront_header" {
   type        = string
   sensitive   = true
 }
+variable "hosted_zone_id_fr" {
+  description = "The hosted zone ID that holds our French DNS records"
+  type        = string
+}
