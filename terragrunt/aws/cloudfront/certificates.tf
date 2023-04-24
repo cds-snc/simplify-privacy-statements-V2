@@ -34,6 +34,7 @@ resource "aws_route53_record" "simplify_privacy_statement_dns_validation" {
   ttl = 60
 }
 
+
 resource "aws_acm_certificate" "simplify_privacy_statement_fr_certificate" {
   provider = aws.us-east-1
 
