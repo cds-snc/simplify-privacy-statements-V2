@@ -1,6 +1,6 @@
 resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
   enabled     = true
-  aliases     = [var.domain, var.fr_domain]
+  aliases     = [var.domain]
   price_class = "PriceClass_100"
   web_acl_id  = aws_wafv2_web_acl.simplify_privacy_statements_waf.arn
 
@@ -46,6 +46,70 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
 
   viewer_certificate {
     acm_certificate_arn      = aws_acm_certificate_validation.simplify_privacy_statement_certificate_validation.certificate_arn
+    minimum_protocol_version = "TLSv1.2_2021"
+    ssl_support_method       = "sni-only"
+  }
+
+  logging_config {
+    include_cookies = false
+    bucket          = module.log_bucket.s3_bucket_domain_name
+    prefix          = "cloudfront"
+  }
+  tags = {
+    CostCentre = var.billing_code
+    Terraform  = true
+  }
+}
+
+
+resource "aws_cloudfront_distribution" "simplify_privacy_app_fr_cf_distribution" {
+  enabled     = true
+  aliases     = [var.fr_domain]
+  price_class = "PriceClass_100"
+  web_acl_id  = aws_wafv2_web_acl.simplify_privacy_statements_waf.arn
+
+  restrictions {
+    geo_restriction {
+      restriction_type = "none"
+    }
+  }
+
+  origin {
+    domain_name = split("/", var.generated_statement_lambda_function_url)[2]
+    origin_id   = var.generated_statement_lambda_function_url_name
+
+    custom_origin_config {
+      http_port              = 80
+      https_port             = 443
+      origin_read_timeout    = 60
+      origin_protocol_policy = "https-only"
+      origin_ssl_protocols   = ["TLSv1.2"]
+    }
+
+    custom_header {
+      name  = "X-CloudFront-Header"
+      value = var.cloudfront_header
+    }
+  }
+  default_cache_behavior {
+    allowed_methods = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    cached_methods  = ["GET", "HEAD"]
+
+    forwarded_values {
+      query_string = true
+
+      cookies {
+        forward = "all"
+      }
+    }
+
+    target_origin_id           = var.generated_statement_lambda_function_url_name
+    viewer_protocol_policy     = "redirect-to-https"
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.simplify_privacy_app_headers_policy.id
+  }
+
+  viewer_certificate {
+    acm_certificate_arn      = aws_acm_certificate_validation.simplify_privacy_statement_fr_certificate_validation.certificate_arn
     minimum_protocol_version = "TLSv1.2_2021"
     ssl_support_method       = "sni-only"
   }
