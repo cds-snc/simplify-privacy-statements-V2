@@ -34,6 +34,25 @@ resource "aws_route53_record" "simplify_privacy_statement_dns_validation" {
   ttl = 60
 }
 
+resource "aws_route53_record" "simplify_privacy_statement_fr_dns_validation" {
+  zone_id = var.hosted_zone_id_fr
+
+  for_each = {
+    for dvo in aws_acm_certificate.simplify_privacy_statement_certificate.domain_validation_options : dvo.domain_name => {
+      name   = dvo.resource_record_name
+      type   = dvo.resource_record_type
+      record = dvo.resource_record_value
+    }
+  }
+
+  allow_overwrite = true
+  name            = each.value.name
+  records         = [each.value.record]
+  type            = each.value.type
+
+  ttl = 60
+}
+
 resource "aws_acm_certificate_validation" "simplify_privacy_statement_certificate_validation" {
   provider                = aws.us-east-1
   certificate_arn         = aws_acm_certificate.simplify_privacy_statement_certificate.arn
