@@ -26,6 +26,10 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
       name  = "X-CloudFront-Header"
       value = var.cloudfront_header
     }
+    custom_header {
+      name = "X-Set-Language"
+      value = "en"
+    }
   }
   default_cache_behavior {
     allowed_methods = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
@@ -89,6 +93,10 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_fr_cf_distribution"
     custom_header {
       name  = "X-CloudFront-Header"
       value = var.cloudfront_header
+    }
+    custom_header {
+      name = "X-Set-Language"
+      value = "fr"
     }
   }
   default_cache_behavior {

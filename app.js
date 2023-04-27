@@ -73,11 +73,10 @@ app.use(function(req, res, next){
 
 app.use(function(req, res, next){
   console.log(req.hostname, req.headers)
-  if (req.hostname + req.path === frHost) {
-    // If you have the FR domain but is set to EN locale, redirect to EN domain with EN locale
+  const languageHeader = req.headers['x-set-language']
+  if (languageHeader === "en") {
     res.redirect("https://simplify-privacy-statements.alpha.canada.ca/en/")
-  } else if (req.hostname + req.path === enHost) {
-    // If you have the EN domain but is set to FR locale, redirect to FR domain with FR locale
+  } else if (languageHeader === "fr") {
     res.redirect("https://simplification-avis-confidentialite.alpha.canada.ca/fr/")
   }
   next();
