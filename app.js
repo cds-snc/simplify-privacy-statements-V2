@@ -72,11 +72,11 @@ app.use(function(req, res, next){
 })
 
 app.use(function(req, res, next){
-  if (req.hostname + req.path == frHost) {
+  if (req.hostname + req.path === frHost) {
     // If you have the FR domain but is set to EN locale, redirect to EN domain with EN locale
     res.redirect("https://simplify-privacy-statements.alpha.canada.ca/en/")
-  } else if (req.hostname + req.path == enHost) {
-    //If you have the EN domain but is set to FR locale, redirect to FR domain with FR locale
+  } else if (req.hostname + req.path === enHost) {
+    // If you have the EN domain but is set to FR locale, redirect to FR domain with FR locale
     res.redirect("https://simplification-avis-confidentialite.alpha.canada.ca/fr/")
   }
   next();
