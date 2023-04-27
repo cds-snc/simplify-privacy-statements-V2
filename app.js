@@ -12,6 +12,8 @@ const { hasData } = require('./utils')
 const { addNunjucksFilters } = require('./filters')
 const csrf = require('csurf')
 const cloudfrontHeader = process.env.CLOUDFRONT_HEADER
+const enHost = "simplify-privacy-statements.alpha.canada.ca/fr/"
+const frHost = "simplification-avis-confidentialite.alpha.canada.ca/en/"
 
 // check to see if we have a custom configRoutes function
 let { configRoutes, routes, locales } = require('./config/routes.config')
@@ -67,6 +69,18 @@ app.use(function(req, res, next){
   } else {
     next()
   }
+})
+
+app.use(function(req, res, next){
+  console.log(req.hostname, req.headers)
+  if (req.hostname + req.path === frHost) {
+    // If you have the FR domain but is set to EN locale, redirect to EN domain with EN locale
+    res.redirect("https://simplify-privacy-statements.alpha.canada.ca/en/")
+  } else if (req.hostname + req.path === enHost) {
+    // If you have the EN domain but is set to FR locale, redirect to FR domain with FR locale
+    res.redirect("https://simplification-avis-confidentialite.alpha.canada.ca/fr/")
+  }
+  next();
 })
 
 // Adding values/functions to app.locals means we can access them in our templates
