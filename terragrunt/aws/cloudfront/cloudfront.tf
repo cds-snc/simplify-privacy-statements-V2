@@ -27,7 +27,7 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_cf_distribution" {
       value = var.cloudfront_header
     }
     custom_header {
-      name = "X-Set-Language"
+      name  = "X-Set-Language"
       value = "en"
     }
   }
@@ -95,7 +95,7 @@ resource "aws_cloudfront_distribution" "simplify_privacy_app_fr_cf_distribution"
       value = var.cloudfront_header
     }
     custom_header {
-      name = "X-Set-Language"
+      name  = "X-Set-Language"
       value = "fr"
     }
   }
