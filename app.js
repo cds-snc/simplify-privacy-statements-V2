@@ -72,6 +72,7 @@ app.use(function(req, res, next){
 })
 
 app.use(function(req, res, next){
+  console.log(req.hostname, res.headers)
   if (req.hostname + req.path === frHost) {
     // If you have the FR domain but is set to EN locale, redirect to EN domain with EN locale
     res.redirect("https://simplify-privacy-statements.alpha.canada.ca/en/")
