@@ -43,8 +43,9 @@ const Schema = {
     custom: {
       options: (value, { req }) => {
         const compensation = req.body.compensation
-        if (compensation && compensation === 'Yes') {
-          if (value !== 'On paper') {
+        const consent = req.body.consent;
+        if (compensation && compensation === 'yes') {
+          if (consent !== 'in writing') {
             return false
           }
         }
