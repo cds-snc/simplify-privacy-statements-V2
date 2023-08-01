@@ -13,7 +13,21 @@
 
             {{ textInput('researcher_name', 'form.researcher_name') }}
             {{ textInput('researcher_phone', 'form.researcher_phone') }}
-            {{ textInput('researcher_email', 'form.researcher_email') }}
+            {{ textInput('researcher_email', 'form.researcher_email', {hint: 'form.researcher_email.desc'}) }}
+
+            <div class="toggle-area">
+                {{ radioButtons('is_with_cds', { '1-off':'Yes','2-on':'No'}, data.is_with_cds, 'form.is_with_cds', errors) }}
+            </div>
+            <div class="is_with_cds-toggled" style="display:none" >
+                {{ textInput('department_name', 'form.department_name') }}
+                {{ textInput('department_acronym', 'form.department_acronym') }}
+                {{ textInput('department_authority', 'form.department_authority', { hint: 'form.department_authority.desc' }) }}
+                {{ textInput('department_atip_office', 'form.department_atip_office') }}
+                {{ textInput('department_atip_office_email', 'form.department_atip_office_email') }}
+                {{ textInput('department_atip_office_phone', 'form.department_atip_office_phone') }}
+                {{ textInput('department_information_bank', 'form.department_information_bank') }}
+                {{ textInput('department_information_bank_url', 'form.department_information_bank_url') }}
+            </div>
 
 
             <h2>{{ __('testInfo.title') }}</h2>
@@ -23,11 +37,11 @@
             </div>
             <div class="is_with_partner-toggled" style="display:none" >
                 {{ textInput('partner_department_name', 'form.partner_department_name', { hint: 'form.partner_department_name.desc' }) }}
-                {{ textInput('partner_department_acronym', 'form.partner_department_acronym') }}
+                {{ textInput('partner_department_acronym', 'form.partner_department_acronym', { hint: 'form.partner_department_acronym.desc' }) }}
                 {{ textInput('partner_department_authority', 'form.partner_department_authority', { hint: 'form.partner_department_authority.desc' }) }}
             </div>
 
-            {{ radioButtons('research_method', { '1':'Interview','2':'Usability testing'}, data.research_method, 'form.research_method', errors) }}
+            {{ radioButtons('research_method', { '1':'Interview','2':'form.usability_testing'}, data.research_method, 'form.research_method', errors) }}
 
             {{ textArea('research_goal', 'form.research_goal', {hint: 'form.research_goal.desc'}) }}
             {{ textArea('session_activity', 'form.session_activity', {hint: 'form.session_activity.desc'}) }}
@@ -35,6 +49,9 @@
             {{ textInput('session_duration', 'form.session_duration', {hint: 'form.session_duration.desc'}) }}
 
             {{ textArea('personal_information_collected', 'form.personal_information_collected', {hint: 'form.personal_information_collected.desc'}) }}
+
+            {{ textInput('personal_information_retention', 'form.personal_information_retention', {hint: 'form.personal_information_retention.desc'}) }}
+
             
             <h2>{{ __('compensation.title') }}</h2>
             
@@ -42,38 +59,44 @@
                 {{ radioButtons('compensation', { 'on':'Yes','off':'No'}, data.compensation, 'form.compensation', errors) }}
             </div>
             <div class="compensation-toggled" style="display:none" >
-                {{ radioButtons('compensation_method', { '1':'Mastercard gift card','2':'VISA gift card'}, data.compensation_method, 'form.compensation_method', errors) }}
-                {{ radioButtons('compensation_value', { '1':'$50 (For 1 hour of their time)','2':'$25 (For 1/2 hour of their time)','3':'$10 (For 8.5 min of their time (minimum))'}, data.compensation_value, 'form.compensation_value', errors) }}
+                {{ radioButtons('compensation_method', { '1':'Mastercard gift card','2':'Visa gift card', '3': 'Cheque', '4': 'Other'}, data.compensation_method, 'form.compensation_method', errors) }}
+                {{ textInput('other_compensation_method', 'form.other_compensation_method') }}
+                {{ radioButtons('compensation_value', { '1':'$50 (for 1 hour of their time)','2':'$25 (For 30 minutes of their time)','3':'$10 (For at least 8.5 minutes of their time)', '4':'Other amount'}, data.compensation_value, 'form.compensation_value', errors) }}
+                {{ textInput('other_compensation_value', 'form.other_compensation_value') }}
             </div>
             
             <h2>{{ __('privacy.title') }}</h2>
             
             <div class="toggle-area">
-            {{ radioButtons('confidentiality', { 'off-1':'form.anonymized','off-2':'form.anonymous','off-3':'form.confidential','on-1':'form.not_confidential','on-2':'form.public'}, data.confidentiality, 'form.confidentiality', errors) }}
+            {{ radioButtons('confidentiality', { 'off-1':'Anonymous','off-2':'Anonymized','off-3':'Confidential','on-1':'Not confidential','on-2':'Public'}, data.confidentiality, 'form.confidentiality', errors) }}
             </div>
             <div class="confidentiality-toggled" style="display:none" >
                 {{ textArea('personal_information_disclosed_to_public', 'form.personal_information_disclosed_to_public', {hint: 'form.personal_information_disclosed_to_public.desc'}) }}
             </div>
 
             <div class="toggle-area">
-                {{ radioButtons('administrative_decision', { 'on':'Yes','off':'No'}, data.administrative_decision, 'form.administrative_decision', errors) }}
+                {{ radioButtons('administrative_decision', { 'on':'Yes','off':'No'}, data.administrative_decision, 'form.administrative_decision', errors, {hint: 'form.administrative_decision.desc'}) }}
             </div>
             <div class="administrative_decision-toggled" style="display:none" >
-                {{ textArea('administrative_purpose', 'form.administrative_purpose', {hint: 'form.administrative_purpose.desc'}) }}
+                {{ textArea('administrative_impact', 'form.administrative_impact', {hint: 'form.administrative_impact.desc'}) }}
+                {{ textArea('administrative_response_impact', 'form.administrative_response_impact', {hint: 'form.administrative_response_impact.desc'}) }}
             </div>
 
-            {{ radioButtons('consent', { '1':'Verbally','2':'On paper'}, data.consent, 'form.consent', errors) }}
+            {{ radioButtons('share_notice', { '1':'Virtual copy (e.g. email)','2':'Printed Copy'}, data.share_notice, 'form.share_notice', errors, {hint: 'form.share_notice.desc'}) }}
+
+            {{ radioButtons('consent', { 'on':'Verbally','off':'In writing'}, data.consent, 'form.consent', errors) }}
 
             {{ radioButtons('is_business', { '1':'Yes','2':'No'}, data.is_business, 'form.is_business', errors, {hint: 'form.is_business.desc'}) }}
 
             <div class="toggle-area">
-                {{ radioButtons('recording_type', { 'on-1':'Video and audio','on-2':'Audio only','on-3':'Screen recording with audio','off-1':'Screen recording only','off-2':'No recording'}, data.recording_type, 'form.recording_type', errors) }}
+                {{ radioButtons('recording_type', { 'on-1':'Video and audio','on-2':'Audio only','on-3':'Screen and audio','off-1':'Screen only','off-2':'None'}, data.recording_type, 'form.recording_type', errors) }}
             </div>
             <div class="recording_type-toggled" style="display:none" >
                 <div class="toggle-area">
                     {{ radioButtons('will_the_recording_be_disclosed', { 'on':'Yes','off':'No'}, data.consent, 'form.will_the_recording_be_disclosed', errors) }}
                 </div>
                 <div class="will_the_recording_be_disclosed-toggled" style="display:none" >
+                    {{ textArea('departments_disclosed', 'form.departments_disclosed', {hint: 'form.departments_disclosed.desc'}) }}
                     {{ textArea('purposes_for_which_the_recording_may_be_disclosed', 'form.purposes_for_which_the_recording_may_be_disclosed', {hint: 'form.purposes_for_which_the_recording_may_be_disclosed.desc'}) }}
                 </div>
             </div>

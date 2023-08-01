@@ -21,4 +21,6 @@ Trello board: https://trello.com/b/vptWzBnE/generate-privacy-statements-portage
   - `cd simplify-privacy-statements-V2`
 - If you want to use Google Analytics or to send feedback or link emails, you have to set up proper environment variables. Copy the `.env.example` file into `.env` and set the variables appropriately.
 - Next install the third party modules using `npm install`
+- If you want to test locally comment out lines 74 to 79 in `agreement-1.controller.js` and move the `res.send(html)` out of the `nodePandoc` call.
 - You can now run the app locally! run `npm run dev` and then open a web browser to `localhost:3000`.
+  
