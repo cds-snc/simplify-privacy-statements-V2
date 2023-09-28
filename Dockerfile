@@ -1,5 +1,5 @@
 ARG FUNCTION_DIR="/function"
-FROM node:12-buster as build-image
+FROM node:12-buster@sha256:ce791f92b445f8968c6739fff3bb88c1eaf139513158e6be65a48087388648cb as build-image
 ARG FUNCTION_DIR
 ARG PANDOC_VERSION=2.19.2
 ARG GITHUB_SHA_ARG
@@ -20,7 +20,7 @@ RUN npm install aws-lambda-ric
 RUN npm install
 RUN npm start
 
-FROM node:12-buster-slim
+FROM node:12-buster-slim@sha256:680bdb99eb94b7bf4329247557da66db03cf584bb6f273a8de823ff1b588c3b6
 ARG FUNCTION_DIR
 WORKDIR ${FUNCTION_DIR}
 

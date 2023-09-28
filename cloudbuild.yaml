@@ -1,5 +1,5 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/docker@sha256:19e157ad231ad8f006f47d653b6c931997c49e107f28dd73d72bfb09d0a5691e'
     args:
       [
         'build',
@@ -11,9 +11,9 @@ steps:
         'Dockerfile',
         '.',
       ]
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/cloud-builders/docker@sha256:19e157ad231ad8f006f47d653b6c931997c49e107f28dd73d72bfb09d0a5691e'
     args: ['push', 'gcr.io/$PROJECT_ID/pc-form-generator:$SHORT_SHA']
-  - name: 'gcr.io/cloud-builders/gcloud'
+  - name: 'gcr.io/cloud-builders/gcloud@sha256:a7f5211b196655817644f95cc66b1f9fed57fccd3d886e18b638c853d14b4978'
     args: 
       [
         'beta', 
