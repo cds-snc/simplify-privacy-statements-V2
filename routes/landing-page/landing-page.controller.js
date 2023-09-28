@@ -9,7 +9,8 @@ module.exports = (app, route) => {
     .draw(app)
     .get((req, res) => {
       var questionsURL = "questions-1"
-      res.render(name, { ...routeUtils.getViewData(req, {}), questionsURL: questionsURL })
+      var lang = req.path
+      res.render(name, { ...routeUtils.getViewData(req, {}), questionsURL: questionsURL, lang: lang})
     })
     .post(route.applySchema(Schema), route.doRedirect())
 }
