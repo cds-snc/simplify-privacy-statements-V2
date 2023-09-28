@@ -28,13 +28,16 @@
                 {{ __('landing-page.steps-activities') }}
             </li>
         </ul>
-        <p>
-            <a href="{{questionsURL}}">{{ __('landing-page.option1') }}</a>.
-        </p>
-            {# <li>
-                <a href="{{questions2URL}}">{{ __('landing-page.option2') }}</a>.
-            </li> #}
-       
+         
+       {% if lang === "/en/" %}
+            <p>
+                <a href="/en/{{questionsURL}}">{{ __('landing-page.option1') }}</a>.
+            </p>
+        {% elif lang === "/fr/" %}
+            <p>
+                <a href="/fr/{{questionsURL}}">{{ __('landing-page.option1') }}</a>.
+            </p>
+        {% endif %}
 
     </div>
 
