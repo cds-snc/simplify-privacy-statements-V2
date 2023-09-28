@@ -30,8 +30,9 @@
   "next": "Next",
   "landing-page.title": "Generate consent forms and privacy statements for design research sessions",
   "landing-page.intro_1": "This service will generate customized consent forms and privacy statements for design research. This tool was developed by the Canadian Digital Service (CDS) for our own research purposes and is made available as a resource to other government departments and agencies. CDS does not collect or retain the data used to generate the consent form.",
-  "landing-page.intro_2": "Enter information about your study below, to generate a consent form and associated privacy statement. Before using this service, please consult your policy or privacy colleagues to confirm if the research you are doing requires this documentation.",
-  "landing-page.intro_3": "These materials are suitable for interviews and usability testing both in-person and online.",
+  "landing-page.intro_2": "Before conducting research with the public, the consent of the participants must be obtained. Privacy notices and consent forms help empower participants by giving them information about who we are, why we are conducting research, how their data will be used, and their right to withdraw at any time in the process.",
+  "landing-page.intro_3": "Enter information about your study below, to generate a consent form and associated privacy statement. Before using this service, please consult your policy or privacy colleagues to confirm if the research you are doing requires this documentation.",
+  "landing-page.intro_4": "These materials are suitable for interviews and usability testing both in-person and online.",
   "landing-page.steps-lead-in": "Once you've generated the forms and statements, please review them for consistency with your study. Not all of the language is appropriate for all study protocols. After internal review, send them to your department's Access to Information and Privacy (ATIP) office for approval. You also need to tell them:",
   "landing-page.steps-atip": "",
   "landing-page.steps-recruit": "How you're planning to recruit participants.",
@@ -101,10 +102,10 @@
   "form.other_compensation_value": "If other please specify",
   "privacy.title": "Participant privacy",
   "form.confidentiality": "How will you protect the participant's privacy?",
-  "Anonymized": "By anonymizing the responses so they can't be linked to the participant by anyone, including you",
+  "Anonymized": "By removing identifying information it will make it difficult to identify participants",
   "Anonymous": "By not collecting the identity of the participant",
-  "Confidential": "By referring to participants using a number or pseudonym, so no one outside of your department will know who the participant is (most common approach).",
-  "Not confidential": "Through only sharing the responses and identity of the participant internally and with your partner organization, so no one outside of your team and your partner can identify the participant.",
+  "Confidential": "By referring to participants using a number or pseudonym, so no one outside of the department will know who the participant is (most common approach).",
+  "Not confidential": "Through only sharing the responses and identity of the participant internally and with the partner organization, so no one outside of the team and the partner can identify the participant.",
   "Public": "No privacy protection: the participant's identity, responses and information can be shared publicly",
   "form.personal_information_disclosed_to_public": "What information about the participant and their responses are you likely to share publicly?",
   "form.personal_information_disclosed_to_public.desc": "e.g. 'quotes, your name and age'",
@@ -175,5 +176,6 @@
   "form.recording_disclosed_on": "form.recording_disclosed_on",
   "form.recording_disclosed_off": "form.recording_disclosed_off",
   "form.verbal_consent": "form.verbal_consent",
-  "form.written_consent": "form.written_consent"
+  "form.written_consent": "form.written_consent",
+  "form.department_information_url.desc": "form.department_information_url.desc"
 }
