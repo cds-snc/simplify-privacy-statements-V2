@@ -101,7 +101,7 @@
   "form.other_compensation_value": "Veuillez préciser",
   "privacy.title": "Protection de la vie privée de la personne participante",
   "form.confidentiality": "Comment allez-vous protéger la vie privée de la personne participante?",
-  "Anonymized": "En anonymisant ses réponses, de sorte que personne, pas même les membres de l'équipe de recherche, ne soit en mesure de les associer à la personne participante.",
+  "Anonymized": "Le retrait des renseignements d'identification compliquera l'identification des personnes participantes",
   "Anonymous": "En ne recueillant pas son identité.",
   "Confidential": "En faisant référence à la personne participante à l'aide d'un numéro ou d'un pseudonyme, de sorte que personne en dehors du ministère ne sache de qui il s'agit (approche la plus courante).",
   "Not confidential": "En communiquant uniquement à l'interne et avec l'organisme partenaire les réponses et l'identité de la personne participante, de sorte que personne en dehors de votre équipe et de celle de votre partenaire ne puisse identifier la personne participante.",
