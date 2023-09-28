@@ -31,9 +31,11 @@
     {% if data.is_with_cds == "yes" and data.is_with_partner == "no" %}
       Le Service numérique canadien (SNC) souhaite {{ defaultValue("research_goal")}}.
     {% elif data.is_with_cds == "yes" and data.is_with_partner == "yes" %}
-      Le Service numérique canadien (SNC) et {{ defaultValue("partner_department_name")}} ({{ defaultValue("partner_department_abbr")}}) souhaite {{ defaultValue("research_goal")}}.
+      Le Service numérique canadien (SNC) et {{ defaultValue("partner_department_name")}} ({{ defaultValue("partner_department_abbr")}}) souhaitent {{ defaultValue("research_goal")}}.
+    {% elif data.is_with_cds == "no" and data.is_with_partner == "yes" %}
+      {{ defaultValue("department_name")}} ({{ defaultValue("department_abbr")}}) et {{ defaultValue("partner_department_name")}} ({{ defaultValue("partner_department_abbr")}}) souhaitent {{ defaultValue("research_goal")}}.
     {% elif data.is_with_cds == "no" and data.is_with_partner == "no" %}
-      {{ defaultValue("department_name")}} ({{ defaultValue("department_abbr")}}) souhaitent {{ defaultValue("research_goal")}}.
+      {{ defaultValue("department_name")}} ({{ defaultValue("department_abbr")}}) souhaite {{ defaultValue("research_goal")}}.
     {% endif %}
   </p>
 

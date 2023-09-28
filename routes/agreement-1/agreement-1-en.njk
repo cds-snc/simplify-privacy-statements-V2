@@ -34,6 +34,8 @@
     {% elif data.is_with_cds === "yes" and data.is_with_partner === "yes" %}
       The Canadian Digital Service (CDS) and {{ defaultValue("partner_department_name")}} ({{ defaultValue("partner_department_acronym")}}) want to {{ defaultValue("research_goal")}}.
     {% elif data.is_with_cds === "no" and data.is_with_partner === "yes" %}
+      {{ defaultValue("department_name")}} ({{ defaultValue("department_acronym")}}) and {{ defaultValue("partner_department_name")}} ({{ defaultValue("partner_department_acronym")}}) wants to {{ defaultValue("research_goal")}}.
+    {% elif data.is_with_cds === "no" and data.is_with_partner === "no" %}
       {{ defaultValue("department_name")}} ({{ defaultValue("department_acronym")}}) wants to {{ defaultValue("research_goal")}}.
     {% endif %}
   </p>
@@ -77,9 +79,9 @@
   {% endif %}
 
   {% if data.confidentiality === "anonymous" %}
-    <h2>Your information will be anonymous so we cannot identify you</h2>
+    <h2>Your information will be removed so we cannot identify you</h2>
   {% elif data.confidentiality === "anonymized" %}
-    <h2>We remove personal information so your answers are anonymous</h2>
+    <h2>We remove personal information in your answers will be removed so we cannot identify you</h2>
   {% elif data.confidentiality === "confidential" %}
     <h2>We'll separate your name and contact information from your answers</h2>
   {% elif data.confidentiality === "not confidential" and data.is_with_cds === "yes" and data.is_with_partner === "no" %}
@@ -114,12 +116,12 @@
   <h2>We Follow Privacy Laws</h2>
   <br>
   {% if data.is_with_cds === "yes" and data.is_with_partner === "no" %}
-    <p>CDS is part of the Government of Canada's <a target="_blank" href="https://www.canada.ca/en/treasury-board-secretariat.html">Treasury Board of Canada Secretariat (TBS)</a>. We're allowed to collect and use information under the Financial Administration Act.</p>
-    <p>Our research follows TBS rules about personal information. We report personal information from research in a Personal Information Bank called Outreach Activities.</p>
+    <p>CDS is part of the Government of Canada's <a target="_blank" href="https://www.canada.ca/en/employment-social-development.html">Employment and Social Development Canada (ESDC)</a>. We're allowed to collect and use information under the Department of Employment and Social Development Act Section 5.1.</p>
+    <p>Our research follows Treasury Board rules about personal information. We report personal information from research in a Personal Information Bank called Outreach Activities.</p>
   {% elif data.is_with_cds === "yes" and data.is_with_partner === "yes" %}
     <p>{{ defaultValue("partner_department_acronym")}} has permission to collect and use personal information under the {{ defaultValue("partner_department_authority")}}.</p>
-    <p>CDS is part of the Government of Canada's <a target="_blank" href="https://www.canada.ca/en/treasury-board-secretariat.html">Treasury Board of Canada Secretariat (TBS)</a>. We're allowed to collect and use information under the Financial Administration Act.</p>
-    <p>Our research follows TBS rules about personal information. We report personal information from research in a Personal Information Bank called Outreach Activities.</p>
+    <p>CDS is part of the Government of Canada's <a target="_blank" href="https://www.canada.ca/en/employment-social-development.html">Employment and Social Development Canada (ESDC)</a>. We're allowed to collect and use information under the Department of Employment and Social Development Act Section 5.1.</p>
+    <p>Our research follows Treasure Board rules about personal information. We report personal information from research in a Personal Information Bank called Outreach Activities.</p>
   {% elif data.is_with_cds === "no" and data.is_with_partner === "no" %}
     <p>{{ defaultValue("department_acronym")}} has permission to collect and use personal information under the {{ defaultValue("department_authority")}}.</p>
     <p>Our research follows Government of Canada rules about personal information. We report personal information from research in a Personal Information Bank called {{ defaultValue("department_information_bank")}}.</p>
@@ -137,18 +139,18 @@
   <br>
     {% if data.is_with_cds === "yes" and data.is_with_partner === "no" %}
     <p>The Privacy Act gives you the right to access, review and correct your personal information. If you make corrections, then we'll correct this information in the research records for CDS.</p>
-    <p>To check, correct, or update your information, contact the TBS Access to Information and Privacy Coordinator, by:</p>
+    <p>To check, correct, or update your information, contact the ESDC Access to Information and Privacy Coordinator, by:</p>
     <ul>
-      <li>Emailing <a href="mailto:ATIP.AIPRP@tbs-sct.gc.ca">ATIP.AIPRP@tbs-sct.gc.ca</a></li>
-      <li>Calling <a href="tel:1-866-312-1511">1-866-312-1511</a></li>
+      <li>Emailing <a href="mailto:NC-COMM-ATIP-AIPRP-GD@hrsdc-rhdcc.gc.ca">NC-COMM-ATIP-AIPRP-GD@hrsdc-rhdcc.gc.ca</a></li>
+      <li>Calling <a href="tel:1-819-654-6981">1-819-654-6981</a></li>
     </ul>
     <p>You also have the right to raise concerns about how we handle your personal information. To learn more or make a formal complaint, contact the <a target="_blank" href="https://www.priv.gc.ca/en/for-individuals/">Privacy Commissioner of Canada.</a></p>
   {% elif data.is_with_cds === "yes" and data.is_with_partner === "yes" %}
     <p>The Privacy Act gives you the right to access, review and correct your personal information. If you make corrections, then we'll correct this information in the research records for CDS and {{ defaultValue("partner_department_acronym")}}.</p>
-    <p>To check, correct, or update your information, contact the TBS Access to Information and Privacy Coordinator, by:</p>
+    <p>To check, correct, or update your information, contact the ESDC Access to Information and Privacy Coordinator, by:</p>
     <ul>
-      <li>Emailing <a href="mailto:ATIP.AIPRP@tbs-sct.gc.ca">ATIP.AIPRP@tbs-sct.gc.ca</a></li>
-      <li>Calling <a href="tel:1-866-312-1511">1-866-312-1511</a></li>
+      <li>Emailing <a href="mailto:NC-COMM-ATIP-AIPRP-GD@hrsdc-rhdcc.gc.ca">NC-COMM-ATIP-AIPRP-GD@hrsdc-rhdcc.gc.ca</a></li>
+      <li>Calling <a href="tel:1-819-654-6981">1-819-654-6981</a></li>
     </ul>
     <p>You also have the right to raise concerns about how we handle your personal information. To learn more or make a formal complaint, contact the <a target="_blank" href="https://www.priv.gc.ca/en/for-individuals/">Privacy Commissioner of Canada.</a></p>
   {% elif data.is_with_cds === "no" and data.is_with_partner === "no" %}
