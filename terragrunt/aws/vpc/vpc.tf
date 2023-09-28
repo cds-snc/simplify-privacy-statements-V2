@@ -1,5 +1,5 @@
 module "vpc" {
-  source            = "github.com/cds-snc/terraform-modules?ref=v5.1.0//vpc"
+  source            = "github.com/cds-snc/terraform-modules?ref=v5.1.11"
   name              = "simplify-privacy-statements-vpc"
   billing_tag_value = "CostCentre"
   high_availability = true
