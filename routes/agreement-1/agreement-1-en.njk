@@ -78,10 +78,8 @@
     <p>As a result, your participation or answers may be used to {{ defaultValue("administrative_response_impact")}}.</p>
   {% endif %}
 
-  {% if data.confidentiality === "anonymous" %}
-    <h2>Your information will be removed so we cannot identify you</h2>
-  {% elif data.confidentiality === "anonymized" %}
-    <h2>We remove personal information in your answers will be removed so we cannot identify you</h2>
+  {% if data.confidentiality === "anonymized" %}
+    <h2>By removing  identifying information it will make it difficult to identify participants</h2>
   {% elif data.confidentiality === "confidential" %}
     <h2>We'll separate your name and contact information from your answers</h2>
   {% elif data.confidentiality === "not confidential" and data.is_with_cds === "yes" and data.is_with_partner === "no" %}
