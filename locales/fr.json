@@ -82,7 +82,7 @@
   "form.session_duration": "Combien de temps la séance va-t-elle durer? (champ obligatoire)",
   "form.session_duration.desc": "p. ex. : « Une heure », « Pas plus de 30 minutes ». Répondez avec autant de précision que possible.",
   "form.personal_information_collected": "Quels renseignements personnels allez-vous recueillir durant cette activité de recherche? (Champ obligatoire)",
-  "form.personal_information_collected.desc": "Faites la liste des renseignements que vous allez recueillir. Séparez-les à l'aide de virgules. Essayez de répondre avec précision. p. ex. : «  ge, genre, nom, coordonnées ».",
+  "form.personal_information_collected.desc": "Faites la liste des renseignements que vous allez recueillir. Séparez-les à l'aide de virgules. Essayez de répondre avec précision. p. ex. : «  ge, nom, coordonnées ».",
   "form.personal_information_retention": "Combien de temps allez-vous conserver ces renseignements personnels?",
   "form.personal_information_retention.desc": "p. ex. : « 30 jours », « 60 jours »",
   "compensation.title": "Rémunération",
