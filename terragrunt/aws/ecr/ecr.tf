@@ -1,6 +1,7 @@
 resource "aws_ecr_repository" "privacy_statement_container" {
   name                 = "privacy-statement-container"
   image_tag_mutability = "MUTABLE"
+  force_delete         = true
   image_scanning_configuration {
     scan_on_push = true
   }

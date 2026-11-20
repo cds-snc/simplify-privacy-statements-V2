@@ -1,0 +1,70 @@
+name: "Terraform Destroy Production"
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type "destroy production" to permanently tear down all production infrastructure'
+        required: true
+
+env:
+  AWS_REGION: ca-central-1
+  TERRAFORM_VERSION: 1.3.9
+  TERRAGRUNT_VERSION: 0.44.4
+  TF_VAR_cloudfront_header: ${{ secrets.CLOUDFRONT_HEADER }}
+
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: terraform-production
+  cancel-in-progress: false
+
+jobs:
+  terragrunt-destroy:
+    if: github.ref == 'refs/heads/main' && inputs.confirm == 'destroy production'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+
+      - name: setup terraform tools
+        uses: cds-snc/terraform-tools-setup@v1
+
+      - name: configure aws credentials using OIDC
+        uses: aws-actions/configure-aws-credentials@8c3f20df09ac63af7b3ae3d7c91f105f857d8497 # v4.0.0
+        with:
+          role-to-assume: arn:aws:iam::414662622316:role/simplify-privacy-statements-V2-apply
+          role-session-name: TFDestroy
+          aws-region: ${{ env.AWS_REGION }}
+
+      # Destroy in reverse dependency order. Stacks holding data (log bucket, ECR images)
+      # are applied first so force_destroy/force_delete are recorded in state.
+      - name: Terraform Destroy Cloudfront
+        working-directory: terragrunt/env/production/cloudfront
+        run: |
+          terragrunt apply --terragrunt-non-interactive -auto-approve
+          terragrunt destroy --terragrunt-non-interactive -auto-approve
+
+      - name: Terraform Destroy Hosted Zone
+        working-directory: terragrunt/env/production/hosted_zone
+        run: terragrunt destroy --terragrunt-non-interactive -auto-approve
+
+      - name: Terraform Destroy Lambda
+        working-directory: terragrunt/env/production/app
+        run: terragrunt destroy --terragrunt-non-interactive -auto-approve
+
+      - name: Terraform Destroy EFS
+        working-directory: terragrunt/env/production/efs
+        run: terragrunt destroy --terragrunt-non-interactive -auto-approve
+
+      - name: Terraform Destroy VPC
+        working-directory: terragrunt/env/production/vpc
+        run: terragrunt destroy --terragrunt-non-interactive -auto-approve
+
+      - name: Terraform Destroy ECR
+        working-directory: terragrunt/env/production/ecr
+        run: |
+          terragrunt apply --terragrunt-non-interactive -auto-approve
+          terragrunt destroy --terragrunt-non-interactive -auto-approve

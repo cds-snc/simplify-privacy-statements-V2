@@ -50,8 +50,9 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Terraform plan
-        uses: cds-snc/terraform-plan@5dabd36aabffca551363241c9a4032f81eb6cab1 # tag=v2.2.0
+        uses: cds-snc/terraform-plan@39b0058bcf977fbd8b067b84d5a9f6165e356c32 # tag=v3.7.0
         with:
+          skip-conftest: true
           comment-delete: true
           comment-title: "Production: ${{ matrix.module }}"
           directory: terragrunt/env/production/${{ matrix.module }}
